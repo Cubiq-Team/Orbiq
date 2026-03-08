@@ -1,0 +1,48 @@
+{
+  "$schema": "../../../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Orbiq",
+  "version": "0.1.0",
+  "identifier": "com.orbiq.launcher",
+  "build": {
+    "frontendDist": "../dist",
+    "beforeDevCommand": "npm run build:web",
+    "beforeBuildCommand": "npm run build:web"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Orbiq",
+        "width": 1200,
+        "height": 700,
+        "minWidth": 1200,
+        "minHeight": 700,
+        "resizable": true,
+        "decorations": false,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "plugins": {
+    "deep-link": {
+      "desktop": {
+        "schemes": [
+          "orbiq"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}

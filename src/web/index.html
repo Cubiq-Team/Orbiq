@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orbiq</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<link rel="stylesheet" href="./styles/app.css">
+
+</head>
+<body>
+
+<div class="app-frame">
+
+  <!-- TITLEBAR -->
+  <div class="titlebar">
+    <div class="brand">
+      <div class="brand-logo"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 375 375" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M 192.214844 200.441406 C 157.855469 212.945312 126.144531 222.195312 103.179688 226.886719 C 82.046875 231.1875 68.328125 231.652344 66.722656 227.242188 C 65.171875 222.988281 75.167969 214.964844 92.863281 205.195312 C 94.625 204.21875 95.625 202.261719 95.351562 200.269531 C 95.347656 200.234375 95.339844 200.199219 95.335938 200.167969 C 94.886719 196.851562 91.339844 194.929688 88.335938 196.402344 C 42.695312 218.757812 14.417969 239.167969 18.125 249.359375 C 21.925781 259.792969 58.359375 256.875 109.644531 243.871094 C 111.503906 243.398438 113.476562 244.046875 114.671875 245.550781 C 138.878906 276.074219 180.777344 289.191406 219.402344 275.132812 C 268.214844 257.367188 279.625 221.777344 280.753906 195.453125 C 281.40625 180.277344 276.433594 169.785156 192.214844 200.441406 Z M 192.214844 200.441406 " fill-opacity="1" fill-rule="nonzero"/><path fill="currentColor" d="M 357.019531 126.011719 C 353.140625 115.359375 315.296875 118.621094 262.375 132.300781 C 238.5 100.003906 195.394531 85.796875 155.742188 100.230469 C 114.808594 115.128906 100.574219 143.695312 96.171875 167.042969 C 93.109375 183.289062 95.65625 197.835938 180.082031 167.105469 C 213.90625 154.796875 245.15625 145.648438 268.03125 140.894531 C 289.765625 136.371094 303.945312 135.816406 305.578125 140.304688 C 307.007812 144.242188 298.5625 151.398438 283.269531 160.199219 C 279.882812 162.148438 278.171875 166.0625 278.925781 169.898438 C 278.9375 169.960938 278.949219 170.023438 278.960938 170.082031 C 280.105469 175.980469 286.621094 179.09375 291.992188 176.402344 C 334.574219 155.058594 360.582031 135.800781 357.019531 126.011719 Z M 357.019531 126.011719 " fill-opacity="1" fill-rule="nonzero"/></svg></div>
+      <span class="brand-name">Orbiq</span>
+    </div>
+
+    <div class="tb-sep"></div>
+
+    <button class="tb-btn primary" onclick="openModal('add-instance')">
+      <i data-lucide="plus" width="12" height="12"></i>
+      Add Instance
+    </button>
+
+    <button class="tb-btn" onclick="launchSequence()">
+      <i data-lucide="play" width="12" height="12"></i>
+      Launch
+    </button>
+    <button class="tb-btn" onclick="openModal('edit-instance')">
+      <i data-lucide="pencil" width="12" height="12"></i>
+      Edit
+    </button>
+    <button class="tb-btn" onclick="openModal('manage-mods')">
+      <i data-lucide="puzzle" width="12" height="12"></i>
+      Mods
+    </button>
+    <button class="tb-btn" onclick="openModal('skin-manager')">
+      <i data-lucide="user" width="12" height="12"></i>
+      Skin
+    </button>
+    <button class="tb-btn" onclick="openModal('settings')" style="position:relative">
+      <i data-lucide="settings" width="12" height="12"></i>
+      Settings
+      <div class="tb-notif"></div>
+    </button>
+
+    <div class="tb-spacer" data-tauri-drag-region></div>
+
+    <div class="search-wrap">
+      <div class="search-ico"><i data-lucide="search" width="12" height="12"></i></div>
+      <input class="search-input" type="text" placeholder="Search instances…" oninput="filterInstances(this.value)">
+    </div>
+
+    <div class="auth-pill" onclick="openModal('orbiq-accounts')">
+      <div class="auth-avatar">
+        <img src="https://mc-heads.net/avatar/Dream/32" alt="" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <div class="auth-name">Dream <span class="orbiq-badge">ORBIQ</span></div>
+        <div class="auth-status"><div class="auth-dot"></div></div>
+      </div>
+    </div>
+
+    <div class="wm-btns">
+      <button class="wm-btn" data-window-action="minimize"><i data-lucide="minus" width="10" height="10"></i></button>
+      <button class="wm-btn" data-window-action="maximize"><i data-lucide="square" width="10" height="10"></i></button>
+      <button class="wm-btn close" data-window-action="close"><i data-lucide="x" width="10" height="10"></i></button>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="app-body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sb-section">
+        <div class="profile-switcher" onclick="openModal('profiles')">
+          <div class="profile-dot" style="background:#3a5a3a"></div>
+          <span class="profile-name">Gaming</span>
+          <i data-lucide="chevrons-up-down" width="11" height="11" class="profile-arrow"></i>
+        </div>
+      </div>
+
+      <div class="sb-div"></div>
+
+      <div class="sb-section">
+        <div class="sb-label">Instances</div>
+        <button class="sb-item active" onclick="setPage('instances',this)">
+          <i data-lucide="layout-grid" width="13" height="13"></i>
+          All
+          <span class="sb-badge">3</span>
+        </button>
+        <button class="sb-item" onclick="setPage('instances',this)">
+          <i data-lucide="clock" width="13" height="13"></i>
+          Recent
+        </button>
+        <button class="sb-item" onclick="setPage('instances',this);filterByLoader('vanilla')">
+          <i data-lucide="box" width="13" height="13"></i>
+          Vanilla
+        </button>
+        <button class="sb-item" onclick="setPage('instances',this);filterByLoader('modded')">
+          <i data-lucide="sparkles" width="13" height="13"></i>
+          Modded
+        </button>
+      </div>
+
+      <div class="sb-div"></div>
+
+      <div class="sb-section">
+        <div class="sb-label">Browse</div>
+        <button class="sb-item" onclick="openModal('install-modpack')">
+          <i data-lucide="search" width="13" height="13"></i>
+          Modrinth
+        </button>
+        <button class="sb-item" onclick="openModal('install-modpack')">
+          <i data-lucide="layers" width="13" height="13"></i>
+          CurseForge
+        </button>
+      </div>
+
+      <div class="sb-div"></div>
+
+      <div class="sb-section">
+        <div class="sb-label">Social</div>
+        <button class="sb-item" onclick="setPage('news',this)">
+          <i data-lucide="newspaper" width="13" height="13"></i>
+          News Feed
+        </button>
+        <button class="sb-item" onclick="setPage('friends',this)">
+          <i data-lucide="users" width="13" height="13"></i>
+          Friends
+          <span class="sb-badge-online"></span>
+        </button>
+      </div>
+
+      <div class="sb-div"></div>
+
+      <div class="sb-section">
+        <div class="sb-label">Servers</div>
+        <button class="sb-item" onclick="setPage('server',this)">
+          <i data-lucide="server" width="13" height="13"></i>
+          Create a Server
+        </button>
+        <button class="sb-item" onclick="setPage('server',this)">
+          <i data-lucide="hard-drive" width="13" height="13"></i>
+          My Servers
+          <span class="sb-badge">2</span>
+        </button>
+      </div>
+
+      <div class="sb-footer">
+        <div class="sb-div"></div>
+        <button class="sb-item" onclick="openModal('orbiq-accounts')">
+          <i data-lucide="users" width="13" height="13"></i>
+          Accounts
+        </button>
+        <button class="sb-item" onclick="openModal('settings')">
+          <i data-lucide="settings" width="13" height="13"></i>
+          Settings
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN PAGES -->
+    <div class="main">
+
+      <!-- ── INSTANCES PAGE ── -->
+      <div class="page active" id="page-instances">
+        <div class="instances-panel">
+
+          <div class="panel-header">
+            <span class="panel-title" id="panel-title-text">All Instances</span>
+            <span class="count-badge" id="instance-count-badge">3 instances</span>
+            <select class="sort-select" onchange="sortInstances(this.value)">
+              <option value="name">Sort: Name</option>
+              <option value="recent">Sort: Recent</option>
+              <option value="version">Sort: Version</option>
+              <option value="playtime">Sort: Play Time</option>
+            </select>
+            <div class="view-toggle">
+              <button class="view-btn active"><i data-lucide="layout-grid" width="12" height="12"></i></button>
+              <button class="view-btn"><i data-lucide="list" width="12" height="12"></i></button>
+            </div>
+          </div>
+
+          <div class="filter-bar">
+            <button class="filter-chip active" onclick="setFilter(this,'all')">All</button>
+            <button class="filter-chip" onclick="setFilter(this,'vanilla')">Vanilla</button>
+            <button class="filter-chip" onclick="setFilter(this,'fabric')">Fabric</button>
+            <button class="filter-chip" onclick="setFilter(this,'forge')">Forge</button>
+            <div class="filter-sep"></div>
+            <button class="filter-chip" onclick="setFilter(this,'running')">
+              <i data-lucide="activity" width="10" height="10"></i>Running
+            </button>
+          </div>
+
+          <div class="panel-content" id="panel-content">
+            <div class="group-header" onclick="toggleGroup(this)">
+              <div class="group-dot" style="background:#2a4a2a"></div>
+              <span class="group-label">Survival Worlds</span>
+              <span class="group-count">2 instances</span>
+              <i data-lucide="chevron-down" width="12" height="12" class="group-chevron"></i>
+            </div>
+            <div class="instance-grid" id="group-survival">
+              <div class="instance-card running selected"
+                   data-loader="vanilla" data-version="1.21.4" data-name="Instance" data-playtime="3"
+                   onclick="selectCard(this)"
+                   draggable="true"
+                   ondragstart="dragStart(event)"
+                   ondragover="dragOver(event)"
+                   ondrop="dropCard(event)"
+                   oncontextmenu="showCtxMenu(event,this)">
+                <div class="card-thumb">
+                  <div class="card-thumb-bg"></div>
+                  <div class="card-banner" style="background-image:url('https://picsum.photos/seed/mc1/300/100')"></div>
+                  <div class="running-badge"><div class="running-pulse"></div>Running</div>
+                  <div class="card-icon"><i data-lucide="package" width="32" height="32" style="color:var(--t2)"></i></div>
+                  <button class="card-play" onclick="event.stopPropagation();selectCard(this.closest('.instance-card'));killInstance()" title="Kill">
+                    <svg viewBox="0 0 10 10" fill="currentColor" width="10" height="10"><rect x="2" y="2" width="6" height="6" rx="1"/></svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <div class="card-name">Instance</div>
+                  <div class="card-meta"><span>1.21.4</span><span class="card-meta-dot"></span><span id="card-playtime-live">12m</span></div>
+                  <div class="card-tags"><span class="card-tag">Vanilla</span></div>
+                  <div class="card-playtime"><i data-lucide="clock" width="9" height="9"></i>3h 12m total</div>
+                </div>
+              </div>
+
+              <div class="instance-card"
+                   data-loader="fabric" data-version="1.20.1" data-name="Fabric Test" data-playtime="8"
+                   onclick="selectCard(this)"
+                   draggable="true"
+                   ondragstart="dragStart(event)"
+                   ondragover="dragOver(event)"
+                   ondrop="dropCard(event)"
+                   oncontextmenu="showCtxMenu(event,this)">
+                <div class="card-thumb">
+                  <div class="card-thumb-bg"></div>
+                  <div class="card-banner" style="background-image:url('https://picsum.photos/seed/mc2/300/100')"></div>
+                  <div class="card-icon"><i data-lucide="settings" width="32" height="32" style="color:var(--t2)"></i></div>
+                  <button class="card-play" onclick="event.stopPropagation();selectCard(this.closest('.instance-card'));launchSequence()">
+                    <svg viewBox="0 0 10 10" fill="currentColor" width="10" height="10"><path d="M2 1.5L8.5 5 2 8.5V1.5z"/></svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <div class="card-name">Fabric Test</div>
+                  <div class="card-meta"><span>1.20.1</span><span class="card-meta-dot"></span><span>3d ago</span></div>
+                  <div class="card-tags"><span class="card-tag">Fabric</span></div>
+                  <div class="card-playtime"><i data-lucide="clock" width="9" height="9"></i>8h 45m total</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="group-header" onclick="toggleGroup(this)">
+              <div class="group-dot" style="background:#2a2a4a"></div>
+              <span class="group-label">Modpacks</span>
+              <span class="group-count">1 instance</span>
+              <i data-lucide="chevron-down" width="12" height="12" class="group-chevron"></i>
+            </div>
+            <div class="instance-grid" id="group-modpacks">
+              <div class="instance-card"
+                   data-loader="forge" data-version="1.20.1" data-name="All the Mods 9" data-playtime="22"
+                   onclick="selectCard(this)"
+                   draggable="true"
+                   ondragstart="dragStart(event)"
+                   ondragover="dragOver(event)"
+                   ondrop="dropCard(event)"
+                   oncontextmenu="showCtxMenu(event,this)">
+                <div class="card-thumb">
+                  <div class="card-thumb-bg"></div>
+                  <div class="card-banner" style="background-image:url('https://picsum.photos/seed/mc3/300/100')"></div>
+                  <div class="card-icon"><i data-lucide="globe" width="32" height="32" style="color:var(--t2)"></i></div>
+                  <button class="card-play" onclick="event.stopPropagation();selectCard(this.closest('.instance-card'));launchSequence()">
+                    <svg viewBox="0 0 10 10" fill="currentColor" width="10" height="10"><path d="M2 1.5L8.5 5 2 8.5V1.5z"/></svg>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <div class="card-name">All the Mods 9</div>
+                  <div class="card-meta"><span>1.20.1</span><span class="card-meta-dot"></span><span>1w ago</span></div>
+                  <div class="card-tags"><span class="card-tag">Forge</span></div>
+                  <div class="card-playtime"><i data-lucide="clock" width="9" height="9"></i>22h 3m total</div>
+                </div>
+              </div>
+
+              <div class="add-card" onclick="openModal('add-instance')">
+                <div class="add-card-icon"><i data-lucide="plus" width="13" height="13"></i></div>
+                <span>Add Instance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detail panel -->
+        <div class="detail-panel">
+          <div class="detail-header-img">
+            <div style="position:absolute;inset:0;background-image:url('https://picsum.photos/seed/mc1/400/200');background-size:cover;background-position:center;opacity:0.3"></div>
+            <div class="detail-header-overlay"></div>
+            <div class="detail-header-badge" id="detail-badge">VANILLA</div>
+          </div>
+
+          <div class="detail-identity">
+            <div class="detail-icon-wrap" id="detail-icon"><i data-lucide="package" width="22" height="22" style="color:var(--t2)"></i></div>
+            <div>
+              <div class="detail-name" id="detail-name">Instance</div>
+              <div class="detail-sub" id="detail-sub">minecraft 1.21.4</div>
+            </div>
+          </div>
+
+          <div class="detail-running-bar visible" id="detail-running-bar">
+            <div class="running-pulse"></div>
+            <span class="detail-session-time" id="detail-session">Session: 12m</span>
+            <button class="btn btn-danger" style="height:22px;padding:0 9px;font-size:10px" onclick="killInstance()">
+              <i data-lucide="zap-off" width="10" height="10"></i> Kill
+            </button>
+          </div>
+
+          <div class="detail-div"></div>
+
+          <div class="detail-info">
+            <div class="info-section-label">Instance Info</div>
+            <div class="info-grid" id="detail-info-grid">
+              <div class="info-row"><span class="info-key">Loader</span><span class="info-val tag" id="di-loader">Vanilla</span></div>
+              <div class="info-row"><span class="info-key">Version</span><span class="info-val" id="di-version">1.21.4</span></div>
+              <div class="info-row"><span class="info-key">Java</span><span class="info-val">17.0.9</span></div>
+              <div class="info-row"><span class="info-key">Memory</span><span class="info-val">2 – 4 GB</span></div>
+              <div class="info-row"><span class="info-key">Mods</span><span class="info-val dim" id="di-mods">0 installed</span></div>
+              <div class="info-row"><span class="info-key">Last Played</span><span class="info-val live"><span class="live-dot"></span><span id="di-last">Just now</span></span></div>
+              <div class="info-row"><span class="info-key">Last Exit</span><span class="info-val dim" id="di-exit">—</span></div>
+              <div class="info-row"><span class="info-key">Play Time</span><span class="info-val" id="di-playtime">3h 12m</span></div>
+            </div>
+
+            <div class="info-section-label">Weekly Play Time</div>
+            <div class="playtime-bars" id="detail-pt-bars">
+              <div class="pt-row"><span class="pt-label">Mon</span><div class="pt-bar"><div class="pt-fill" style="width:60%"></div></div><span class="pt-val">1h 2m</span></div>
+              <div class="pt-row"><span class="pt-label">Tue</span><div class="pt-bar"><div class="pt-fill" style="width:80%"></div></div><span class="pt-val">1h 24m</span></div>
+              <div class="pt-row"><span class="pt-label">Wed</span><div class="pt-bar"><div class="pt-fill" style="width:30%"></div></div><span class="pt-val">32m</span></div>
+              <div class="pt-row"><span class="pt-label">Thu</span><div class="pt-bar"><div class="pt-fill" style="width:0%"></div></div><span class="pt-val">—</span></div>
+              <div class="pt-row"><span class="pt-label">Fri</span><div class="pt-bar"><div class="pt-fill" style="width:100%"></div></div><span class="pt-val">1h 42m</span></div>
+              <div class="pt-row"><span class="pt-label">Today</span><div class="pt-bar"><div class="pt-fill" style="width:12%;background:var(--green)"></div></div><span class="pt-val" style="color:var(--green)">12m</span></div>
+            </div>
+          </div>
+
+          <div class="detail-actions">
+            <button class="det-btn det-btn-running" id="launch-or-kill-btn" onclick="killInstance()">
+              <i data-lucide="zap-off" width="13" height="13"></i>
+              Kill Game
+            </button>
+            <div class="det-btn-row">
+              <button class="det-btn det-btn-secondary" onclick="openModal('edit-instance')">
+                <i data-lucide="pencil" width="12" height="12"></i>
+                Edit
+              </button>
+              <button class="det-btn det-btn-secondary" onclick="openSelectedInstanceFolder('root')">
+                <i data-lucide="folder-open" width="12" height="12"></i>
+                Folder
+              </button>
+            </div>
+            <div class="det-btn-row">
+              <button class="det-btn det-btn-secondary" onclick="openModal('world-manager')">
+                <i data-lucide="globe" width="12" height="12"></i>
+                Worlds
+              </button>
+              <button class="det-btn det-btn-secondary" onclick="openModal('screenshots')">
+                <i data-lucide="camera" width="12" height="12"></i>
+                Shots
+              </button>
+            </div>
+            <button class="det-btn det-btn-danger" onclick="openModal('delete-confirm')">
+              <i data-lucide="trash-2" width="12" height="12"></i>
+              Delete Instance
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── NEWS PAGE ── -->
+      <div class="page" id="page-news">
+        <div class="news-panel">
+          <div class="panel-header">
+            <span class="panel-title">News &amp; Updates</span>
+            <span class="count-badge">Live</span>
+          </div>
+          <div class="news-content">
+            <div class="section-title">Featured Modpacks <div class="section-title-line"></div></div>
+            <div class="featured-grid" id="featured-grid"></div>
+            <div class="section-title" style="margin-top:8px">Latest News <div class="section-title-line"></div></div>
+            <div id="news-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── FRIENDS PAGE ── -->
+      <div class="page" id="page-friends">
+        <div class="friends-panel">
+          <div class="panel-header">
+            <span class="panel-title">Friends</span>
+            <span class="count-badge">3 online</span>
+            <button class="btn btn-ghost" style="margin-left:auto;height:28px;font-size:11px" onclick="openModal('add-friend')">
+              <i data-lucide="user-plus" width="11" height="11"></i> Add Friend
+            </button>
+          </div>
+          <div class="friends-content" id="friends-content"></div>
+        </div>
+      </div>
+
+      <!-- ── SERVER PAGE ── -->
+      <div class="page" id="page-server">
+        <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+          <div class="panel-header">
+            <span class="panel-title">Create a Server</span>
+            <span class="count-badge">Step <span id="srv-step-label">1</span> of 4</span>
+            <div style="margin-left:auto;display:flex;gap:6px">
+              <button class="tb-btn" onclick="srvPrev()"><i data-lucide="chevron-left" width="12" height="12"></i>Back</button>
+              <button class="tb-btn primary" id="srv-next-btn" onclick="srvNext()">Next <i data-lucide="chevron-right" width="12" height="12"></i></button>
+            </div>
+          </div>
+          <div style="height:3px;background:var(--s3);flex-shrink:0;position:relative;">
+            <div id="srv-prog-bar" style="position:absolute;top:0;left:0;height:100%;background:var(--t2);border-radius:0 2px 2px 0;transition:width 0.35s ease;width:25%"></div>
+          </div>
+          <div style="flex:1;overflow-y:auto;display:flex;">
+            <div style="width:200px;flex-shrink:0;border-right:1px solid var(--b1);padding:20px 12px;display:flex;flex-direction:column;gap:4px;" id="srv-nav-container"></div>
+            <div style="flex:1;padding:28px 32px;overflow-y:auto;max-width:600px;">
+              <div class="srv-step" id="srv-step-1">
+                <div style="font-size:18px;font-weight:800;color:var(--t1);margin-bottom:4px;">Server Details</div>
+                <div style="font-size:12px;font-family:var(--mono);color:var(--t3);margin-bottom:22px;">Give your server a name, icon, and choose a Minecraft version.</div>
+                <div class="field"><div class="label">Server Name</div><input class="input" id="srv-name" value="My Awesome Server" placeholder="e.g. Survival SMP" oninput="onSrvNameInput(this.value)"></div>
+                <div class="field"><div class="label">Server Icon</div>
+                  <div style="display:flex;gap:10px;align-items:center;">
+                    <div id="srv-icon-preview" style="width:52px;height:52px;border-radius:10px;background:var(--s3);border:1px solid var(--b3);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="castle" width="28" height="28" style="color:var(--t2)"></i></div>
+                    <div class="icon-grid" style="flex:1;margin-bottom:0;" id="srv-icon-grid"></div>
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                  <div class="field"><div class="label">Minecraft Version</div><select class="select" id="srv-version" onchange="onSrvVersionChange(this.value)"><option>1.21.4</option><option>1.21.1</option><option>1.20.6</option><option>1.20.1</option><option>1.19.4</option></select></div>
+                  <div class="field"><div class="label">Server Type</div><select class="select" id="srv-type" onchange="updateSrvType(this.value)"><option value="vanilla">Vanilla</option><option value="paper">Paper</option><option value="fabric">Fabric</option><option value="forge">Forge</option><option value="purpur">Purpur</option></select></div>
+                </div>
+                <div class="field"><div class="label">Description</div><textarea class="textarea" rows="2" placeholder="Optional server description…">A friendly survival server for friends!</textarea></div>
+                <div style="margin-top:4px;padding:10px 12px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;display:flex;align-items:center;gap:9px;"><i data-lucide="info" width="14" height="14" style="color:var(--t4);flex-shrink:0;"></i><span style="font-size:11px;font-family:var(--mono);color:var(--t3);" id="srv-type-desc">Vanilla — Official Mojang server, no plugins or mods.</span></div>
+              </div>
+              <div class="srv-step" id="srv-step-2" style="display:none;">
+                <div style="font-size:18px;font-weight:800;color:var(--t1);margin-bottom:4px;">Game Settings</div>
+                <div style="font-size:12px;font-family:var(--mono);color:var(--t3);margin-bottom:22px;">Configure gameplay rules, performance, and access.</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Game Mode</div><select class="select"><option>Survival</option><option>Creative</option><option>Adventure</option><option>Spectator</option></select></div><div class="field"><div class="label">Difficulty</div><select class="select"><option>Normal</option><option>Easy</option><option>Hard</option><option>Peaceful</option></select></div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Max Players</div><input class="input" type="number" value="20" min="1" max="200"></div><div class="field"><div class="label">View Distance</div><select class="select"><option>8 chunks</option><option>10 chunks</option><option>12 chunks</option><option>16 chunks</option></select></div></div>
+                <div class="field"><div class="label">RAM Allocation</div><div style="margin:6px 0 4px;"><input type="range" class="slider" min="1" max="16" value="4" id="srv-ram" oninput="document.getElementById('srv-ram-val').textContent=this.value+' GB'"></div><div style="display:flex;justify-content:space-between;"><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">1 GB</span><span style="font-size:11px;font-family:var(--mono);color:var(--t2)" id="srv-ram-val">4 GB</span><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">16 GB</span></div></div>
+                <div class="field"><div class="label">World Seed</div><input class="input" placeholder="Leave empty for random seed…"></div>
+                <div class="label" style="margin-bottom:8px;">Rules</div>
+                <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;overflow:hidden;" id="srv-rules"></div>
+              </div>
+              <div class="srv-step" id="srv-step-3" style="display:none;">
+                <div style="font-size:18px;font-weight:800;color:var(--t1);margin-bottom:4px;">Mods &amp; Plugins</div>
+                <div style="font-size:12px;font-family:var(--mono);color:var(--t3);margin-bottom:22px;">Add plugins or mods to your server.</div>
+                <div class="field" style="position:relative;"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4);"></i><input class="input" style="padding-left:28px;" placeholder="Search plugins &amp; mods…"></div>
+                <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">RECOMMENDED</div>
+                <div id="srv-plugins-list"></div>
+              </div>
+              <div class="srv-step" id="srv-step-4" style="display:none;">
+                <div style="font-size:18px;font-weight:800;color:var(--t1);margin-bottom:4px;">Deploy Server</div>
+                <div style="font-size:12px;font-family:var(--mono);color:var(--t3);margin-bottom:22px;">Choose where to run your server and launch it.</div>
+                <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">HOSTING OPTION</div>
+                <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:18px;" id="srv-host-opts"></div>
+                <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">SUMMARY</div>
+                <div style="background:var(--s2);border:1px solid var(--b2);border-radius:9px;overflow:hidden;margin-bottom:16px;">
+                  <div class="info-row"><span class="info-key">Name</span><span class="info-val"><span id="sum-name">My Awesome Server</span></span></div>
+                  <div class="info-row"><span class="info-key">Version</span><span class="info-val"><span id="sum-version">1.21.4</span></span></div>
+                  <div class="info-row"><span class="info-key">Type</span><span class="info-val"><span id="sum-type">Vanilla</span></span></div>
+                  <div class="info-row"><span class="info-key">RAM</span><span class="info-val"><span id="sum-ram">4 GB</span></span></div>
+                  <div class="info-row"><span class="info-key">Hosting</span><span class="info-val"><span id="sum-host">This Computer</span></span></div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Server Port</div><input class="input" value="25565"></div><div class="field"><div class="label">MOTD</div><input class="input" value="A Minecraft Server"></div></div>
+                <label class="check-row" style="margin-top:2px;"><div class="check-box" id="eula-box" onclick="toggleCheck(this);checkEula()"></div><span class="check-label">I agree to the <span style="color:var(--t2);text-decoration:underline;cursor:pointer;">Minecraft EULA</span></span></label>
+                <button id="srv-launch-btn" disabled onclick="startServerDeploy()" style="margin-top:16px;width:100%;height:42px;border-radius:9px;border:none;background:var(--t4);color:#000;font-size:13px;font-weight:800;font-family:var(--sans);cursor:not-allowed;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;"><i data-lucide="server" width="15" height="15"></i> Deploy Server</button>
+              </div>
+            </div>
+            <div style="width:240px;flex-shrink:0;border-left:1px solid var(--b1);background:var(--s1);display:flex;flex-direction:column;padding:18px 14px;gap:0;overflow-y:auto;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:12px;">Preview</div>
+              <div style="background:var(--s2);border:1px solid var(--b2);border-radius:10px;overflow:hidden;margin-bottom:14px;">
+                <div style="height:56px;background:linear-gradient(135deg,#1a2a1a,var(--s3));display:flex;align-items:center;justify-content:center;" id="prev-icon"><i data-lucide="castle" width="32" height="32" style="color:var(--t2)"></i></div>
+                <div style="padding:9px 10px;"><div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:3px;" id="prev-name">My Awesome Server</div><div style="font-size:10px;font-family:var(--mono);color:var(--t3);margin-bottom:6px;" id="prev-type">Vanilla · 1.21.4</div><div style="display:flex;align-items:center;gap:5px;font-size:10px;font-family:var(--mono);color:var(--t4);"><div style="width:5px;height:5px;border-radius:50%;background:var(--t4);"></div><span>Offline — not deployed</span></div></div>
+              </div>
+              <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">Config</div>
+              <div style="display:flex;flex-direction:column;gap:3px;">
+                <div style="display:flex;justify-content:space-between;padding:5px 8px;background:var(--s2);border-radius:5px;"><span style="font-size:10.5px;color:var(--t3);">Port</span><span style="font-size:10.5px;font-family:var(--mono);color:var(--t2);">25565</span></div>
+                <div style="display:flex;justify-content:space-between;padding:5px 8px;background:var(--s2);border-radius:5px;"><span style="font-size:10.5px;color:var(--t3);">Mode</span><span style="font-size:10.5px;font-family:var(--mono);color:var(--t2);">Survival</span></div>
+                <div style="display:flex;justify-content:space-between;padding:5px 8px;background:var(--s2);border-radius:5px;"><span style="font-size:10.5px;color:var(--t3);">Players</span><span style="font-size:10.5px;font-family:var(--mono);color:var(--t2);">20</span></div>
+                <div style="display:flex;justify-content:space-between;padding:5px 8px;background:var(--s2);border-radius:5px;"><span style="font-size:10.5px;color:var(--t3);">RAM</span><span style="font-size:10.5px;font-family:var(--mono);color:var(--t2);">4 GB</span></div>
+              </div>
+              <div style="margin-top:14px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">Added Plugins</div>
+              <div id="prev-plugins" style="font-size:11px;font-family:var(--mono);color:var(--t4);">None yet</div>
+              <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--b1);"><div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:6px;">Steps</div><div id="prev-steps-list"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STATUS BAR -->
+  <div class="statusbar">
+    <div class="status-item">
+      <div class="status-dot" style="background:var(--green)"></div>
+      Online
+    </div>
+    <div class="status-item">Dream · Microsoft</div>
+    <div class="status-item">
+      <div class="status-dot" style="background:var(--blue)"></div>
+      Instance — Running
+    </div>
+    <div style="flex:1"></div>
+    <div class="status-item" id="statusbar-time">—</div>
+    <div class="status-item">Orbiq v2.2.0</div>
+    <div class="status-item">3 instances</div>
+  </div>
+</div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" style="display:none" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal-popup"></div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- CONTEXT MENU -->
+<div class="ctx-menu" id="ctx-menu" style="display:none"></div>
+
+<script src="./scripts/app.js"></script>
+
+</body>
+</html>
+
