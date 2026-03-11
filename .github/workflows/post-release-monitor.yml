@@ -1,0 +1,32 @@
+name: post-release-monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+  monitor:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Post-Release Monitor
+        run: npm run monitor:post-release
+
+      - name: Upload Monitor Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: post-release-monitor-report
+          path: reports/post-release-monitor.json

@@ -5,9 +5,14 @@
   "private": true,
   "scripts": {
     "build:web": "node scripts/build-web.js",
+    "dev:web": "npm run build:web && node scripts/dev-web.js",
     "test:backend": "cargo test --manifest-path src-tauri/Cargo.toml",
     "test:smoke": "cargo test --manifest-path src-tauri/Cargo.toml smoke_",
+    "test:browse": "node scripts/smoke-browse-runtime.js",
     "test:loaders": "node scripts/smoke-loaders.js",
+    "test:install-matrix": "node scripts/smoke-install-matrix.js",
+    "release:rollback-check": "node scripts/check-rollback-readiness.js",
+    "monitor:post-release": "node scripts/post-release-monitor.js",
     "tauri:dev": "tauri dev",
     "tauri:build": "tauri build"
   },

@@ -2,6 +2,26 @@
 
 All notable changes to this project are documented in this file.
 
+## [Unreleased]
+
+### Added
+- Launch preflight backend command: `preflight_instance_launch` with blocking/warning issue model.
+- Debug diagnostics export backend command: `export_debug_bundle`.
+- Frontend launch preflight modal with fix/continue flow.
+- Frontend diagnostics modal with latest backend error, launch context, logs shortcut, bundle export.
+- CI quality gates workflow for build/tests/smoke checks.
+- Rollback readiness automation script (`scripts/check-rollback-readiness.js`).
+- Post-release monitoring automation script + workflow (`scripts/post-release-monitor.js`, `.github/workflows/post-release-monitor.yml`).
+- Release channel policy and daily-driver roadmap docs.
+
+### Changed
+- Backend launch/auth/provision/install error paths now emit structured error codes.
+- Launch failure toast now links directly to Diagnostics UI.
+- Microsoft OAuth flow now enforces stricter callback validation (state + nonce + token claim checks).
+- OAuth authorization-code replay attempts are rejected.
+- Microsoft launch identity resolution now retries once with token refresh on refreshable auth failures.
+- Auth/entitlement failures are mapped to actionable launcher messages (`relink`, `ownership`, `app registration`, `clock skew`).
+
 ## [0.1.0] - 2026-03-08
 
 ### Added

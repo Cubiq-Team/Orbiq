@@ -1,0 +1,48 @@
+name: quality-gates
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+      - "release/**"
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Rollback Readiness
+        run: npm run release:rollback-check
+
+      - name: Web Build
+        run: npm run build:web
+
+      - name: Backend Tests
+        run: npm run test:backend
+
+      - name: Loader Smoke
+        run: npm run test:loaders
+
+      - name: Browse Runtime Smoke
+        run: npm run test:browse
+
+      - name: Install Matrix Smoke
+        run: npm run test:install-matrix
