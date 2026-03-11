@@ -1,7 +1,12 @@
+﻿if (!window.lucide || typeof window.lucide.createIcons !== 'function') {
+  window.lucide = { createIcons: () => {} };
+  console.warn('[ui] lucide did not load; using no-op icon renderer');
+}
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // MODAL DEFINITIONS
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 function selectedInstanceNameForModal() {
   const selected = getSelectedInstanceName();
   return selected || 'Instance';
@@ -39,29 +44,72 @@ function buildDuplicateInstanceName() {
   return candidate;
 }
 
+function mojibakeScore(text) {
+  if (typeof text !== 'string' || text.length === 0) return 0;
+  const hits = text.match(/(?:ÃƒÆ’.|Ãƒâ€š.|ÃƒÆ’Ã†â€™|ÃƒÆ’Ã¢â‚¬Å¡|ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½|ÃƒÂ¯Ã‚Â¿Ã‚Â½|Ã¯Â¿Â½|ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢|ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ|ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â|ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦)/g);
+  return hits ? hits.length : 0;
+}
+
+function tryDecodeLatin1Utf8(text) {
+  if (typeof text !== 'string' || text.length === 0) return text;
+  if (typeof TextDecoder !== 'function') return text;
+  const bytes = new Uint8Array(text.length);
+  for (let i = 0; i < text.length; i++) {
+    const code = text.charCodeAt(i);
+    if (code > 0xff) return text;
+    bytes[i] = code;
+  }
+  try {
+    return new TextDecoder('utf-8', { fatal: false }).decode(bytes);
+  } catch (_err) {
+    return text;
+  }
+}
+
 function normalizeMojibakeText(value) {
   if (typeof value !== 'string' || value.length === 0) return value;
   let text = value;
 
+  // Try up to 2 repair passes for common double-encoded UTF-8 mojibake.
+  for (let pass = 0; pass < 2; pass++) {
+    const decoded = tryDecodeLatin1Utf8(text);
+    if (!decoded || decoded === text) break;
+    if (mojibakeScore(decoded) <= mojibakeScore(text)) {
+      text = decoded;
+    } else {
+      break;
+    }
+  }
+
   text = text
-    .replace(/\u00ef\u00bf\u00bd/g, '')
-    .replace(/\uFFFD/g, '')
-    .replace(/\u00c2(?=[\u00a0\u00b7])/g, '')
+    .replace(/(?:ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½|ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½|ÃƒÂ¯Ã‚Â¿Ã‚Â½|Ã¯Â¿Â½)+/g, '')
+    .replace(/(?:ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â|ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â|ÃƒÂ¯Ã‚Â¸Ã‚Â)+/g, '')
     .replace(/[\u0080-\u009f]/g, '')
+    .replace(/\u00c2(?=[\u00a0\u00b7])/g, '')
     .replace(/\u00b8/g, '')
     .replace(/\uFE0F/g, '')
     .replace(/\u00A0/g, ' ')
-    .replace(/\u2026/g, '...')
-    .replace(/[\u2013\u2014]/g, '-')
-    .replace(/\u00b7/g, ' - ')
+    .replace(/(?:Ãƒâ€šÃ‚Â·|ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â·|\u00b7|Ã¢â‚¬Â¢)/g, ' - ')
+    .replace(/(?:ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦|\u2026)/g, '...')
+    .replace(/(?:ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“|ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â|\u2013|\u2014)/g, '-')
+    .replace(/(?:ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ|ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â|ÃƒÂ¢Ã¢â€šÂ¬Ã‹Å“|ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢)/g, "'")
     .replace(/\s\?["']/g, ' - ')
+    .replace(/([A-Za-z0-9])\s+\.\.\.\s+([A-Za-z0-9])/g, '$1 - $2')
+    .replace(/\s+\.\.\.[A-Za-z]["']?(?=\s|$)/g, '')
+    .replace(/^\.\.\.\s*/, '')
+    .replace(/\s+\.\.\.$/, '')
     .replace(/\?{2,}/g, '...')
+    .replace(/([A-Za-z0-9])\s+\.\.\.\s+([A-Za-z0-9])/g, '$1 - $2')
+    .replace(/\s+\.\.\.[A-Za-z]["']?(?=\s|$)/g, '')
+    .replace(/^\.\.\.\s*/, '')
+    .replace(/\s+\.\.\.$/, '')
+    .replace(/(?:^|\s)[oO]["'](?=\s+Added\b)/g, '')
     .replace(/\s{2,}/g, ' ')
     .trim();
 
   const token = text.trim();
-  if (/^(?:YO|Y"|Y<|Y>|YZ|YT,|sT|s|~|Y-|Y)$/.test(token)) return '';
-  if (/^[A-Z~<>",.'?-]{1,4}$/.test(token) && !/^(OK|ON|OFF|FPS|GB|MB|RAM|CPU)$/.test(token)) return '';
+  if (/^(?:YO|Y"|Y<|Y>|YZ|YT,|sT|s|~|Y-|Y|T|o)$/.test(token)) return '';
+  if (/^[A-Z~<>",.'?!-]{1,4}$/.test(token) && !/^(OK|ON|OFF|FPS|GB|MB|RAM|CPU)$/.test(token)) return '';
 
   return text;
 }
@@ -136,107 +184,6 @@ function installMojibakeSanitizer() {
 
 const MODALS = {
 
-  'orbiq-accounts': () => `
-    <div class="mh">
-      <div class="brand-logo" style="width:18px;height:18px;border-radius:4px;flex-shrink:0;padding:2px;box-sizing:border-box;background:#fff;color:#111;display:flex;align-items:center;justify-content:center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" width="100%" height="100%"><path fill="currentColor" d="M 192.214844 200.441406 C 157.855469 212.945312 126.144531 222.195312 103.179688 226.886719 C 82.046875 231.1875 68.328125 231.652344 66.722656 227.242188 C 65.171875 222.988281 75.167969 214.964844 92.863281 205.195312 C 94.625 204.21875 95.625 202.261719 95.351562 200.269531 C 95.347656 200.234375 95.339844 200.199219 95.335938 200.167969 C 94.886719 196.851562 91.339844 194.929688 88.335938 196.402344 C 42.695312 218.757812 14.417969 239.167969 18.125 249.359375 C 21.925781 259.792969 58.359375 256.875 109.644531 243.871094 C 111.503906 243.398438 113.476562 244.046875 114.671875 245.550781 C 138.878906 276.074219 180.777344 289.191406 219.402344 275.132812 C 268.214844 257.367188 279.625 221.777344 280.753906 195.453125 C 281.40625 180.277344 276.433594 169.785156 192.214844 200.441406 Z"/><path fill="currentColor" d="M 357.019531 126.011719 C 353.140625 115.359375 315.296875 118.621094 262.375 132.300781 C 238.5 100.003906 195.394531 85.796875 155.742188 100.230469 C 114.808594 115.128906 100.574219 143.695312 96.171875 167.042969 C 93.109375 183.289062 95.65625 197.835938 180.082031 167.105469 C 213.90625 154.796875 245.15625 145.648438 268.03125 140.894531 C 289.765625 136.371094 303.945312 135.816406 305.578125 140.304688 C 307.007812 144.242188 298.5625 151.398438 283.269531 160.199219 C 279.882812 162.148438 278.171875 166.0625 278.925781 169.898438 C 278.9375 169.960938 278.949219 170.023438 278.960938 170.082031 C 280.105469 175.980469 286.621094 179.09375 291.992188 176.402344 C 334.574219 155.058594 360.582031 135.800781 357.019531 126.011719 Z"/></svg></div>
-      <span class="mh-title">Orbiq Account</span>
-      <button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button>
-    </div>
-    <div class="mb" style="padding:12px 14px">
-      <div class="orbiq-acct-card">
-        <div class="orbiq-acct-header">
-          <div class="orbiq-acct-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" width="100%" height="100%"><path fill="currentColor" d="M 192.214844 200.441406 C 157.855469 212.945312 126.144531 222.195312 103.179688 226.886719 C 82.046875 231.1875 68.328125 231.652344 66.722656 227.242188 C 65.171875 222.988281 75.167969 214.964844 92.863281 205.195312 C 94.625 204.21875 95.625 202.261719 95.351562 200.269531 C 95.347656 200.234375 95.339844 200.199219 95.335938 200.167969 C 94.886719 196.851562 91.339844 194.929688 88.335938 196.402344 C 42.695312 218.757812 14.417969 239.167969 18.125 249.359375 C 21.925781 259.792969 58.359375 256.875 109.644531 243.871094 C 111.503906 243.398438 113.476562 244.046875 114.671875 245.550781 C 138.878906 276.074219 180.777344 289.191406 219.402344 275.132812 C 268.214844 257.367188 279.625 221.777344 280.753906 195.453125 C 281.40625 180.277344 276.433594 169.785156 192.214844 200.441406 Z"/><path fill="currentColor" d="M 357.019531 126.011719 C 353.140625 115.359375 315.296875 118.621094 262.375 132.300781 C 238.5 100.003906 195.394531 85.796875 155.742188 100.230469 C 114.808594 115.128906 100.574219 143.695312 96.171875 167.042969 C 93.109375 183.289062 95.65625 197.835938 180.082031 167.105469 C 213.90625 154.796875 245.15625 145.648438 268.03125 140.894531 C 289.765625 136.371094 303.945312 135.816406 305.578125 140.304688 C 307.007812 144.242188 298.5625 151.398438 283.269531 160.199219 C 279.882812 162.148438 278.171875 166.0625 278.925781 169.898438 C 278.9375 169.960938 278.949219 170.023438 278.960938 170.082031 C 280.105469 175.980469 286.621094 179.09375 291.992188 176.402344 C 334.574219 155.058594 360.582031 135.800781 357.019531 126.011719 Z"/></svg></div>
-          <div class="orbiq-acct-info">
-            <div class="orbiq-acct-name">Dream</div>
-            <div class="orbiq-acct-email">dream@orbiq.app</div>
-          </div>
-          <div class="orbiq-acct-badge">
-            <div style="width:5px;height:5px;border-radius:50%;background:var(--green)"></div>
-            Signed in
-          </div>
-        </div>
-        <div class="orbiq-acct-meta">
-          <div class="orbiq-acct-meta-row">
-            <span>Orbiq ID</span>
-            <span class="orbiq-acct-id">ORQ-0000-0000</span>
-          </div>
-          <div class="orbiq-acct-meta-row">
-            <span>Plan</span>
-            <span class="orbiq-acct-plan">Free</span>
-          </div>
-        </div>
-        <div class="linked-list">
-          <div class="linked-section-label">Linked Accounts</div>
-          <div class="ms-linked-row" onclick="openModal('ms-linked-detail')">
-            <div class="ms-linked-icon ms-brand">
-              <div class="ms-grid" style="width:14px;height:14px;"><div style="background:#f25022;border-radius:1px"></div><div style="background:#7fba00;border-radius:1px"></div><div style="background:#00a4ef;border-radius:1px"></div><div style="background:#ffb900;border-radius:1px"></div></div>
-            </div>
-            <div style="width:28px;height:28px;border-radius:5px;overflow:hidden;flex-shrink:0;image-rendering:pixelated;background:var(--s3)">
-              <img src="https://mc-heads.net/avatar/Dream/32" style="width:100%;image-rendering:pixelated" onerror="this.style.display='none'">
-            </div>
-            <div style="flex:1">
-              <div class="ms-linked-name">Dream</div>
-              <div class="ms-linked-meta">dream@outlook.com Â· Official license</div>
-            </div>
-            <div class="ms-linked-type microsoft">
-              <i data-lucide="check-circle" width="10" height="10"></i>
-              Microsoft
-            </div>
-          </div>
-          <div class="ms-linked-row" onclick="openModal('offline-profile-detail')">
-            <div class="ms-linked-icon offline-brand" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="user-round" width="14" height="14" style="color:var(--t3)"></i></div>
-            <div style="width:28px;height:28px;border-radius:5px;overflow:hidden;flex-shrink:0;background:var(--s3);border:1px solid var(--b2);display:flex;align-items:center;justify-content:center;"><i data-lucide="user" width="15" height="15" style="color:var(--t3)"></i></div>
-            <div style="flex:1">
-              <div class="ms-linked-name">Batbold</div>
-              <div class="ms-linked-meta">Offline profile Â· Cracked servers only</div>
-            </div>
-            <div class="ms-linked-type active-profile">
-              <div style="width:5px;height:5px;border-radius:50%;background:currentColor"></div>
-              Active
-            </div>
-          </div>
-          <div class="ms-linked-row" onclick="openModal('offline-profile-detail')">
-            <div class="ms-linked-icon offline-brand" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="user-round" width="14" height="14" style="color:var(--t3)"></i></div>
-            <div style="width:28px;height:28px;border-radius:5px;overflow:hidden;flex-shrink:0;background:var(--s3);border:1px solid var(--b2);display:flex;align-items:center;justify-content:center;"><i data-lucide="gamepad-2" width="14" height="14" style="color:var(--t3)"></i></div>
-            <div style="flex:1">
-              <div class="ms-linked-name">ProGamer</div>
-              <div class="ms-linked-meta">Offline profile Â· Cracked servers only</div>
-            </div>
-            <div class="ms-linked-type offline">Offline</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">
-            <button class="add-linked-btn" onclick="closeModal();setTimeout(()=>openModal('link-microsoft'),200)">
-              <div class="ms-grid" style="width:12px;height:12px;"><div style="background:#f25022;border-radius:1px"></div><div style="background:#7fba00;border-radius:1px"></div><div style="background:#00a4ef;border-radius:1px"></div><div style="background:#ffb900;border-radius:1px"></div></div>
-              Link Microsoft
-            </button>
-            <button class="add-linked-btn" onclick="closeModal();setTimeout(()=>openModal('add-offline-profile'),200)">
-              <i data-lucide="user-plus" width="12" height="12"></i>
-              Add Profile
-            </button>
-          </div>
-        </div>
-      </div>
-      <div style="padding:10px 12px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-top:8px">
-        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:7px">How it works</div>
-        <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="display:flex;gap:8px;align-items:flex-start">
-            <div style="width:14px;height:14px;border-radius:3px;background:rgba(0,120,212,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><div class="ms-grid" style="width:8px;height:8px;"><div style="background:#f25022;border-radius:0.5px"></div><div style="background:#7fba00;border-radius:0.5px"></div><div style="background:#00a4ef;border-radius:0.5px"></div><div style="background:#ffb900;border-radius:0.5px"></div></div></div>
-            <span style="font-size:11px;font-family:var(--mono);color:var(--t3);line-height:1.5">Microsoft Ã¯Â¿Â½?' Official servers + purchased license</span>
-          </div>
-          <div style="display:flex;gap:8px;align-items:flex-start">
-            <div style="width:14px;height:14px;border-radius:3px;background:var(--s3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><i data-lucide="user" width="9" height="9" style="color:var(--t3)"></i></div>
-            <span style="font-size:11px;font-family:var(--mono);color:var(--t3);line-height:1.5">Offline profile Ã¯Â¿Â½?' Cracked servers, free to play</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="mf" style="justify-content:space-between">
-      <button class="btn btn-ghost" id="orbiq-auth-action-btn" onclick="onOrbiqAccountsAuthAction()">
-        <i data-lucide="log-out" width="12" height="12"></i>Sign Out
-      </button>
-      <button class="btn btn-primary" onclick="closeModal()">Done</button>
-    </div>`,
-
   'link-microsoft': () => `
     <div class="ms-banner">
       <div class="ms-grid"><div style="background:#f25022;border-radius:1px"></div><div style="background:#7fba00;border-radius:1px"></div><div style="background:#00a4ef;border-radius:1px"></div><div style="background:#ffb900;border-radius:1px"></div></div>
@@ -252,13 +199,12 @@ const MODALS = {
         <div style="font-size:12px;font-family:var(--mono);color:var(--t3);margin-bottom:14px;line-height:1.7">
           Linking your Microsoft account lets you play on <strong style="color:var(--t2)">official servers</strong> using your purchased Minecraft license.
         </div>
-        <div style="width:80px;height:80px;background:var(--s2);border:1px solid var(--b2);border-radius:12px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center"><i data-lucide="qr-code" width="48" height="48" style="color:var(--t3)"></i></div>
-        <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4)">Scan QR code with your phone</div>
+        <div style="width:80px;height:80px;background:var(--s2);border:1px solid var(--b2);border-radius:12px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center"><i data-lucide="shield-check" width="44" height="44" style="color:var(--t3)"></i></div>
+        <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4)">Secure browser sign-in</div>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div style="flex:1;height:1px;background:var(--b2)"></div><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">or</span><div style="flex:1;height:1px;background:var(--b2)"></div></div>
       <button class="btn-ms" onclick="startMicrosoftLoginFlow()">
         <div class="ms-grid" style="width:14px;height:14px;"><div style="background:#fff;border-radius:1px"></div><div style="background:#fff;border-radius:1px"></div><div style="background:#fff;border-radius:1px"></div><div style="background:#fff;border-radius:1px"></div></div>
-        Sign in with Microsoft
+        Continue with Microsoft
       </button>
       <div id="ms-device-status" style="font-size:11px;font-family:var(--mono);color:var(--t4);margin-top:9px;text-align:center"></div>
     </div>
@@ -287,7 +233,7 @@ const MODALS = {
       </div>
       <div>
         <div class="label" style="margin-bottom:4px">UUID (auto-generated)</div>
-        <div class="uuid-preview" id="offline-uuid-preview">Ã¯Â¿Â½?" enter a username Ã¯Â¿Â½?"</div>
+        <div class="uuid-preview" id="offline-uuid-preview">ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" enter a username ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?"</div>
       </div>
     </div>
     <div class="mf">
@@ -299,7 +245,7 @@ const MODALS = {
 
   'orbiq-login': () => `
     <div class="orbiq-login-header">
-      <div class="orbiq-login-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" width="100%" height="100%"><path fill="currentColor" d="M 192.214844 200.441406 C 157.855469 212.945312 126.144531 222.195312 103.179688 226.886719 C 82.046875 231.1875 68.328125 231.652344 66.722656 227.242188 C 65.171875 222.988281 75.167969 214.964844 92.863281 205.195312 C 94.625 204.21875 95.625 202.261719 95.351562 200.269531 C 95.347656 200.234375 95.339844 200.199219 95.335938 200.167969 C 94.886719 196.851562 91.339844 194.929688 88.335938 196.402344 C 42.695312 218.757812 14.417969 239.167969 18.125 249.359375 C 21.925781 259.792969 58.359375 256.875 109.644531 243.871094 C 111.503906 243.398438 113.476562 244.046875 114.671875 245.550781 C 138.878906 276.074219 180.777344 289.191406 219.402344 275.132812 C 268.214844 257.367188 279.625 221.777344 280.753906 195.453125 C 281.40625 180.277344 276.433594 169.785156 192.214844 200.441406 Z"/><path fill="currentColor" d="M 357.019531 126.011719 C 353.140625 115.359375 315.296875 118.621094 262.375 132.300781 C 238.5 100.003906 195.394531 85.796875 155.742188 100.230469 C 114.808594 115.128906 100.574219 143.695312 96.171875 167.042969 C 93.109375 183.289062 95.65625 197.835938 180.082031 167.105469 C 213.90625 154.796875 245.15625 145.648438 268.03125 140.894531 C 289.765625 136.371094 303.945312 135.816406 305.578125 140.304688 C 307.007812 144.242188 298.5625 151.398438 283.269531 160.199219 C 279.882812 162.148438 278.171875 166.0625 278.925781 169.898438 C 278.9375 169.960938 278.949219 170.023438 278.960938 170.082031 C 280.105469 175.980469 286.621094 179.09375 291.992188 176.402344 C 334.574219 155.058594 360.582031 135.800781 357.019531 126.011719 Z"/></svg></div>
+      <div class="orbiq-login-logo"><img src="assets/Orbiq.svg" width="44" height="44" alt="Orbiq" style="display:block;border-radius:12px;"></div>
       <div class="orbiq-login-title">Sign in to Orbiq</div>
       <div class="orbiq-login-sub">Your account for everything Orbiq</div>
     </div>
@@ -333,7 +279,7 @@ const MODALS = {
 
   'orbiq-register': () => `
     <div class="mh">
-      <div class="brand-logo" style="width:18px;height:18px;border-radius:4px;flex-shrink:0;padding:2px;box-sizing:border-box;background:#fff;color:#111;display:flex;align-items:center;justify-content:center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" width="100%" height="100%"><path fill="currentColor" d="M 192.214844 200.441406 C 157.855469 212.945312 126.144531 222.195312 103.179688 226.886719 C 82.046875 231.1875 68.328125 231.652344 66.722656 227.242188 C 65.171875 222.988281 75.167969 214.964844 92.863281 205.195312 C 94.625 204.21875 95.625 202.261719 95.351562 200.269531 C 95.347656 200.234375 95.339844 200.199219 95.335938 200.167969 C 94.886719 196.851562 91.339844 194.929688 88.335938 196.402344 C 42.695312 218.757812 14.417969 239.167969 18.125 249.359375 C 21.925781 259.792969 58.359375 256.875 109.644531 243.871094 C 111.503906 243.398438 113.476562 244.046875 114.671875 245.550781 C 138.878906 276.074219 180.777344 289.191406 219.402344 275.132812 C 268.214844 257.367188 279.625 221.777344 280.753906 195.453125 C 281.40625 180.277344 276.433594 169.785156 192.214844 200.441406 Z"/><path fill="currentColor" d="M 357.019531 126.011719 C 353.140625 115.359375 315.296875 118.621094 262.375 132.300781 C 238.5 100.003906 195.394531 85.796875 155.742188 100.230469 C 114.808594 115.128906 100.574219 143.695312 96.171875 167.042969 C 93.109375 183.289062 95.65625 197.835938 180.082031 167.105469 C 213.90625 154.796875 245.15625 145.648438 268.03125 140.894531 C 289.765625 136.371094 303.945312 135.816406 305.578125 140.304688 C 307.007812 144.242188 298.5625 151.398438 283.269531 160.199219 C 279.882812 162.148438 278.171875 166.0625 278.925781 169.898438 C 278.9375 169.960938 278.949219 170.023438 278.960938 170.082031 C 280.105469 175.980469 286.621094 179.09375 291.992188 176.402344 C 334.574219 155.058594 360.582031 135.800781 357.019531 126.011719 Z"/></svg></div>
+      <div class="brand-logo" style="width:18px;height:18px;flex-shrink:0;"><img src="assets/Orbiq.svg" width="18" height="18" alt="Orbiq" style="display:block;border-radius:4px;"></div>
       <span class="mh-title">Create Orbiq Account</span>
       <button class="mh-close" onclick="cancelOrbiqRegister()"><i data-lucide="x" width="14" height="14"></i></button>
     </div>
@@ -378,7 +324,7 @@ const MODALS = {
     </div>
     <div class="mh">
       <i data-lucide="user" class="mh-icon" width="16" height="16"></i>
-      <span class="mh-title">Dream Ã¯Â¿Â½?" Microsoft</span>
+      <span class="mh-title">Dream ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Microsoft</span>
       <button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button>
     </div>
     <div class="mb">
@@ -406,7 +352,7 @@ const MODALS = {
       </div>
     </div>
     <div class="mf" style="justify-content:space-between">
-      <button class="btn btn-danger" onclick="closeModal();showToast('Ã¯Â¿Â½Y"-','Unlinked','Microsoft account removed')">
+      <button class="btn btn-danger" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"-','Unlinked','Microsoft account removed')">
         <i data-lucide="unlink" width="12" height="12"></i>Unlink
       </button>
       <button class="btn btn-primary" onclick="closeModal()">Done</button>
@@ -415,7 +361,7 @@ const MODALS = {
   'offline-profile-detail': () => `
     <div class="mh">
       <i data-lucide="user" class="mh-icon" width="16" height="16"></i>
-      <span class="mh-title">Batbold Ã¯Â¿Â½?" Offline Profile</span>
+      <span class="mh-title">Batbold ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Offline Profile</span>
       <button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button>
     </div>
     <div class="mb">
@@ -432,7 +378,7 @@ const MODALS = {
       <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;overflow:hidden;margin-bottom:12px">
         <div class="info-row"><span class="info-key">Type</span><span class="info-val">Offline / Cracked</span></div>
         <div class="info-row"><span class="info-key">Servers</span><span class="info-val">Cracked only</span></div>
-        <div class="info-row"><span class="info-key">UUID</span><span class="info-val dim" style="font-size:9.5px">3f7a2b4c-1d8e-4f9aÃ¯Â¿Â½?Ã¯Â¿Â½</span></div>
+        <div class="info-row"><span class="info-key">UUID</span><span class="info-val dim" style="font-size:9.5px">3f7a2b4c-1d8e-4f9aÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½</span></div>
         <div class="info-row"><span class="info-key">Created</span><span class="info-val">Jan 12, 2025</span></div>
       </div>
       <div style="background:rgba(180,120,0,0.05);border:1px solid rgba(180,120,0,0.12);border-radius:8px;padding:9px 12px;display:flex;gap:8px;align-items:flex-start">
@@ -441,19 +387,19 @@ const MODALS = {
       </div>
     </div>
     <div class="mf" style="justify-content:space-between">
-      <button class="btn btn-danger" onclick="closeModal();showToast('Ã¯Â¿Â½Y-'Ã¯Â¸Â','Removed','Offline profile deleted')">
+      <button class="btn btn-danger" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y-'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','Removed','Offline profile deleted')">
         <i data-lucide="trash-2" width="12" height="12"></i>Delete
       </button>
       <div style="display:flex;gap:6px">
         <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-        <button class="btn btn-primary" onclick="closeModal();showToast('Ã¯Â¿Â½o.','Active','Batbold is now the active profile')">Set Active</button>
+        <button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o.','Active','Batbold is now the active profile')">Set Active</button>
       </div>
     </div>`,
 
   'profile-select-launch': () => `
     <div class="mh">
       <i data-lucide="play" class="mh-icon" width="16" height="16"></i>
-      <span class="mh-title">Launch Ã¯Â¿Â½?" Choose Profile</span>
+      <span class="mh-title">Launch ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Choose Profile</span>
       <button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button>
     </div>
     <div class="mb">
@@ -463,11 +409,11 @@ const MODALS = {
       <div class="profile-select-list">
         <div class="profile-select-item selected ms-type" onclick="selectLaunchProfile(this)">
           <div class="ps-avatar">
-            <img src="https://mc-heads.net/avatar/Dream/64" onerror="this.parentNode.innerHTML='Ã¯Â¿Â½Y~Z'" style="width:100%;image-rendering:pixelated">
+            <img src="https://mc-heads.net/avatar/Dream/64" onerror="this.parentNode.innerHTML='ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y~Z'" style="width:100%;image-rendering:pixelated">
           </div>
           <div style="flex:1">
             <div class="ps-name">Dream</div>
-            <div class="ps-desc">Microsoft Â· Official servers ï¿½o"</div>
+            <div class="ps-desc">Microsoft Ãƒâ€šÃ‚Â· Official servers ÃƒÂ¯Ã‚Â¿Ã‚Â½o"</div>
           </div>
           <div class="ps-tag ms">
             <div class="ms-grid" style="width:10px;height:10px;margin-right:5px;display:inline-grid;gap:1px"><div style="background:#f25022;border-radius:0.5px"></div><div style="background:#7fba00;border-radius:0.5px"></div><div style="background:#00a4ef;border-radius:0.5px"></div><div style="background:#ffb900;border-radius:0.5px"></div></div>
@@ -478,7 +424,7 @@ const MODALS = {
           <div class="ps-avatar offline-av" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="user" width="18" height="18" style="color:var(--t3)"></i></div>
           <div style="flex:1">
             <div class="ps-name">Batbold</div>
-            <div class="ps-desc">Offline Â· Cracked servers only</div>
+            <div class="ps-desc">Offline Ãƒâ€šÃ‚Â· Cracked servers only</div>
           </div>
           <div class="ps-tag off">Offline</div>
         </div>
@@ -486,7 +432,7 @@ const MODALS = {
           <div class="ps-avatar offline-av" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="gamepad-2" width="18" height="18" style="color:var(--t3)"></i></div>
           <div style="flex:1">
             <div class="ps-name">ProGamer</div>
-            <div class="ps-desc">Offline Â· Cracked servers only</div>
+            <div class="ps-desc">Offline Ãƒâ€šÃ‚Â· Cracked servers only</div>
           </div>
           <div class="ps-tag off">Offline</div>
         </div>
@@ -497,7 +443,7 @@ const MODALS = {
       </div>
     </div>
     <div class="mf" style="justify-content:space-between">
-      <button class="btn btn-ghost" onclick="closeModal();setTimeout(()=>openModal('orbiq-accounts'),200)">
+      <button class="btn btn-ghost" onclick="closeModal();setTimeout(()=>goToAccountsPage(),200)">
         <i data-lucide="settings" width="12" height="12"></i>Manage
       </button>
       <div style="display:flex;gap:6px">
@@ -513,9 +459,14 @@ const MODALS = {
     <div class="mb">
       <div class="field"><div class="label">Name</div><input class="input" id="add-inst-name" value="My Instance" placeholder="Instance name"></div>
       <div class="field"><div class="label">Icon</div>
-        <div class="icon-grid">
-          ${[['package','package'],['sword','sword'],['leaf','leaf'],['flame','flame'],['mountain','mountain'],['waves','waves'],['settings','settings'],['sparkles','sparkles'],['castle','castle'],['globe','globe']].map(([ic],i)=>`<div class="icon-cell${i===0?' sel':''}" onclick="selectIcon(this)"><i data-lucide="${ic}" width="16" height="16" style="pointer-events:none"></i></div>`).join('')}
-        </div>
+        <input type="hidden" id="add-inst-icon-key" value="">
+        <button type="button" class="icon-picker-trigger" id="add-inst-icon-trigger" onclick="openAddInstanceIconMenu(event)">
+          <div class="icon-picker-left">
+            <img class="icon-picker-preview-img" id="add-inst-icon-preview-img" src="" alt="Instance icon preview">
+            <span class="icon-picker-label" id="add-inst-icon-preview-label">Loading icons...</span>
+          </div>
+          <i data-lucide="chevrons-up-down" width="14" height="14"></i>
+        </button>
       </div>
       <div class="field"><div class="label">Loader</div><select class="select" id="add-inst-loader"><option>Vanilla</option><option>Fabric</option><option>Forge</option><option>NeoForge</option><option>Quilt</option></select></div>
       <div class="field"><div class="label">Minecraft Version</div><select class="select" id="add-inst-version"><option>Loading versions...</option></select></div>
@@ -527,6 +478,16 @@ const MODALS = {
     <div class="mh"><i data-lucide="pencil" class="mh-icon" width="16" height="16"></i><span class="mh-title" id="edit-modal-title">Edit - Instance</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="field"><div class="label">Name</div><input class="input" id="edit-inst-name" value="" placeholder="Instance name"></div>
+      <div class="field"><div class="label">Icon</div>
+        <input type="hidden" id="edit-inst-icon-key" value="">
+        <button type="button" class="icon-picker-trigger" id="edit-inst-icon-trigger" onclick="openEditInstanceIconMenu(event)">
+          <div class="icon-picker-left">
+            <img class="icon-picker-preview-img" id="edit-inst-icon-preview-img" src="" alt="Instance icon preview">
+            <span class="icon-picker-label" id="edit-inst-icon-preview-label">Loading icons...</span>
+          </div>
+          <i data-lucide="chevrons-up-down" width="14" height="14"></i>
+        </button>
+      </div>
       <div class="field"><div class="label">Memory (GB)</div>
         <div style="margin:6px 0 4px"><input type="range" class="slider" min="1" max="16" value="4"></div>
         <div style="display:flex;justify-content:space-between"><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">1 GB</span><span style="font-size:10px;font-family:var(--mono);color:var(--t2)">4 GB</span><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">16 GB</span></div>
@@ -537,12 +498,54 @@ const MODALS = {
       <div class="field"><div class="label">Working Directory</div><input class="input" id="edit-launch-wd" placeholder="e.g. C:\\Minecraft\\Instances\\MyInstance"></div>
       <div class="field"><div class="label">JVM Preset</div>
         <div class="preset-grid">
-          ${[['Ã¯Â¿Â½sÃ¯Â¿Â½','Vanilla','Balanced'],['Ã¯Â¿Â½YÃ¯Â¿Â½<Ã¯Â¸Â','Heavy','Max perf'],['Ã¯Â¿Â½Y"Ã¯Â¿Â½','Stream','Low RAM']].map(([e,n,d],i)=>`<div class="preset-card${i===0?' sel':''}" onclick="document.querySelectorAll('.preset-card').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')"><div class="preset-icon">${e}</div><div class="preset-name">${n}</div><div class="preset-desc">${d}</div></div>`).join('')}
+          ${[['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½sÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Vanilla','Balanced'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½<ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','Heavy','Max perf'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Stream','Low RAM']].map(([e,n,d],i)=>`<div class="preset-card${i===0?' sel':''}" onclick="document.querySelectorAll('.preset-card').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')"><div class="preset-icon">${e}</div><div class="preset-name">${n}</div><div class="preset-desc">${d}</div></div>`).join('')}
         </div>
       </div>
       <label class="check-row"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Use global Java settings</span></label>
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="saveEditInstanceModal()">Save</button></div>`,
+
+  'instance-info-java': () => `
+    <div class="mh"><i data-lucide="coffee" class="mh-icon" width="16" height="16"></i><span class="mh-title">Java - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div class="field">
+        <div class="label">Detected Java Runtime</div>
+        <select class="select" id="instance-java-path-select">
+          ${buildJavaPathOptionsMarkup(getSelectedInstanceJavaExecutable())}
+        </select>
+      </div>
+      <div class="field">
+        <div class="label">Custom Java Path (Optional)</div>
+        <input class="input" id="instance-java-custom-path" placeholder="e.g. C:\\Java\\bin\\java.exe">
+      </div>
+      <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);line-height:1.6">
+        Leave custom path empty to use the selected runtime. Choose <strong style="color:var(--t2)">Auto (launcher default)</strong> to clear custom Java.
+      </div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="saveInstanceJavaFromModal()"><i data-lucide="check" width="12" height="12"></i>Save</button></div>`,
+
+  'instance-info-memory': () => `
+    <div class="mh"><i data-lucide="hard-drive" class="mh-icon" width="16" height="16"></i><span class="mh-title">Memory - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div class="field">
+        <div class="label">Min Memory (GB)</div>
+        <input class="input" type="number" min="0.25" step="0.25" id="instance-memory-min-gb" placeholder="e.g. 2">
+      </div>
+      <div class="field">
+        <div class="label">Max Memory (GB)</div>
+        <input class="input" type="number" min="0.25" step="0.25" id="instance-memory-max-gb" placeholder="e.g. 4">
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+        <button class="btn btn-ghost" type="button" style="height:26px;padding:0 10px;font-size:10px" onclick="applyMemoryPresetFromModal(2,4)">2 / 4 GB</button>
+        <button class="btn btn-ghost" type="button" style="height:26px;padding:0 10px;font-size:10px" onclick="applyMemoryPresetFromModal(4,8)">4 / 8 GB</button>
+        <button class="btn btn-ghost" type="button" style="height:26px;padding:0 10px;font-size:10px" onclick="applyMemoryPresetFromModal(8,12)">8 / 12 GB</button>
+        <button class="btn btn-ghost" type="button" style="height:26px;padding:0 10px;font-size:10px" onclick="applyMemoryPresetFromModal(null,null)">Auto</button>
+      </div>
+      <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);line-height:1.6">
+        Values update JVM args (<span style="color:var(--t2)">-Xms</span> and <span style="color:var(--t2)">-Xmx</span>). Leave both empty for Auto.
+      </div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="saveInstanceMemoryFromModal()"><i data-lucide="check" width="12" height="12"></i>Save</button></div>`,
 
   'delete-confirm': () => `
     <div class="mh"><i data-lucide="trash-2" class="mh-icon" width="16" height="16" style="color:var(--red)"></i><span class="mh-title" style="color:var(--red)">Delete Instance</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
@@ -556,22 +559,75 @@ const MODALS = {
   'launch-progress': () => `
     <div class="mh"><i data-lucide="loader" class="mh-icon spin" width="16" height="16"></i><span class="mh-title">Launching ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      <div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Downloading assetsÃ¯Â¿Â½?Ã¯Â¿Â½</span><span style="font-size:11px;font-family:var(--mono);color:var(--t3)">68%</span></div><div class="prog-track"><div class="prog-fill" style="width:68%"></div></div></div>
-      <div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Libraries</span><span style="font-size:11px;font-family:var(--mono);color:var(--green)">Done Ã¯Â¿Â½o"</span></div><div class="prog-track"><div class="prog-fill" style="width:100%"></div></div></div>
-      <div><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Java runtime</span><span style="font-size:11px;font-family:var(--mono);color:var(--green)">Done Ã¯Â¿Â½o"</span></div><div class="prog-track"><div class="prog-fill" style="width:100%"></div></div></div>
+      <div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Downloading assetsÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½</span><span style="font-size:11px;font-family:var(--mono);color:var(--t3)">68%</span></div><div class="prog-track"><div class="prog-fill" style="width:68%"></div></div></div>
+      <div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Libraries</span><span style="font-size:11px;font-family:var(--mono);color:var(--green)">Done ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o"</span></div><div class="prog-track"><div class="prog-fill" style="width:100%"></div></div></div>
+      <div><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Java runtime</span><span style="font-size:11px;font-family:var(--mono);color:var(--green)">Done ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o"</span></div><div class="prog-track"><div class="prog-fill" style="width:100%"></div></div></div>
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button></div>`,
 
   'manage-mods': () => `
-    <div class="mh"><i data-lucide="puzzle" class="mh-icon" width="16" height="16"></i><span class="mh-title">Mods Ã¯Â¿Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="puzzle" class="mh-icon" width="16" height="16"></i><span class="mh-title">Installed Items - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      ${[['Sodium','0.6.2',true],['Lithium','0.13.0',true],['Iris Shaders','1.8.0',true],['OptiFine','HD U I7',false],['Fabric API','0.108.0',true]].map(([n,v,on])=>`
-      <div class="list-item"><div class="li-dot ${on?'on':''}"></div><span style="flex:1;font-size:12px;font-family:var(--mono);color:${on?'var(--t2)':'var(--t3)'}">${n}</span><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">${v}</span><button style="background:transparent;border:none;cursor:pointer;color:var(--t4);display:flex" onclick="this.closest('.list-item').remove()"><i data-lucide="x" width="11" height="11"></i></button></div>`).join('')}
+      <div id="manage-mods-list" class="ver-list" style="max-height:280px"></div>
+      <div id="manage-mods-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)"></div>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal();setTimeout(()=>openModal('download-mods'),200)"><i data-lucide="plus" width="12" height="12"></i>Add Mod</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
+    <div class="mf">
+      <button class="btn btn-ghost" id="manage-mods-install-missing" onclick="installMissingTrackedFromModal()"><i data-lucide="wrench" width="12" height="12"></i>Install Missing</button>
+      <button class="btn btn-ghost" onclick="openManagedModsBrowseInstall()"><i data-lucide="plus" width="12" height="12"></i>Install</button>
+      <button class="btn btn-ghost" onclick="refreshManagedModsModal()"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button>
+      <button class="btn btn-primary" onclick="closeModal()">Done</button>
+    </div>`,
+
+  'launch-missing-required': () => `
+    <div class="mh"><i data-lucide="triangle-alert" class="mh-icon" width="16" height="16" style="color:var(--yellow)"></i><span class="mh-title">Missing Required Files</span><button class="mh-close" onclick="cancelLaunchMissingDialog()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div style="font-size:11px;font-family:var(--mono);color:var(--t3);line-height:1.6;margin-bottom:10px">
+        Some required mods/shaders are missing in <strong style="color:var(--t1)">${escapeHtml(selectedInstanceNameForModal())}</strong>.
+      </div>
+      <div id="launch-missing-list" class="ver-list" style="max-height:230px"></div>
+      <div id="launch-missing-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)"></div>
+    </div>
+    <div class="mf" style="justify-content:space-between">
+      <button class="btn btn-ghost" onclick="cancelLaunchMissingDialog()">Cancel</button>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-ghost" id="launch-missing-anyway-btn" onclick="proceedLaunchWithMissingDialog()"><i data-lucide="play" width="12" height="12"></i>Launch Anyway</button>
+        <button class="btn btn-primary" id="launch-missing-install-btn" onclick="installMissingAndContinueLaunch()"><i data-lucide="download" width="12" height="12"></i>Install Missing</button>
+      </div>
+    </div>`,
+
+  'launch-preflight': () => `
+    <div class="mh"><i data-lucide="shield-alert" class="mh-icon" width="16" height="16" style="color:var(--yellow)"></i><span class="mh-title">Preflight Check</span><button class="mh-close" onclick="cancelLaunchPreflightDialog()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div style="font-size:11px;font-family:var(--mono);color:var(--t3);line-height:1.6;margin-bottom:10px">
+        Launch check found compatibility/runtime issues.
+      </div>
+      <div id="launch-preflight-list" class="ver-list" style="max-height:250px"></div>
+      <div id="launch-preflight-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)"></div>
+    </div>
+    <div class="mf" style="justify-content:space-between">
+      <button class="btn btn-ghost" id="launch-preflight-cancel-btn" onclick="cancelLaunchPreflightDialog()">Cancel</button>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-ghost" id="launch-preflight-anyway-btn" onclick="proceedLaunchPreflightDialog()"><i data-lucide="play" width="12" height="12"></i>Continue Anyway</button>
+        <button class="btn btn-primary" id="launch-preflight-fix-btn" onclick="fixLaunchPreflightDialog()"><i data-lucide="wrench" width="12" height="12"></i>Fix Now</button>
+      </div>
+    </div>`,
+
+  'diagnostics': () => `
+    <div class="mh"><i data-lucide="activity" class="mh-icon" width="16" height="16"></i><span class="mh-title">Diagnostics</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div style="font-size:11px;font-family:var(--mono);color:var(--t4);margin-bottom:8px">Latest backend failure and launch context.</div>
+      <div id="diagnostics-latest-error" style="padding:10px;border:1px solid var(--b2);border-radius:8px;background:var(--s2);font-size:10.5px;font-family:var(--mono);line-height:1.6;color:var(--t3);white-space:pre-wrap"></div>
+      <div id="diagnostics-last-launch" style="margin-top:8px;padding:10px;border:1px solid var(--b2);border-radius:8px;background:var(--s2);font-size:10.5px;font-family:var(--mono);line-height:1.6;color:var(--t4);white-space:pre-wrap"></div>
+      <div id="diagnostics-export-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)"></div>
+    </div>
+    <div class="mf">
+      <button class="btn btn-ghost" onclick="openDiagnosticsLogsFolder()"><i data-lucide="folder-open" width="12" height="12"></i>Open Logs</button>
+      <button class="btn btn-ghost" onclick="exportDiagnosticsBundle()"><i data-lucide="file-down" width="12" height="12"></i>Export Bundle</button>
+      <button class="btn btn-primary" onclick="closeModal()">Done</button>
+    </div>`,
 
   'skin-manager': () => `
-    <div class="mh"><i data-lucide="user" class="mh-icon" width="16" height="16"></i><span class="mh-title">Skin Ã¯Â¿Â½?" Dream</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="user" class="mh-icon" width="16" height="16"></i><span class="mh-title">Skin ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Dream</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb" style="display:flex;gap:14px;align-items:flex-start">
       <div style="width:60px;height:84px;background:var(--s2);border:1px solid var(--b2);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden"><img src="https://mc-heads.net/body/Dream/64" style="height:82px;image-rendering:pixelated" onerror="this.style.display='none'"></div>
       <div style="flex:1">
@@ -580,7 +636,7 @@ const MODALS = {
         <div class="dropzone" style="padding:10px"><i data-lucide="upload" width="16" height="16"></i><span style="font-size:10.5px;font-family:var(--mono)">Drop .png skin file</span></div>
       </div>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('Ã¯Â¿Â½Y'Ã¯Â¿Â½','Skin applied','Your skin has been updated')">Apply Skin</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Skin applied','Your skin has been updated')">Apply Skin</button></div>`,
 
   'accounts': () => `
     <div class="ms-banner"><div class="ms-grid"><div></div><div></div><div></div><div></div></div><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">Microsoft accounts</span></div>
@@ -601,7 +657,7 @@ const MODALS = {
       <label class="check-row"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-label">Send anonymous analytics</span></label>
       <label class="check-row"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Close to tray on launch</span></label>
     </div>
-    <div class="mf"><button class="btn btn-ghost">Reset Defaults</button><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('Ã¯Â¿Â½Y'Ã¯Â¿Â½','Settings saved','Global settings updated')">Save</button></div>`,
+    <div class="mf"><button class="btn btn-ghost">Reset Defaults</button><button class="btn btn-ghost" onclick="openModal('diagnostics')">Diagnostics</button><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Settings saved','Global settings updated')">Save</button></div>`,
 
   'profiles': () => `
     <div class="mh"><i data-lucide="layers" class="mh-icon" width="16" height="16"></i><span class="mh-title">Profiles</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
@@ -614,10 +670,10 @@ const MODALS = {
         ${sel?`<div style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--t4)">Active</div>`:''}
       </div>`).join('')}
     </div>
-    <div class="mf"><button class="btn btn-ghost"><i data-lucide="plus" width="12" height="12"></i>New Profile</button><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('Ã¯Â¿Â½o.','Profile switched','Now using Gaming profile')">Apply</button></div>`,
+    <div class="mf"><button class="btn btn-ghost"><i data-lucide="plus" width="12" height="12"></i>New Profile</button><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o.','Profile switched','Now using Gaming profile')">Apply</button></div>`,
 
   'export': () => `
-    <div class="mh"><i data-lucide="package-open" class="mh-icon" width="16" height="16"></i><span class="mh-title">Export Ã¯Â¿Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="package-open" class="mh-icon" width="16" height="16"></i><span class="mh-title">Export ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="field"><div class="label">Format</div><select class="select"><option>Modrinth (.mrpack)</option><option>CurseForge (.zip)</option><option>MultiMC (.zip)</option></select></div>
       <div class="field"><div class="label">Version</div><input class="input" value="1.0.0"></div>
@@ -630,22 +686,22 @@ const MODALS = {
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary"><i data-lucide="download" width="12" height="12"></i>Export</button></div>`,
 
   'share-link': () => `
-    <div class="mh"><i data-lucide="share-2" class="mh-icon" width="16" height="16"></i><span class="mh-title">Share Instance Ã¯Â¿Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="share-2" class="mh-icon" width="16" height="16"></i><span class="mh-title">Share Instance ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="label" style="margin-bottom:6px">Share Link</div>
       <div class="share-link-box"><i data-lucide="link" width="13" height="13" style="color:var(--t4);flex-shrink:0"></i><span id="share-link-value">${escapeHtml(buildInstanceShareLink())}</span><button style="background:var(--s3);border:1px solid var(--b3);border-radius:5px;padding:2px 8px;font-size:10px;font-family:var(--mono);color:var(--t3);cursor:pointer;flex-shrink:0" onclick="copyShareLinkFromModal()">Copy</button></div>
       <div class="field" style="margin-top:12px"><div class="label">Expires</div><select class="select"><option>Never</option><option>24 hours</option><option>7 days</option></select></div>
       <label class="check-row" style="margin-top:8px"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Include mods &amp; configs</span></label>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Close</button><button class="btn btn-primary" onclick="showToast('Ã¯Â¿Â½Y"-','Link shared','Share link generated')"><i data-lucide="share-2" width="12" height="12"></i>Generate New</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Close</button><button class="btn btn-primary" onclick="showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"-','Link shared','Share link generated')"><i data-lucide="share-2" width="12" height="12"></i>Generate New</button></div>`,
 
   'download-mods': () => `
     <div class="mh"><i data-lucide="search" class="mh-icon" width="16" height="16"></i><span class="mh-title">Download Mods</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="tabs"><button class="tab active" onclick="switchTab(this)">Modrinth</button><button class="tab" onclick="switchTab(this)">CurseForge</button></div>
-      <div class="field" style="position:relative"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4)"></i><input class="input" style="padding-left:28px" placeholder="Search modsÃ¯Â¿Â½?Ã¯Â¿Â½"></div>
-      ${[['Ã¯Â¿Â½sÃ¯Â¿Â½','Sodium','Render engine rewrite',false],['Ã¯Â¿Â½YOÃ¯Â¿Â½','Lithium','Game logic optimization',true],['Ã¯Â¿Â½Y"?','Iris Shaders','Shader support',false],['Ã¯Â¿Â½Y"Ã¯Â¿Â½','Fabric API','Required library',false]].map(([e,n,d,added])=>`
-      <div class="list-item"><div style="width:26px;height:26px;background:var(--s3);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">${e}</div><div style="flex:1"><div style="font-size:12px;font-family:var(--mono);color:var(--t2)">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4)">${d}</div></div><button style="height:25px;padding:0 9px;border-radius:5px;border:1px solid ${added?'var(--b3)':'var(--b2)'};background:${added?'var(--s3)':'var(--s2)'};font-size:10.5px;font-family:var(--mono);color:${added?'var(--t3)':'var(--t2)'};cursor:pointer">${added?'Ã¯Â¿Â½o" Added':'+ Add'}</button></div>`).join('')}
+      <div class="field" style="position:relative"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4)"></i><input class="input" style="padding-left:28px" placeholder="Search modsÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½"></div>
+      ${[['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½sÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Sodium','Render engine rewrite',false],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YOÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Lithium','Game logic optimization',true],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"?','Iris Shaders','Shader support',false],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Fabric API','Required library',false]].map(([e,n,d,added])=>`
+      <div class="list-item"><div style="width:26px;height:26px;background:var(--s3);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">${e}</div><div style="flex:1"><div style="font-size:12px;font-family:var(--mono);color:var(--t2)">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4)">${d}</div></div><button style="height:25px;padding:0 9px;border-radius:5px;border:1px solid ${added?'var(--b3)':'var(--b2)'};background:${added?'var(--s3)':'var(--s2)'};font-size:10.5px;font-family:var(--mono);color:${added?'var(--t3)':'var(--t2)'};cursor:pointer">${added?'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o" Added':'+ Add'}</button></div>`).join('')}
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Close</button></div>`,
 
@@ -654,7 +710,7 @@ const MODALS = {
     <div class="mb">
       <div class="tabs"><button class="tab active" onclick="switchTab(this)">Modrinth</button><button class="tab" onclick="switchTab(this)">CurseForge</button><button class="tab" onclick="switchTab(this)">Local</button></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
-        ${[['ï¿½YOï¿½','All the Mods 9','1.21.1 Â· Forge'],['ï¿½sTï¸','Create: Astral','1.20.1 Â· Fabric'],['ï¿½Yï¿½ï¿½','Better MC','1.21.4 Â· Fabric'],['ï¿½Y"ï¿½','Prominence II','1.20.1 Â· Forge'],['ï¿½YOï¿½','Roguelike Adv.','1.20.1 Â· Forge'],['ï¿½Y"ï¿½','Cobblemon','1.21.1 Â· Fabric']].map(([e,n,v])=>`
+        ${[['ÃƒÂ¯Ã‚Â¿Ã‚Â½YOÃƒÂ¯Ã‚Â¿Ã‚Â½','All the Mods 9','1.21.1 Ãƒâ€šÃ‚Â· Forge'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½sTÃƒÂ¯Ã‚Â¸Ã‚Â','Create: Astral','1.20.1 Ãƒâ€šÃ‚Â· Fabric'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½YÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½','Better MC','1.21.4 Ãƒâ€šÃ‚Â· Fabric'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½Y"ÃƒÂ¯Ã‚Â¿Ã‚Â½','Prominence II','1.20.1 Ãƒâ€šÃ‚Â· Forge'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½YOÃƒÂ¯Ã‚Â¿Ã‚Â½','Roguelike Adv.','1.20.1 Ãƒâ€šÃ‚Â· Forge'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½Y"ÃƒÂ¯Ã‚Â¿Ã‚Â½','Cobblemon','1.21.1 Ãƒâ€šÃ‚Â· Fabric']].map(([e,n,v])=>`
         <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;padding:9px;cursor:pointer;transition:border-color 0.12s" onmouseenter="this.style.borderColor='var(--b3)'" onmouseleave="this.style.borderColor='var(--b2)'">
           <div style="font-size:20px;margin-bottom:5px">${e}</div>
           <div style="font-size:11.5px;font-family:var(--mono);color:var(--t2)">${n}</div>
@@ -663,6 +719,46 @@ const MODALS = {
       </div>
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary"><i data-lucide="download" width="12" height="12"></i>Install</button></div>`,
+
+  'browse-install': () => `
+    <div class="mh">
+      <i data-lucide="download" class="mh-icon" width="16" height="16"></i>
+      <span class="mh-title">Install from Browse</span>
+      <button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button>
+    </div>
+    <div class="mb">
+      <div id="browse-install-summary" style="padding:9px 10px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-bottom:10px;font-size:11px;font-family:var(--mono);color:var(--t3)"></div>
+      <div class="field">
+        <div class="label">Instance</div>
+        <select class="select" id="browse-install-instance" onchange="onBrowseInstallInstanceChange()"></select>
+      </div>
+      <div style="display:flex;justify-content:flex-end;margin:-4px 0 8px">
+        <button class="btn btn-ghost" style="height:28px;padding:0 10px;font-size:10px" onclick="openAddInstanceForBrowseItem()">
+          <i data-lucide="plus" width="11" height="11"></i>Add instance for this
+        </button>
+      </div>
+      <div id="browse-install-compat" style="font-size:11px;font-family:var(--mono);color:var(--t4);margin:-4px 0 9px"></div>
+      <div class="field">
+        <div class="label">If already installed</div>
+        <select class="select" id="browse-install-exists-policy" onchange="onBrowseInstallExistsPolicyChange()">
+          <option value="skip">Skip existing (Recommended)</option>
+          <option value="overwrite">Update / overwrite</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="label">Required / Related Mods</div>
+        <div id="browse-install-deps" class="ver-list" style="max-height:130px"></div>
+      </div>
+      <div id="browse-install-status" style="font-size:11px;font-family:var(--mono);color:var(--t4);padding:8px 9px;border:1px solid var(--b2);border-radius:7px;background:var(--s2)">Select instance to continue.</div>
+      <div class="field" style="margin-top:8px">
+        <div class="label">Install Log</div>
+        <div id="browse-install-log" class="ver-list" style="max-height:120px;font-size:10px;font-family:var(--mono);line-height:1.45"></div>
+      </div>
+    </div>
+    <div class="mf">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="browse-install-confirm" onclick="confirmBrowseInstallFromModal()"><i data-lucide="download" width="12" height="12"></i>Install</button>
+    </div>`,
 
   'world-manager': () => `
     <div class="mh"><i data-lucide="globe" class="mh-icon" width="16" height="16"></i><span class="mh-title">Worlds - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
@@ -673,22 +769,28 @@ const MODALS = {
     <div class="mf"><button class="btn btn-ghost" onclick="openSelectedInstanceFolder('saves')"><i data-lucide="folder-open" width="12" height="12"></i>Open Worlds</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
 
   'screenshots': () => `
-    <div class="mh"><i data-lucide="camera" class="mh-icon" width="16" height="16"></i><span class="mh-title">Screenshots Ã¯Â¿Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="camera" class="mh-icon" width="16" height="16"></i><span class="mh-title">Screenshots ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="ss-grid">
-        ${Array(6).fill(0).map((_,i)=>`<div class="ss-cell" style="background-image:url('https://picsum.photos/seed/ss${i}/200/112');background-size:cover"></div>`).join('')}
+        ${Array(6).fill(0).map((_,i)=>`<div class="ss-cell" style="background-image:url('${bannerImagePathBySeed('ss-' + i)}');background-size:cover"></div>`).join('')}
       </div>
-      <div style="font-size:11px;font-family:var(--mono);color:var(--t4);text-align:center">6 screenshots Â· 12 MB</div>
+      <div style="font-size:11px;font-family:var(--mono);color:var(--t4);text-align:center">6 screenshots Ãƒâ€šÃ‚Â· 12 MB</div>
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="openSelectedInstanceFolder('screenshots')"><i data-lucide="folder-open" width="12" height="12"></i>Open Folder</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
 
   'notes': () => `
-    <div class="mh"><i data-lucide="notebook-pen" class="mh-icon" width="16" height="16"></i><span class="mh-title">Notes Ã¯Â¿Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
-    <div class="mb"><textarea class="textarea" rows="6">- Sodium + Iris installed\n- BSL shaders look great\n- Need to update Lithium</textarea></div>
-    <div class="mf"><button class="btn btn-ghost"><i data-lucide="trash-2" width="12" height="12"></i>Clear</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
+    <div class="mh"><i data-lucide="notebook-pen" class="mh-icon" width="16" height="16"></i><span class="mh-title">Notes - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <textarea class="textarea" rows="7" id="instance-notes-input" placeholder="Write notes for this instance...">${escapeHtml(getInstanceNote(selectedInstanceNameForModal()))}</textarea>
+      <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:6px" id="instance-notes-meta">0 chars</div>
+    </div>
+    <div class="mf">
+      <button class="btn btn-ghost" onclick="clearNotesFromModal()"><i data-lucide="trash-2" width="12" height="12"></i>Clear</button>
+      <button class="btn btn-primary" onclick="saveNotesFromModal()"><i data-lucide="check" width="12" height="12"></i>Save</button>
+    </div>`,
 
   'duplicate': () => `
-    <div class="mh"><i data-lucide="copy" class="mh-icon" width="16" height="16"></i><span class="mh-title">Duplicate Ã¯Â¿Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="copy" class="mh-icon" width="16" height="16"></i><span class="mh-title">Duplicate ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="field"><div class="label">New Name</div><input class="input" id="duplicate-inst-name" value="${escapeHtml(buildDuplicateInstanceName())}"></div>
       <label class="check-row"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Mods &amp; configs</span></label>
@@ -709,46 +811,96 @@ const MODALS = {
     <div class="mb">
       <div class="field"><div class="label">Username</div><input class="input" placeholder="e.g. Technoblade2"></div>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('Ã¯Â¿Â½Y'Ã¯Â¿Â½','Request sent','Friend request sent!')"><i data-lucide="send" width="12" height="12"></i>Send Request</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Request sent','Friend request sent!')"><i data-lucide="send" width="12" height="12"></i>Send Request</button></div>`,
 
   'shared-session': () => `
     <div class="mh"><i data-lucide="arrow-right-to-line" class="mh-icon" width="16" height="16"></i><span class="mh-title">Join Session</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-bottom:12px"><div style="font-size:24px">ï¿½YOï¿½</div><div><div style="font-size:13px;font-weight:700;color:var(--t1)">All the Mods 9</div><div style="font-size:10.5px;font-family:var(--mono);color:var(--t3)">Technoblade2 Â· 1.21.1 Â· Forge</div></div><div style="margin-left:auto;display:flex;align-items:center;gap:4px"><div class="li-dot on"></div><span style="font-size:10px;font-family:var(--mono);color:var(--green)">Online</span></div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-bottom:12px"><div style="font-size:24px">ÃƒÂ¯Ã‚Â¿Ã‚Â½YOÃƒÂ¯Ã‚Â¿Ã‚Â½</div><div><div style="font-size:13px;font-weight:700;color:var(--t1)">All the Mods 9</div><div style="font-size:10.5px;font-family:var(--mono);color:var(--t3)">Technoblade2 Ãƒâ€šÃ‚Â· 1.21.1 Ãƒâ€šÃ‚Â· Forge</div></div><div style="margin-left:auto;display:flex;align-items:center;gap:4px"><div class="li-dot on"></div><span style="font-size:10px;font-family:var(--mono);color:var(--green)">Online</span></div></div>
       <label class="check-row"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Auto-sync mods</span></label>
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();launchSequence()"><i data-lucide="play" width="12" height="12"></i>Join Session</button></div>`,
 
   'banner-picker': () => `
-    <div class="mh"><i data-lucide="image" class="mh-icon" width="16" height="16"></i><span class="mh-title">Set Banner Ã¯Â¿Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="image" class="mh-icon" width="16" height="16"></i><span class="mh-title">Set Banner - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      <div class="ss-grid">
-        ${Array(6).fill(0).map((_,i)=>`<div class="ss-cell" style="background-image:url('https://picsum.photos/seed/bn${i}/200/112');background-size:cover;" onclick="document.querySelectorAll('.ss-cell').forEach(c=>{c.style.borderColor='';c.style.boxShadow=''});this.style.borderColor='var(--b4)';this.style.boxShadow='0 0 0 2px rgba(255,255,255,0.12)'"></div>`).join('')}
+      <input type="hidden" id="banner-picker-selected-key" value="${escapeHtml(resolveInstanceBannerKey((INSTANCE_DATA[selectedInstanceNameForModal()] && INSTANCE_DATA[selectedInstanceNameForModal()].bannerKey) || '', selectedInstanceNameForModal()))}">
+      <div class="banner-picker-scroll">
+        <div class="ss-grid banner-picker-grid" id="banner-picker-grid">
+          ${BANNER_IMAGE_FILES.map((file) => {
+            const key = bannerKeyFromFile(file);
+            const selectedKey = resolveInstanceBannerKey((INSTANCE_DATA[selectedInstanceNameForModal()] && INSTANCE_DATA[selectedInstanceNameForModal()].bannerKey) || '', selectedInstanceNameForModal());
+            const selectedClass = key === selectedKey ? ' selected' : '';
+            return `<div class="ss-cell banner-cell${selectedClass}" data-banner-key="${key}" style="background-image:url('assets/banner/${file}');background-size:cover;" onclick="pickBannerFromModal('${key}')"></div>`;
+          }).join('')}
+        </div>
       </div>
       <div class="dropzone" style="padding:10px;margin-top:8px"><i data-lucide="upload" width="14" height="14"></i><span style="font-size:10.5px;font-family:var(--mono)">Or upload custom image</span></div>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('Ã¯Â¿Â½Y-Ã¯Â¿Â½Ã¯Â¸Â','Banner updated','Instance card updated')">Apply</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="applyBannerFromModal()">Apply</button></div>`,
+
+  'create-group': () => `
+    <div class="mh"><i data-lucide="folder-plus" class="mh-icon" width="16" height="16"></i><span class="mh-title">Create Group</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div class="field">
+        <div class="label">Group Name</div>
+        <input class="input" id="create-group-name" maxlength="32" placeholder="e.g. Survival" onkeydown="if(event.key==='Enter'){event.preventDefault();submitCreateGroupFromModal();}">
+      </div>
+      <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);line-height:1.6">
+        Group names are local to this launcher profile.
+      </div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="submitCreateGroupFromModal()"><i data-lucide="check" width="12" height="12"></i>Create</button></div>`,
+
+  'rename-group': () => `
+    <div class="mh"><i data-lucide="pencil" class="mh-icon" width="16" height="16"></i><span class="mh-title">Rename Group</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div class="field">
+        <div class="label">Group Name</div>
+        <input class="input" id="rename-group-name" maxlength="32" placeholder="Group name" onkeydown="if(event.key==='Enter'){event.preventDefault();submitRenameGroupFromModal();}">
+      </div>
+      <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);line-height:1.6">
+        Keep names short for cleaner group headers.
+      </div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="submitRenameGroupFromModal()"><i data-lucide="check" width="12" height="12"></i>Save</button></div>`,
+
+  'delete-group': () => `
+    <div class="mh"><i data-lucide="trash-2" class="mh-icon" width="16" height="16"></i><span class="mh-title">Delete Group</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div style="background:rgba(180,40,40,0.08);border:1px solid rgba(180,40,40,0.2);border-radius:8px;padding:10px 12px;margin-bottom:12px;display:flex;gap:8px;align-items:flex-start">
+        <i data-lucide="alert-triangle" width="13" height="13" style="color:var(--red);flex-shrink:0;margin-top:1px"></i>
+        <span style="font-size:11px;font-family:var(--mono);color:var(--t2);line-height:1.65">This action cannot be undone.</span>
+      </div>
+      <div class="info-grid" style="margin-bottom:10px">
+        <div class="info-row"><span class="info-key">Group</span><span class="info-val" id="delete-group-name">-</span></div>
+        <div class="info-row"><span class="info-key">Affected Instances</span><span class="info-val" id="delete-group-count">0</span></div>
+      </div>
+      <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);line-height:1.6">
+        Instances in this group will be moved to <strong style="color:var(--t2)">No group</strong>.
+      </div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-danger" onclick="submitDeleteGroupFromModal()"><i data-lucide="trash-2" width="12" height="12"></i>Delete Group</button></div>`,
 
   'move-group': () => `
-    <div class="mh"><i data-lucide="folder-input" class="mh-icon" width="16" height="16"></i><span class="mh-title">Move Ã¯Â¿Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="folder-input" class="mh-icon" width="16" height="16"></i><span class="mh-title">Move ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      ${[['#3a3a3a','Ungrouped',true],['#2a4a2a','Survival Worlds',false],['#2a2a4a','Modded',false],['#4a2a2a','Testing',false]].map(([c,n,cur])=>`
-      <div class="group-row${cur?' sel':''}" onclick="document.querySelectorAll('.group-row').forEach(r=>r.classList.remove('sel'));this.classList.add('sel')"><div style="width:9px;height:9px;border-radius:2px;background:${c};flex-shrink:0"></div><span style="flex:1;font-size:12px;font-family:var(--mono);color:${cur?'var(--t1)':'var(--t2)'}">${n}</span>${cur?`<span style="font-size:10px;font-family:var(--mono);color:var(--t4)">current</span>`:''}</div>`).join('')}
+      ${moveGroupEntries()}
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary">Move</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="applyMoveGroupFromModal()">Move</button></div>`,
 
   'backup': () => `
-    <div class="mh"><i data-lucide="archive" class="mh-icon" width="16" height="16"></i><span class="mh-title">Backup Ã¯Â¿Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="archive" class="mh-icon" width="16" height="16"></i><span class="mh-title">Backup ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       ${[['backup_2025-03-01','234 MB','2 days ago'],['backup_2025-02-20','198 MB','2 weeks ago']].map(([n,s,d])=>`
-      <div class="bk-row"><i data-lucide="hard-drive" width="15" height="15" style="color:var(--t4);flex-shrink:0"></i><div style="flex:1"><div style="font-size:12px;font-family:var(--mono);color:var(--t2)">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4)">${s} Â· ${d}</div></div><button style="background:transparent;border:none;cursor:pointer;color:var(--t4);display:flex" onclick="this.closest('.bk-row').remove()"><i data-lucide="trash-2" width="11" height="11"></i></button></div>`).join('')}
+      <div class="bk-row"><i data-lucide="hard-drive" width="15" height="15" style="color:var(--t4);flex-shrink:0"></i><div style="flex:1"><div style="font-size:12px;font-family:var(--mono);color:var(--t2)">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4)">${s} Ãƒâ€šÃ‚Â· ${d}</div></div><button style="background:transparent;border:none;cursor:pointer;color:var(--t4);display:flex" onclick="this.closest('.bk-row').remove()"><i data-lucide="trash-2" width="11" height="11"></i></button></div>`).join('')}
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="showToast('Ã¯Â¿Â½Y"Ã¯Â¿Â½','Backup created','Saved backup successfully')"><i data-lucide="plus" width="12" height="12"></i>New Backup</button><button class="btn btn-primary"><i data-lucide="rotate-ccw" width="12" height="12"></i>Restore</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Backup created','Saved backup successfully')"><i data-lucide="plus" width="12" height="12"></i>New Backup</button><button class="btn btn-primary"><i data-lucide="rotate-ccw" width="12" height="12"></i>Restore</button></div>`,
 };
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // INIT
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 const tauriInvoke = (() => {
   const coreInvoke = window.__TAURI__ && window.__TAURI__.core && window.__TAURI__.core.invoke;
   const legacyInvoke = window.__TAURI__ && window.__TAURI__.invoke;
@@ -778,6 +930,52 @@ const tauriListen = (() => {
   if (typeof eventListen === 'function') return eventListen;
   const coreListen = window.__TAURI__ && window.__TAURI__.core && window.__TAURI__.core.listen;
   if (typeof coreListen === 'function') return coreListen;
+
+  // Tauri v2 fallback when global API is not injected, but internals exist.
+  const internals = window.__TAURI_INTERNALS__;
+  const internalInvoke =
+    internals && typeof internals.invoke === 'function'
+      ? function invokeWithInternals(command, payload) {
+          return internals.invoke(command, payload || {});
+        }
+      : null;
+  const transformCallback =
+    internals && typeof internals.transformCallback === 'function'
+      ? internals.transformCallback.bind(internals)
+      : null;
+  const unregisterInternalListener =
+    window.__TAURI_EVENT_PLUGIN_INTERNALS__ &&
+    typeof window.__TAURI_EVENT_PLUGIN_INTERNALS__.unregisterListener === 'function'
+      ? window.__TAURI_EVENT_PLUGIN_INTERNALS__.unregisterListener.bind(window.__TAURI_EVENT_PLUGIN_INTERNALS__)
+      : null;
+
+  if (internalInvoke && transformCallback) {
+    return async function listenViaInternals(eventName, handler, options) {
+      if (typeof handler !== 'function') {
+        throw new Error('listen handler must be a function');
+      }
+      const opts = options && typeof options === 'object' ? options : null;
+      const target = opts && typeof opts.target === 'string'
+        ? { kind: 'AnyLabel', label: opts.target }
+        : (opts && opts.target) || { kind: 'Any' };
+      const callbackId = transformCallback(handler);
+      const eventId = await internalInvoke('plugin:event|listen', {
+        event: eventName,
+        target,
+        handler: callbackId,
+      });
+      return async function unlistenViaInternals() {
+        try {
+          if (unregisterInternalListener) unregisterInternalListener(eventName, eventId);
+        } catch (_err) {}
+        await internalInvoke('plugin:event|unlisten', {
+          event: eventName,
+          eventId,
+        });
+      };
+    };
+  }
+
   console.warn('Tauri listen API not available; lifecycle/provision event stream disabled');
   return null;
 })();
@@ -790,27 +988,121 @@ let ACTIVE_PROVISION = null;
 const LAUNCH_STARTUP_TIMEOUT_MS = 45000;
 const LAUNCH_STARTUP_POLL_MS = 1200;
 const LAUNCH_STABLE_POLLS = 3;
+const LAUNCH_READY_MIN_ALIVE_MS = 18000;
+const INSTANCE_RUNTIME_POLL_MS = 2000;
 let JAVA_RUNTIME_INFO = { minimumMajor: 17, defaultPath: null, candidates: [] };
 const ADD_INSTANCE_VERSION_CACHE = new Map();
 const ADD_INSTANCE_LOADER_VERSION_CACHE = new Map();
+let INSTANCE_RUNTIME_POLL_TIMER = null;
+let INSTANCE_RUNTIME_POLL_IN_FLIGHT = false;
+let INSTANCE_RUNTIME_POLL_SIGNATURE = '';
+const INSTANCE_ICON_MANIFEST_PATH = 'assets/instance-icons/isometric-256/manifest.json';
+const INSTANCE_ICON_FALLBACK_KEYS = ['block_of_amethyst', 'block_of_diamond', 'bricks_stone', 'natural_grass_block', 'ore_emerald'];
+const BANNER_IMAGE_FILES = [
+  '0c34cf99c6ef3e6d0afb169eede3d1243f8a8720.webp',
+  '194a66202abf4b4c01842411826fcde15863ad9c.webp',
+  '2a12588c3cae5a1b59e2154ca8a975349463725d.webp',
+  '2d5f7afcbee2ee385db0532d7234d8be3cdc3504.webp',
+  '2db359dad7e1d382f1831ae752a4fb0baf07d2b3.webp',
+  '331ec5c1ee90d70d97c218dfe52f5113973738b6.webp',
+  '4a72f7d54fabe97c8eaf3c5e61894d8dfe2819bf.webp',
+  '51b1457222cb549b8aed57045a8900f785abf623.webp',
+  '520e2e71c7791a48947698dec9c2a0ab1ab4ca91.webp',
+  '53158735be49a61e603c276c66788af48e5a9503.webp',
+  '7b30e83ce5f6689f0f775db2e9f86e893f6b5501.webp',
+  '80fc3013d9d63fd343980cbebf770fefcd36ed75.webp',
+  '964cd5e32519c7bce63cba7e3438428319a38bbf.webp',
+  'a7205115d731077733ab5cdcc639e5531f2dee12.webp',
+  'e39aa18a7097a5af8072ac77c72160ec02217810.webp',
+];
+const BANNER_IMAGE_KEYS = BANNER_IMAGE_FILES.map((file) => file.replace(/\.webp$/i, ''));
+let INSTANCE_ICON_KEYS = [];
+let INSTANCE_ICON_MANIFEST_PROMISE = null;
 let PROFILE_DATA = [];
 const ORBIQ_ACCOUNT_STORE_KEY = 'orbiq.account.v1';
+const INSTANCE_GROUP_STORE_KEY = 'orbiq.instance-groups.v1';
+const INSTANCE_NOTES_STORE_KEY = 'orbiq.instance-notes.v1';
+const INSTANCE_VIEW_STORE_KEY = 'orbiq.instance-view.v1';
+const INSTANCE_INSTALLS_STORE_KEY = 'orbiq.instance-installs.v1';
+const INSTANCE_GROUP_COLOR_POOL = ['#3a3a3a', '#2a4a2a', '#2a2a4a', '#4a2a2a', '#3a2a4a', '#2a4a4a'];
 let ORBIQ_ACCOUNT_STATE = null;
 let ORBIQ_REGISTER_STATE = null;
 let ORBIQ_REGISTER_RESULT = null;
 let PENDING_DEEP_LINK_OTP = '';
 let MICROSOFT_AUTH_POLL = null;
+let MICROSOFT_OAUTH_EXPECTED_STATE = '';
 let ACTIVE_PROFILE_DETAIL_ID = null;
 const HANDLED_DEEP_LINKS = new Set();
 const MAX_HANDLED_DEEP_LINKS = 24;
+let MOVE_GROUP_SELECTED_ID = '';
+let RENAME_GROUP_TARGET_ID = '';
+let DELETE_GROUP_TARGET_ID = '';
+let INSTANCE_NOTES_LOADED = false;
+let INSTANCE_NOTES = {};
+let INSTANCE_INSTALLS_LOADED = false;
+let INSTANCE_INSTALLS = {};
+let MANAGED_MODS_PRESENCE_CACHE = { instanceName: '', rows: [] };
+let LAUNCH_MISSING_DIALOG_STATE = null;
+let LAUNCH_PREFLIGHT_DIALOG_STATE = null;
+const DIAGNOSTICS_STATE = {
+  latestError: null,
+  lastCommand: null,
+  lastLaunchCommand: null,
+  lastLaunchRequest: null,
+  lastBundlePath: '',
+};
+
+function clearMicrosoftAuthPoll() {
+  if (!MICROSOFT_AUTH_POLL) return;
+  clearTimeout(MICROSOFT_AUTH_POLL);
+  clearInterval(MICROSOFT_AUTH_POLL);
+  MICROSOFT_AUTH_POLL = null;
+}
+
+function startMicrosoftCallbackWatch() {
+  clearMicrosoftAuthPoll();
+  let busy = false;
+  const startedAt = Date.now();
+  MICROSOFT_AUTH_POLL = setInterval(async () => {
+    if (busy) return;
+    if (Date.now() - startedAt > 3 * 60 * 1000) {
+      clearMicrosoftAuthPoll();
+      return;
+    }
+    busy = true;
+    try {
+      const current = await tauriInvoke('plugin:deep-link|get_current', {});
+      await processDeepLinkPayload(current);
+    } catch (_err) {
+      // Ignore transient deep-link read errors during polling.
+    } finally {
+      busy = false;
+    }
+  }, 1200);
+}
 
 async function invokeBackend(command, payload) {
+  DIAGNOSTICS_STATE.lastCommand = {
+    command: String(command || ''),
+    at: new Date().toISOString(),
+  };
   try {
     const data = await tauriInvoke(command, payload || {});
     return { ok: true, data, error: null };
   } catch (err) {
     console.error('[backend] ' + command + ' failed', err);
-    return { ok: false, data: null, error: String(err) };
+    const raw = String(err || '');
+    const normalized = formatBackendError(raw, 'Backend request failed');
+    const matched = raw.match(/^\s*\[([A-Z0-9_]+)\]\s*/);
+    const code = matched ? String(matched[1] || '').trim() : '';
+    DIAGNOSTICS_STATE.latestError = {
+      command: String(command || ''),
+      code,
+      message: normalized,
+      raw: raw,
+      at: new Date().toISOString(),
+    };
+    return { ok: false, data: null, error: raw };
   }
 }
 
@@ -832,6 +1124,7 @@ function normalizeDeepLinkEntry(entry) {
   if (typeof entry === 'object') {
     if (typeof entry.url === 'string') return entry.url.trim();
     if (typeof entry.href === 'string') return entry.href.trim();
+    if (typeof entry.uri === 'string') return entry.uri.trim();
   }
   return String(entry || '').trim();
 }
@@ -856,6 +1149,24 @@ function extractDeepLinkUrls(payload) {
     return [trimmed];
   }
   if (typeof payload === 'object') {
+    if (Array.isArray(payload.urls)) {
+      return payload.urls
+        .map(normalizeDeepLinkEntry)
+        .filter((item) => item.length > 0);
+    }
+    if (Array.isArray(payload.uris)) {
+      return payload.uris
+        .map(normalizeDeepLinkEntry)
+        .filter((item) => item.length > 0);
+    }
+    if (payload.payload) {
+      const nested = extractDeepLinkUrls(payload.payload);
+      if (nested.length) return nested;
+    }
+    if (payload.data) {
+      const nested = extractDeepLinkUrls(payload.data);
+      if (nested.length) return nested;
+    }
     return [normalizeDeepLinkEntry(payload)].filter((item) => item.length > 0);
   }
   return [];
@@ -865,17 +1176,28 @@ function parseOrbiqDeepLink(rawUrl) {
   const value = String(rawUrl || '').trim();
   if (!value) return null;
   try {
-    const parsed = new URL(value);
-    if (String(parsed.protocol || '').toLowerCase() !== 'orbiq:') return null;
-    const hostAction = String(parsed.hostname || '').trim().toLowerCase();
-    const pathAction = String(parsed.pathname || '')
+    const url = new URL(value);
+    if (String(url.protocol || '').toLowerCase() !== 'orbiq:') return null;
+    const hostAction = String(url.hostname || '').trim().toLowerCase();
+    const pathAction = String(url.pathname || '')
       .replace(/^\/+/, '')
       .split('/')[0]
       .trim()
       .toLowerCase();
     const action = hostAction || pathAction || 'open';
-    const code = String(parsed.searchParams.get('code') || '').replace(/\D+/g, '').slice(0, 6);
-    return { action, code, raw: value };
+    let rawCode = String(url.searchParams.get('code') || url.searchParams.get('auth_code') || '').trim();
+    let state = String(url.searchParams.get('state') || '').trim();
+    if ((!rawCode || !state) && String(url.hash || '').startsWith('#')) {
+      const hashParams = new URLSearchParams(String(url.hash || '').slice(1));
+      if (!rawCode) {
+        rawCode = String(hashParams.get('code') || hashParams.get('auth_code') || '').trim();
+      }
+      if (!state) {
+        state = String(hashParams.get('state') || '').trim();
+      }
+    }
+    const otpCode = rawCode.replace(/\D+/g, '').slice(0, 6);
+    return { action, otpCode, rawCode, state, raw: value };
   } catch (_err) {
     return null;
   }
@@ -929,20 +1251,79 @@ function applyOrbiqVerifyDeepLink(code) {
   }, 80);
 }
 
+async function completeMicrosoftOAuthFromDeepLink(rawCode, oauthState) {
+  const code = String(rawCode || '').trim();
+  const state = String(oauthState || '').trim();
+  if (!code || !state) {
+    showToast('!', 'Microsoft link', 'Missing callback code/state from browser');
+    return;
+  }
+  clearMicrosoftAuthPoll();
+
+  if (MICROSOFT_OAUTH_EXPECTED_STATE && MICROSOFT_OAUTH_EXPECTED_STATE !== state) {
+    const allowMismatch = !!window.__ORBIQ_ALLOW_STATE_MISMATCH;
+    if (!allowMismatch) {
+      const reason = 'Microsoft callback state mismatch. Please start Link Microsoft again.';
+      const statusEl = document.getElementById('ms-device-status');
+      if (statusEl) statusEl.textContent = reason;
+      showToast('!', 'Microsoft link failed', reason);
+      return;
+    }
+    console.warn('[ms-oauth] callback state mismatch override enabled');
+  }
+
+  const statusEl = document.getElementById('ms-device-status');
+  if (statusEl) statusEl.textContent = 'Finishing Microsoft sign-in...';
+
+  const completeRes = await invokeBackend('complete_microsoft_oauth_login_command', {
+    request: { state, code },
+  });
+  if (!completeRes.ok || !completeRes.data) {
+    const reason = formatBackendError(
+      completeRes.error,
+      'Microsoft sign-in could not be completed. Please try Link Microsoft again.'
+    );
+    if (statusEl) statusEl.textContent = reason;
+    showToast('!', 'Microsoft link failed', reason);
+    return;
+  }
+
+  MICROSOFT_OAUTH_EXPECTED_STATE = '';
+  const profileName =
+    completeRes.data.profile && completeRes.data.profile.name
+      ? completeRes.data.profile.name
+      : 'Microsoft profile';
+  await completeMicrosoftLinkSuccess(profileName);
+}
+
 async function handleOrbiqDeepLink(rawUrl) {
   const parsed = parseOrbiqDeepLink(rawUrl);
   if (!parsed) return;
+  if (parsed.rawCode || parsed.state) {
+    showToast('DL', 'Deep link received', parsed.action || 'oauth-callback');
+  }
   await focusWindowForDeepLink();
   setPage('launch');
 
   if (parsed.action === 'verify') {
-    applyOrbiqVerifyDeepLink(parsed.code);
+    applyOrbiqVerifyDeepLink(parsed.otpCode);
     return;
   }
 
   if (parsed.action === 'link-microsoft') {
     if (overlay && overlay.style.display !== 'none') closeModal();
     setTimeout(() => openModal('link-microsoft'), 120);
+    return;
+  }
+
+  if (parsed.action === 'microsoft-auth' || parsed.action === 'microsoft-callback') {
+    await completeMicrosoftOAuthFromDeepLink(parsed.rawCode, parsed.state);
+    return;
+  }
+
+  // Allow custom redirect URI hosts such as orbiq://auth-callback?code=...&state=...
+  if (parsed.rawCode && parsed.state) {
+    await completeMicrosoftOAuthFromDeepLink(parsed.rawCode, parsed.state);
     return;
   }
 
@@ -984,7 +1365,57 @@ function formatBackendError(errorText, fallbackText) {
   if (!raw) return fallback;
   const normalized = normalizeMojibakeText(raw).trim();
   if (!normalized) return fallback;
-  return normalized.replace(/^Error:\s*/i, '').trim() || fallback;
+  const cleaned = normalized.replace(/^Error:\s*/i, '').trim();
+  if (!cleaned) return fallback;
+
+  const match = cleaned.match(/^\[([A-Z0-9_]+)\]\s*(.*)$/);
+  const code = match ? String(match[1] || '').trim() : '';
+  const message = (match ? String(match[2] || '') : cleaned).trim();
+  const lower = message.toLowerCase();
+
+  if (code === 'AUTH_RELINK_REQUIRED') {
+    return 'Microsoft account relink required. Open Accounts and link Microsoft again.';
+  }
+  if (code === 'AUTH_ENTITLEMENT_MISSING') {
+    return 'This Microsoft account does not own Minecraft: Java Edition.';
+  }
+  if (code === 'AUTH_APP_REGISTRATION_INVALID') {
+    return 'Azure app registration is not approved for Minecraft services (see aka.ms/mce-reviewappid).';
+  }
+  if (code === 'AUTH_CLOCK_SKEW') {
+    return 'System clock appears out of sync. Correct date/time and retry Microsoft sign-in.';
+  }
+  if (code === 'AUTH_OAUTH_COMPLETE_FAILED' && lower.includes('already used')) {
+    return 'Microsoft sign-in session already consumed. Start Link Microsoft again.';
+  }
+  if (code === 'AUTH_OAUTH_COMPLETE_FAILED' && lower.includes('session not found')) {
+    return 'Microsoft sign-in session expired. Start Link Microsoft again.';
+  }
+
+  if (lower.includes('invalid app registration') || lower.includes('aka.ms/appreginfo')) {
+    return 'Azure app registration is invalid for Minecraft services. Submit/approve AppID first.';
+  }
+  if (lower.includes('does not own minecraft') || lower.includes('minecraft profile not found')) {
+    return 'This Microsoft account does not own Minecraft: Java Edition.';
+  }
+  if (lower.includes('token not found for profile') || lower.includes('refresh token is missing')) {
+    return 'Microsoft token is invalid or missing. Please relink Microsoft account.';
+  }
+
+  return message || fallback;
+}
+
+async function completeMicrosoftLinkSuccess(profileName) {
+  clearMicrosoftAuthPoll();
+  await refreshProfilesFromBackend();
+  const orbiqAccount = getOrbiqAccountState();
+  if (orbiqAccount) {
+    orbiqAccount.microsoftLinked = true;
+    persistOrbiqAccountState(orbiqAccount);
+  }
+  if (overlay && overlay.style.display !== 'none') closeModal();
+  goToAccountsPage();
+  showToast('OK', 'Account linked', String(profileName || 'Microsoft profile') + ' connected successfully');
 }
 
 function normalizeOrbiqEmail(value) {
@@ -1226,6 +1657,24 @@ function getSelectedInstanceName() {
   return exists ? value : null;
 }
 
+function openInstanceJavaConfig() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+  openModal('instance-info-java');
+}
+
+function openInstanceMemoryConfig() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+  openModal('instance-info-memory');
+}
+
 function selectInstanceByName(name) {
   const target = String(name || '').trim().toLowerCase();
   if (!target) return false;
@@ -1294,9 +1743,9 @@ function profileLaunchItemMarkup(profile, selected) {
   const safeName = escapeHtml(profile.name || 'Player');
   const itemClass = isMicrosoft ? 'ms-type' : 'offline-type';
   const avatarMarkup = isMicrosoft
-    ? `<div class="ps-avatar"><img src="https://mc-heads.net/avatar/${encodeURIComponent(profile.name || 'Steve')}/64" onerror="this.parentNode.innerHTML='Ã¯Â¿Â½YT,'" style="width:100%;image-rendering:pixelated"></div>`
+    ? `<div class="ps-avatar"><img src="https://mc-heads.net/avatar/${encodeURIComponent(profile.name || 'Steve')}/64" onerror="this.parentNode.innerHTML='ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YT,'" style="width:100%;image-rendering:pixelated"></div>`
     : `<div class="ps-avatar offline-av" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="user" width="18" height="18" style="color:var(--t3)"></i></div>`;
-  const desc = isMicrosoft ? 'Microsoft Â· Official servers' : 'Offline Â· Cracked servers only';
+  const desc = isMicrosoft ? 'Microsoft Ãƒâ€šÃ‚Â· Official servers' : 'Offline Ãƒâ€šÃ‚Â· Cracked servers only';
   const tag = isMicrosoft
     ? `<div class="ps-tag ms"><div class="ms-grid" style="width:10px;height:10px;margin-right:5px;display:inline-grid;gap:1px"><div style="background:#f25022;border-radius:0.5px"></div><div style="background:#7fba00;border-radius:0.5px"></div><div style="background:#00a4ef;border-radius:0.5px"></div><div style="background:#ffb900;border-radius:0.5px"></div></div>Microsoft</div>`
     : '<div class="ps-tag off">Offline</div>';
@@ -1407,8 +1856,7 @@ function onOrbiqAccountsAuthAction() {
     signOutOrbiqAccount();
     return;
   }
-  closeModal();
-  setTimeout(() => openModal('orbiq-login'), 180);
+  openModal('orbiq-login');
 }
 
 function signOutOrbiqAccount() {
@@ -1419,8 +1867,12 @@ function signOutOrbiqAccount() {
   }
   account.signedIn = false;
   persistOrbiqAccountState(account);
-  closeModal();
-  setTimeout(() => openModal('orbiq-login'), 180);
+  const modalVisible = overlay && overlay.style.display !== 'none';
+  if (modalVisible) {
+    closeModal();
+  }
+  setTimeout(() => openModal('orbiq-login'), modalVisible ? 180 : 60);
+  void hydrateOrbiqAccountsPage();
   showToast('OK', 'Signed out', 'Orbiq account session ended');
 }
 
@@ -1448,7 +1900,7 @@ function signInOrbiqFromModal() {
   account.lastLoginAtEpoch = Math.floor(Date.now() / 1000);
   persistOrbiqAccountState(account);
   closeModal();
-  setTimeout(() => openModal('orbiq-accounts'), 180);
+  setTimeout(() => goToAccountsPage(), 180);
   showToast('OK', 'Signed in', 'Welcome back to Orbiq');
 }
 
@@ -1949,11 +2401,12 @@ function openLinkMicrosoftFromSuccess() {
 function goToLauncherHome() {
   ORBIQ_REGISTER_RESULT = null;
   closeModal();
-  setPage('launch');
+  setPage('instances', document.getElementById('sb-instances-all'));
 }
 
-function renderOrbiqAccountsList() {
-  const wrap = modalPop ? modalPop.querySelector('.linked-list') : null;
+function renderOrbiqAccountsListInto(root) {
+  if (!root) return;
+  const wrap = root.querySelector('.linked-list');
   if (!wrap) return;
 
   const account = getOrbiqAccountState();
@@ -1975,34 +2428,23 @@ function renderOrbiqAccountsList() {
     createdAtEpoch: account && account.createdAtEpoch,
   });
 
-  const accountName = modalPop.querySelector('.orbiq-acct-name');
-  if (accountName) {
-    accountName.textContent = effectiveName;
-  }
+  const accountName = root.querySelector('.orbiq-acct-name');
+  if (accountName) accountName.textContent = effectiveName;
+  const accountEmail = root.querySelector('.orbiq-acct-email');
+  if (accountEmail) accountEmail.textContent = effectiveEmail;
+  const accountId = root.querySelector('.orbiq-acct-id');
+  if (accountId) accountId.textContent = effectiveId;
+  const accountPlan = root.querySelector('.orbiq-acct-plan');
+  if (accountPlan) accountPlan.textContent = effectivePlan;
 
-  const accountEmail = modalPop.querySelector('.orbiq-acct-email');
-  if (accountEmail) {
-    accountEmail.textContent = effectiveEmail;
-  }
-
-  const accountId = modalPop.querySelector('.orbiq-acct-id');
-  if (accountId) {
-    accountId.textContent = effectiveId;
-  }
-
-  const accountPlan = modalPop.querySelector('.orbiq-acct-plan');
-  if (accountPlan) {
-    accountPlan.textContent = effectivePlan;
-  }
-
-  const badge = modalPop.querySelector('.orbiq-acct-badge');
+  const badge = root.querySelector('.orbiq-acct-badge');
   if (badge) {
     badge.innerHTML = account && account.signedIn
       ? '<div style="width:5px;height:5px;border-radius:50%;background:var(--green)"></div>Signed in'
       : '<div style="width:5px;height:5px;border-radius:50%;background:var(--t4)"></div>Signed out';
   }
 
-  const authAction = modalPop.querySelector('#orbiq-auth-action-btn');
+  const authAction = root.querySelector('#orbiq-auth-action-btn');
   if (authAction) {
     authAction.innerHTML = account && account.signedIn
       ? '<i data-lucide="log-out" width="12" height="12"></i>Sign Out'
@@ -2022,8 +2464,8 @@ function renderOrbiqAccountsList() {
       typeText = 'Active';
     }
     const meta = isMicrosoft
-      ? `${profile.email || 'Microsoft account'} Â· Official license`
-      : 'Offline profile Â· Cracked servers only';
+      ? `${profile.email || 'Microsoft account'} - Official license`
+      : 'Offline profile - Cracked servers only';
 
     const iconLeft = isMicrosoft
       ? `<div class="ms-linked-icon ms-brand">
@@ -2058,16 +2500,15 @@ function renderOrbiqAccountsList() {
       </div>
     `;
   }).join('');
-
   wrap.innerHTML = `
     <div class="linked-section-label">Linked Accounts</div>
     ${rows}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">
-      <button class="add-linked-btn" onclick="closeModal();setTimeout(()=>openModal('link-microsoft'),200)">
+      <button class="add-linked-btn" onclick="openModal('link-microsoft')">
         <div class="ms-grid" style="width:12px;height:12px;"><div style="background:#f25022;border-radius:1px"></div><div style="background:#7fba00;border-radius:1px"></div><div style="background:#00a4ef;border-radius:1px"></div><div style="background:#ffb900;border-radius:1px"></div></div>
         Link Microsoft
       </button>
-      <button class="add-linked-btn" onclick="closeModal();setTimeout(()=>openModal('add-offline-profile'),200)">
+      <button class="add-linked-btn" onclick="openModal('add-offline-profile')">
         <i data-lucide="user-plus" width="12" height="12"></i>
         Add Profile
       </button>
@@ -2075,6 +2516,16 @@ function renderOrbiqAccountsList() {
   `;
 
   lucide.createIcons();
+}
+
+function renderOrbiqAccountsPage() {
+  const page = document.getElementById('page-accounts');
+  if (!page) return;
+  renderOrbiqAccountsListInto(page);
+  const countEl = document.getElementById('accounts-profile-count');
+  if (!countEl) return;
+  const count = getRenderableProfiles().length;
+  countEl.textContent = count + (count === 1 ? ' profile' : ' profiles');
 }
 
 function hydrateMicrosoftDetailModal() {
@@ -2147,17 +2598,22 @@ function hydrateOfflineDetailModal() {
   }
 }
 
-async function hydrateOrbiqAccountsModal() {
+async function hydrateOrbiqAccountsPage() {
   await refreshProfilesFromBackend();
-  renderOrbiqAccountsList();
+  renderOrbiqAccountsPage();
 }
 
 function openProfileDetailById(profileId) {
   const profile = findProfileById(profileId);
   if (!profile) return;
   ACTIVE_PROFILE_DETAIL_ID = profile.id;
-  closeModal();
-  setTimeout(() => openModal(profile.profileType === 'microsoft' ? 'ms-linked-detail' : 'offline-profile-detail'), 180);
+  const nextModalId = profile.profileType === 'microsoft' ? 'ms-linked-detail' : 'offline-profile-detail';
+  if (overlay && overlay.style.display !== 'none') {
+    closeModal();
+    setTimeout(() => openModal(nextModalId), 180);
+  } else {
+    openModal(nextModalId);
+  }
 }
 
 async function setCurrentProfileActive() {
@@ -2191,7 +2647,7 @@ async function removeCurrentOfflineProfile() {
   await refreshProfilesFromBackend();
 
   closeModal();
-  setTimeout(() => openModal('orbiq-accounts'), 180);
+  setTimeout(() => goToAccountsPage(), 180);
   showToast('OK', 'Removed', profile.name + ' profile deleted');
 }
 
@@ -2207,13 +2663,165 @@ async function unlinkCurrentMicrosoftProfile() {
   await refreshProfilesFromBackend();
 
   closeModal();
-  setTimeout(() => openModal('orbiq-accounts'), 180);
+  setTimeout(() => goToAccountsPage(), 180);
   showToast('OK', 'Unlinked', 'Microsoft account removed');
 }
 
 function getInstanceRuntimeConfig(instanceName) {
   if (!instanceName) return null;
   return INSTANCE_RUNTIME[instanceName] || null;
+}
+
+function normalizeComparablePath(value) {
+  return String(value || '').trim().replace(/[\\/]+/g, '\\').toLowerCase();
+}
+
+function pathsMatch(a, b) {
+  const left = normalizeComparablePath(a);
+  const right = normalizeComparablePath(b);
+  if (!left || !right) return false;
+  return left === right;
+}
+
+function getSelectedInstanceJavaExecutable() {
+  const instanceName = getSelectedInstanceName();
+  const runtime = getInstanceRuntimeConfig(instanceName) || {};
+  const executable = String(runtime.executable || '').trim();
+  return executable || '';
+}
+
+function formatJavaCandidateOptionLabel(candidate) {
+  if (!candidate || typeof candidate !== 'object') return 'Unknown runtime';
+  const version = String(candidate.version || '').trim();
+  const source = String(candidate.source || '').trim();
+  const major = Number(candidate.major || 0);
+  const parts = [];
+  if (version) parts.push(version);
+  else if (major > 0) parts.push('Java ' + major);
+  if (source) parts.push(source);
+  return parts.length > 0 ? parts.join(' - ') : 'Detected runtime';
+}
+
+function buildJavaPathOptionsMarkup(selectedExecutable) {
+  const selected = String(selectedExecutable || '').trim();
+  const options = [];
+  options.push('<option value=""' + (!selected ? ' selected' : '') + '>Auto (launcher default)</option>');
+
+  let matched = !selected;
+  const candidates = Array.isArray(JAVA_RUNTIME_INFO.candidates) ? JAVA_RUNTIME_INFO.candidates : [];
+  candidates.forEach((candidate) => {
+    const path = String(candidate && candidate.path ? candidate.path : '').trim();
+    if (!path) return;
+    const isSelected = selected && pathsMatch(path, selected);
+    if (isSelected) matched = true;
+    const label = formatJavaCandidateOptionLabel(candidate);
+    options.push(
+      '<option value="' + escapeHtml(path) + '"' + (isSelected ? ' selected' : '') + '>' +
+      escapeHtml(label + ' (' + path + ')') +
+      '</option>'
+    );
+  });
+
+  if (selected && !matched) {
+    options.push(
+      '<option value="' + escapeHtml(selected) + '" selected>' +
+      escapeHtml('Custom (' + selected + ')') +
+      '</option>'
+    );
+  }
+
+  return options.join('');
+}
+
+function parseHeapFlagMb(flag, prefix) {
+  const text = String(flag || '').trim();
+  const expected = String(prefix || '').toLowerCase();
+  if (!text || !expected) return null;
+  const lower = text.toLowerCase();
+  if (!lower.startsWith(expected)) return null;
+
+  const raw = text.slice(prefix.length).trim();
+  const match = raw.match(/^(\d+(?:\.\d+)?)([kmg]?)$/i);
+  if (!match) return null;
+  const value = Number(match[1]);
+  if (!Number.isFinite(value) || value <= 0) return null;
+  const unit = String(match[2] || '').toUpperCase();
+  if (unit === 'G') return Math.round(value * 1024);
+  if (unit === 'K') return Math.max(1, Math.round(value / 1024));
+  return Math.round(value);
+}
+
+function extractHeapBoundsFromArgs(args) {
+  const values = Array.isArray(args) ? args : [];
+  let minMb = 0;
+  let maxMb = 0;
+  values.forEach((arg) => {
+    const min = parseHeapFlagMb(arg, '-Xms');
+    if (min !== null) minMb = min;
+    const max = parseHeapFlagMb(arg, '-Xmx');
+    if (max !== null) maxMb = max;
+  });
+  return { minMb, maxMb };
+}
+
+function mbToHeapArgValue(valueMb) {
+  const value = Number(valueMb || 0);
+  if (!Number.isFinite(value) || value <= 0) return '';
+  if (value % 1024 === 0) return Math.round(value / 1024) + 'G';
+  return Math.round(value) + 'M';
+}
+
+function upsertHeapArgs(args, minMb, maxMb) {
+  const baseArgs = Array.isArray(args) ? args : [];
+  const filtered = baseArgs.filter((arg) => {
+    const text = String(arg || '').trim().toLowerCase();
+    return !text.startsWith('-xms') && !text.startsWith('-xmx');
+  });
+
+  const prefix = [];
+  if (Number(minMb) > 0) {
+    const value = mbToHeapArgValue(minMb);
+    if (value) prefix.push('-Xms' + value);
+  }
+  if (Number(maxMb) > 0) {
+    const value = mbToHeapArgValue(maxMb);
+    if (value) prefix.push('-Xmx' + value);
+  }
+  return prefix.concat(filtered);
+}
+
+function parseMemoryGbInputToMb(value) {
+  const text = String(value || '').trim();
+  if (!text) return null;
+  const parsed = Number(text);
+  if (!Number.isFinite(parsed) || parsed <= 0) return Number.NaN;
+  return Math.round(parsed * 1024);
+}
+
+function formatGbInputValue(valueMb) {
+  const value = Number(valueMb || 0);
+  if (!Number.isFinite(value) || value <= 0) return '';
+  const gb = value / 1024;
+  return String(Number(gb.toFixed(2)));
+}
+
+function selectedInstanceMemoryBounds() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) return { minMb: 0, maxMb: 0 };
+
+  const runtime = getInstanceRuntimeConfig(instanceName) || {};
+  const fromArgs = extractHeapBoundsFromArgs(runtime.args);
+  if (fromArgs.minMb > 0 || fromArgs.maxMb > 0) {
+    return fromArgs;
+  }
+
+  const details = INSTANCE_DATA && INSTANCE_DATA[instanceName] ? INSTANCE_DATA[instanceName] : null;
+  const minMb = Number(details && details.memoryMinMb ? details.memoryMinMb : 0);
+  const maxMb = Number(details && details.memoryMaxMb ? details.memoryMaxMb : 0);
+  return {
+    minMb: Number.isFinite(minMb) ? Math.max(0, Math.round(minMb)) : 0,
+    maxMb: Number.isFinite(maxMb) ? Math.max(0, Math.round(maxMb)) : 0,
+  };
 }
 
 function parseArgsInput(text) {
@@ -2292,6 +2900,8 @@ function populateEditInstanceModal() {
   const execEl = document.getElementById('edit-launch-exec');
   const argsEl = document.getElementById('edit-launch-args');
   const wdEl = document.getElementById('edit-launch-wd');
+  const details = INSTANCE_DATA && INSTANCE_DATA[instanceName] ? INSTANCE_DATA[instanceName] : null;
+  const existingIconKey = normalizeIconKey(details && details.iconKey ? details.iconKey : '');
   if (titleEl) titleEl.textContent = 'Edit - ' + instanceName;
   if (nameEl) nameEl.value = instanceName;
   if (execEl) execEl.value = cfg.executable || '';
@@ -2302,6 +2912,151 @@ function populateEditInstanceModal() {
   }
   if (argsEl) argsEl.value = stringifyArgs(cfg.args);
   if (wdEl) wdEl.value = cfg.workingDir || '';
+  setEditInstanceIconSelection(existingIconKey || resolveAutoInstanceIconKey(instanceName));
+  void ensureInstanceIconCatalog().then(() => {
+    setEditInstanceIconSelection(existingIconKey || resolveAutoInstanceIconKey(instanceName));
+  });
+}
+
+function hydrateInstanceInfoJavaModal() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    closeModal();
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+  const selectEl = document.getElementById('instance-java-path-select');
+  const inputEl = document.getElementById('instance-java-custom-path');
+  if (!selectEl || !inputEl) return;
+
+  const currentExecutable = getSelectedInstanceJavaExecutable();
+  inputEl.value = '';
+  inputEl.placeholder = currentExecutable || 'e.g. C:\\Java\\bin\\java.exe';
+  if (!currentExecutable && JAVA_RUNTIME_INFO.defaultPath) {
+    inputEl.placeholder = JAVA_RUNTIME_INFO.defaultPath;
+  }
+
+  selectEl.addEventListener('change', () => {
+    if (String(selectEl.value || '').trim()) {
+      inputEl.value = '';
+    }
+  });
+}
+
+function hydrateInstanceInfoMemoryModal() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    closeModal();
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+  const minEl = document.getElementById('instance-memory-min-gb');
+  const maxEl = document.getElementById('instance-memory-max-gb');
+  if (!minEl || !maxEl) return;
+  const bounds = selectedInstanceMemoryBounds();
+  minEl.value = formatGbInputValue(bounds.minMb);
+  maxEl.value = formatGbInputValue(bounds.maxMb);
+}
+
+function applyMemoryPresetFromModal(minGb, maxGb) {
+  const minEl = document.getElementById('instance-memory-min-gb');
+  const maxEl = document.getElementById('instance-memory-max-gb');
+  if (!minEl || !maxEl) return;
+  minEl.value = minGb ? String(minGb) : '';
+  maxEl.value = maxGb ? String(maxGb) : '';
+}
+
+function updateInstanceRuntimeCacheFromRecord(record) {
+  if (!record || typeof record !== 'object') return;
+  const instanceName = String(record.name || '').trim();
+  if (!instanceName) return;
+  INSTANCE_RUNTIME[instanceName] = {
+    executable: record.executable || null,
+    args: Array.isArray(record.args) ? record.args : [],
+    workingDir: record.workingDir || null,
+  };
+}
+
+async function saveInstanceJavaFromModal() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+  const selectEl = document.getElementById('instance-java-path-select');
+  const customEl = document.getElementById('instance-java-custom-path');
+  const customPath = String(customEl && customEl.value ? customEl.value : '').trim();
+  const selectedPath = String(selectEl && selectEl.value ? selectEl.value : '').trim();
+  const executable = customPath || selectedPath || '';
+
+  const res = await invokeBackend('update_instance_launch_config', {
+    request: {
+      instanceName,
+      executable,
+    },
+  });
+  if (!res.ok) {
+    showToast('!', 'Save failed', 'Could not update Java config');
+    return;
+  }
+  updateInstanceRuntimeCacheFromRecord(res.data);
+
+  closeModal();
+  await refreshSelectedInstanceInfo(instanceName);
+  showToast('OK', 'Java updated', executable ? 'Custom Java configured' : 'Using launcher default Java');
+}
+
+async function saveInstanceMemoryFromModal() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+  const minEl = document.getElementById('instance-memory-min-gb');
+  const maxEl = document.getElementById('instance-memory-max-gb');
+  const minMb = parseMemoryGbInputToMb(minEl ? minEl.value : '');
+  const maxMb = parseMemoryGbInputToMb(maxEl ? maxEl.value : '');
+
+  if (Number.isNaN(minMb) || Number.isNaN(maxMb)) {
+    showToast('!', 'Invalid memory', 'Use positive numbers like 2, 4, or 6.5');
+    return;
+  }
+
+  const minValue = minMb || 0;
+  const maxValue = maxMb || 0;
+  if (minValue > 0 && maxValue > 0 && minValue > maxValue) {
+    showToast('!', 'Invalid range', 'Min memory cannot be greater than max memory');
+    return;
+  }
+
+  const runtime = getInstanceRuntimeConfig(instanceName) || {};
+  const baseArgs = Array.isArray(runtime.args) ? runtime.args : [];
+  const args = upsertHeapArgs(baseArgs, minValue, maxValue);
+
+  const res = await invokeBackend('update_instance_launch_config', {
+    request: {
+      instanceName,
+      args,
+    },
+  });
+  if (!res.ok) {
+    showToast('!', 'Save failed', 'Could not update memory config');
+    return;
+  }
+  updateInstanceRuntimeCacheFromRecord(res.data);
+
+  const details = INSTANCE_DATA && INSTANCE_DATA[instanceName] ? INSTANCE_DATA[instanceName] : null;
+  if (details) {
+    details.memoryMinMb = minValue;
+    details.memoryMaxMb = maxValue;
+    details.memory = formatMemoryRange(minValue, maxValue);
+  }
+  const memoryEl = document.getElementById('di-memory');
+  if (memoryEl) memoryEl.textContent = formatMemoryRange(minValue, maxValue);
+
+  closeModal();
+  await refreshSelectedInstanceInfo(instanceName);
+  showToast('OK', 'Memory updated', 'Launch memory settings saved');
 }
 
 async function saveEditInstanceModal() {
@@ -2314,6 +3069,7 @@ async function saveEditInstanceModal() {
   const execEl = document.getElementById('edit-launch-exec');
   const argsEl = document.getElementById('edit-launch-args');
   const wdEl = document.getElementById('edit-launch-wd');
+  const iconKeyEl = document.getElementById('edit-inst-icon-key');
   const newName = nameEl ? nameEl.value.trim() : oldName;
 
   if (!newName) {
@@ -2324,6 +3080,7 @@ async function saveEditInstanceModal() {
   const executableRaw = execEl ? execEl.value.trim() : '';
   const args = parseArgsInput(argsEl ? argsEl.value : '');
   const workingDirRaw = wdEl ? wdEl.value.trim() : '';
+  const iconKey = normalizeIconKey(iconKeyEl ? iconKeyEl.value : '');
 
   if (newName !== oldName) {
     const renameRes = await invokeBackend('rename_instance', { request: { oldName, newName } });
@@ -2331,6 +3088,8 @@ async function saveEditInstanceModal() {
       showToast('!', 'Rename failed', 'Could not rename this instance');
       return;
     }
+    renameInstanceNote(oldName, newName);
+    renameTrackedInstallsForInstance(oldName, newName);
   }
 
   const request = {
@@ -2338,6 +3097,7 @@ async function saveEditInstanceModal() {
     executable: executableRaw || '',
     args,
     workingDir: workingDirRaw || '',
+    iconKey: iconKey || '',
   };
 
   const res = await invokeBackend('update_instance_launch_config', { request });
@@ -2385,6 +3145,8 @@ async function deleteSelectedInstanceFromModal() {
     showToast('!', 'Delete failed', 'Could not delete this instance');
     return;
   }
+  removeInstanceNote(instanceName);
+  removeTrackedInstallsForInstance(instanceName);
 
   closeModal();
   await refreshInstancesFromBackend(false);
@@ -2428,7 +3190,14 @@ function applyInstanceLifecycleEvent(payload) {
     return;
   }
 
-  if (state === 'starting' || state === 'running') {
+  if (state === 'starting') {
+    details.running = false;
+    details.lastExitState = null;
+    details.lastExitCode = null;
+    details.lastExitReason = null;
+    details.lastExitAtEpoch = null;
+    details.exitStatus = '-';
+  } else if (state === 'running') {
     details.running = true;
     if (payload.timestampEpoch) {
       details.lastPlayedEpoch = parseLastPlayedEpoch(payload.timestampEpoch);
@@ -2438,7 +3207,7 @@ function applyInstanceLifecycleEvent(payload) {
     details.lastExitCode = null;
     details.lastExitReason = null;
     details.lastExitAtEpoch = null;
-    details.exitStatus = 'Ã¯Â¿Â½?"';
+    details.exitStatus = '-';
   } else if (state === 'stopped' || state === 'failed') {
     details.running = false;
 
@@ -2491,13 +3260,118 @@ function clampProgress(value) {
   return Math.max(0, Math.min(100, Math.floor(Number(value) || 0)));
 }
 
-function setLaunchOverlayProgress(percent, label, force) {
-  if (!ACTIVE_PROVISION || !ACTIVE_PROVISION.overlay) return;
+function syncDetailLaunchProgress() {
+  const wrap = document.getElementById('detail-launch-progress');
+  if (!wrap) return;
+
+  const active = ACTIVE_PROVISION;
+  const selectedName = getSelectedInstanceName();
+  const shouldShow =
+    !!active &&
+    !active.cancelRequested &&
+    !!selectedName &&
+    String(selectedName) === String(active.instanceName || '');
+
+  const launchBtn = document.getElementById('launch-or-kill-btn');
+  if (launchBtn) {
+    launchBtn.disabled = false;
+    launchBtn.style.opacity = '';
+    launchBtn.style.cursor = '';
+    if (shouldShow) {
+      if (launchBtn.dataset.mode !== 'cancel-launch') {
+        launchBtn.dataset.mode = 'cancel-launch';
+        launchBtn.className = 'det-btn det-btn-running';
+        launchBtn.innerHTML = '<i data-lucide="x" width="13" height="13"></i> Cancel Launch';
+        lucide.createIcons();
+      }
+      launchBtn.onclick = () => { void cancelProvisionLaunch(launchBtn); };
+    } else {
+      const details = selectedName && INSTANCE_DATA && INSTANCE_DATA[selectedName] ? INSTANCE_DATA[selectedName] : null;
+      if (details && details.running) {
+        if (launchBtn.dataset.mode !== 'kill-game') {
+          launchBtn.dataset.mode = 'kill-game';
+          launchBtn.className = 'det-btn det-btn-running';
+          launchBtn.innerHTML = '<i data-lucide="zap-off" width="13" height="13"></i> Kill Game';
+          lucide.createIcons();
+        }
+        launchBtn.onclick = killInstance;
+      } else if (details) {
+        if (launchBtn.dataset.mode !== 'launch-game') {
+          launchBtn.dataset.mode = 'launch-game';
+          launchBtn.className = 'det-btn det-btn-primary';
+          launchBtn.innerHTML = '<i data-lucide="play" width="13" height="13"></i> Launch';
+          lucide.createIcons();
+        }
+        launchBtn.onclick = launchSequence;
+      }
+    }
+  }
+
+  if (!shouldShow) {
+    wrap.classList.remove('visible');
+    return;
+  }
+
+  const percent = clampProgress(active.percent || 0);
+  const stage = String(active.stageText || 'Launching');
+  const label = String(active.labelText || 'Working...');
+  const tone = launchProgressTone(stage);
+
+  const nameEl = document.getElementById('detail-launch-name');
+  const percentEl = document.getElementById('detail-launch-percent');
+  const fillEl = document.getElementById('detail-launch-fill');
+  const labelEl = document.getElementById('detail-launch-label');
+
+  if (nameEl) nameEl.textContent = stage;
+  if (percentEl) percentEl.textContent = percent + '%';
+  if (fillEl) fillEl.style.width = percent + '%';
+  if (labelEl) labelEl.textContent = label;
+  wrap.classList.remove('tone-preparing', 'tone-provision', 'tone-active', 'tone-success', 'tone-danger');
+  wrap.classList.add('tone-' + tone);
+  wrap.classList.add('visible');
+}
+
+function launchProgressTone(stageText) {
+  const stage = String(stageText || '').trim().toLowerCase();
+  if (!stage) return 'preparing';
+  if (stage.includes('fail') || stage.includes('error') || stage.includes('cancel')) return 'danger';
+  if (stage.includes('ready') || stage.includes('running') || stage.includes('done') || stage.includes('stopped')) return 'success';
+  if (stage.includes('launch') || stage.includes('verify') || stage.includes('final')) return 'active';
+  if (stage.includes('provision') || stage.includes('download') || stage.includes('resolve')) return 'provision';
+  return 'preparing';
+}
+
+function setLaunchOverlayProgress(percent, label, force, stage) {
+  if (!ACTIVE_PROVISION) return;
   const current = Number.isFinite(ACTIVE_PROVISION.percent) ? ACTIVE_PROVISION.percent : 0;
   const next = force ? clampProgress(percent) : Math.max(current, clampProgress(percent));
   ACTIVE_PROVISION.percent = next;
+  if (label) ACTIVE_PROVISION.labelText = String(label);
+  if (stage) ACTIVE_PROVISION.stageText = String(stage);
   if (ACTIVE_PROVISION.fill) ACTIVE_PROVISION.fill.style.width = next + '%';
-  if (ACTIVE_PROVISION.label && label) ACTIVE_PROVISION.label.textContent = label;
+  if (ACTIVE_PROVISION.percentEl) ACTIVE_PROVISION.percentEl.textContent = next + '%';
+  if (ACTIVE_PROVISION.label && label) ACTIVE_PROVISION.label.textContent = ACTIVE_PROVISION.labelText;
+  if (ACTIVE_PROVISION.stageEl && stage) ACTIVE_PROVISION.stageEl.textContent = ACTIVE_PROVISION.stageText;
+  syncDetailLaunchProgress();
+}
+
+function launchStageForProvisionPhase(phase) {
+  const normalized = String(phase || '').toLowerCase();
+  const stageMap = {
+    init: 'Preparing',
+    manifest: 'Resolving metadata',
+    version_json: 'Resolving version',
+    client: 'Downloading client',
+    libraries: 'Downloading libraries',
+    loader_manifest: 'Resolving loader',
+    loader_base: 'Downloading loader',
+    loader_installer: 'Installing loader',
+    loader_libraries: 'Downloading loader libs',
+    asset_index: 'Resolving assets',
+    assets: 'Downloading assets',
+    done: 'Provisioned',
+  };
+  return stageMap[normalized] || 'Provisioning';
 }
 
 function inferProvisionProgressByPhase(phase, total, completed, currentPercent) {
@@ -2550,19 +3424,24 @@ function applyActiveLaunchLifecycleProgress(payload) {
   ACTIVE_PROVISION.lastLifecycleState = state;
 
   if (state === 'starting') {
-    setLaunchOverlayProgress(94, 'Starting Minecraft process...', false);
+    setLaunchOverlayProgress(94, 'Starting Minecraft process...', false, 'Launching');
     return;
   }
   if (state === 'running') {
-    setLaunchOverlayProgress(97, 'Minecraft process started. Verifying...', false);
+    setLaunchOverlayProgress(97, 'Minecraft process started. Verifying...', false, 'Verifying');
     return;
   }
   if (state === 'failed') {
-    setLaunchOverlayProgress(100, lifecycleFailureMessage(payload), true);
+    setLaunchOverlayProgress(
+      Number.isFinite(ACTIVE_PROVISION.percent) ? ACTIVE_PROVISION.percent : 97,
+      lifecycleFailureMessage(payload),
+      true,
+      'Failed'
+    );
     return;
   }
   if (state === 'stopped') {
-    setLaunchOverlayProgress(99, 'Minecraft process stopped', false);
+    setLaunchOverlayProgress(99, 'Minecraft process stopped', false, 'Stopped');
   }
 }
 
@@ -2576,7 +3455,12 @@ function applyProvisionProgressEvent(payload) {
   const completed = typeof payload.completed === 'number' ? payload.completed : null;
 
   if (state === 'failed') {
-    setLaunchOverlayProgress(100, payload.message || 'Provision failed', true);
+    setLaunchOverlayProgress(
+      Number.isFinite(ACTIVE_PROVISION.percent) ? ACTIVE_PROVISION.percent : 0,
+      payload.message || 'Provision failed',
+      true,
+      'Failed'
+    );
     return;
   }
 
@@ -2586,7 +3470,12 @@ function applyProvisionProgressEvent(payload) {
     completed,
     ACTIVE_PROVISION.percent || 0
   );
-  setLaunchOverlayProgress(percent, payload.message || 'Provisioning...', false);
+  setLaunchOverlayProgress(
+    percent,
+    payload.message || 'Provisioning...',
+    false,
+    launchStageForProvisionPhase(phase)
+  );
 }
 
 async function setupProvisionEventStream() {
@@ -2603,7 +3492,7 @@ async function setupProvisionEventStream() {
 function buildDynamicSections() {
   const fg = document.getElementById('featured-grid');
   if (fg) {
-    fg.innerHTML = [['ï¿½YOï¿½','All the Mods 9','1.21.1 Â· Forge','2.4M ï¿½?"'],['ï¿½sTï¸','Create: Astral','1.20.1 Â· Fabric','1.1M ï¿½?"'],['ï¿½Yï¿½ï¿½','Better MC','1.21.4 Â· Fabric','890K ï¿½?"'],['ï¿½Y"ï¿½','Prominence II','1.20.1 Â· Forge','650K ï¿½?"']].map(([e,n,v,dl])=>`
+    fg.innerHTML = [['ÃƒÂ¯Ã‚Â¿Ã‚Â½YOÃƒÂ¯Ã‚Â¿Ã‚Â½','All the Mods 9','1.21.1 Ãƒâ€šÃ‚Â· Forge','2.4M ÃƒÂ¯Ã‚Â¿Ã‚Â½?"'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½sTÃƒÂ¯Ã‚Â¸Ã‚Â','Create: Astral','1.20.1 Ãƒâ€šÃ‚Â· Fabric','1.1M ÃƒÂ¯Ã‚Â¿Ã‚Â½?"'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½YÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½','Better MC','1.21.4 Ãƒâ€šÃ‚Â· Fabric','890K ÃƒÂ¯Ã‚Â¿Ã‚Â½?"'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½Y"ÃƒÂ¯Ã‚Â¿Ã‚Â½','Prominence II','1.20.1 Ãƒâ€šÃ‚Â· Forge','650K ÃƒÂ¯Ã‚Â¿Ã‚Â½?"']].map(([e,n,v,dl])=>`
       <div class="featured-card" onclick="openModal('install-modpack')">
         <div class="featured-thumb">${e}</div>
         <div class="featured-body"><div class="featured-name">${n}</div><div class="featured-meta">${v}</div><div class="featured-dl"><i data-lucide="download" width="9" height="9"></i>${dl}</div></div>
@@ -2613,9 +3502,9 @@ function buildDynamicSections() {
   const nl = document.getElementById('news-list');
   if (nl) {
     nl.innerHTML = [
-      {icon:'Ã¯Â¿Â½YZÃ¯Â¿Â½',src:'Minecraft',color:'#3d8c4a',title:'Minecraft 1.21.5 Ã¯Â¿Â½?" Spring Drop Released',desc:'New flower, leaf litter, and more biome variety.',date:'2 hours ago'},
-      {icon:'Ã¯Â¿Â½YÃ¯Â¿Â½Ã¯Â¿Â½',src:'Fabric',color:'#aa7744',title:'Fabric Loader 0.17 now available',desc:'Major performance improvements and improved mod compatibility.',date:'1 day ago'},
-      {icon:'Ã¯Â¿Â½sÃ¯Â¿Â½',src:'Sodium',color:'#4488cc',title:'Sodium 0.6.3 Ã¯Â¿Â½?" Memory leak fix',desc:'Critical fix for a memory leak affecting modded instances.',date:'2 days ago'},
+      {icon:'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YZÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½',src:'Minecraft',color:'#3d8c4a',title:'Minecraft 1.21.5 ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Spring Drop Released',desc:'New flower, leaf litter, and more biome variety.',date:'2 hours ago'},
+      {icon:'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½',src:'Fabric',color:'#aa7744',title:'Fabric Loader 0.17 now available',desc:'Major performance improvements and improved mod compatibility.',date:'1 day ago'},
+      {icon:'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½sÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½',src:'Sodium',color:'#4488cc',title:'Sodium 0.6.3 ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Memory leak fix',desc:'Critical fix for a memory leak affecting modded instances.',date:'2 days ago'},
     ].map(n=>`
     <div class="news-card"><div style="padding:12px">
       <div class="news-source"><div class="news-dot" style="background:${n.color}"></div>${n.src}</div>
@@ -2626,10 +3515,10 @@ function buildDynamicSections() {
   const fc = document.getElementById('friends-content');
   if (fc) {
     fc.innerHTML = `
-      <div class="section-title">Online Ã¯Â¿Â½?" 3 <div class="section-title-line"></div></div>
+      <div class="section-title">Online ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" 3 <div class="section-title-line"></div></div>
       ${[{name:'Technoblade2',status:'Playing All the Mods 9',color:'#dd5555',online:'game',canJoin:true},{name:'GoodTimesWithScar',status:'Playing Better MC',color:'#44aadd',online:'game',canJoin:false},{name:'Grian',status:'On Orbiq launcher',color:'#ddaa44',online:'on',canJoin:false}].map(f=>`
       <div class="friend-row"><div class="friend-avatar"><img src="https://mc-heads.net/avatar/${encodeURIComponent(f.name.replace(/\d+/,''))}/32" onerror="this.parentNode.style.background='${f.color}33'"></div><div class="online-dot ${f.online==='game'?'game':'on'}"></div><div style="flex:1"><div class="friend-name">${f.name}</div><div class="friend-status">${f.status}</div></div><div class="friend-actions">${f.canJoin?`<button class="friend-btn join" onclick="openModal('shared-session')"><i data-lucide="arrow-right" width="10" height="10"></i>Join</button>`:''}<button class="friend-btn"><i data-lucide="message-square" width="10" height="10"></i></button></div></div>`).join('')}
-      <div class="section-title" style="margin-top:14px">Offline Ã¯Â¿Â½?" 2 <div class="section-title-line"></div></div>
+      <div class="section-title" style="margin-top:14px">Offline ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" 2 <div class="section-title-line"></div></div>
       ${[{name:'Dream',status:'Last seen 2h ago'},{name:'GeorgeNotFound',status:'Last seen yesterday'}].map(f=>`<div class="friend-row" style="opacity:0.5"><div class="friend-avatar"><img src="https://mc-heads.net/avatar/${encodeURIComponent(f.name)}/32" onerror="this.parentNode.style.background='#333'"></div><div class="online-dot off"></div><div style="flex:1"><div class="friend-name">${f.name}</div><div class="friend-status">${f.status}</div></div></div>`).join('')}`;
   }
 
@@ -2658,10 +3547,10 @@ function buildDynamicSections() {
 
   const spl = document.getElementById('srv-plugins-list');
   if (spl) {
-    spl.innerHTML = [['Ã¯Â¿Â½Y"Ã¯Â¿Â½','EssentialsX','Core commands','Plugin','3.2M'],['Ã¯Â¿Â½YOÃ¯Â¿Â½','WorldEdit','In-game editor','Plugin','8.1M'],['Ã¯Â¿Â½Y>Ã¯Â¿Â½Ã¯Â¸Â','LuckPerms','Permissions','Plugin','5.4M'],['Ã¯Â¿Â½sÃ¯Â¿Â½','Spark','Performance profiler','Mod','1.8M']].map(([e,n,d,type,dl],i)=>`
+    spl.innerHTML = [['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','EssentialsX','Core commands','Plugin','3.2M'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YOÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','WorldEdit','In-game editor','Plugin','8.1M'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y>ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','LuckPerms','Permissions','Plugin','5.4M'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½sÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Spark','Performance profiler','Mod','1.8M']].map(([e,n,d,type,dl],i)=>`
       <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-bottom:5px;">
         <div style="font-size:20px;">${e}</div>
-        <div style="flex:1;"><div style="font-size:12.5px;font-weight:700;color:var(--t1);">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:1px;">${d} Â· <span style="color:var(--t3)">${dl} ï¿½?"</span></div></div>
+        <div style="flex:1;"><div style="font-size:12.5px;font-weight:700;color:var(--t1);">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:1px;">${d} Ãƒâ€šÃ‚Â· <span style="color:var(--t3)">${dl} ÃƒÂ¯Ã‚Â¿Ã‚Â½?"</span></div></div>
         <span style="font-size:9.5px;font-family:var(--mono);padding:2px 7px;background:var(--s3);border:1px solid var(--b2);border-radius:4px;color:var(--t4);">${type}</span>
         <button class="srv-add-btn" id="srv-add-${i}" onclick="toggleSrvAdd(this,'${n}')" style="height:26px;padding:0 10px;border-radius:6px;border:1px solid var(--b2);background:var(--s3);font-size:10.5px;font-family:var(--mono);color:var(--t2);cursor:pointer;transition:all 0.12s;flex-shrink:0;">+ Add</button>
       </div>`).join('');
@@ -2669,7 +3558,7 @@ function buildDynamicSections() {
 
   const hostOpts = document.getElementById('srv-host-opts');
   if (hostOpts) {
-    hostOpts.innerHTML = [['Ã¯Â¿Â½Y-Ã¯Â¿Â½Ã¯Â¸Â','This Computer','Run locally Ã¯Â¿Â½?" free','local'],['Ã¯Â¿Â½~Ã¯Â¿Â½Ã¯Â¸Â','Orbiq Cloud','Managed hosting Ã¯Â¿Â½?" from $3/mo','cloud'],['Ã¯Â¿Â½YÃ¯Â¿Â½Ã¯Â¿Â½','Docker','Self-host with Docker','docker']].map(([e,n,d,val],i)=>`
+    hostOpts.innerHTML = [['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y-ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','This Computer','Run locally ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" free','local'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½~ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','Orbiq Cloud','Managed hosting ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" from $3/mo','cloud'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Docker','Self-host with Docker','docker']].map(([e,n,d,val],i)=>`
       <div class="srv-host-card${i===0?' selected':''}" data-val="${val}" onclick="selectSrvHost(this)" style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:${i===0?'var(--s3)':'var(--s2)'};border:1px solid ${i===0?'var(--b4)':'var(--b2)'};border-radius:9px;cursor:pointer;transition:all 0.12s;">
         <div style="font-size:22px;">${e}</div>
         <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--t1);">${n}</div><div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);margin-top:2px;">${d}</div></div>
@@ -2694,43 +3583,83 @@ buildDynamicSections();
 initWindowControls();
 initTitlebarDrag();
 initSelectContextMenus();
+setupInstanceRuntimeStatePolling();
 loadOrbiqAccountState();
 bootstrapBackendState();
 installMojibakeSanitizer();
 sanitizeMojibakeDom(document);
 lucide.createIcons();
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // PAGE SWITCHING
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 function setPage(pageId, clickedItem) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const pg = document.getElementById('page-' + pageId);
+  const normalizedPageId = pageId === 'launch' ? 'instances' : pageId;
+  document.querySelectorAll('.page').forEach((p) => p.classList.remove('active'));
+  const pg = document.getElementById('page-' + normalizedPageId);
   if (pg) pg.classList.add('active');
-  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
-  if (clickedItem) clickedItem.classList.add('active');
+
+  document.querySelectorAll('.sb-item').forEach((i) => i.classList.remove('active'));
+  const fallbackItemByPage = {
+    instances: document.getElementById('sb-instances-all'),
+    accounts: document.getElementById('sb-accounts'),
+    modrinth: document.getElementById('sb-modrinth'),
+    curseforge: document.getElementById('sb-curseforge'),
+  };
+  const activeItem = clickedItem || fallbackItemByPage[normalizedPageId] || null;
+  if (activeItem) activeItem.classList.add('active');
+
+  if (normalizedPageId === 'accounts') {
+    void hydrateOrbiqAccountsPage();
+  } else if (normalizedPageId === 'modrinth' || normalizedPageId === 'curseforge') {
+    void ensureBrowseProviderLoaded(normalizedPageId);
+  }
 }
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+function goToAccountsPage(clickedItem) {
+  const sidebarBtn = document.getElementById('sb-accounts');
+  const nextItem = clickedItem && clickedItem.classList && clickedItem.classList.contains('sb-item')
+    ? clickedItem
+    : sidebarBtn;
+  setPage('accounts', nextItem);
+}
+
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // MODAL LOGIC
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 const overlay  = document.getElementById('overlay');
 const modalPop = document.getElementById('modal-popup');
+let ACTIVE_MODAL_ID = '';
+let ADD_INSTANCE_PREFILL = null;
+let PENDING_BROWSE_INSTALL_CONTEXT = null;
+let MODAL_CLOSE_TIMER = null;
+let MODAL_CLOSE_TOKEN = 0;
 
 function openModal(id) {
+  if (!overlay || !modalPop) return;
   const fn = MODALS[id];
   if (!fn) return;
+  MODAL_CLOSE_TOKEN += 1;
+  if (MODAL_CLOSE_TIMER) {
+    clearTimeout(MODAL_CLOSE_TIMER);
+    MODAL_CLOSE_TIMER = null;
+  }
+  overlay.classList.remove('closing');
+  overlay.style.display = 'flex';
+  ACTIVE_MODAL_ID = String(id || '').trim();
   modalPop.innerHTML = fn();
   if (id === 'edit-instance') {
     populateEditInstanceModal();
+  } else if (id === 'instance-info-java') {
+    hydrateInstanceInfoJavaModal();
+  } else if (id === 'instance-info-memory') {
+    hydrateInstanceInfoMemoryModal();
   } else if (id === 'add-instance') {
     void hydrateAddInstanceModal();
   } else if (id === 'delete-confirm') {
     hydrateDeleteConfirmModal();
   } else if (id === 'profile-select-launch') {
     hydrateLaunchProfileModal();
-  } else if (id === 'orbiq-accounts') {
-    void hydrateOrbiqAccountsModal();
   } else if (id === 'orbiq-login') {
     hydrateOrbiqLoginModal();
   } else if (id === 'orbiq-register') {
@@ -2741,9 +3670,27 @@ function openModal(id) {
     hydrateMicrosoftDetailModal();
   } else if (id === 'offline-profile-detail') {
     hydrateOfflineDetailModal();
+  } else if (id === 'banner-picker') {
+    hydrateBannerPickerModal();
+  } else if (id === 'notes') {
+    hydrateNotesModal();
+  } else if (id === 'manage-mods') {
+    void hydrateManagedModsModal();
+  } else if (id === 'create-group') {
+    hydrateCreateGroupModal();
+  } else if (id === 'rename-group') {
+    hydrateRenameGroupModal();
+  } else if (id === 'delete-group') {
+    hydrateDeleteGroupModal();
+  } else if (id === 'browse-install') {
+    void hydrateBrowseInstallModal();
+  } else if (id === 'launch-missing-required') {
+    hydrateLaunchMissingDialogModal();
+  } else if (id === 'launch-preflight') {
+    hydrateLaunchPreflightDialogModal();
+  } else if (id === 'diagnostics') {
+    hydrateDiagnosticsModal();
   }
-  overlay.style.display = 'flex';
-  overlay.classList.remove('closing');
   sanitizeMojibakeDom(modalPop);
   lucide.createIcons();
 }
@@ -2754,13 +3701,29 @@ async function hydrateAddInstanceModal() {
   const loaderVersionSelect = document.getElementById('add-inst-loader-version');
   const nameInput = document.getElementById('add-inst-name');
   if (!versionSelect || !loaderSelect || !loaderVersionSelect) return;
+  const prefill = ADD_INSTANCE_PREFILL && typeof ADD_INSTANCE_PREFILL === 'object'
+    ? Object.assign({}, ADD_INSTANCE_PREFILL)
+    : null;
+  ADD_INSTANCE_PREFILL = null;
 
   if (nameInput) {
+    const prefillBaseName = prefill && prefill.nameBase ? String(prefill.nameBase).trim() : '';
     const current = String(nameInput.value || '').trim();
-    if (!current || /^my instance(?:\s+\d+)?$/i.test(current)) {
+    if (prefillBaseName) {
+      nameInput.value = suggestNextInstanceName(prefillBaseName);
+    } else if (!current || /^my instance(?:\s+\d+)?$/i.test(current)) {
       nameInput.value = suggestNextInstanceName('My Instance');
     }
   }
+  setAddInstanceIconSelection(pickRandomInstanceIconKey());
+  void ensureInstanceIconCatalog().then(() => {
+    const current = normalizeIconKey(document.getElementById('add-inst-icon-key') ? document.getElementById('add-inst-icon-key').value : '');
+    if (current) {
+      setAddInstanceIconSelection(current);
+    } else {
+      setAddInstanceIconSelection(pickRandomInstanceIconKey());
+    }
+  });
 
   const applyVersionOptions = (versions, preferredValue) => {
     const finalVersions = Array.isArray(versions) ? versions : [];
@@ -2875,6 +3838,13 @@ async function hydrateAddInstanceModal() {
     await fetchLoaderVersions(loaderLabel, versionSelect.value, preferredLoaderVersion);
   };
 
+  const prefillLoader = normalizeLoader(prefill && prefill.loader ? prefill.loader : '');
+  const loaderOptionValues = Array.from(loaderSelect.options || []).map((option) => String(option.value || '').trim());
+  const prefillLoaderLabel = prefillLoader
+    ? loaderOptionValues.find((value) => normalizeLoader(value) === prefillLoader) || ''
+    : '';
+  if (prefillLoaderLabel) loaderSelect.value = prefillLoaderLabel;
+
   loaderSelect.addEventListener('change', () => {
     const preferredMinecraftVersion = versionSelect.value;
     const preferredLoaderVersion = loaderVersionSelect.value;
@@ -2891,8 +3861,8 @@ async function hydrateAddInstanceModal() {
 
   void fetchVersionsForLoader(
     loaderSelect.value,
-    versionSelect.value,
-    loaderVersionSelect.value
+    prefill && prefill.version ? String(prefill.version).trim() : versionSelect.value,
+    prefill && prefill.loaderVersion ? String(prefill.loaderVersion).trim() : loaderVersionSelect.value
   );
 }
 
@@ -2925,15 +3895,32 @@ function suggestNextInstanceName(baseName) {
 }
 
 function closeModal() {
-  if (MICROSOFT_AUTH_POLL) {
-    clearInterval(MICROSOFT_AUTH_POLL);
-    MICROSOFT_AUTH_POLL = null;
+  if (!overlay || !modalPop || overlay.style.display === 'none') {
+    ACTIVE_MODAL_ID = '';
+    return;
   }
+  clearMicrosoftAuthPoll();
+  if (ACTIVE_MODAL_ID === 'launch-missing-required' && LAUNCH_MISSING_DIALOG_STATE && !LAUNCH_MISSING_DIALOG_STATE.settled) {
+    const resolver = LAUNCH_MISSING_DIALOG_STATE.resolve;
+    LAUNCH_MISSING_DIALOG_STATE.settled = true;
+    LAUNCH_MISSING_DIALOG_STATE = null;
+    if (typeof resolver === 'function') resolver('cancel');
+  }
+  if (ACTIVE_MODAL_ID === 'add-instance') {
+    ADD_INSTANCE_PREFILL = null;
+    PENDING_BROWSE_INSTALL_CONTEXT = null;
+  }
+  if (overlay.classList.contains('closing')) return;
+  const closeToken = ++MODAL_CLOSE_TOKEN;
   overlay.classList.add('closing');
-  overlay.addEventListener('animationend', () => {
+  if (MODAL_CLOSE_TIMER) clearTimeout(MODAL_CLOSE_TIMER);
+  MODAL_CLOSE_TIMER = setTimeout(() => {
+    if (closeToken !== MODAL_CLOSE_TOKEN) return;
     overlay.style.display = 'none';
     overlay.classList.remove('closing');
-  }, { once: true });
+    ACTIVE_MODAL_ID = '';
+    MODAL_CLOSE_TIMER = null;
+  }, 180);
 }
 
 function handleOverlayClick(e) {
@@ -2944,20 +3931,22 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && overlay.style.display !== 'none') closeModal();
 });
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // TOAST SYSTEM
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 
 async function createInstanceFromModal() {
   const nameEl = document.getElementById('add-inst-name');
   const versionEl = document.getElementById('add-inst-version');
   const loaderEl = document.getElementById('add-inst-loader');
   const loaderVersionEl = document.getElementById('add-inst-loader-version');
+  const iconKeyEl = document.getElementById('add-inst-icon-key');
   const name = nameEl ? nameEl.value.trim() : '';
   const version = versionEl ? versionEl.value.trim() : '1.21.4';
   const loader = loaderEl ? loaderEl.value.trim() : 'Vanilla';
   const loaderVersionRaw = loaderVersionEl ? loaderVersionEl.value : '';
   const loaderVersion = String(loaderVersionRaw || '').trim();
+  const iconKey = normalizeIconKey(iconKeyEl ? iconKeyEl.value : '');
   const normalizedLoader = normalizeLoader(loader);
 
   if (!name) {
@@ -2990,7 +3979,14 @@ async function createInstanceFromModal() {
     return;
   }
 
-  const request = { name, version, loader, loaderVersion: normalizedLoader === 'vanilla' ? null : (loaderVersion || null) };
+  const resolvedIconKey = iconKey || pickRandomInstanceIconKey();
+  const request = {
+    name,
+    version,
+    loader,
+    iconKey: resolvedIconKey || null,
+    loaderVersion: normalizedLoader === 'vanilla' ? null : (loaderVersion || null),
+  };
   const res = await invokeBackend('create_instance', { request });
   if (!res.ok) {
     const reason = String(res.error || '').trim();
@@ -3008,12 +4004,30 @@ async function createInstanceFromModal() {
     return;
   }
 
+  const reopenBrowseInstall = PENDING_BROWSE_INSTALL_CONTEXT && typeof PENDING_BROWSE_INSTALL_CONTEXT === 'object'
+    ? Object.assign({}, PENDING_BROWSE_INSTALL_CONTEXT)
+    : null;
+  PENDING_BROWSE_INSTALL_CONTEXT = null;
+
   closeModal();
   await refreshInstancesFromBackend(false);
   const cards = Array.from(document.querySelectorAll('.instance-card'));
   const createdCard = cards.find((card) => card.dataset.name === name);
   if (createdCard) selectCard(createdCard);
   showToast('OK', 'Instance created', 'New instance added successfully');
+
+  if (
+    reopenBrowseInstall &&
+    reopenBrowseInstall.provider &&
+    reopenBrowseInstall.itemId
+  ) {
+    setTimeout(() => {
+      openBrowseInstallModal(
+        String(reopenBrowseInstall.provider),
+        encodeURIComponent(String(reopenBrowseInstall.itemId))
+      );
+    }, 180);
+  }
 }
 
 async function duplicateSelectedInstanceFromModal() {
@@ -3040,6 +4054,8 @@ async function duplicateSelectedInstanceFromModal() {
     showToast('!', 'Duplicate failed', 'Could not duplicate this instance');
     return;
   }
+  copyInstanceNote(sourceName, newName);
+  copyTrackedInstallsForInstance(sourceName, newName);
 
   closeModal();
   const refreshed = await refreshInstancesFromBackend(false);
@@ -3058,10 +4074,12 @@ async function openSelectedInstanceFolder(target) {
     return;
   }
 
+  const normalizedTarget = String(target || 'root').trim().toLowerCase() || 'root';
+
   const res = await invokeBackend('open_instance_directory', {
     request: {
       instanceName,
-      target: target || 'root',
+      target: normalizedTarget,
       ensureExists: true,
     },
   });
@@ -3070,6 +4088,84 @@ async function openSelectedInstanceFolder(target) {
     showToast('!', 'Open folder failed', 'Could not open instance folder');
     return;
   }
+
+  const labels = {
+    root: 'Instance folder',
+    mods: 'Mods folder',
+    worlds: 'Worlds folder',
+    saves: 'Worlds folder',
+    screenshots: 'Screenshots folder',
+    shots: 'Screenshots folder',
+    logs: 'Logs folder',
+    resourcepacks: 'Resource packs',
+    shaderpacks: 'Shaderpacks',
+  };
+  const folderLabel = labels[normalizedTarget] || 'Folder';
+  showToast('OK', folderLabel, 'Opened for ' + instanceName);
+}
+
+async function resolveSelectedInstanceFolderPath(target, ensureExists) {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return null;
+  }
+  const normalizedTarget = String(target || 'root').trim().toLowerCase() || 'root';
+  const res = await invokeBackend('resolve_instance_directory', {
+    request: {
+      instanceName,
+      target: normalizedTarget,
+      ensureExists: ensureExists !== false,
+    },
+  });
+  if (!res.ok || !res.data || typeof res.data !== 'object') {
+    showToast('!', 'Resolve failed', 'Could not resolve instance folder');
+    return null;
+  }
+  return res.data;
+}
+
+async function copySelectedInstanceFolderPath(target) {
+  const details = await resolveSelectedInstanceFolderPath(target, true);
+  if (!details) return;
+  const path = String(details.path || '').trim();
+  if (!path) {
+    showToast('!', 'Copy failed', 'Folder path is empty');
+    return;
+  }
+
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    try {
+      await navigator.clipboard.writeText(path);
+      showToast('OK', 'Path copied', path);
+      return;
+    } catch (err) {
+      console.warn('[instance-folder] clipboard write failed', err);
+    }
+  }
+
+  showToast('!', 'Clipboard unavailable', path);
+}
+
+async function openSelectedInstanceFolderInTerminal(target) {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+  const normalizedTarget = String(target || 'root').trim().toLowerCase() || 'root';
+  const res = await invokeBackend('open_instance_directory_in_terminal', {
+    request: {
+      instanceName,
+      target: normalizedTarget,
+      ensureExists: true,
+    },
+  });
+  if (!res.ok) {
+    showToast('!', 'Terminal failed', 'Could not open terminal here');
+    return;
+  }
+  showToast('OK', 'Terminal opened', 'Ready in ' + instanceName);
 }
 
 async function copyShareLinkFromModal() {
@@ -3117,86 +4213,2380 @@ async function createOfflineProfileFromModal() {
   showToast('OK', 'Profile added', name + ' is ready');
 }
 
+async function openExternalHttpUrl(url) {
+  const target = String(url || '').trim();
+  if (!/^https?:\/\//i.test(target)) return false;
+
+  const backendRes = await invokeBackend('open_external_url', {
+    request: { url: target },
+  });
+  if (backendRes.ok) return true;
+
+  if (typeof window.open === 'function') {
+    const popup = window.open(target, '_blank', 'noopener,noreferrer');
+    return !!popup;
+  }
+  return false;
+}
+
+const BROWSE_PROVIDER_FETCH_LIMIT = 50;
+const BROWSE_PROVIDER_MAX_PAGES = 40;
+const BROWSE_UI_PAGE_SIZE = 20;
+const BROWSE_PROVIDER_LIMIT = BROWSE_PROVIDER_FETCH_LIMIT;
+const BROWSE_SEARCH_DEBOUNCE_MS = 280;
+const BROWSE_NO_IMAGE_PATH = 'assets/no-image.svg';
+const BROWSE_VERSION_LIMIT = 5000;
+const BROWSE_CATEGORY_OPTIONS = {
+  modrinth: [
+    { id: 'modpack', label: 'Modpacks' },
+    { id: 'mod', label: 'Mods' },
+    { id: 'resourcepack', label: 'Resource Packs' },
+    { id: 'shader', label: 'Shaders' },
+  ],
+  curseforge: [
+    { id: 'modpack', label: 'Modpacks', classId: '4471' },
+    { id: 'mod', label: 'Mods', classId: '6' },
+    { id: 'resourcepack', label: 'Resource Packs', classId: '12' },
+    { id: 'world', label: 'Worlds', classId: '17' },
+  ],
+};
+const BROWSE_API_STATE = {
+  modrinth: {
+    loading: false,
+    loaded: false,
+    query: '',
+    category: 'modpack',
+    items: [],
+    error: '',
+  },
+  curseforge: {
+    loading: false,
+    loaded: false,
+    query: '',
+    category: 'modpack',
+    items: [],
+    error: '',
+  },
+};
+const BROWSE_SEARCH_TIMERS = {
+  modrinth: null,
+  curseforge: null,
+};
+const BROWSE_RESULTS_HEIGHT_SYNC_TIMERS = {
+  modrinth: null,
+  curseforge: null,
+};
+const BROWSE_INSTALL_IN_FLIGHT = {
+  modrinth: {},
+  curseforge: {},
+};
+let BROWSE_INSTALL_MODAL_STATE = null;
+let BROWSE_GLOBAL_VERSIONS_CACHE = null;
+let BROWSE_GLOBAL_VERSIONS_PROMISE = null;
+
+function getBrowseProviderLabel(provider) {
+  const key = String(provider || '').trim().toLowerCase();
+  if (key === 'modrinth') return 'Modrinth';
+  if (key === 'curseforge') return 'CurseForge';
+  return 'Browse';
+}
+
+function getBrowseCategoryOptions(provider) {
+  const key = String(provider || '').trim().toLowerCase();
+  return Array.isArray(BROWSE_CATEGORY_OPTIONS[key]) ? BROWSE_CATEGORY_OPTIONS[key] : [];
+}
+
+function getBrowseCategoryLabel(provider, categoryId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const category = String(categoryId || '').trim().toLowerCase();
+  const options = getBrowseCategoryOptions(key);
+  const found = options.find((item) => String(item.id || '').toLowerCase() === category);
+  return found && found.label ? String(found.label) : 'Category';
+}
+
+function renderBrowseProviderCategories(provider) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = BROWSE_API_STATE[key];
+  const container = document.getElementById(key + '-browse-categories');
+  if (!state || !container) return;
+  const activeCategory = String(state.category || '').trim().toLowerCase();
+  const options = getBrowseCategoryOptions(key);
+  if (!options.length) {
+    container.innerHTML = '';
+    return;
+  }
+  container.innerHTML = options
+    .map((option) => {
+      const id = String(option.id || '').trim().toLowerCase();
+      const label = escapeHtml(String(option.label || id || 'Category'));
+      const activeClass = id === activeCategory ? ' active' : '';
+      return (
+        '<button class="browse-cat-chip' + activeClass + '" onclick="setBrowseCategory(\'' + key + '\', \'' + id + '\')">' +
+        label +
+        '</button>'
+      );
+    })
+    .join('');
+}
+
+function formatCompactNumber(value) {
+  const number = Number(value || 0);
+  if (!Number.isFinite(number) || number <= 0) return '0';
+  if (number >= 1000000000) return (number / 1000000000).toFixed(number >= 10000000000 ? 0 : 1) + 'B';
+  if (number >= 1000000) return (number / 1000000).toFixed(number >= 10000000 ? 0 : 1) + 'M';
+  if (number >= 1000) return (number / 1000).toFixed(number >= 10000 ? 0 : 1) + 'K';
+  return String(Math.round(number));
+}
+
+function formatRelativeDate(value) {
+  const input = String(value || '').trim();
+  if (!input) return 'Unknown';
+  const stamp = Date.parse(input);
+  if (!Number.isFinite(stamp)) return 'Unknown';
+  const deltaMs = Date.now() - stamp;
+  if (deltaMs <= 0) return 'Just now';
+  const minutes = Math.floor(deltaMs / 60000);
+  if (minutes < 1) return 'Just now';
+  if (minutes < 60) return minutes + 'm ago';
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return hours + 'h ago';
+  const days = Math.floor(hours / 24);
+  if (days < 7) return days + 'd ago';
+  const weeks = Math.floor(days / 7);
+  if (weeks < 5) return weeks + 'w ago';
+  const months = Math.floor(days / 30);
+  if (months < 12) return months + 'mo ago';
+  const years = Math.floor(days / 365);
+  return years + 'y ago';
+}
+
+function cleanBrowseVersions(values, limit) {
+  if (!Array.isArray(values)) return [];
+  const out = [];
+  const seen = new Set();
+  for (const value of values) {
+    const text = String(value || '').trim();
+    if (!text) continue;
+    if (seen.has(text)) continue;
+    seen.add(text);
+    out.push(text);
+    if (out.length >= limit) break;
+  }
+  return out;
+}
+
+function updateBrowseProviderStatus(provider, text) {
+  const key = String(provider || '').trim().toLowerCase();
+  const statusEl = document.getElementById(key + '-browse-status');
+  if (statusEl) statusEl.textContent = String(text || 'Browse');
+}
+
+async function openBrowseItemFromFeed(encodedUrl) {
+  const target = decodeURIComponent(String(encodedUrl || '').trim());
+  if (!target) {
+    showToast('!', 'Open failed', 'Missing provider URL');
+    return false;
+  }
+  const opened = await openExternalHttpUrl(target);
+  if (!opened) {
+    showToast('!', 'Open failed', 'Could not open browser automatically');
+    return false;
+  }
+  return true;
+}
+
+const BROWSE_LAYOUT_TOP_TABS = [
+  { id: 'mods', label: 'Mods', modrinth: 'mod', curseforgeClassId: '6' },
+  { id: 'modpacks', label: 'Modpacks', modrinth: 'modpack', curseforgeClassId: '4471' },
+  { id: 'resourcepacks', label: 'Resource Packs', modrinth: 'resourcepack', curseforgeClassId: '12' },
+  { id: 'shaders', label: 'Shaders', modrinth: 'shader', curseforgeClassId: '6552' },
+];
+const BROWSE_LAYOUT_SECONDARY = {
+  mods: [
+    ['all', 'All', []],
+    ['performance', 'Performance', ['performance', 'optimization', 'fps']],
+    ['utility', 'Utility', ['utility', 'qol', 'tweaks']],
+    ['adventure', 'Adventure', ['adventure', 'exploration', 'dungeon']],
+    ['magic', 'Magic', ['magic', 'mana', 'spell']],
+    ['technology', 'Technology', ['technology', 'tech', 'automation', 'machine']],
+    ['world_gen', 'World Gen', ['worldgen', 'world generation', 'biome', 'terrain']],
+    ['cosmetic', 'Cosmetic', ['cosmetic', 'visual', 'decoration']],
+    ['storage', 'Storage', ['storage', 'inventory', 'chest']],
+    ['library', 'Library', ['library', 'api']],
+  ],
+  modpacks: [
+    ['all', 'All', []],
+    ['vanilla_plus', 'Vanilla+', ['vanilla+', 'vanilla plus']],
+    ['tech', 'Tech', ['tech', 'technology']],
+    ['magic', 'Magic', ['magic']],
+    ['adventure', 'Adventure', ['adventure']],
+    ['rpg', 'RPG', ['rpg', 'roleplay']],
+    ['skyblock', 'Skyblock', ['skyblock']],
+    ['quest', 'Quest', ['quest']],
+    ['hardcore', 'Hardcore', ['hardcore']],
+    ['lightweight', 'Lightweight', ['lightweight', 'lite']],
+  ],
+  resourcepacks: [
+    ['all', 'All', []],
+    ['vanilla_plus', 'Vanilla+', ['vanilla+', 'vanilla plus']],
+    ['pvp', 'PvP', ['pvp']],
+    ['realistic', 'Realistic', ['realistic']],
+    ['cartoon', 'Cartoon', ['cartoon']],
+    ['medieval', 'Medieval', ['medieval']],
+    ['simplistic', 'Simplistic', ['simplistic', 'simple']],
+    ['themed', 'Themed', ['themed', 'theme']],
+  ],
+  shaders: [
+    ['all', 'All', []],
+    ['lightweight', 'Lightweight', ['lightweight', 'lite']],
+    ['balanced', 'Balanced', ['balanced']],
+    ['cinematic', 'Cinematic', ['cinematic']],
+    ['realistic', 'Realistic', ['realistic']],
+    ['fantasy', 'Fantasy', ['fantasy']],
+    ['vanilla_style', 'Vanilla Style', ['vanilla style', 'vanilla']],
+  ],
+};
+const BROWSE_LAYOUT_LOADER = [
+  ['any', 'Any'],
+  ['fabric', 'Fabric'],
+  ['forge', 'Forge'],
+  ['quilt', 'Quilt'],
+  ['neoforge', 'NeoForge'],
+];
+const BROWSE_LAYOUT_SORT = [
+  ['popular', 'Popular'],
+  ['newest', 'Newest'],
+  ['updated', 'Updated'],
+];
+const BROWSE_FILTER_ICON_MAP = {
+  category: {
+    all: 'list',
+    performance: 'gauge',
+    utility: 'wrench',
+    adventure: 'compass',
+    magic: 'sparkles',
+    technology: 'cpu',
+    world_gen: 'mountain',
+    cosmetic: 'palette',
+    storage: 'archive',
+    library: 'book-open',
+    vanilla_plus: 'leaf',
+    tech: 'cpu',
+    rpg: 'swords',
+    skyblock: 'cloud',
+    quest: 'scroll-text',
+    hardcore: 'shield-alert',
+    lightweight: 'feather',
+    pvp: 'crosshair',
+    realistic: 'camera',
+    cartoon: 'pen-line',
+    medieval: 'castle',
+    simplistic: 'circle',
+    themed: 'shapes',
+    balanced: 'scale',
+    cinematic: 'clapperboard',
+    fantasy: 'wand-sparkles',
+    vanilla_style: 'ice-cream-cone',
+  },
+  loader: {
+    any: 'boxes',
+    fabric: 'wind',
+    forge: 'hammer',
+    quilt: 'shirt',
+    neoforge: 'anvil',
+  },
+  version: {
+    any: 'hash',
+  },
+  sort: {
+    popular: 'flame',
+    newest: 'clock-3',
+    updated: 'refresh-cw',
+  },
+};
+
+function getBrowseTopTabConfig(topTabId) {
+  const key = String(topTabId || '').trim().toLowerCase();
+  return BROWSE_LAYOUT_TOP_TABS.find((item) => item.id === key) || BROWSE_LAYOUT_TOP_TABS[0];
+}
+
+function getBrowseSecondaryRows(topTabId) {
+  const key = String(topTabId || '').trim().toLowerCase();
+  return BROWSE_LAYOUT_SECONDARY[key] || BROWSE_LAYOUT_SECONDARY.mods;
+}
+
+function browseTopTabUsesLoader(topTabId) {
+  const key = String(topTabId || '').trim().toLowerCase();
+  return key === 'mods' || key === 'modpacks';
+}
+
+function getBrowseInstallTargetFromTopTab(topTabId) {
+  const key = String(topTabId || '').trim().toLowerCase();
+  if (key === 'mods') return 'mods';
+  if (key === 'resourcepacks') return 'resourcepacks';
+  if (key === 'shaders') return 'shaderpacks';
+  if (key === 'modpacks') return 'modpacks';
+  return 'mods';
+}
+
+function mapModrinthProjectTypeToTopTab(projectType) {
+  const type = String(projectType || '').trim().toLowerCase();
+  if (type === 'mod') return 'mods';
+  if (type === 'modpack') return 'modpacks';
+  if (type === 'resourcepack') return 'resourcepacks';
+  if (type === 'shader') return 'shaders';
+  return '';
+}
+
+function mapCurseforgeClassIdToTopTab(classId) {
+  const value = String(classId || '').trim();
+  if (value === '6') return 'mods';
+  if (value === '4471') return 'modpacks';
+  if (value === '12') return 'resourcepacks';
+  if (value === '6552') return 'shaders';
+  return '';
+}
+
+function buildBrowseDependencyInstallState(baseInstallState, dependencyTopTab) {
+  const parentTopTab = getBrowseTopTabConfig(baseInstallState && baseInstallState.topTab ? baseInstallState.topTab : 'mods').id;
+  const depTopTab = getBrowseTopTabConfig(dependencyTopTab).id;
+  const next = Object.assign({}, baseInstallState || {}, { topTab: depTopTab });
+  if (
+    (parentTopTab === 'shaders' || parentTopTab === 'resourcepacks') &&
+    browseTopTabUsesLoader(depTopTab)
+  ) {
+    // Shader/resource packs dependency resolution should not hard-lock by loader.
+    next.loader = 'any';
+  }
+  return next;
+}
+
+function getBrowseInstallTargetLabel(target) {
+  const key = String(target || '').trim().toLowerCase();
+  if (key === 'mods') return 'Mods';
+  if (key === 'resourcepacks') return 'Resource Packs';
+  if (key === 'shaderpacks') return 'Shaderpacks';
+  if (key === 'modpacks') return 'Modpacks';
+  return key || 'files';
+}
+
+function ensureBrowseLayoutState(provider) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = BROWSE_API_STATE[key];
+  if (!state) return null;
+  if (!state.topTab) state.topTab = 'mods';
+  if (!state.secondary) state.secondary = 'all';
+  if (!state.loader) state.loader = 'any';
+  if (!state.version) state.version = 'any';
+  if (!state.sort) state.sort = 'popular';
+  if (!Number.isFinite(Number(state.page)) || Number(state.page) < 1) state.page = 1;
+  if (!Number.isFinite(Number(state.totalRows)) || Number(state.totalRows) < 0) state.totalRows = 0;
+  if (!Array.isArray(state.availableVersions)) state.availableVersions = [];
+  if (!state.filterPanels || typeof state.filterPanels !== 'object') {
+    state.filterPanels = {
+      category: false,
+      loader: false,
+      version: false,
+      sort: false,
+    };
+  }
+  return state;
+}
+
+function syncBrowseResultsHeight(provider) {
+  const key = String(provider || '').trim().toLowerCase();
+  if (!key) return;
+  const results = document.querySelector('#page-' + key + ' .browse-results');
+  if (!results) return;
+  results.style.removeProperty('height');
+  results.style.removeProperty('max-height');
+}
+
+function scheduleBrowseResultsHeightSync(provider, delayMs) {
+  const key = String(provider || '').trim().toLowerCase();
+  if (!Object.prototype.hasOwnProperty.call(BROWSE_RESULTS_HEIGHT_SYNC_TIMERS, key)) return;
+  const delay = Math.max(0, Number(delayMs) || 0);
+  const pending = BROWSE_RESULTS_HEIGHT_SYNC_TIMERS[key];
+  if (pending) clearTimeout(pending);
+  BROWSE_RESULTS_HEIGHT_SYNC_TIMERS[key] = setTimeout(() => {
+    window.requestAnimationFrame(() => syncBrowseResultsHeight(key));
+  }, delay);
+}
+
+function getBrowseFilterOptionIcon(groupId, optionId) {
+  const groupKey = String(groupId || '').trim().toLowerCase();
+  const optionKey = String(optionId || '').trim().toLowerCase();
+  const groupMap = BROWSE_FILTER_ICON_MAP[groupKey] && typeof BROWSE_FILTER_ICON_MAP[groupKey] === 'object'
+    ? BROWSE_FILTER_ICON_MAP[groupKey]
+    : {};
+  return groupMap[optionKey] || (groupKey === 'version' ? 'hash' : 'tag');
+}
+
+function toggleBrowseFilterGroup(provider, groupId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  const panelKey = String(groupId || '').trim().toLowerCase();
+  if (!panelKey) return;
+  if (!state.filterPanels || typeof state.filterPanels !== 'object') state.filterPanels = {};
+  const collapsed = !Boolean(state.filterPanels[panelKey]);
+  state.filterPanels[panelKey] = collapsed;
+
+  const filters = document.getElementById(key + '-browse-filters');
+  if (!filters) {
+    renderBrowseProviderFeed(key);
+    return;
+  }
+  const groupEl = filters.querySelector('.browse-filter-group-card[data-filter-group="' + panelKey + '"]');
+  if (!groupEl) {
+    renderBrowseProviderFeed(key);
+    return;
+  }
+  const bodyEl = groupEl.querySelector('.browse-filter-body');
+  groupEl.classList.toggle('collapsed', collapsed);
+  if (bodyEl) bodyEl.classList.toggle('collapsed', collapsed);
+  scheduleBrowseResultsHeightSync(key, 0);
+  scheduleBrowseResultsHeightSync(key, 280);
+}
+
+function parseMcVersionTuple(value) {
+  const text = String(value || '').trim().replace(/^v/i, '');
+  const match = text.match(/^(\d+)\.(\d+)(?:\.(\d+))?/);
+  if (!match) return null;
+  return [Number(match[1] || 0), Number(match[2] || 0), Number(match[3] || 0)];
+}
+
+function compareMcVersionDesc(left, right) {
+  const a = parseMcVersionTuple(left);
+  const b = parseMcVersionTuple(right);
+  if (!a && !b) return String(right).localeCompare(String(left));
+  if (!a) return 1;
+  if (!b) return -1;
+  for (let i = 0; i < 3; i += 1) {
+    if (a[i] !== b[i]) return b[i] - a[i];
+  }
+  return 0;
+}
+
+function setBrowseTopTab(provider, topTabId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  const next = getBrowseTopTabConfig(topTabId).id;
+  if (state.topTab === next) return;
+  state.topTab = next;
+  state.secondary = 'all';
+  state.loader = 'any';
+  state.version = 'any';
+  state.page = 1;
+  state.totalRows = 0;
+  state.loaded = false;
+  state.error = '';
+  renderBrowseProviderFeed(key);
+  void refreshBrowseProvider(key, true);
+}
+
+function setBrowseSecondary(provider, secondaryId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  const options = getBrowseSecondaryRows(state.topTab);
+  const normalized = String(secondaryId || '').trim().toLowerCase();
+  const next = (options.find((item) => item[0] === normalized) || options[0])[0];
+  if (state.secondary === next) return;
+  state.secondary = next;
+  state.page = 1;
+  state.totalRows = 0;
+  renderBrowseProviderFeed(key);
+  void refreshBrowseProvider(key, true);
+}
+
+function setBrowseLoader(provider, loaderId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  const normalized = String(loaderId || '').trim().toLowerCase();
+  const next = (BROWSE_LAYOUT_LOADER.find((item) => item[0] === normalized) || BROWSE_LAYOUT_LOADER[0])[0];
+  if (state.loader === next) return;
+  state.loader = next;
+  state.page = 1;
+  state.totalRows = 0;
+  state.loaded = false;
+  state.error = '';
+  renderBrowseProviderFeed(key);
+  void refreshBrowseProvider(key, true);
+}
+
+function setBrowseVersion(provider, versionId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  const next = String(versionId || 'any').trim() || 'any';
+  if (state.version === next) return;
+  state.version = next;
+  state.page = 1;
+  state.totalRows = 0;
+  state.loaded = false;
+  state.error = '';
+  renderBrowseProviderFeed(key);
+  void refreshBrowseProvider(key, true);
+}
+
+function setBrowseSort(provider, sortId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  const normalized = String(sortId || '').trim().toLowerCase();
+  const next = (BROWSE_LAYOUT_SORT.find((item) => item[0] === normalized) || BROWSE_LAYOUT_SORT[0])[0];
+  if (state.sort === next) return;
+  state.sort = next;
+  state.page = 1;
+  state.totalRows = 0;
+  renderBrowseProviderFeed(key);
+}
+
+function getActiveBrowseFilterCount(provider) {
+  const state = ensureBrowseLayoutState(provider);
+  if (!state) return 0;
+  let count = 0;
+  if (String(state.secondary || 'all').toLowerCase() !== 'all') count += 1;
+  if (browseTopTabUsesLoader(state.topTab) && String(state.loader || 'any').toLowerCase() !== 'any') {
+    count += 1;
+  }
+  if (String(state.version || 'any').toLowerCase() !== 'any') count += 1;
+  return count;
+}
+
+function updateBrowseFilterButtons(provider) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  const loaderBtn = document.getElementById(key + '-browse-filter-loader-btn');
+  const versionBtn = document.getElementById(key + '-browse-filter-version-btn');
+  const sortBtn = document.getElementById(key + '-browse-filter-sort-btn');
+
+  if (loaderBtn) {
+    const loaderDisabled = !browseTopTabUsesLoader(state.topTab);
+    const active = !loaderDisabled && String(state.loader || 'any').toLowerCase() !== 'any';
+    loaderBtn.disabled = loaderDisabled;
+    loaderBtn.classList.toggle('active', active);
+  }
+  if (versionBtn) {
+    const active = String(state.version || 'any').toLowerCase() !== 'any';
+    versionBtn.classList.toggle('active', active);
+  }
+  if (sortBtn) {
+    const active = String(state.sort || 'popular').toLowerCase() !== 'popular';
+    sortBtn.classList.toggle('active', active);
+  }
+}
+
+function openBrowseFilterMenu(e, provider, targetGroup) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state || !ctxMenu) return;
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  activeSelectMenu = null;
+  activeIconPickerInput = null;
+  activeIconPickerTrigger = null;
+  activeGroupPicker = null;
+
+  const items = [];
+  const addSectionLabel = (label) => {
+    items.push('<div class="ctx-item ctx-label">' + escapeHtml(label) + '</div>');
+  };
+  const addOption = (groupId, optionId, label, selected, icon) => {
+    const selectedClass = selected ? ' selected' : '';
+    const encodedValue = encodeURIComponent(String(optionId || ''));
+    const iconHtml = icon ? '<i data-lucide="' + escapeHtml(icon) + '" width="12" height="12"></i>' : '';
+    items.push(
+      '<div class="ctx-item' + selectedClass + '" onclick="applyBrowseFilterMenuOption(\'' +
+      key + '\', \'' + groupId + '\', \'' + encodedValue + '\')">' +
+      iconHtml + '<span>' + escapeHtml(label) + '</span></div>'
+    );
+  };
+  const group = String(targetGroup || '').trim().toLowerCase();
+  if (group === 'secondary' || !group) {
+    addSectionLabel('Category');
+    getBrowseSecondaryRows(state.topTab).forEach((row) => {
+      addOption('secondary', row[0], row[1], row[0] === state.secondary, getBrowseFilterOptionIcon('category', row[0]));
+    });
+  } else if (group === 'loader') {
+    addSectionLabel('Loader');
+    if (!browseTopTabUsesLoader(state.topTab)) {
+      items.push('<div class="ctx-item disabled"><i data-lucide="ban" width="12" height="12"></i><span>Not used for this tab</span></div>');
+    } else {
+      BROWSE_LAYOUT_LOADER.forEach((row) => {
+        addOption('loader', row[0], row[1], row[0] === state.loader, getBrowseFilterOptionIcon('loader', row[0]));
+      });
+    }
+  } else if (group === 'version') {
+    addSectionLabel('Version');
+    const versionRows = ['any'].concat(Array.isArray(state.availableVersions) ? state.availableVersions : []);
+    versionRows.forEach((value) => {
+      const label = value === 'any' ? 'Any' : value;
+      addOption('version', value, label, value === state.version, getBrowseFilterOptionIcon('version', value));
+    });
+  } else if (group === 'sort') {
+    addSectionLabel('Sort');
+    BROWSE_LAYOUT_SORT.forEach((row) => {
+      addOption('sort', row[0], row[1], row[0] === state.sort, getBrowseFilterOptionIcon('sort', row[0]));
+    });
+  }
+
+  if (!items.length) return;
+
+  ctxMenu.innerHTML = items.join('');
+  ctxMenu.classList.add('select-menu');
+  ctxMenu.classList.remove('icon-picker-menu');
+  ctxMenu.classList.remove('group-picker-menu');
+  ctxMenu.style.display = 'block';
+
+  const anchor = e && e.currentTarget && typeof e.currentTarget.getBoundingClientRect === 'function'
+    ? e.currentTarget
+    : null;
+  const rect = anchor ? anchor.getBoundingClientRect() : { left: 8, bottom: 8, width: 220 };
+  const menuWidth = Math.max(220, Math.floor(rect.width));
+  const maxHeight = Math.max(220, Math.min(480, window.innerHeight - 24));
+  ctxMenu.style.minWidth = menuWidth + 'px';
+  ctxMenu.style.maxHeight = maxHeight + 'px';
+  ctxMenu.style.overflowY = 'auto';
+  ctxMenu.style.overflowX = 'hidden';
+  const menuHeight = Math.min(ctxMenu.scrollHeight, maxHeight);
+  const x = Math.min(Math.max(8, Math.floor(rect.left)), window.innerWidth - menuWidth - 8);
+  const y = Math.min(Math.floor(rect.bottom + 4), window.innerHeight - menuHeight - 8);
+  ctxMenu.style.left = x + 'px';
+  ctxMenu.style.top = y + 'px';
+
+  lucide.createIcons();
+  setTimeout(() => document.addEventListener('click', hideCtx, { once: true }), 0);
+}
+
+function applyBrowseFilterMenuOption(provider, groupId, encodedValue) {
+  const key = String(provider || '').trim().toLowerCase();
+  const group = String(groupId || '').trim().toLowerCase();
+  const value = decodeURIComponent(String(encodedValue || ''));
+
+  if (group === 'reset') {
+    const state = ensureBrowseLayoutState(key);
+    if (!state) return;
+    state.secondary = 'all';
+    state.loader = 'any';
+    state.version = 'any';
+    state.sort = 'popular';
+    state.page = 1;
+    state.totalRows = 0;
+    renderBrowseProviderFeed(key);
+    hideCtx();
+    return;
+  }
+
+  if (group === 'secondary') setBrowseSecondary(key, value);
+  else if (group === 'loader') setBrowseLoader(key, value);
+  else if (group === 'version') setBrowseVersion(key, value);
+  else if (group === 'sort') setBrowseSort(key, value);
+
+  hideCtx();
+}
+
+function setBrowsePage(provider, pageNumber) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  const next = Math.max(1, Number(pageNumber) || 1);
+  if (state.page === next) return;
+  state.page = next;
+  void refreshBrowseProvider(key, true);
+  const feed = document.getElementById(key + '-browse-feed');
+  if (feed) feed.scrollTop = 0;
+}
+
+function renderBrowsePagination(provider, currentPage, totalPages) {
+  const key = String(provider || '').trim().toLowerCase();
+  const current = Math.max(1, Number(currentPage) || 1);
+  const total = Math.max(1, Number(totalPages) || 1);
+  if (total <= 1) return '';
+  const numbers = [];
+  const maxButtons = 5;
+  let start = Math.max(1, current - Math.floor(maxButtons / 2));
+  let end = Math.min(total, start + maxButtons - 1);
+  start = Math.max(1, end - maxButtons + 1);
+  for (let page = start; page <= end; page += 1) numbers.push(page);
+
+  const prevDisabled = current <= 1 ? ' disabled' : '';
+  const nextDisabled = current >= total ? ' disabled' : '';
+  let html =
+    '<button class="browse-page-btn' + prevDisabled + '" onclick="setBrowsePage(\'' + key + '\', ' + String(current - 1) + ')"' + (current <= 1 ? ' disabled' : '') + '>‹</button>';
+  if (start > 1) {
+    html += '<button class="browse-page-btn" onclick="setBrowsePage(\'' + key + '\', 1)">1</button>';
+    if (start > 2) html += '<span class="browse-page-gap">…</span>';
+  }
+  html += numbers
+    .map((page) => {
+      const active = page === current ? ' active' : '';
+      return '<button class="browse-page-btn' + active + '" onclick="setBrowsePage(\'' + key + '\', ' + String(page) + ')">' + String(page) + '</button>';
+    })
+    .join('');
+  if (end < total) {
+    if (end < total - 1) html += '<span class="browse-page-gap">…</span>';
+    html += '<button class="browse-page-btn" onclick="setBrowsePage(\'' + key + '\', ' + String(total) + ')">' + String(total) + '</button>';
+  }
+  html +=
+    '<button class="browse-page-btn' + nextDisabled + '" onclick="setBrowsePage(\'' + key + '\', ' + String(current + 1) + ')"' + (current >= total ? ' disabled' : '') + '>›</button>';
+  return html;
+}
+
+function mapCurseforgeLoaderToken(value) {
+  const code = Number(value);
+  if (code === 1) return 'forge';
+  if (code === 4) return 'fabric';
+  if (code === 5) return 'quilt';
+  if (code === 6) return 'neoforge';
+  return '';
+}
+
+function mapBrowseLoaderToCurseforgeType(loaderId) {
+  const key = String(loaderId || '').trim().toLowerCase();
+  if (key === 'forge') return 1;
+  if (key === 'fabric') return 4;
+  if (key === 'quilt') return 5;
+  if (key === 'neoforge') return 6;
+  return 0;
+}
+
+async function ensureBrowseGlobalMinecraftVersions() {
+  if (Array.isArray(BROWSE_GLOBAL_VERSIONS_CACHE) && BROWSE_GLOBAL_VERSIONS_CACHE.length) {
+    return BROWSE_GLOBAL_VERSIONS_CACHE.slice();
+  }
+  if (BROWSE_GLOBAL_VERSIONS_PROMISE) {
+    return BROWSE_GLOBAL_VERSIONS_PROMISE;
+  }
+  BROWSE_GLOBAL_VERSIONS_PROMISE = (async () => {
+    const res = await invokeBackend('list_minecraft_versions', {
+      includeSnapshots: true,
+      limit: BROWSE_VERSION_LIMIT,
+    });
+    const rows = res.ok && Array.isArray(res.data) ? res.data : [];
+    const cleaned = cleanBrowseVersions(
+      rows.map((value) => String(value || '').trim()),
+      BROWSE_VERSION_LIMIT
+    );
+    cleaned.sort(compareMcVersionDesc);
+    BROWSE_GLOBAL_VERSIONS_CACHE = cleaned;
+    return cleaned.slice();
+  })()
+    .catch(() => [])
+    .finally(() => {
+      BROWSE_GLOBAL_VERSIONS_PROMISE = null;
+    });
+  return BROWSE_GLOBAL_VERSIONS_PROMISE;
+}
+
+function resolveBrowseImageUrl(value) {
+  if (!value) return '';
+  if (typeof value === 'string') return String(value).trim();
+  if (typeof value !== 'object') return '';
+  const keys = ['raw_url', 'url', 'thumbnail_url', 'thumbnailUrl', 'image_url', 'imageUrl'];
+  for (const key of keys) {
+    const url = String(value[key] || '').trim();
+    if (url) return url;
+  }
+  return '';
+}
+
+function pickBrowseImageFromList(values) {
+  if (!Array.isArray(values)) return '';
+  for (const value of values) {
+    const url = resolveBrowseImageUrl(value);
+    if (url) return url;
+  }
+  return '';
+}
+
+function getModrinthHeroImage(source) {
+  const featuredGallery = Array.isArray(source.featured_gallery) ? source.featured_gallery : [];
+  const gallery = Array.isArray(source.gallery) ? source.gallery : [];
+  return pickBrowseImageFromList(featuredGallery) || pickBrowseImageFromList(gallery);
+}
+
+async function hydrateModrinthHeroImages(items) {
+  const rows = Array.isArray(items) ? items : [];
+  const missingIds = rows
+    .filter((item) => item && !item.heroImage && item.id)
+    .map((item) => String(item.id).trim())
+    .filter(Boolean)
+    .slice(0, 12);
+  if (!missingIds.length) return rows;
+  const heroById = new Map();
+  await Promise.all(
+    missingIds.map(async (projectId) => {
+      try {
+        const response = await fetch('https://api.modrinth.com/v2/project/' + encodeURIComponent(projectId), {
+          method: 'GET',
+          headers: { Accept: 'application/json' },
+        });
+        if (!response.ok) return;
+        const payload = await response.json();
+        const heroImage = getModrinthHeroImage(payload && typeof payload === 'object' ? payload : {});
+        if (heroImage) heroById.set(projectId, heroImage);
+      } catch (_) {
+        // Keep browse responsive if hero enrichment fails.
+      }
+    })
+  );
+  if (!heroById.size) return rows;
+  return rows.map((item) => {
+    const id = String((item && item.id) || '').trim();
+    if (!id) return item;
+    const heroImage = heroById.get(id);
+    if (!heroImage) return item;
+    return Object.assign({}, item, { heroImage });
+  });
+}
+
+function mapModrinthBrowseItem(hit) {
+  const source = hit && typeof hit === 'object' ? hit : {};
+  const projectType = String(source.project_type || 'mod').toLowerCase();
+  const pathMap = { mod: 'mod', modpack: 'modpack', resourcepack: 'resourcepack', shader: 'shader' };
+  const categories = (Array.isArray(source.categories) ? source.categories : [])
+    .map((item) => String(item || '').toLowerCase())
+    .filter(Boolean);
+  const displayCategories = (Array.isArray(source.display_categories) ? source.display_categories : [])
+    .map((item) => String(item || '').toLowerCase())
+    .filter(Boolean);
+  const loaders = cleanBrowseVersions(
+    categories.filter((item) => item === 'fabric' || item === 'forge' || item === 'quilt' || item === 'neoforge'),
+    4
+  );
+  const versions = cleanBrowseVersions(source.versions || [], BROWSE_VERSION_LIMIT);
+  const searchText = [source.title, source.description, categories.join(' '), displayCategories.join(' ')]
+    .map((item) => String(item || '').toLowerCase())
+    .join(' ');
+  const slug = String(source.slug || '').trim();
+  const heroImage = getModrinthHeroImage(source);
+  return {
+    id: String(source.project_id || slug || source.title || Math.random()),
+    projectType,
+    title: String(source.title || 'Untitled').trim(),
+    description: String(source.description || '').trim(),
+    downloads: Number(source.downloads || 0),
+    createdAt: source.date_created || source.date_modified || '',
+    updatedAt: source.date_modified || source.date_created || '',
+    iconUrl: String(source.icon_url || '').trim(),
+    heroImage,
+    url: slug ? 'https://modrinth.com/' + (pathMap[projectType] || 'mod') + '/' + slug : '',
+    versions,
+    loaders,
+    searchText,
+  };
+}
+
+function mapCurseforgeBrowseItem(entry, topTab) {
+  const source = entry && typeof entry === 'object' ? entry : {};
+  const indexes = Array.isArray(source.latestFilesIndexes) ? source.latestFilesIndexes : [];
+  const versions = cleanBrowseVersions(
+    indexes
+      .map((item) => String(item && item.gameVersion ? item.gameVersion : '').trim())
+      .filter((value) => /^\d+\.\d+(\.\d+)?$/.test(value)),
+    BROWSE_VERSION_LIMIT
+  );
+  const loaders = cleanBrowseVersions(indexes.map((item) => mapCurseforgeLoaderToken(item && item.modLoader)).filter(Boolean), 4);
+  const categories = Array.isArray(source.categories)
+    ? source.categories.map((item) => String((item && item.name) || '').toLowerCase()).filter(Boolean)
+    : [];
+  const pathMap = { mods: 'mc-mods', modpacks: 'modpacks', resourcepacks: 'texture-packs', shaders: 'shaders' };
+  const website = source.links && typeof source.links === 'object' ? String(source.links.websiteUrl || '').trim() : '';
+  const fallbackUrl = 'https://www.curseforge.com/minecraft/' + (pathMap[topTab] || 'mc-mods') + '/' + String(source.slug || '').trim();
+  const screenshots = Array.isArray(source.screenshots) ? source.screenshots : [];
+  const heroImage = pickBrowseImageFromList(screenshots);
+  const searchText = [source.name, source.summary, categories.join(' ')].map((item) => String(item || '').toLowerCase()).join(' ');
+  return {
+    id: String(source.id || source.slug || source.name || Math.random()),
+    classId: String(source.classId || '').trim(),
+    title: String(source.name || 'Untitled').trim(),
+    description: String(source.summary || '').trim(),
+    downloads: Number(source.downloadCount || 0),
+    createdAt: source.dateCreated || source.dateReleased || '',
+    updatedAt: source.dateModified || source.dateReleased || '',
+    iconUrl:
+      source.logo && typeof source.logo === 'object'
+        ? String(source.logo.thumbnailUrl || source.logo.url || '').trim()
+        : '',
+    heroImage,
+    url: website || fallbackUrl,
+    versions,
+    loaders,
+    searchText,
+  };
+}
+
+async function fetchModrinthBrowseItems(query, category, pageNumber, filters) {
+  const topConfig = getBrowseTopTabConfig(category);
+  const page = Math.max(1, Number(pageNumber) || 1);
+  const selectedLoader = String(filters && filters.loader ? filters.loader : 'any').trim().toLowerCase() || 'any';
+  const selectedVersion = String(filters && filters.version ? filters.version : 'any').trim().toLowerCase() || 'any';
+  const params = new URLSearchParams();
+  const facets = [['project_type:' + topConfig.modrinth]];
+  if (browseTopTabUsesLoader(topConfig.id) && selectedLoader !== 'any') {
+    facets.push(['categories:' + selectedLoader]);
+  }
+  if (selectedVersion !== 'any') {
+    facets.push(['versions:' + selectedVersion]);
+  }
+  params.set('limit', String(BROWSE_UI_PAGE_SIZE));
+  params.set('offset', String((page - 1) * BROWSE_UI_PAGE_SIZE));
+  params.set('index', 'downloads');
+  params.set('facets', JSON.stringify(facets));
+  if (query) params.set('query', query);
+  const response = await fetch('https://api.modrinth.com/v2/search?' + params.toString(), {
+    method: 'GET',
+    headers: { Accept: 'application/json' },
+  });
+  if (!response.ok) throw new Error('Modrinth API failed with status ' + response.status);
+  const payload = await response.json();
+  const maybeTotal = Number(payload && (payload.total_hits || payload.total || payload.totalHits));
+  const totalRows = Number.isFinite(maybeTotal) && maybeTotal >= 0 ? maybeTotal : 0;
+  const hits = Array.isArray(payload && payload.hits) ? payload.hits : [];
+  const mapped = hits.map(mapModrinthBrowseItem).filter((item) => item.url);
+  const deduped = [];
+  const seen = new Set();
+  for (const item of mapped) {
+    const id = String((item && item.id) || '').trim();
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    deduped.push(item);
+  }
+  const items = await hydrateModrinthHeroImages(deduped);
+  return {
+    items,
+    totalRows,
+  };
+}
+
+async function fetchCurseforgeBrowseItems(query, category, pageNumber, filters) {
+  const topConfig = getBrowseTopTabConfig(category);
+  const page = Math.max(1, Number(pageNumber) || 1);
+  const selectedLoader = String(filters && filters.loader ? filters.loader : 'any').trim().toLowerCase() || 'any';
+  const selectedVersion = String(filters && filters.version ? filters.version : 'any').trim().toLowerCase() || 'any';
+  const params = new URLSearchParams();
+  params.set('gameId', '432');
+  params.set('classId', String(topConfig.curseforgeClassId || '6'));
+  params.set('pageSize', String(BROWSE_UI_PAGE_SIZE));
+  params.set('index', String((page - 1) * BROWSE_UI_PAGE_SIZE));
+  params.set('sortField', '2');
+  params.set('sortOrder', 'desc');
+  if (browseTopTabUsesLoader(topConfig.id) && selectedLoader !== 'any') {
+    const modLoaderType = mapBrowseLoaderToCurseforgeType(selectedLoader);
+    if (modLoaderType > 0) params.set('modLoaderType', String(modLoaderType));
+  }
+  if (selectedVersion !== 'any') {
+    params.set('gameVersion', selectedVersion);
+  }
+  if (query) params.set('searchFilter', query);
+  const response = await fetch('https://api.curse.tools/v1/cf/mods/search?' + params.toString(), {
+    method: 'GET',
+    headers: { Accept: 'application/json' },
+  });
+  if (!response.ok) throw new Error('CurseForge API failed with status ' + response.status);
+  const payload = await response.json();
+  const pagination = payload && payload.pagination && typeof payload.pagination === 'object' ? payload.pagination : {};
+  const maybeTotal = Number(
+    pagination.totalCount ||
+    pagination.resultCount ||
+    (payload && payload.totalCount) ||
+    (payload && payload.total)
+  );
+  const totalRows = Number.isFinite(maybeTotal) && maybeTotal >= 0 ? maybeTotal : 0;
+  const rows = Array.isArray(payload && payload.data) ? payload.data : [];
+  const mapped = rows.map((entry) => mapCurseforgeBrowseItem(entry, topConfig.id)).filter((item) => item.url);
+  const deduped = [];
+  const seen = new Set();
+  for (const item of mapped) {
+    const id = String((item && item.id) || '').trim();
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    deduped.push(item);
+  }
+  return {
+    items: deduped,
+    totalRows,
+  };
+}
+
+async function fetchBrowseProviderItems(provider, query, category, pageNumber, filters) {
+  const key = String(provider || '').trim().toLowerCase();
+  if (key === 'modrinth') return fetchModrinthBrowseItems(query, category, pageNumber, filters);
+  if (key === 'curseforge') return fetchCurseforgeBrowseItems(query, category, pageNumber, filters);
+  throw new Error('Unsupported browse provider');
+}
+
+function findBrowseItemById(provider, itemId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const targetId = String(itemId || '').trim();
+  if (!targetId) return null;
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return null;
+  const rows = Array.isArray(state.items) ? state.items : [];
+  return rows.find((item) => String((item && item.id) || '').trim() === targetId) || null;
+}
+
+function parseDateMs(value) {
+  const parsed = Date.parse(String(value || ''));
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function pickModrinthPrimaryFile(version) {
+  const files = Array.isArray(version && version.files) ? version.files : [];
+  if (!files.length) return null;
+  return files.find((file) => !!(file && file.primary)) || files[0] || null;
+}
+
+async function resolveModrinthInstallArtifact(item, state) {
+  const projectId = String((item && item.id) || '').trim();
+  if (!projectId) throw new Error('Missing Modrinth project id');
+
+  const topTab = getBrowseTopTabConfig(state ? state.topTab : 'mods').id;
+  const selectedLoader = String((state && state.loader) || 'any').trim().toLowerCase();
+  const selectedVersion = String((state && state.version) || 'any').trim().toLowerCase();
+
+  const endpoint = 'https://api.modrinth.com/v2/project/' + encodeURIComponent(projectId) + '/version';
+  const params = new URLSearchParams();
+  if (browseTopTabUsesLoader(topTab) && selectedLoader !== 'any') {
+    params.set('loaders', JSON.stringify([selectedLoader]));
+  }
+  if (selectedVersion !== 'any') {
+    params.set('game_versions', JSON.stringify([selectedVersion]));
+  }
+
+  let response = await fetch(
+    endpoint + (params.toString() ? ('?' + params.toString()) : ''),
+    { method: 'GET', headers: { Accept: 'application/json' } }
+  );
+  if (!response.ok) {
+    throw new Error('Modrinth versions API failed with status ' + response.status);
+  }
+  let versions = await response.json();
+  versions = Array.isArray(versions) ? versions : [];
+
+  if (!versions.length && params.toString()) {
+    const fallbackRes = await fetch(endpoint, { method: 'GET', headers: { Accept: 'application/json' } });
+    if (fallbackRes.ok) {
+      const fallbackRows = await fallbackRes.json();
+      versions = Array.isArray(fallbackRows) ? fallbackRows : [];
+    }
+  }
+  if (!versions.length) {
+    throw new Error('No downloadable Modrinth files matched this filter');
+  }
+
+  versions.sort((a, b) => parseDateMs(b && b.date_published) - parseDateMs(a && a.date_published));
+  for (const version of versions) {
+    const file = pickModrinthPrimaryFile(version);
+    const url = String(file && file.url ? file.url : '').trim();
+    const fileName = String(file && file.filename ? file.filename : '').trim();
+    if (!url) continue;
+    const dependencyRefs = [];
+    const dependencyRows = Array.isArray(version && version.dependencies) ? version.dependencies : [];
+    const dependencyMap = new Map();
+    dependencyRows.forEach((dep) => {
+      const projectId = String(dep && dep.project_id ? dep.project_id : '').trim();
+      if (!projectId) return;
+      const depType = String(dep && dep.dependency_type ? dep.dependency_type : '').toLowerCase();
+      if (depType !== 'required' && depType !== 'optional') return;
+      const required = depType === 'required';
+      const previous = dependencyMap.get(projectId);
+      dependencyMap.set(projectId, previous ? (previous || required) : required);
+    });
+    dependencyMap.forEach((required, id) => {
+      dependencyRefs.push({ id, required: Boolean(required) });
+    });
+    return {
+      url,
+      fileName,
+      target: getBrowseInstallTargetFromTopTab(topTab),
+      dependencyRefs,
+    };
+  }
+
+  throw new Error('Modrinth returned versions but no downloadable files');
+}
+
+function fileMatchesVersionFilter(file, selectedVersion) {
+  const filter = String(selectedVersion || 'any').trim().toLowerCase();
+  if (!filter || filter === 'any') return true;
+  const versions = Array.isArray(file && file.gameVersions) ? file.gameVersions : [];
+  return versions.some((value) => String(value || '').toLowerCase().startsWith(filter));
+}
+
+function fileMatchesLoaderFilter(file, selectedLoader, topTab) {
+  const loader = String(selectedLoader || 'any').trim().toLowerCase();
+  if (!browseTopTabUsesLoader(topTab) || !loader || loader === 'any') return true;
+  const versions = Array.isArray(file && file.gameVersions) ? file.gameVersions : [];
+  return versions.some((value) => String(value || '').toLowerCase().includes(loader));
+}
+
+async function resolveCurseforgeInstallArtifact(item, state) {
+  const projectId = Number(item && item.id ? item.id : 0);
+  if (!Number.isFinite(projectId) || projectId <= 0) {
+    throw new Error('Missing CurseForge project id');
+  }
+
+  const topTab = getBrowseTopTabConfig(state ? state.topTab : 'mods').id;
+  const selectedLoader = String((state && state.loader) || 'any').trim().toLowerCase();
+  const selectedVersion = String((state && state.version) || 'any').trim().toLowerCase();
+  const endpoint = 'https://api.curse.tools/v1/cf/mods/' + String(projectId) + '/files?pageSize=50&index=0';
+  const response = await fetch(endpoint, { method: 'GET', headers: { Accept: 'application/json' } });
+  if (!response.ok) {
+    throw new Error('CurseForge files API failed with status ' + response.status);
+  }
+  const payload = await response.json();
+  const rows = Array.isArray(payload && payload.data) ? payload.data : [];
+  if (!rows.length) {
+    throw new Error('No downloadable CurseForge files found');
+  }
+
+  const matched = rows
+    .filter((file) => !!String(file && file.downloadUrl ? file.downloadUrl : '').trim())
+    .filter((file) => fileMatchesVersionFilter(file, selectedVersion))
+    .filter((file) => fileMatchesLoaderFilter(file, selectedLoader, topTab))
+    .sort((a, b) => parseDateMs(b && b.fileDate) - parseDateMs(a && a.fileDate));
+  const candidate = matched[0];
+  if (!candidate) {
+    throw new Error('No CurseForge file matched this loader/version');
+  }
+
+  const dependencyRefs = [];
+  const dependencyMap = new Map();
+  const dependencyRows = Array.isArray(candidate && candidate.dependencies) ? candidate.dependencies : [];
+  dependencyRows.forEach((dep) => {
+    const modId = Number(dep && dep.modId);
+    if (!Number.isFinite(modId) || modId <= 0) return;
+    const relationType = Number(dep && dep.relationType);
+    if (relationType !== 3 && relationType !== 2) return;
+    const required = relationType === 3;
+    const previous = dependencyMap.get(modId);
+    dependencyMap.set(modId, previous ? (previous || required) : required);
+  });
+  dependencyMap.forEach((required, id) => {
+    dependencyRefs.push({ id, required: Boolean(required) });
+  });
+
+  return {
+    url: String(candidate.downloadUrl || '').trim(),
+    fileName: String(candidate.fileName || candidate.displayName || '').trim(),
+    target: getBrowseInstallTargetFromTopTab(topTab),
+    dependencyRefs,
+  };
+}
+
+async function resolveBrowseInstallArtifact(provider, item, state) {
+  const key = String(provider || '').trim().toLowerCase();
+  if (key === 'modrinth') return resolveModrinthInstallArtifact(item, state);
+  if (key === 'curseforge') return resolveCurseforgeInstallArtifact(item, state);
+  throw new Error('Unsupported provider');
+}
+
+async function installBrowseArtifactToInstance(instanceName, artifact, existsPolicy) {
+  const policy = String(existsPolicy || '').trim().toLowerCase() || 'overwrite';
+  const installRes = await invokeBackend('install_browse_item', {
+    request: {
+      instanceName,
+      target: artifact.target,
+      url: artifact.url,
+      fileName: artifact.fileName || '',
+      ifExists: policy,
+    },
+  });
+  if (!installRes.ok || !installRes.data) {
+    throw new Error(formatBackendError(installRes.error, 'Backend rejected install'));
+  }
+  return installRes.data;
+}
+
+function instanceSupportsBrowseItem(instanceName, item, browseState) {
+  const details = INSTANCE_DATA && INSTANCE_DATA[instanceName] ? INSTANCE_DATA[instanceName] : null;
+  if (!details) {
+    return { supported: false, reason: 'Missing instance details' };
+  }
+
+  const topTab = getBrowseTopTabConfig(browseState ? browseState.topTab : 'mods').id;
+  const instanceLoader = normalizeLoader(details.loaderKey || details.loader || 'vanilla');
+  const instanceVersion = String(details.version || '').trim().toLowerCase();
+  const itemLoaders = Array.isArray(item && item.loaders) ? item.loaders.map((value) => String(value || '').toLowerCase()) : [];
+  const itemVersions = Array.isArray(item && item.versions) ? item.versions.map((value) => String(value || '').toLowerCase()) : [];
+
+  if (topTab === 'shaders' && instanceLoader === 'vanilla') {
+    return {
+      supported: false,
+      reason: 'Shaders need Fabric/Quilt/Forge/NeoForge instance (Iris/Oculus runtime required)',
+    };
+  }
+
+  if (browseTopTabUsesLoader(topTab) && itemLoaders.length && !itemLoaders.includes(instanceLoader)) {
+    return {
+      supported: false,
+      reason: 'Needs loader: ' + itemLoaders.join(', '),
+    };
+  }
+  if (instanceVersion && itemVersions.length) {
+    const hasVersion = itemVersions.some((value) => {
+      return value === instanceVersion || value.startsWith(instanceVersion) || instanceVersion.startsWith(value);
+    });
+    if (!hasVersion) {
+      return {
+        supported: false,
+        reason: 'Needs version: ' + itemVersions.slice(0, 3).join(', '),
+      };
+    }
+  }
+
+  return { supported: true, reason: 'Compatible' };
+}
+
+function buildBrowseInstallStateFromInstance(baseState, instanceName) {
+  const details = INSTANCE_DATA && INSTANCE_DATA[instanceName] ? INSTANCE_DATA[instanceName] : null;
+  const loader = normalizeLoader(details && (details.loaderKey || details.loader) ? (details.loaderKey || details.loader) : (baseState.loader || 'any'));
+  const version = String(details && details.version ? details.version : (baseState.version || 'any')).trim().toLowerCase() || 'any';
+  return {
+    topTab: String(baseState.topTab || 'mods'),
+    loader,
+    version,
+  };
+}
+
+function pickBrowseAddInstanceLoader(item, browseState) {
+  const itemLoaders = Array.isArray(item && item.loaders)
+    ? item.loaders.map((value) => normalizeLoader(value)).filter(Boolean)
+    : [];
+  const supported = ['fabric', 'forge', 'quilt', 'neoforge', 'vanilla'];
+  const fromItem = itemLoaders.find((loader) => supported.includes(loader) && loader !== 'any');
+  if (fromItem) return fromItem;
+  const fromFilter = normalizeLoader(browseState && browseState.loader ? browseState.loader : 'any');
+  if (fromFilter && fromFilter !== 'any' && supported.includes(fromFilter)) return fromFilter;
+  return 'vanilla';
+}
+
+function pickBrowseAddInstanceVersion(item, browseState) {
+  const itemVersions = cleanBrowseVersions(
+    Array.isArray(item && item.versions) ? item.versions.filter((value) => parseMcVersionTuple(value)) : [],
+    BROWSE_VERSION_LIMIT
+  ).sort(compareMcVersionDesc);
+  if (itemVersions.length) return itemVersions[0];
+  const filteredVersion = String(browseState && browseState.version ? browseState.version : 'any').trim();
+  if (filteredVersion && filteredVersion.toLowerCase() !== 'any') return filteredVersion;
+  return '';
+}
+
+function buildBrowseAddInstanceNameBase(item, topTab) {
+  const sourceTitle = String(item && item.title ? item.title : '').trim() || 'Instance';
+  const safe = sourceTitle
+    .replace(/[\\/:*?"<>|]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 22);
+  const suffixMap = {
+    mods: 'Mods',
+    modpacks: 'Pack',
+    resourcepacks: 'Resource Pack',
+    shaders: 'Shaders',
+  };
+  const suffix = suffixMap[String(topTab || '').trim().toLowerCase()] || 'Instance';
+  return (safe ? (safe + ' ' + suffix) : suffix).trim();
+}
+
+function setBrowseInstallModalStatus(text, isError) {
+  const statusEl = document.getElementById('browse-install-status');
+  if (!statusEl) return;
+  statusEl.textContent = String(text || '');
+  statusEl.style.color = isError ? 'var(--red)' : 'var(--t4)';
+}
+
+function renderBrowseInstallLog() {
+  const logEl = document.getElementById('browse-install-log');
+  if (!logEl) return;
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  const logs = state && Array.isArray(state.logs) ? state.logs : [];
+  if (!logs.length) {
+    logEl.innerHTML = '<div style="padding:6px 2px;color:var(--t4)">No activity yet.</div>';
+    return;
+  }
+  logEl.innerHTML = logs
+    .map((row) => {
+      const level = String(row && row.level ? row.level : 'info').toLowerCase();
+      const color = level === 'error'
+        ? 'var(--red)'
+        : level === 'warn'
+          ? '#c49b5a'
+          : level === 'ok'
+            ? 'var(--green)'
+            : 'var(--t4)';
+      const text = escapeHtml(String(row && row.text ? row.text : ''));
+      return '<div style="padding:3px 2px;color:' + color + '">' + text + '</div>';
+    })
+    .join('');
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+function pushBrowseInstallLog(level, text) {
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  if (!state) return;
+  if (!Array.isArray(state.logs)) state.logs = [];
+  const entryText = String(text || '').trim();
+  if (!entryText) return;
+  state.logs.push({
+    at: Date.now(),
+    level: String(level || 'info').trim().toLowerCase() || 'info',
+    text: entryText,
+  });
+  if (state.logs.length > 200) {
+    state.logs.splice(0, state.logs.length - 200);
+  }
+  renderBrowseInstallLog();
+}
+
+function onBrowseInstallExistsPolicyChange() {
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  const selectEl = document.getElementById('browse-install-exists-policy');
+  if (!state || !selectEl) return;
+  const next = String(selectEl.value || 'skip').trim().toLowerCase();
+  state.existsPolicy = next === 'overwrite' ? 'overwrite' : 'skip';
+  pushBrowseInstallLog('info', 'Install policy: ' + (state.existsPolicy === 'skip' ? 'skip existing files' : 'overwrite existing files'));
+}
+
+function setBrowseInstallConfirmButton(enabled, busy) {
+  const confirmBtn = document.getElementById('browse-install-confirm');
+  if (!confirmBtn) return;
+  confirmBtn.disabled = !enabled;
+  if (busy) {
+    confirmBtn.innerHTML = '<i data-lucide="loader-circle" width="12" height="12"></i>Installing...';
+  } else {
+    confirmBtn.innerHTML = '<i data-lucide="download" width="12" height="12"></i>Install';
+  }
+  lucide.createIcons();
+}
+
+function renderBrowseInstallDependencyList() {
+  const depsEl = document.getElementById('browse-install-deps');
+  if (!depsEl) return;
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  const deps = state && Array.isArray(state.dependencies) ? state.dependencies : [];
+  if (!deps.length) {
+    depsEl.innerHTML = '<div style="font-size:11px;font-family:var(--mono);color:var(--t4);padding:6px 2px">No extra dependencies detected.</div>';
+    return;
+  }
+  depsEl.innerHTML = deps
+    .map((dep, index) => {
+      const checked = dep.required ? true : Boolean(dep.checked);
+      const checkedClass = checked ? ' on' : '';
+      const disabledStyle = dep.error || dep.required ? 'opacity:0.78;cursor:default' : '';
+      const iconHtml = checked ? '<i data-lucide="check" width="10" height="10" style="color:#000"></i>' : '';
+      const toggleAttr = dep.error || dep.required ? '' : ' onclick="toggleBrowseInstallDependency(' + String(index) + ')"';
+      const statusText = dep.error
+        ? '<span style="font-size:10px;font-family:var(--mono);color:var(--red)">Unresolved</span>'
+        : '<span style="font-size:10px;font-family:var(--mono);color:var(--t4)">' + escapeHtml(dep.required ? 'Required' : 'Optional') + '</span>';
+      return (
+        '<div class="check-row" style="' + disabledStyle + '">' +
+        '<div class="check-box' + checkedClass + '"' + toggleAttr + '>' + iconHtml + '</div>' +
+        '<div style="display:flex;flex-direction:column;gap:2px;min-width:0">' +
+        '<span class="check-label" style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + escapeHtml(dep.title || 'Dependency') + '</span>' +
+        statusText +
+        '</div>' +
+        '</div>'
+      );
+    })
+    .join('');
+  lucide.createIcons();
+}
+
+function toggleBrowseInstallDependency(index) {
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  if (!state || !Array.isArray(state.dependencies)) return;
+  const target = state.dependencies[index];
+  if (!target || target.error || target.required) return;
+  target.checked = !target.checked;
+  renderBrowseInstallDependencyList();
+}
+
+async function resolveShaderRuntimeDependencies(installState) {
+  const topTab = getBrowseTopTabConfig(installState && installState.topTab ? installState.topTab : 'mods').id;
+  if (topTab !== 'shaders') return [];
+  const loader = normalizeLoader(installState && installState.loader ? installState.loader : 'vanilla');
+  const runtimeModState = Object.assign({}, installState || {}, { topTab: 'mods' });
+  const queue = [];
+  if (loader === 'fabric' || loader === 'quilt') {
+    queue.push({ id: 'iris', title: 'Iris Shaders' });
+  } else if (loader === 'forge' || loader === 'neoforge') {
+    queue.push({ id: 'oculus', title: 'Oculus' });
+    queue.push({ id: 'embeddium', title: 'Embeddium' });
+  } else {
+    return [];
+  }
+
+  const out = [];
+  for (const runtime of queue) {
+    const projectId = String(runtime.id || '').trim();
+    if (!projectId) continue;
+    try {
+      const artifact = await resolveModrinthInstallArtifact(
+        { id: projectId, title: String(runtime.title || projectId) },
+        runtimeModState
+      );
+      out.push({
+        id: 'modrinth:' + projectId,
+        title: String(runtime.title || projectId),
+        required: true,
+        checked: true,
+        artifact,
+        error: null,
+      });
+      const nested = await resolveBrowseDependencyArtifacts(
+        'modrinth',
+        artifact,
+        Object.assign({}, runtimeModState, { itemId: projectId })
+      );
+      nested.forEach((row) => out.push(row));
+    } catch (err) {
+      out.push({
+        id: 'modrinth:' + projectId,
+        title: String(runtime.title || projectId),
+        required: true,
+        checked: true,
+        artifact: null,
+        error: err && err.message ? String(err.message) : 'Dependency resolve failed',
+      });
+    }
+  }
+  return out;
+}
+
+function mergeBrowseDependencies(primaryDeps, extraDeps) {
+  const out = [];
+  const seen = new Set();
+  const push = (dep) => {
+    if (!dep || typeof dep !== 'object') return;
+    const artifactUrl = String(dep.artifact && dep.artifact.url ? dep.artifact.url : '').trim();
+    const key = artifactUrl || String(dep.id || '').trim();
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    out.push(dep);
+  };
+  (Array.isArray(primaryDeps) ? primaryDeps : []).forEach(push);
+  (Array.isArray(extraDeps) ? extraDeps : []).forEach(push);
+  return out;
+}
+
+async function resolveBrowseDependencyArtifacts(provider, mainArtifact, installState) {
+  const key = String(provider || '').trim().toLowerCase();
+  const refs = Array.isArray(mainArtifact && mainArtifact.dependencyRefs) ? mainArtifact.dependencyRefs : [];
+  const maxDepth = 4;
+  const maxEntries = 48;
+  const entries = [];
+  const seen = new Set();
+  const mainId = String(installState && installState.itemId ? installState.itemId : '').trim();
+  const queue = refs.slice(0, maxEntries).map((ref) => ({
+    ref,
+    required: ref && typeof ref === 'object' ? Boolean(ref.required) : true,
+    depth: 1,
+  }));
+
+  while (queue.length > 0 && entries.length < maxEntries) {
+    const current = queue.shift();
+    if (!current) break;
+    const ref = current.ref;
+    const refValue = ref && typeof ref === 'object' ? ref.id : ref;
+    const isRequired = Boolean(current.required);
+    const depth = Number(current.depth || 1);
+    if (depth > maxDepth) continue;
+
+    if (key === 'modrinth') {
+      const projectId = String(refValue || '').trim();
+      if (!projectId) continue;
+      if (mainId && projectId === mainId) continue;
+      const seenKey = 'modrinth:' + projectId;
+      if (seen.has(seenKey)) continue;
+      seen.add(seenKey);
+      try {
+        const infoRes = await fetch('https://api.modrinth.com/v2/project/' + encodeURIComponent(projectId), {
+          method: 'GET',
+          headers: { Accept: 'application/json' },
+        });
+        const info = infoRes.ok ? await infoRes.json() : {};
+        const title = String(info && info.title ? info.title : projectId).trim();
+        const modrinthProjectType = String(info && info.project_type ? info.project_type : '').trim().toLowerCase();
+        const modrinthSlug = String(info && info.slug ? info.slug : '').trim();
+        const modrinthPathMap = { mod: 'mod', modpack: 'modpack', resourcepack: 'resourcepack', shader: 'shader' };
+        const pageUrl = modrinthSlug
+          ? 'https://modrinth.com/' + (modrinthPathMap[modrinthProjectType] || 'project') + '/' + modrinthSlug
+          : 'https://modrinth.com/project/' + encodeURIComponent(projectId);
+        const iconUrl = String(info && info.icon_url ? info.icon_url : '').trim();
+        const depTopTab = mapModrinthProjectTypeToTopTab(info && info.project_type) || String(installState && installState.topTab ? installState.topTab : 'mods');
+        const depInstallState = buildBrowseDependencyInstallState(installState, depTopTab);
+        const artifact = await resolveModrinthInstallArtifact({ id: projectId, title }, depInstallState);
+        entries.push({
+          id: seenKey,
+          title,
+          required: isRequired,
+          checked: isRequired,
+          artifact,
+          error: null,
+          url: pageUrl,
+          iconUrl,
+          depth,
+        });
+
+        if (isRequired && depth < maxDepth) {
+          const childRefs = Array.isArray(artifact && artifact.dependencyRefs)
+            ? artifact.dependencyRefs
+                .filter((child) => {
+                  const childRequired = child && typeof child === 'object' ? Boolean(child.required) : true;
+                  return childRequired;
+                })
+                .slice(0, maxEntries)
+            : [];
+          childRefs.forEach((childRef) => {
+            queue.push({
+              ref: childRef,
+              required: true,
+              depth: depth + 1,
+            });
+          });
+        }
+      } catch (err) {
+        entries.push({
+          id: seenKey,
+          title: projectId,
+          required: isRequired,
+          checked: false,
+          artifact: null,
+          error: err && err.message ? String(err.message) : 'Dependency resolve failed',
+          depth,
+        });
+      }
+    } else if (key === 'curseforge') {
+      const modId = Number(refValue);
+      if (!Number.isFinite(modId) || modId <= 0) continue;
+      if (mainId && String(modId) === mainId) continue;
+      const seenKey = 'curseforge:' + String(modId);
+      if (seen.has(seenKey)) continue;
+      seen.add(seenKey);
+      try {
+        const infoRes = await fetch('https://api.curse.tools/v1/cf/mods/' + String(modId), {
+          method: 'GET',
+          headers: { Accept: 'application/json' },
+        });
+        const infoPayload = infoRes.ok ? await infoRes.json() : {};
+        const row = infoPayload && infoPayload.data ? infoPayload.data : {};
+        const title = String(row && row.name ? row.name : String(modId)).trim();
+        const curseClassId = String(row && row.classId ? row.classId : '').trim();
+        const curseSlug = String(row && row.slug ? row.slug : '').trim();
+        const curseLinks = row && typeof row.links === 'object' ? row.links : {};
+        const websiteUrl = String(curseLinks.websiteUrl || '').trim();
+        const cursePathMap = { '6': 'mc-mods', '4471': 'modpacks', '12': 'texture-packs', '6552': 'shaders' };
+        const pageUrl = websiteUrl || (curseSlug ? ('https://www.curseforge.com/minecraft/' + (cursePathMap[curseClassId] || 'mc-mods') + '/' + curseSlug) : '');
+        const iconUrl = row && row.logo && typeof row.logo === 'object'
+          ? String(row.logo.thumbnailUrl || row.logo.url || '').trim()
+          : '';
+        const depTopTab = mapCurseforgeClassIdToTopTab(row && row.classId) || String(installState && installState.topTab ? installState.topTab : 'mods');
+        const depInstallState = buildBrowseDependencyInstallState(installState, depTopTab);
+        const artifact = await resolveCurseforgeInstallArtifact({ id: String(modId), title }, depInstallState);
+        entries.push({
+          id: seenKey,
+          title,
+          required: isRequired,
+          checked: isRequired,
+          artifact,
+          error: null,
+          url: pageUrl,
+          iconUrl,
+          depth,
+        });
+
+        if (isRequired && depth < maxDepth) {
+          const childRefs = Array.isArray(artifact && artifact.dependencyRefs)
+            ? artifact.dependencyRefs
+                .filter((child) => {
+                  const childRequired = child && typeof child === 'object' ? Boolean(child.required) : true;
+                  return childRequired;
+                })
+                .slice(0, maxEntries)
+            : [];
+          childRefs.forEach((childRef) => {
+            queue.push({
+              ref: childRef,
+              required: true,
+              depth: depth + 1,
+            });
+          });
+        }
+      } catch (err) {
+        entries.push({
+          id: seenKey,
+          title: String(modId),
+          required: isRequired,
+          checked: false,
+          artifact: null,
+          error: err && err.message ? String(err.message) : 'Dependency resolve failed',
+          depth,
+        });
+      }
+    }
+  }
+  return entries;
+}
+
+function openAddInstanceForBrowseItem() {
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  if (!state || !state.item) {
+    showToast('!', 'Create instance', 'No browse item selected');
+    return;
+  }
+
+  const topTab = getBrowseTopTabConfig(state.browseState && state.browseState.topTab ? state.browseState.topTab : 'mods').id;
+  const loader = pickBrowseAddInstanceLoader(state.item, state.browseState);
+  const version = pickBrowseAddInstanceVersion(state.item, state.browseState);
+  const nameBase = buildBrowseAddInstanceNameBase(state.item, topTab);
+
+  ADD_INSTANCE_PREFILL = {
+    nameBase,
+    loader,
+    version: version || '',
+    loaderVersion: '',
+  };
+  PENDING_BROWSE_INSTALL_CONTEXT = {
+    provider: state.provider,
+    itemId: state.itemId,
+  };
+
+  closeModal();
+  setTimeout(() => openModal('add-instance'), 180);
+}
+
+function openBrowseInstallModal(provider, encodedItemId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const itemId = decodeURIComponent(String(encodedItemId || '').trim());
+  const browseState = ensureBrowseLayoutState(key);
+  const item = findBrowseItemById(key, itemId);
+  if (!browseState || !item) {
+    showToast('!', 'Install failed', 'Item no longer exists in this page');
+    return;
+  }
+
+  BROWSE_INSTALL_MODAL_STATE = {
+    provider: key,
+    itemId,
+    item,
+    browseState: {
+      topTab: browseState.topTab,
+      loader: browseState.loader,
+      version: browseState.version,
+    },
+    selectedInstance: null,
+    dependencies: [],
+    mainArtifact: null,
+    resolveToken: null,
+    existsPolicy: 'skip',
+    logs: [],
+  };
+  openModal('browse-install');
+}
+
+async function hydrateBrowseInstallModal() {
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  if (!state || !state.item) {
+    closeModal();
+    showToast('!', 'Install failed', 'Missing install state');
+    return;
+  }
+
+  const summaryEl = document.getElementById('browse-install-summary');
+  const selectEl = document.getElementById('browse-install-instance');
+  const policyEl = document.getElementById('browse-install-exists-policy');
+  if (!summaryEl || !selectEl) return;
+
+  const providerLabel = getBrowseProviderLabel(state.provider);
+  const topTabLabel = getBrowseTopTabConfig(state.browseState.topTab).label;
+  summaryEl.innerHTML =
+    '<strong style="color:var(--t2)">' + escapeHtml(state.item.title || 'Item') + '</strong>' +
+    '<div style="margin-top:4px;color:var(--t4)">' + escapeHtml(providerLabel) + ' - ' + escapeHtml(topTabLabel) + '</div>';
+  if (policyEl) {
+    policyEl.value = state.existsPolicy === 'overwrite' ? 'overwrite' : 'skip';
+  }
+  state.logs = [];
+  pushBrowseInstallLog('info', 'Opened install planner for ' + String(state.item.title || 'Item'));
+
+  const instanceNames = Object.keys(INSTANCE_DATA || {}).sort((left, right) =>
+    left.localeCompare(right, undefined, { sensitivity: 'base', numeric: true })
+  );
+  const compatibilityRows = instanceNames.map((instanceName) => {
+    const compatibility = instanceSupportsBrowseItem(instanceName, state.item, state.browseState);
+    return {
+      name: instanceName,
+      supported: compatibility.supported,
+      reason: compatibility.reason,
+    };
+  });
+  const supportedRows = compatibilityRows.filter((row) => row.supported);
+  selectEl.innerHTML = compatibilityRows
+    .map((row) => {
+      const disabled = row.supported ? '' : ' disabled';
+      const suffix = row.supported ? '' : ' - Unsupported';
+      return '<option value="' + escapeHtml(row.name) + '"' + disabled + '>' + escapeHtml(row.name + suffix) + '</option>';
+    })
+    .join('');
+
+  if (!compatibilityRows.length) {
+    selectEl.innerHTML = '<option value="">No instances found</option>';
+    selectEl.disabled = true;
+    setBrowseInstallModalStatus('Create an instance first, then install.', true);
+    setBrowseInstallConfirmButton(false, false);
+    pushBrowseInstallLog('error', 'No instances found');
+    return;
+  }
+  if (!supportedRows.length) {
+    selectEl.disabled = true;
+    setBrowseInstallModalStatus('No compatible instances for this item.', true);
+    setBrowseInstallConfirmButton(false, false);
+    pushBrowseInstallLog('error', 'No compatible instances for this item');
+    return;
+  }
+
+  const currentlySelected = getSelectedInstanceName();
+  const preferred = supportedRows.find((row) => row.name === currentlySelected)
+    || supportedRows[0];
+  selectEl.value = preferred.name;
+  state.selectedInstance = preferred.name;
+  selectEl.disabled = false;
+  pushBrowseInstallLog('info', 'Selected instance: ' + preferred.name);
+
+  await refreshBrowseInstallPlanForInstance();
+}
+
+async function onBrowseInstallInstanceChange() {
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  if (!state) return;
+  const selectEl = document.getElementById('browse-install-instance');
+  if (!selectEl) return;
+  state.selectedInstance = String(selectEl.value || '').trim();
+  pushBrowseInstallLog('info', 'Switched instance: ' + state.selectedInstance);
+  await refreshBrowseInstallPlanForInstance();
+}
+
+async function refreshBrowseInstallPlanForInstance() {
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  if (!state || !state.item) return;
+  const instanceName = String(state.selectedInstance || '').trim();
+  const compatEl = document.getElementById('browse-install-compat');
+  if (!instanceName) {
+    setBrowseInstallModalStatus('Select instance to continue.', true);
+    setBrowseInstallConfirmButton(false, false);
+    pushBrowseInstallLog('error', 'Instance selection is empty');
+    return;
+  }
+
+  const compatibility = instanceSupportsBrowseItem(instanceName, state.item, state.browseState);
+  if (compatEl) {
+    compatEl.textContent = compatibility.reason;
+    compatEl.style.color = compatibility.supported ? 'var(--green)' : 'var(--red)';
+  }
+  if (!compatibility.supported) {
+    state.mainArtifact = null;
+    state.dependencies = [];
+    renderBrowseInstallDependencyList();
+    setBrowseInstallModalStatus('This instance is not compatible with selected item.', true);
+    setBrowseInstallConfirmButton(false, false);
+    pushBrowseInstallLog('error', 'Compatibility failed: ' + compatibility.reason);
+    return;
+  }
+
+  setBrowseInstallModalStatus('Resolving download and dependencies...', false);
+  setBrowseInstallConfirmButton(false, true);
+  pushBrowseInstallLog('info', 'Resolving artifact + dependencies...');
+  const token = Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+  state.resolveToken = token;
+
+  try {
+    const installState = buildBrowseInstallStateFromInstance(state.browseState, instanceName);
+    installState.itemId = state.itemId;
+    const mainArtifact = await resolveBrowseInstallArtifact(state.provider, state.item, installState);
+    const dependencies = await resolveBrowseDependencyArtifacts(state.provider, mainArtifact, installState);
+    const shaderRuntimeDeps = await resolveShaderRuntimeDependencies(installState);
+    const mergedDependencies = mergeBrowseDependencies(dependencies, shaderRuntimeDeps);
+    if (!BROWSE_INSTALL_MODAL_STATE || BROWSE_INSTALL_MODAL_STATE.resolveToken !== token) return;
+    state.mainArtifact = mainArtifact;
+    state.dependencies = mergedDependencies;
+    renderBrowseInstallDependencyList();
+    const unresolvedRequired = mergedDependencies.filter((dep) => dep && dep.required && dep.error).length;
+    const unresolvedOptional = mergedDependencies.filter((dep) => dep && !dep.required && dep.error).length;
+    const status = unresolvedRequired > 0
+      ? 'Blocked: ' + unresolvedRequired + ' required dependency could not be resolved.'
+      : unresolvedOptional > 0
+        ? 'Ready with warnings: ' + unresolvedOptional + ' optional dependency unresolved.'
+      : 'Ready to install.';
+    setBrowseInstallModalStatus(status, unresolvedRequired > 0 || unresolvedOptional > 0);
+    setBrowseInstallConfirmButton(unresolvedRequired === 0, false);
+    pushBrowseInstallLog(
+      unresolvedRequired > 0 ? 'error' : (unresolvedOptional > 0 ? 'warn' : 'ok'),
+      'Plan ready: main + ' + String(mergedDependencies.length) + ' dependencies'
+    );
+  } catch (err) {
+    if (!BROWSE_INSTALL_MODAL_STATE || BROWSE_INSTALL_MODAL_STATE.resolveToken !== token) return;
+    state.mainArtifact = null;
+    state.dependencies = [];
+    renderBrowseInstallDependencyList();
+    const reason = err && err.message ? String(err.message) : 'Could not resolve install file';
+    setBrowseInstallModalStatus(reason, true);
+    setBrowseInstallConfirmButton(false, false);
+    pushBrowseInstallLog('error', 'Resolve failed: ' + reason);
+  }
+}
+
+function providerFromDependencyId(value, fallbackProvider) {
+  const text = String(value || '').trim().toLowerCase();
+  if (text.startsWith('modrinth:')) return 'modrinth';
+  if (text.startsWith('curseforge:')) return 'curseforge';
+  return String(fallbackProvider || 'browse').trim().toLowerCase() || 'browse';
+}
+
+function buildBrowseInstallQueueFromState(state) {
+  const queue = [];
+  const seen = new Set();
+  const push = (entry) => {
+    if (!entry || !entry.artifact) return;
+    const artifact = entry.artifact;
+    const key = String(artifact.target || 'mods') + '|' + String(artifact.fileName || '') + '|' + String(artifact.url || '');
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    queue.push(entry);
+  };
+
+  (state.dependencies || []).forEach((dep) => {
+    if (!dep || dep.error || !dep.artifact || !(dep.required || dep.checked)) return;
+    push({
+      title: String(dep.title || dep.artifact.fileName || 'Dependency'),
+      required: !!dep.required,
+      sourceType: 'dependency',
+      provider: providerFromDependencyId(dep.id, state.provider),
+      itemId: String(dep.id || ''),
+      pageUrl: String(dep.url || '').trim(),
+      iconUrl: String(dep.iconUrl || '').trim(),
+      rootTitle: String(state.item && state.item.title ? state.item.title : ''),
+      artifact: dep.artifact,
+    });
+  });
+
+  push({
+    title: String(state.item && state.item.title ? state.item.title : 'Item'),
+    required: true,
+    sourceType: 'main',
+    provider: state.provider,
+    itemId: state.itemId,
+    pageUrl: String(state.item && state.item.url ? state.item.url : '').trim(),
+    iconUrl: String(state.item && state.item.iconUrl ? state.item.iconUrl : '').trim(),
+    rootTitle: String(state.item && state.item.title ? state.item.title : ''),
+    artifact: state.mainArtifact,
+  });
+  return queue;
+}
+
+async function confirmBrowseInstallFromModal() {
+  const state = BROWSE_INSTALL_MODAL_STATE;
+  if (!state || !state.item || !state.mainArtifact) {
+    showToast('!', 'Install failed', 'Install plan is not ready');
+    return;
+  }
+  const instanceName = String(state.selectedInstance || '').trim();
+  if (!instanceName) {
+    showToast('!', 'Install failed', 'Instance is required');
+    return;
+  }
+  const policy = String(state.existsPolicy || 'skip').trim().toLowerCase() === 'overwrite'
+    ? 'overwrite'
+    : 'skip';
+  const queue = buildBrowseInstallQueueFromState(state);
+  if (!queue.length) {
+    showToast('!', 'Install failed', 'No install targets selected');
+    return;
+  }
+
+  setBrowseInstallConfirmButton(false, true);
+  pushBrowseInstallLog('info', 'Starting install (' + String(queue.length) + ' files, policy: ' + policy + ')');
+  try {
+    for (let i = 0; i < queue.length; i += 1) {
+      const row = queue[i];
+      const artifact = row.artifact;
+      const name = String(artifact && artifact.fileName ? artifact.fileName : row.title || 'file');
+      setBrowseInstallModalStatus(
+        'Installing ' + String(i + 1) + '/' + String(queue.length) + ': ' + name,
+        false
+      );
+      const result = await installBrowseArtifactToInstance(instanceName, artifact, policy);
+      const status = String(result && result.status ? result.status : 'installed').toLowerCase();
+      if (status === 'skipped_exists') {
+        upsertTrackedInstallForInstance(instanceName, {
+          id: String(artifact.target || 'mods') + ':' + String((result && result.file_name) || artifact.fileName || '').toLowerCase(),
+          title: row.title || name,
+          provider: row.provider || state.provider,
+          itemId: row.itemId || state.itemId || '',
+          target: result && result.target ? result.target : artifact.target,
+          fileName: (result && result.file_name) || artifact.fileName || '',
+          url: artifact.url || '',
+          path: result && result.path ? result.path : '',
+          bytesWritten: 0,
+          installedAt: Date.now(),
+          required: !!row.required,
+          sourceType: row.sourceType || 'main',
+          rootTitle: row.rootTitle || String(state.item && state.item.title ? state.item.title : ''),
+          pageUrl: String(row.pageUrl || '').trim(),
+          iconUrl: String(row.iconUrl || '').trim(),
+        });
+        pushBrowseInstallLog('warn', 'Skipped existing: ' + name);
+        continue;
+      }
+      upsertTrackedInstallForInstance(instanceName, {
+        id: String(artifact.target || 'mods') + ':' + String((result && result.file_name) || artifact.fileName || '').toLowerCase(),
+        title: row.title || name,
+        provider: row.provider || state.provider,
+        itemId: row.itemId || state.itemId || '',
+        target: result && result.target ? result.target : artifact.target,
+        fileName: (result && result.file_name) || artifact.fileName || '',
+        url: artifact.url || '',
+        path: result && result.path ? result.path : '',
+        bytesWritten: Number(result && result.bytes_written ? result.bytes_written : 0),
+        installedAt: Date.now(),
+        required: !!row.required,
+        sourceType: row.sourceType || 'main',
+        rootTitle: row.rootTitle || String(state.item && state.item.title ? state.item.title : ''),
+        pageUrl: String(row.pageUrl || '').trim(),
+        iconUrl: String(row.iconUrl || '').trim(),
+      });
+      pushBrowseInstallLog('ok', 'Installed: ' + name);
+    }
+    closeModal();
+    await refreshInstancesFromBackend(false);
+    await refreshSelectedInstanceInfo(instanceName);
+    refreshInstanceTrackedInstallSummary(instanceName);
+    showToast('OK', 'Installed', String(state.item.title || 'Item') + ' installed to ' + instanceName);
+  } catch (err) {
+    const reason = err && err.message ? String(err.message) : 'Install failed';
+    setBrowseInstallModalStatus(reason, true);
+    setBrowseInstallConfirmButton(true, false);
+    pushBrowseInstallLog('error', 'Install failed: ' + reason);
+    showToast('!', 'Install failed', reason);
+  }
+}
+
+async function installBrowseItemFromFeed(buttonEl, provider, encodedItemId) {
+  const key = String(provider || '').trim().toLowerCase();
+  const itemId = decodeURIComponent(String(encodedItemId || '').trim());
+  if (!itemId) {
+    showToast('!', 'Install failed', 'Missing item id');
+    return;
+  }
+  if (!Object.prototype.hasOwnProperty.call(BROWSE_INSTALL_IN_FLIGHT, key)) return;
+  if (BROWSE_INSTALL_IN_FLIGHT[key][itemId]) return;
+  const button = buttonEl && buttonEl.tagName ? buttonEl : null;
+  if (button) {
+    button.disabled = true;
+    const originalHtml = button.innerHTML;
+    button.innerHTML = '<i data-lucide="loader-circle" width="12" height="12"></i><span>Preparing...</span>';
+    lucide.createIcons();
+    setTimeout(() => {
+      button.disabled = false;
+      button.innerHTML = originalHtml;
+      lucide.createIcons();
+    }, 1200);
+  }
+  openBrowseInstallModal(key, encodeURIComponent(itemId));
+}
+
+function getFilteredBrowseItems(provider) {
+  const state = ensureBrowseLayoutState(provider);
+  if (!state) return [];
+  const secondaryOption =
+    getBrowseSecondaryRows(state.topTab).find((row) => row[0] === state.secondary) ||
+    getBrowseSecondaryRows(state.topTab)[0];
+  const secondaryKeywords = secondaryOption && Array.isArray(secondaryOption[2]) ? secondaryOption[2] : [];
+  const selectedVersion = String(state.version || 'any').toLowerCase();
+  const selectedLoader = String(state.loader || 'any').toLowerCase();
+  const items = (state.items || []).filter((item) => {
+    if (secondaryKeywords.length) {
+      const haystack = String(item.searchText || '').toLowerCase();
+      if (!secondaryKeywords.some((token) => haystack.includes(String(token).toLowerCase()))) return false;
+    }
+    if (browseTopTabUsesLoader(state.topTab) && selectedLoader !== 'any') {
+      const loaders = Array.isArray(item.loaders) ? item.loaders : [];
+      if (!loaders.includes(selectedLoader)) return false;
+    }
+    if (selectedVersion !== 'any') {
+      const versions = Array.isArray(item.versions) ? item.versions : [];
+      if (!versions.some((value) => String(value || '').toLowerCase().startsWith(selectedVersion))) return false;
+    }
+    return true;
+  });
+  const sorted = items.slice();
+  if (state.sort === 'newest') {
+    sorted.sort((a, b) => Date.parse(String(b.createdAt || '')) - Date.parse(String(a.createdAt || '')));
+  } else if (state.sort === 'updated') {
+    sorted.sort((a, b) => Date.parse(String(b.updatedAt || '')) - Date.parse(String(a.updatedAt || '')));
+  } else {
+    sorted.sort((a, b) => Number(b.downloads || 0) - Number(a.downloads || 0));
+  }
+  return sorted;
+}
+
+function buildBrowseRemoteQuery(state) {
+  const baseQuery = String((state && state.query) || '').trim();
+  if (!state) return baseQuery;
+  const secondaryOption =
+    getBrowseSecondaryRows(state.topTab).find((row) => row[0] === state.secondary) ||
+    getBrowseSecondaryRows(state.topTab)[0];
+  const secondaryKeywords = secondaryOption && Array.isArray(secondaryOption[2]) ? secondaryOption[2] : [];
+  const keyword = String((secondaryKeywords && secondaryKeywords[0]) || '').trim();
+  if (!keyword) return baseQuery;
+  if (!baseQuery) return keyword;
+  if (baseQuery.toLowerCase().includes(keyword.toLowerCase())) return baseQuery;
+  return baseQuery + ' ' + keyword;
+}
+
+function renderBrowseProviderFeed(provider) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  const feed = document.getElementById(key + '-browse-feed');
+  const tabs = document.getElementById(key + '-browse-top-tabs');
+  const filters = document.getElementById(key + '-browse-filters');
+  const paginationEl = document.getElementById(key + '-browse-pagination');
+  const paginationBottomEl = document.getElementById(key + '-browse-pagination-bottom');
+  if (!state || !feed) return;
+
+  if (tabs) {
+    tabs.innerHTML = BROWSE_LAYOUT_TOP_TABS
+      .map((tab) => {
+        const activeClass = tab.id === state.topTab ? ' active' : '';
+        return '<button class="browse-tab-chip' + activeClass + '" onclick="setBrowseTopTab(\'' + key + '\', \'' + tab.id + '\')">' + escapeHtml(tab.label) + '</button>';
+      })
+      .join('');
+  }
+  if (filters) {
+    const renderOption = (groupId, optionId, label, activeClass, onclick) =>
+      '<button class="browse-filter-option' + activeClass + '" onclick="' + onclick + '">' +
+      '<i data-lucide="' + getBrowseFilterOptionIcon(groupId, optionId) + '" width="12" height="12"></i>' +
+      '<span>' + escapeHtml(label) + '</span>' +
+      '</button>';
+    const panels = state.filterPanels || {};
+    const renderGroup = (groupId, title, body, scrollable) => {
+      const collapsed = Boolean(panels[groupId]);
+      const bodyClass = 'browse-filter-body' + (collapsed ? ' collapsed' : '') + (scrollable ? ' scrollable' : '');
+      return (
+        '<section class="browse-filter-group-card' + (collapsed ? ' collapsed' : '') + '" data-filter-group="' + groupId + '">' +
+        '<button class="browse-filter-head" onclick="toggleBrowseFilterGroup(\'' + key + '\', \'' + groupId + '\')">' +
+        '<span class="browse-filter-title">' + escapeHtml(title) + '</span>' +
+        '<span class="browse-filter-chevron" aria-hidden="true">›</span>' +
+        '</button>' +
+        '<div class="' + bodyClass + '">' + body + '</div>' +
+        '</section>'
+      );
+    };
+    const secondary = getBrowseSecondaryRows(state.topTab)
+      .map((row) => {
+        const activeClass = row[0] === state.secondary ? ' active' : '';
+        return renderOption('category', row[0], row[1], activeClass, 'setBrowseSecondary(\'' + key + '\', \'' + row[0] + '\')');
+      })
+      .join('');
+    const loaders = BROWSE_LAYOUT_LOADER
+      .map((row) => {
+        const activeClass = row[0] === state.loader ? ' active' : '';
+        return renderOption('loader', row[0], row[1], activeClass, 'setBrowseLoader(\'' + key + '\', \'' + row[0] + '\')');
+      })
+      .join('');
+    const versionOptions = ['any'].concat(Array.isArray(state.availableVersions) ? state.availableVersions : []);
+    const versions = versionOptions
+      .map((value) => {
+        const activeClass = value === state.version ? ' active' : '';
+        const label = value === 'any' ? 'Any' : value;
+        return renderOption(
+          'version',
+          String(value),
+          label,
+          activeClass,
+          'setBrowseVersion(\'' + key + '\', \'' + escapeHtml(String(value)) + '\')'
+        );
+      })
+      .join('');
+    filters.innerHTML =
+      renderGroup('category', 'Category', secondary, true) +
+      (browseTopTabUsesLoader(state.topTab) ? renderGroup('loader', 'Loader', loaders, false) : '') +
+      renderGroup('version', 'Version', versions, true);
+  }
+  lucide.createIcons();
+  scheduleBrowseResultsHeightSync(key, 0);
+
+  const topLabel = getBrowseTopTabConfig(state.topTab).label;
+  if (state.loading && !(state.items || []).length) {
+    feed.innerHTML = '<div class="browse-feed-state">Loading catalog...</div>';
+    if (paginationEl) paginationEl.innerHTML = '';
+    if (paginationBottomEl) paginationBottomEl.innerHTML = '';
+    updateBrowseProviderStatus(key, topLabel + ' - Loading...');
+    scheduleBrowseResultsHeightSync(key, 0);
+    return;
+  }
+  if (state.error) {
+    feed.innerHTML = '<div class="browse-feed-state"><div style="display:flex;flex-direction:column;gap:8px;align-items:center;"><div>' + escapeHtml(state.error) + '</div><button class="browse-item-btn" onclick="refreshBrowseProvider(\'' + key + '\', true)">Retry</button></div></div>';
+    if (paginationEl) paginationEl.innerHTML = '';
+    if (paginationBottomEl) paginationBottomEl.innerHTML = '';
+    updateBrowseProviderStatus(key, topLabel + ' - Error');
+    scheduleBrowseResultsHeightSync(key, 0);
+    return;
+  }
+
+  const rows = getFilteredBrowseItems(key);
+  if (!rows.length) {
+    const query = state.query ? ' for "' + escapeHtml(state.query) + '"' : '';
+    const hintedTotalRows = Math.max(0, Number(state.totalRows) || 0);
+    const hintedTotalPages = Math.max(1, Math.ceil(hintedTotalRows / BROWSE_UI_PAGE_SIZE));
+    if (hintedTotalRows > 0 && hintedTotalPages > 1) {
+      feed.innerHTML = '<div class="browse-feed-state">No results on this page' + query + '. Try another page or adjust filters.</div>';
+      const paginationMarkup = renderBrowsePagination(key, state.page, hintedTotalPages);
+      if (paginationEl) paginationEl.innerHTML = paginationMarkup;
+      if (paginationBottomEl) paginationBottomEl.innerHTML = paginationMarkup;
+      updateBrowseProviderStatus(key, topLabel + ' - ' + hintedTotalRows);
+    } else {
+      feed.innerHTML = '<div class="browse-feed-state">No results' + query + '.</div>';
+      if (paginationEl) paginationEl.innerHTML = '';
+      if (paginationBottomEl) paginationBottomEl.innerHTML = '';
+      updateBrowseProviderStatus(key, topLabel + ' - 0');
+    }
+    scheduleBrowseResultsHeightSync(key, 0);
+    return;
+  }
+  const totalRows = Math.max(rows.length, Number(state.totalRows) || 0);
+  const totalPages = Math.max(1, Math.ceil(totalRows / BROWSE_UI_PAGE_SIZE));
+  if (!Number.isFinite(Number(state.page)) || Number(state.page) < 1) state.page = 1;
+  if (state.page > totalPages) state.page = totalPages;
+
+  feed.innerHTML = rows.map((item, index) => {
+    const title = escapeHtml(item.title || 'Untitled');
+    const desc = escapeHtml(item.description || 'No description');
+    const downloads = escapeHtml(formatCompactNumber(item.downloads || 0));
+    const updated = escapeHtml(formatRelativeDate(item.updatedAt));
+    const encodedUrl = encodeURIComponent(String(item.url || '').trim());
+    const encodedItemId = encodeURIComponent(String(item.id || '').trim());
+    const safeIcon = escapeHtml(String(item.iconUrl || '').trim());
+    const safeHero = escapeHtml(String(item.heroImage || '').trim());
+    const fallbackHero = escapeHtml(BROWSE_NO_IMAGE_PATH);
+    const fallbackLetter = escapeHtml(String(item.title || 'M').charAt(0).toUpperCase() || 'M');
+    const fallbackPair = escapeHtml(
+      String(item.title || '')
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map((word) => word.charAt(0).toUpperCase())
+        .join('') || fallbackLetter
+    );
+    const iconMarkup = safeIcon
+      ? '<img class="browse-item-logo-img" src="' + safeIcon + '" loading="lazy" alt="' + title + '">'
+      : '<span class="browse-item-logo-fallback">' + fallbackPair + '</span>';
+    const heroMarkup = safeHero
+      ? '<img class="browse-item-hero-img" src="' + safeHero + '" loading="lazy" alt="' + title + '" onerror="this.onerror=null;this.classList.add(\'browse-item-hero-placeholder\');this.src=\'' + fallbackHero + '\'">'
+      : safeIcon
+        ? '<img class="browse-item-hero-img browse-item-hero-derived" src="' + safeIcon + '" loading="lazy" alt="' + title + '" onerror="this.onerror=null;this.classList.remove(\'browse-item-hero-derived\');this.classList.add(\'browse-item-hero-placeholder\');this.src=\'' + fallbackHero + '\'">'
+        : '<img class="browse-item-hero-img browse-item-hero-placeholder" src="' + fallbackHero + '" loading="lazy" alt="' + title + '">';
+    const versionMarkup = cleanBrowseVersions(item.versions || [], 2).map((v) => '<span class="browse-version-chip">' + escapeHtml(v) + '</span>').join('');
+    const loaderMarkup = cleanBrowseVersions(item.loaders || [], 2).map((v) => '<span class="browse-version-chip">' + escapeHtml(v) + '</span>').join('');
+    return (
+      '<div class="browse-item browse-item-provider-' + key + '" style="--bidx:' + String(index) + '">' +
+      heroMarkup +
+      '<div class="browse-item-hero-shade"></div>' +
+      '<div class="browse-item-layer">' +
+      '<div class="browse-item-logo">' + iconMarkup + '</div>' +
+      '<div class="browse-item-content">' +
+      '<div class="browse-item-headline">' +
+      '<div class="browse-item-title">' + title + '</div>' +
+      '</div>' +
+      '<div class="browse-item-desc">' + desc + '</div>' +
+      '<div class="browse-item-meta"><span><i data-lucide="download" width="10" height="10"></i>' + downloads + '</span><span><i data-lucide="clock-3" width="10" height="10"></i>' + updated + '</span>' + loaderMarkup + versionMarkup + '</div>' +
+      '</div>' +
+      '<div class="browse-item-actions">' +
+      '<button class="browse-item-btn browse-item-btn-detail" onclick="openBrowseItemFromFeed(\'' + encodedUrl + '\')"><i data-lucide="external-link" width="12" height="12"></i><span>Open</span></button>' +
+      '<button class="browse-item-btn browse-item-btn-install" onclick="installBrowseItemFromFeed(this, \'' + key + '\', \'' + encodedItemId + '\')"><i data-lucide="download" width="12" height="12"></i><span>Install</span></button>' +
+      '</div>' +
+      '</div>' +
+      '</div>'
+    );
+  }).join('');
+
+  const paginationMarkup = renderBrowsePagination(key, state.page, totalPages);
+  if (paginationEl) paginationEl.innerHTML = paginationMarkup;
+  if (paginationBottomEl) paginationBottomEl.innerHTML = paginationMarkup;
+  updateBrowseProviderStatus(key, topLabel + ' - ' + totalRows);
+  sanitizeMojibakeDom(feed);
+  lucide.createIcons();
+  scheduleBrowseResultsHeightSync(key, 0);
+}
+
+async function ensureBrowseProviderLoaded(provider) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  renderBrowseProviderFeed(key);
+  if (state.loaded || state.loading) return;
+  await refreshBrowseProvider(key, true);
+}
+
+async function refreshBrowseProvider(provider, force) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  if (state.loading) return;
+  if (!force && state.loaded && !state.error) {
+    renderBrowseProviderFeed(key);
+    return;
+  }
+  state.loading = true;
+  state.error = '';
+  renderBrowseProviderFeed(key);
+  try {
+    const payload = await fetchBrowseProviderItems(
+      key,
+      buildBrowseRemoteQuery(state),
+      state.topTab,
+      state.page,
+      {
+        loader: state.loader,
+        version: state.version,
+      }
+    );
+    const items = payload && Array.isArray(payload.items) ? payload.items : [];
+    const totalRows = payload && Number.isFinite(Number(payload.totalRows)) ? Number(payload.totalRows) : 0;
+    state.items = items;
+    state.totalRows = totalRows;
+    state.loaded = true;
+    const globalVersions = await ensureBrowseGlobalMinecraftVersions();
+    const versions = cleanBrowseVersions(
+      (state.items || []).flatMap((item) => (item.versions || [])).concat(globalVersions),
+      BROWSE_VERSION_LIMIT
+    );
+    versions.sort(compareMcVersionDesc);
+    state.availableVersions = versions;
+    if (state.version !== 'any' && !state.availableVersions.includes(state.version)) state.version = 'any';
+  } catch (err) {
+    state.error = err && err.message ? String(err.message) : 'Failed to load catalog';
+  } finally {
+    state.loading = false;
+    renderBrowseProviderFeed(key);
+  }
+}
+
+function onBrowseSearchInput(provider, value) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  if (!state) return;
+  state.query = String(value || '').trim();
+  state.page = 1;
+  state.totalRows = 0;
+  const pending = BROWSE_SEARCH_TIMERS[key];
+  if (pending) clearTimeout(pending);
+  BROWSE_SEARCH_TIMERS[key] = setTimeout(() => {
+    void refreshBrowseProvider(key, true);
+  }, BROWSE_SEARCH_DEBOUNCE_MS);
+}
+
+async function openBrowseProviderWebsite(provider) {
+  const key = String(provider || '').trim().toLowerCase();
+  const state = ensureBrowseLayoutState(key);
+  const topTab = getBrowseTopTabConfig(state ? state.topTab : 'modpacks').id;
+  const urlMap = {
+    modrinth: {
+      mods: 'https://modrinth.com/mods',
+      modpacks: 'https://modrinth.com/modpacks',
+      resourcepacks: 'https://modrinth.com/resourcepacks',
+      shaders: 'https://modrinth.com/shaders',
+    },
+    curseforge: {
+      mods: 'https://www.curseforge.com/minecraft/mc-mods',
+      modpacks: 'https://www.curseforge.com/minecraft/modpacks',
+      resourcepacks: 'https://www.curseforge.com/minecraft/texture-packs',
+      shaders: 'https://www.curseforge.com/minecraft/shaders',
+    },
+  };
+  const target = (urlMap[key] && urlMap[key][topTab]) || '';
+  if (!target) {
+    showToast('!', 'Unknown provider', 'Unsupported browse provider');
+    return false;
+  }
+  const opened = await openExternalHttpUrl(target);
+  if (!opened) {
+    showToast('!', 'Open failed', 'Could not open browser automatically');
+    return false;
+  }
+  return true;
+}
+
 async function startMicrosoftLoginFlow() {
-  const startRes = await invokeBackend('start_microsoft_device_code_login', {
+  const statusEl = document.getElementById('ms-device-status');
+  clearMicrosoftAuthPoll();
+  MICROSOFT_OAUTH_EXPECTED_STATE = '';
+  if (statusEl) {
+    statusEl.textContent = 'Preparing secure Microsoft sign-in...';
+  }
+
+  const startRes = await invokeBackend('start_microsoft_oauth_login_command', {
     request: {},
   });
   if (!startRes.ok || !startRes.data) {
-    showToast('!', 'Login failed', formatBackendError(startRes.error, 'Could not start Microsoft login flow'));
+    const reason = formatBackendError(startRes.error, 'Could not start Microsoft login flow');
+    if (statusEl) statusEl.textContent = reason;
+    showToast('!', 'Login failed', reason);
     return;
   }
 
   const info = startRes.data;
-  const statusEl = document.getElementById('ms-device-status');
-  if (statusEl) {
-    statusEl.textContent = 'Enter code ' + info.userCode + ' and approve sign-in in your browser.';
-  }
-
-  const verificationUrl = info.verificationUriComplete || info.verificationUri;
-  if (verificationUrl && typeof window.open === 'function') {
-    window.open(verificationUrl, '_blank');
-  }
-
-  showToast('MS', 'Browser opened', 'Code: ' + info.userCode);
-
-  if (MICROSOFT_AUTH_POLL) {
-    clearInterval(MICROSOFT_AUTH_POLL);
-    MICROSOFT_AUTH_POLL = null;
-  }
-
-  const pollOnce = async () => {
-    const pollRes = await invokeBackend('poll_microsoft_device_code_login', {
-      request: { sessionId: info.sessionId },
-    });
-    if (!pollRes.ok || !pollRes.data) {
-      const reason = formatBackendError(pollRes.error, 'Login failed. Please try again.');
-      if (statusEl) statusEl.textContent = reason;
-      showToast('!', 'Login failed', reason);
-      if (MICROSOFT_AUTH_POLL) {
-        clearInterval(MICROSOFT_AUTH_POLL);
-        MICROSOFT_AUTH_POLL = null;
-      }
-      return;
-    }
-
-    const payload = pollRes.data;
-    const status = String(payload.status || '').toLowerCase();
-    if (status === 'pending') {
-      if (statusEl) statusEl.textContent = 'Waiting for Microsoft authorization...';
-      return;
-    }
-
-    if (MICROSOFT_AUTH_POLL) {
-      clearInterval(MICROSOFT_AUTH_POLL);
-      MICROSOFT_AUTH_POLL = null;
-    }
-
-    if (status === 'authorized') {
-      await refreshProfilesFromBackend();
-      const orbiqAccount = getOrbiqAccountState();
-      if (orbiqAccount) {
-        orbiqAccount.microsoftLinked = true;
-        persistOrbiqAccountState(orbiqAccount);
-      }
-      closeModal();
-      const profileName = payload.profile && payload.profile.name ? payload.profile.name : 'Microsoft profile';
-      showToast('OK', 'Account linked', profileName + ' connected successfully');
-      return;
-    }
-
-    const reason = payload.reason ? String(payload.reason) : 'Authorization was not completed.';
+  const authorizationUrl = String(info.authorizationUrl || '').trim();
+  const oauthState = String(info.state || '').trim();
+  if (!authorizationUrl || !oauthState) {
+    const reason = 'Backend returned invalid Microsoft OAuth payload.';
     if (statusEl) statusEl.textContent = reason;
-    showToast('!', 'Login stopped', reason);
-  };
+    showToast('!', 'Login failed', reason);
+    return;
+  }
+  MICROSOFT_OAUTH_EXPECTED_STATE = oauthState;
+  try {
+    window.__ORBIQ_LAST_MS_AUTH_URL = authorizationUrl;
+  } catch (_err) {}
+  const browserOpened = await openExternalHttpUrl(authorizationUrl);
+  if (!browserOpened && statusEl) {
+    statusEl.textContent = 'Could not open browser automatically. Open this URL manually: ' + authorizationUrl;
+  }
 
-  await pollOnce();
-  const intervalSeconds = Math.max(3, Number(info.intervalSeconds || 5));
-  MICROSOFT_AUTH_POLL = setInterval(() => {
-    void pollOnce();
-  }, intervalSeconds * 1000);
+  startMicrosoftCallbackWatch();
+  if (statusEl) {
+    statusEl.textContent = browserOpened
+      ? 'Browser opened. Approve Microsoft access to finish linking.'
+      : 'Open the URL above and approve Microsoft access, then return to launcher.';
+  }
+
+  showToast(
+    'MS',
+    browserOpened ? 'Browser opened' : 'Manual open required',
+    'Approve Microsoft access in browser; launcher will finish automatically'
+  );
 }
 
-function showToast(icon, title, msg) {
+// Debug helpers for deep-link smoke tests (call from devtools if needed)
+window.orbiqDebugDeepLink = function (url) {
+  const value = String(url || '').trim();
+  if (!value) return false;
+  void handleOrbiqDeepLink(value);
+  return true;
+};
+window.orbiqGetLastMicrosoftAuthUrl = function () {
+  return String(window.__ORBIQ_LAST_MS_AUTH_URL || '');
+};
+
+function showToast(icon, title, msg, action) {
   const c = document.getElementById('toast-container');
   const t = document.createElement('div');
   const normalizedIcon = normalizeMojibakeText(String(icon || '')).trim();
@@ -3205,7 +6595,24 @@ function showToast(icon, title, msg) {
   const safeTitle = escapeHtml(normalizeMojibakeText(String(title || '')));
   const safeMsg = escapeHtml(normalizeMojibakeText(String(msg || '')));
   t.className = 'toast';
-  t.innerHTML = `<span style="font-size:16px">${safeIcon}</span><div><div style="font-size:11.5px;font-weight:700;color:var(--t1);margin-bottom:1px">${safeTitle}</div><div style="font-size:10.5px;color:var(--t3)">${safeMsg}</div></div>`;
+  t.innerHTML = `<span style="font-size:16px">${safeIcon}</span><div style="flex:1;min-width:0"><div style="font-size:11.5px;font-weight:700;color:var(--t1);margin-bottom:1px">${safeTitle}</div><div style="font-size:10.5px;color:var(--t3)">${safeMsg}</div></div>`;
+  if (action && typeof action === 'object' && typeof action.label === 'string' && action.label.trim()) {
+    const button = document.createElement('button');
+    button.className = 'btn btn-ghost';
+    button.style.height = '24px';
+    button.style.padding = '0 8px';
+    button.style.fontSize = '10px';
+    button.style.marginLeft = '6px';
+    button.textContent = action.label.trim();
+    button.addEventListener('click', () => {
+      try {
+        if (typeof action.onClick === 'function') action.onClick();
+      } catch (err) {
+        console.warn('toast action failed', err);
+      }
+    });
+    t.appendChild(button);
+  }
   c.appendChild(t);
   sanitizeMojibakeDom(t);
   setTimeout(() => {
@@ -3214,78 +6621,139 @@ function showToast(icon, title, msg) {
   }, 3200);
 }
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // LAUNCH SEQUENCE
 // Bug fix: launchSequence now opens profile picker first.
-// doLaunchSequence was missing `const fill` declaration Ã¯Â¿Â½?" fixed.
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// doLaunchSequence was missing `const fill` declaration ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" fixed.
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 async function launchSequence() {
   await refreshProfilesFromBackend();
   openModal('profile-select-launch');
 }
 
 function openProvisionOverlay(instanceName, subtitle) {
-  if (ACTIVE_PROVISION && ACTIVE_PROVISION.overlay) {
-    ACTIVE_PROVISION.overlay.remove();
-  }
-
-  const ol = document.createElement('div');
-  ol.className = 'launch-overlay';
-  ol.innerHTML = `
-    <div class="launch-icon" style="width:80px;height:80px;background:var(--s2);border:1px solid var(--b3);border-radius:18px;display:flex;align-items:center;justify-content:center;"><i data-lucide="download" width="40" height="40" style="color:var(--t2)"></i></div>
-    <div class="launch-name">${instanceName}</div>
-    <div class="launch-sub">${subtitle}</div>
-    <div class="launch-prog"><div class="launch-prog-fill" id="pv-fill"></div></div>
-    <div style="font-size:11px;font-family:var(--mono);color:var(--t4);margin-top:4px" id="pv-label">Preparing runtime...</div>
-    <button onclick="dismissProvisionOverlay(this)" style="margin-top:18px;background:transparent;border:1px solid var(--b3);border-radius:7px;padding:6px 16px;font-size:11px;font-family:var(--mono);color:var(--t3);cursor:pointer">Hide</button>
-  `;
-  document.body.appendChild(ol);
-  lucide.createIcons();
+  if (ACTIVE_PROVISION && ACTIVE_PROVISION.overlay) ACTIVE_PROVISION.overlay.remove();
 
   ACTIVE_PROVISION = {
     instanceName,
-    overlay: ol,
-    fill: ol.querySelector('#pv-fill'),
-    label: ol.querySelector('#pv-label'),
+    overlay: null,
+    fill: null,
+    label: null,
+    stageEl: null,
+    percentEl: null,
     percent: 0,
     lastLifecycleState: null,
     lastLifecyclePayload: null,
+    cancelRequested: false,
+    launchRequested: false,
+    killRequested: false,
+    stageText: 'Preparing',
+    labelText: 'Preparing runtime...',
+    hidden: true,
   };
 
-  setLaunchOverlayProgress(6, 'Preparing runtime...', true);
+  setLaunchOverlayProgress(6, 'Preparing runtime...', true, 'Preparing');
+  syncDetailLaunchProgress();
 }
 function dismissProvisionOverlay(btn) {
-  const overlay = btn.closest('.launch-overlay');
-  if (!overlay) return;
-  if (ACTIVE_PROVISION && ACTIVE_PROVISION.overlay === overlay) {
-    ACTIVE_PROVISION = null;
+  if (!ACTIVE_PROVISION) return;
+  ACTIVE_PROVISION.hidden = true;
+  syncDetailLaunchProgress();
+}
+
+async function cancelProvisionLaunch(btn) {
+  if (!ACTIVE_PROVISION) {
+    return;
   }
-  overlay.remove();
+
+  const active = ACTIVE_PROVISION;
+  if (active.cancelRequested) return;
+  active.cancelRequested = true;
+  active.hidden = true;
+  active.stageText = 'Canceling';
+  active.labelText = 'Cancel requested...';
+  if (active.stageEl) active.stageEl.textContent = 'Canceling';
+  if (active.label) active.label.textContent = 'Cancel requested...';
+
+  if (btn) {
+    const isPrimaryLaunchButton = btn.id === 'launch-or-kill-btn';
+    if (!isPrimaryLaunchButton) {
+      btn.disabled = true;
+      btn.style.opacity = '0.65';
+      btn.style.cursor = 'not-allowed';
+    }
+  }
+  if (active.overlay) active.overlay.remove();
+  active.overlay = null;
+  active.fill = null;
+  active.label = null;
+  active.stageEl = null;
+  active.percentEl = null;
+  syncDetailLaunchProgress();
+
+  showToast('STOP', 'Cancel requested', active.instanceName + ' launch will stop');
+
+  if (active.launchRequested && !active.killRequested) {
+    active.killRequested = true;
+    const killRes = await invokeBackend('kill_instance', { request: { instanceName: active.instanceName } });
+    if (!killRes.ok) {
+      console.warn('[launch] cancel kill_instance failed', killRes.error);
+    }
+  }
 }
 
 function finishProvisionOverlay(icon, title, message) {
-  if (!ACTIVE_PROVISION || !ACTIVE_PROVISION.overlay) return;
-  const overlay = ACTIVE_PROVISION.overlay;
-  if (ACTIVE_PROVISION.fill) ACTIVE_PROVISION.fill.style.width = '100%';
-  if (ACTIVE_PROVISION.label) ACTIVE_PROVISION.label.textContent = message;
-  setTimeout(() => {
-    overlay.classList.add('hiding');
-    overlay.addEventListener('animationend', () => overlay.remove(), { once: true });
-    ACTIVE_PROVISION = null;
+  if (!ACTIVE_PROVISION) return;
+  const active = ACTIVE_PROVISION;
+  setLaunchOverlayProgress(100, message, true, 'Ready');
+  const finalize = () => {
+    if (ACTIVE_PROVISION === active) ACTIVE_PROVISION = null;
+    syncDetailLaunchProgress();
     showToast(icon, title, message);
-  }, 350);
+  };
+  if (active.overlay) {
+    const overlay = active.overlay;
+    setTimeout(() => {
+      overlay.classList.add('hiding');
+      overlay.addEventListener('animationend', () => overlay.remove(), { once: true });
+      finalize();
+    }, 550);
+    return;
+  }
+  finalize();
 }
 
 function failProvisionOverlay(message, title) {
-  if (!ACTIVE_PROVISION || !ACTIVE_PROVISION.overlay) return;
-  setLaunchOverlayProgress(100, message, true);
-  showToast('!', title || 'Launch failed', message);
+  if (!ACTIVE_PROVISION) return;
+  setLaunchOverlayProgress(
+    Number.isFinite(ACTIVE_PROVISION.percent) ? ACTIVE_PROVISION.percent : 0,
+    message,
+    true,
+    'Failed'
+  );
+  showToast('!', title || 'Launch failed', message, {
+    label: 'Diagnostics',
+    onClick: () => openModal('diagnostics'),
+  });
+  const active = ACTIVE_PROVISION;
+  const clearState = () => {
+    if (ACTIVE_PROVISION === active) ACTIVE_PROVISION = null;
+    syncDetailLaunchProgress();
+  };
+  if (!active.overlay) {
+    clearState();
+    return;
+  }
   setTimeout(() => {
     if (ACTIVE_PROVISION && ACTIVE_PROVISION.overlay) {
       ACTIVE_PROVISION.overlay.classList.add('hiding');
-      ACTIVE_PROVISION.overlay.addEventListener('animationend', () => ACTIVE_PROVISION && ACTIVE_PROVISION.overlay && ACTIVE_PROVISION.overlay.remove(), { once: true });
-      ACTIVE_PROVISION = null;
+      ACTIVE_PROVISION.overlay.addEventListener(
+        'animationend',
+        () => ACTIVE_PROVISION && ACTIVE_PROVISION.overlay && ACTIVE_PROVISION.overlay.remove(),
+        { once: true }
+      );
     }
+    clearState();
   }, 900);
 }
 
@@ -3310,13 +6778,36 @@ function formatLaunchExitMessage(instanceRow) {
   return 'Minecraft process exited during startup';
 }
 
-async function waitForLaunchStartup(instanceName) {
+function isActiveProvisionCanceled(instanceName) {
+  if (!ACTIVE_PROVISION || ACTIVE_PROVISION.instanceName !== instanceName) return true;
+  return !!ACTIVE_PROVISION.cancelRequested;
+}
+
+async function finalizeCanceledLaunch(instanceName, killProcess) {
+  const active = ACTIVE_PROVISION && ACTIVE_PROVISION.instanceName === instanceName ? ACTIVE_PROVISION : null;
+  const needsKill = !!killProcess && !(active && active.killRequested);
+  if (needsKill) {
+    if (active) active.killRequested = true;
+    const killRes = await invokeBackend('kill_instance', { request: { instanceName } });
+    if (!killRes.ok) {
+      console.warn('[launch] finalize cancellation kill_instance failed', killRes.error);
+    }
+  }
+  if (ACTIVE_PROVISION && ACTIVE_PROVISION.instanceName === instanceName) {
+    ACTIVE_PROVISION = null;
+  }
+  syncDetailLaunchProgress();
+  await refreshInstancesFromBackend(true);
+}
+
+async function waitForLaunchStartup(instanceName, launchStartedAtMs) {
   let stableRunningCount = 0;
   const deadline = Date.now() + LAUNCH_STARTUP_TIMEOUT_MS;
+  const launchStartedAt = Number.isFinite(launchStartedAtMs) ? launchStartedAtMs : Date.now();
 
   while (Date.now() < deadline) {
-    if (!ACTIVE_PROVISION || ACTIVE_PROVISION.instanceName !== instanceName) {
-      return { ok: false, error: 'Launch was canceled' };
+    if (isActiveProvisionCanceled(instanceName)) {
+      return { ok: false, canceled: true, error: 'Launch was canceled' };
     }
 
     if (ACTIVE_PROVISION.lastLifecycleState === 'failed') {
@@ -3328,7 +6819,7 @@ async function waitForLaunchStartup(instanceName) {
 
     const listRes = await invokeBackend('list_instances');
     if (!listRes.ok || !Array.isArray(listRes.data)) {
-      setLaunchOverlayProgress(96, 'Checking process state...', false);
+      setLaunchOverlayProgress(96, 'Checking process state...', false, 'Verifying');
       await sleepMs(LAUNCH_STARTUP_POLL_MS);
       continue;
     }
@@ -3340,14 +6831,24 @@ async function waitForLaunchStartup(instanceName) {
 
     if (instanceRow.running) {
       stableRunningCount += 1;
+      const aliveMs = Math.max(0, Date.now() - launchStartedAt);
+      const aliveGateMet = aliveMs >= LAUNCH_READY_MIN_ALIVE_MS;
+      const stabilityProgress = 95 + Math.min(3, stableRunningCount);
+      const aliveProgress = 95 + Math.min(4, Math.floor((aliveMs / LAUNCH_READY_MIN_ALIVE_MS) * 4));
+      const overlayProgress = Math.min(99, Math.max(stabilityProgress, aliveProgress));
+      const remainingSecs = Math.max(0, Math.ceil((LAUNCH_READY_MIN_ALIVE_MS - aliveMs) / 1000));
+
       setLaunchOverlayProgress(
-        96 + Math.min(4, stableRunningCount),
-        stableRunningCount >= LAUNCH_STABLE_POLLS
+        overlayProgress,
+        aliveGateMet && stableRunningCount >= LAUNCH_STABLE_POLLS
           ? 'Minecraft is running'
-          : 'Waiting for Minecraft window...',
-        false
+          : remainingSecs > 0
+            ? 'Minecraft started. Finalizing startup... ' + remainingSecs + 's'
+            : 'Minecraft started. Finalizing startup...',
+        false,
+        aliveGateMet && stableRunningCount >= LAUNCH_STABLE_POLLS ? 'Ready' : 'Finalizing'
       );
-      if (stableRunningCount >= LAUNCH_STABLE_POLLS) {
+      if (stableRunningCount >= LAUNCH_STABLE_POLLS && aliveGateMet) {
         return { ok: true };
       }
     } else {
@@ -3355,7 +6856,7 @@ async function waitForLaunchStartup(instanceName) {
       if (instanceRow.lastExitState || instanceRow.lastExitReason || typeof instanceRow.lastExitCode === 'number') {
         return { ok: false, error: formatLaunchExitMessage(instanceRow) };
       }
-      setLaunchOverlayProgress(95, 'Process started. Waiting for state...', false);
+      setLaunchOverlayProgress(95, 'Process started. Waiting for state...', false, 'Launching');
     }
 
     await sleepMs(LAUNCH_STARTUP_POLL_MS);
@@ -3363,6 +6864,394 @@ async function waitForLaunchStartup(instanceName) {
 
   return { ok: false, error: 'Timed out while waiting for Minecraft to start' };
 }
+
+async function getMissingRequiredTrackedInstalls(instanceName) {
+  const key = String(instanceName || '').trim();
+  if (!key) return [];
+  const rows = getTrackedInstallsForInstance(key);
+  const hydrated = await resolveTrackedInstallMissingState(key, rows);
+  return hydrated.filter((row) => row && row.required && row.missing);
+}
+
+function setLaunchMissingDialogStatus(text, isError) {
+  const el = document.getElementById('launch-missing-status');
+  if (!el) return;
+  el.textContent = String(text || '');
+  el.style.color = isError ? 'var(--red)' : 'var(--t4)';
+}
+
+function hydrateLaunchMissingDialogModal() {
+  const state = LAUNCH_MISSING_DIALOG_STATE;
+  const listEl = document.getElementById('launch-missing-list');
+  if (!state || !listEl) return;
+  const rows = Array.isArray(state.rows) ? state.rows : [];
+  if (!rows.length) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No missing required files.</div>';
+    setLaunchMissingDialogStatus('No missing files detected.', false);
+    return;
+  }
+  listEl.innerHTML = rows
+    .map((row) => {
+      const hasSource = !!String(row && row.url ? row.url : '').trim();
+      const sourceChip = hasSource
+        ? '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(70,150,90,0.35);font-size:9px;font-family:var(--mono);color:#67b37a">Auto Install</span>'
+        : '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(220,80,80,0.4);font-size:9px;font-family:var(--mono);color:#d56f6f">No Source URL</span>';
+      return (
+        '<div class="list-item" style="align-items:flex-start;gap:8px">' +
+        '<div style="flex:1;min-width:0">' +
+        '<div style="font-size:12px;font-family:var(--mono);color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' +
+        escapeHtml(row.title || row.fileName || 'Dependency') +
+        '</div>' +
+        '<div style="margin-top:2px;font-size:10px;font-family:var(--mono);color:var(--t4)">' +
+        escapeHtml(getBrowseInstallTargetLabel(row.target)) +
+        '</div>' +
+        '<div style="margin-top:4px;font-size:9.5px;font-family:var(--mono);color:var(--t4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' +
+        escapeHtml(row.fileName || '') +
+        '</div>' +
+        '<div style="margin-top:6px">' + sourceChip + '</div>' +
+        '</div>' +
+        '</div>'
+      );
+    })
+    .join('');
+  const installableCount = rows.filter((row) => !!String(row && row.url ? row.url : '').trim()).length;
+  const installBtn = document.getElementById('launch-missing-install-btn');
+  if (installBtn) {
+    installBtn.disabled = installableCount === 0 || !!state.busy;
+    installBtn.innerHTML = state.busy
+      ? '<i data-lucide="loader-circle" width="12" height="12"></i>Installing...'
+      : '<i data-lucide="download" width="12" height="12"></i>Install Missing' + (installableCount > 0 ? ' (' + String(installableCount) + ')' : '');
+  }
+  const anywayBtn = document.getElementById('launch-missing-anyway-btn');
+  if (anywayBtn) anywayBtn.disabled = !!state.busy;
+  setLaunchMissingDialogStatus(
+    'Missing required files: ' + String(rows.length) + (installableCount < rows.length ? ' (' + String(rows.length - installableCount) + ' need manual install)' : ''),
+    installableCount < rows.length
+  );
+  lucide.createIcons();
+}
+
+function resolveLaunchMissingDialog(decision) {
+  const state = LAUNCH_MISSING_DIALOG_STATE;
+  if (!state || state.settled) return;
+  state.settled = true;
+  const resolver = state.resolve;
+  LAUNCH_MISSING_DIALOG_STATE = null;
+  closeModal();
+  if (typeof resolver === 'function') resolver(decision);
+}
+
+function cancelLaunchMissingDialog() {
+  resolveLaunchMissingDialog('cancel');
+}
+
+function proceedLaunchWithMissingDialog() {
+  resolveLaunchMissingDialog('continue');
+}
+
+async function installMissingAndContinueLaunch() {
+  const state = LAUNCH_MISSING_DIALOG_STATE;
+  if (!state || state.busy) return;
+  state.busy = true;
+  hydrateLaunchMissingDialogModal();
+  const installable = (state.rows || []).filter((row) => !!String(row && row.url ? row.url : '').trim());
+  if (!installable.length) {
+    state.busy = false;
+    hydrateLaunchMissingDialogModal();
+    setLaunchMissingDialogStatus('Cannot auto-install: source URL is missing for all items.', true);
+    return;
+  }
+
+  const outcome = await installTrackedRowsToInstance(state.instanceName, installable, 'overwrite', (index, total, row, phase) => {
+    const title = String(row && (row.title || row.fileName) ? (row.title || row.fileName) : 'Item');
+    if (phase === 'working') {
+      setLaunchMissingDialogStatus(
+        'Installing ' + String(index + 1) + '/' + String(total) + ': ' + title,
+        false
+      );
+    }
+  });
+  const remaining = await getMissingRequiredTrackedInstalls(state.instanceName);
+  state.rows = remaining;
+  state.busy = false;
+  hydrateLaunchMissingDialogModal();
+  if (remaining.length > 0) {
+    setLaunchMissingDialogStatus(
+      'Still missing ' + String(remaining.length) + ' required file(s). Install manually or launch anyway.',
+      true
+    );
+    return;
+  }
+  if (outcome.failed > 0 || outcome.unresolved > 0) {
+    setLaunchMissingDialogStatus('Some items failed but required set is now satisfied.', false);
+  }
+  resolveLaunchMissingDialog('continue');
+}
+
+function openLaunchMissingDialog(instanceName, missingRows) {
+  return new Promise((resolve) => {
+    LAUNCH_MISSING_DIALOG_STATE = {
+      instanceName: String(instanceName || '').trim(),
+      rows: Array.isArray(missingRows) ? missingRows.slice() : [],
+      busy: false,
+      settled: false,
+      resolve,
+    };
+    openModal('launch-missing-required');
+  });
+}
+
+function setDiagnosticsLaunchContext(instanceName, profileId, profileName, version) {
+  DIAGNOSTICS_STATE.lastLaunchRequest = {
+    instanceName: String(instanceName || ''),
+    profileId: String(profileId || ''),
+    profileName: String(profileName || ''),
+    version: String(version || ''),
+    at: new Date().toISOString(),
+  };
+}
+
+function setDiagnosticsLastLaunchCommand(command, payload) {
+  DIAGNOSTICS_STATE.lastLaunchCommand = {
+    command: String(command || ''),
+    payload: payload || {},
+    at: new Date().toISOString(),
+  };
+}
+
+function hydrateDiagnosticsModal() {
+  const latestEl = document.getElementById('diagnostics-latest-error');
+  const launchEl = document.getElementById('diagnostics-last-launch');
+  const statusEl = document.getElementById('diagnostics-export-status');
+  if (latestEl) {
+    const latest = DIAGNOSTICS_STATE.latestError;
+    if (!latest) {
+      latestEl.textContent = 'No backend errors captured in this session.';
+    } else {
+      latestEl.textContent =
+        'Code: ' + String(latest.code || 'N/A') + '\n' +
+        'Command: ' + String(latest.command || 'unknown') + '\n' +
+        'Time: ' + String(latest.at || '-') + '\n' +
+        'Message: ' + String(latest.message || latest.raw || '-');
+    }
+  }
+  if (launchEl) {
+    const launchContext = DIAGNOSTICS_STATE.lastLaunchRequest;
+    const lastLaunchCommand = DIAGNOSTICS_STATE.lastLaunchCommand;
+    if (!launchContext && !lastLaunchCommand) {
+      launchEl.textContent = 'No launch context available yet.';
+    } else {
+      launchEl.textContent =
+        'Last Launch Request:\n' + JSON.stringify(launchContext || {}, null, 2) +
+        '\n\nLast Launch Command:\n' + JSON.stringify(lastLaunchCommand || {}, null, 2);
+    }
+  }
+  if (statusEl) {
+    statusEl.textContent = DIAGNOSTICS_STATE.lastBundlePath
+      ? 'Last export: ' + DIAGNOSTICS_STATE.lastBundlePath
+      : 'No debug bundle exported yet.';
+  }
+}
+
+async function openDiagnosticsLogsFolder() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Diagnostics', 'Select an instance first to open its logs folder');
+    return;
+  }
+  const res = await invokeBackend('open_instance_directory', {
+    request: { instanceName, target: 'logs', ensureExists: true },
+  });
+  if (!res.ok) {
+    showToast('!', 'Open logs failed', formatBackendError(res.error, 'Could not open logs folder'));
+    return;
+  }
+  showToast('OK', 'Logs opened', instanceName + ' logs folder opened');
+}
+
+async function exportDiagnosticsBundle() {
+  const statusEl = document.getElementById('diagnostics-export-status');
+  if (statusEl) statusEl.textContent = 'Exporting debug bundle...';
+  const instanceName = getSelectedInstanceName();
+  const res = await invokeBackend('export_debug_bundle', {
+    request: {
+      instanceName: instanceName || null,
+      includeLogs: true,
+    },
+  });
+  if (!res.ok || !res.data) {
+    const reason = formatBackendError(res.error, 'Could not export debug bundle');
+    if (statusEl) statusEl.textContent = reason;
+    showToast('!', 'Export failed', reason);
+    return;
+  }
+  DIAGNOSTICS_STATE.lastBundlePath = String(res.data.path || '');
+  if (statusEl) {
+    statusEl.textContent =
+      'Exported: ' + String(res.data.path || '') + ' (' + String(res.data.size || 0) + ' bytes)';
+  }
+  showToast('OK', 'Bundle exported', String(res.data.path || 'debug bundle created'));
+}
+
+function setLaunchPreflightStatus(text, isError) {
+  const el = document.getElementById('launch-preflight-status');
+  if (!el) return;
+  el.textContent = String(text || '');
+  el.style.color = isError ? 'var(--red)' : 'var(--t4)';
+}
+
+function hydrateLaunchPreflightDialogModal() {
+  const state = LAUNCH_PREFLIGHT_DIALOG_STATE;
+  const listEl = document.getElementById('launch-preflight-list');
+  if (!state || !listEl) return;
+
+  const issues = Array.isArray(state.issues) ? state.issues : [];
+  if (!issues.length) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No issues detected.</div>';
+  } else {
+    listEl.innerHTML = issues
+      .map((issue) => {
+        const severity = String(issue && issue.severity ? issue.severity : 'warning').toLowerCase();
+        const isBlocking = severity === 'blocking';
+        const borderColor = isBlocking ? 'rgba(215,90,90,0.35)' : 'rgba(180,180,180,0.2)';
+        const code = String(issue && issue.code ? issue.code : 'PREFLIGHT_UNKNOWN');
+        const message = String(issue && issue.message ? issue.message : 'Issue detected');
+        const action = String(issue && issue.action ? issue.action : '').trim();
+        const fixable = !!(issue && issue.fixable);
+        return (
+          '<div style="padding:8px 10px;border:1px solid ' + borderColor + ';border-radius:8px;background:var(--s2);margin-bottom:7px">' +
+          '<div style="display:flex;justify-content:space-between;gap:10px;align-items:center">' +
+          '<strong style="font-size:10px;font-family:var(--mono);color:' + (isBlocking ? '#d46f6f' : 'var(--t3)') + '">' + escapeHtml(code) + '</strong>' +
+          '<span style="font-size:9px;font-family:var(--mono);color:var(--t4)">' + (isBlocking ? 'blocking' : 'warning') + (fixable ? ' - fixable' : '') + '</span>' +
+          '</div>' +
+          '<div style="margin-top:5px;font-size:10.5px;font-family:var(--mono);color:var(--t2);line-height:1.5">' + escapeHtml(message) + '</div>' +
+          (action ? '<div style="margin-top:5px;font-size:9.8px;font-family:var(--mono);color:var(--t4)">Action: ' + escapeHtml(action) + '</div>' : '') +
+          '</div>'
+        );
+      })
+      .join('');
+  }
+
+  const blockingCount = issues.filter((item) => String(item && item.severity || '').toLowerCase() === 'blocking').length;
+  const fixableCount = issues.filter((item) => !!(item && item.fixable)).length;
+  const continueBtn = document.getElementById('launch-preflight-anyway-btn');
+  const fixBtn = document.getElementById('launch-preflight-fix-btn');
+  const cancelBtn = document.getElementById('launch-preflight-cancel-btn');
+  if (continueBtn) continueBtn.disabled = state.busy || blockingCount > 0;
+  if (fixBtn) fixBtn.disabled = state.busy || (!issues.length);
+  if (cancelBtn) cancelBtn.disabled = state.busy;
+  if (fixBtn) {
+    fixBtn.innerHTML = state.busy
+      ? '<i data-lucide="loader-circle" width="12" height="12"></i>Fixing...'
+      : '<i data-lucide="wrench" width="12" height="12"></i>Fix Now' + (fixableCount > 0 ? ' (' + String(fixableCount) + ')' : '');
+  }
+
+  if (!issues.length) {
+    setLaunchPreflightStatus('No compatibility issues.', false);
+  } else if (blockingCount > 0) {
+    setLaunchPreflightStatus('Blocking issues: ' + String(blockingCount), true);
+  } else {
+    setLaunchPreflightStatus('Warnings: ' + String(issues.length), false);
+  }
+  lucide.createIcons();
+}
+
+function resolveLaunchPreflightDialog(decision) {
+  const state = LAUNCH_PREFLIGHT_DIALOG_STATE;
+  if (!state || state.settled) return;
+  state.settled = true;
+  const resolver = state.resolve;
+  LAUNCH_PREFLIGHT_DIALOG_STATE = null;
+  closeModal();
+  if (typeof resolver === 'function') resolver(decision);
+}
+
+function cancelLaunchPreflightDialog() {
+  resolveLaunchPreflightDialog('cancel');
+}
+
+function proceedLaunchPreflightDialog() {
+  const state = LAUNCH_PREFLIGHT_DIALOG_STATE;
+  if (!state || state.busy) return;
+  const hasBlocking = (state.issues || []).some((row) => String(row && row.severity || '').toLowerCase() === 'blocking');
+  if (hasBlocking) {
+    setLaunchPreflightStatus('Resolve blocking issues first.', true);
+    return;
+  }
+  resolveLaunchPreflightDialog('continue');
+}
+
+async function runLaunchPreflight(instanceName, profileId, profileName) {
+  const res = await invokeBackend('preflight_instance_launch', {
+    request: {
+      instanceName: String(instanceName || ''),
+      profileId: profileId || null,
+      profileName: profileName || null,
+    },
+  });
+  if (!res.ok || !res.data) {
+    return {
+      ok: false,
+      error: formatBackendError(res.error, 'Preflight check failed'),
+      issues: [],
+    };
+  }
+  const issues = Array.isArray(res.data.issues) ? res.data.issues : [];
+  return { ok: true, issues, data: res.data };
+}
+
+async function fixLaunchPreflightDialog() {
+  const state = LAUNCH_PREFLIGHT_DIALOG_STATE;
+  if (!state || state.busy) return;
+  state.busy = true;
+  hydrateLaunchPreflightDialogModal();
+
+  const missingRequired = await getMissingRequiredTrackedInstalls(state.instanceName);
+  const installable = missingRequired.filter((row) => !!String(row && row.url ? row.url : '').trim());
+  if (installable.length > 0) {
+    await installTrackedRowsToInstance(state.instanceName, installable, 'overwrite', (index, total, row, phase) => {
+      if (phase === 'working') {
+        setLaunchPreflightStatus(
+          'Installing ' + String(index + 1) + '/' + String(total) + ': ' + String((row && (row.title || row.fileName)) || 'Dependency'),
+          false
+        );
+      }
+    });
+  }
+
+  const next = await runLaunchPreflight(state.instanceName, state.profileId, state.profileName);
+  state.busy = false;
+  if (!next.ok) {
+    setLaunchPreflightStatus(next.error || 'Preflight check failed', true);
+    hydrateLaunchPreflightDialogModal();
+    return;
+  }
+
+  state.issues = Array.isArray(next.issues) ? next.issues.slice() : [];
+  hydrateLaunchPreflightDialogModal();
+  const blockingCount = state.issues.filter((row) => String(row && row.severity || '').toLowerCase() === 'blocking').length;
+  if (blockingCount === 0) {
+    resolveLaunchPreflightDialog('continue');
+  } else {
+    setLaunchPreflightStatus('Blocking issues remain: ' + String(blockingCount), true);
+  }
+}
+
+function openLaunchPreflightDialog(instanceName, profileId, profileName, issues) {
+  return new Promise((resolve) => {
+    LAUNCH_PREFLIGHT_DIALOG_STATE = {
+      instanceName: String(instanceName || '').trim(),
+      profileId: profileId || '',
+      profileName: profileName || '',
+      issues: Array.isArray(issues) ? issues.slice() : [],
+      busy: false,
+      settled: false,
+      resolve,
+    };
+    openModal('launch-preflight');
+  });
+}
+
 async function doLaunchSequence() {
   const instanceName = getSelectedInstanceName();
   if (!instanceName) {
@@ -3376,10 +7265,48 @@ async function doLaunchSequence() {
     showToast('!', 'Missing instance', 'Please select a valid instance first');
     return;
   }
+  setDiagnosticsLaunchContext(instanceName, profileId, profileName, details.version);
+
+  const preflight = await runLaunchPreflight(instanceName, profileId, profileName);
+  if (!preflight.ok) {
+    showToast('!', 'Preflight failed', preflight.error || 'Could not run preflight', {
+      label: 'Diagnostics',
+      onClick: () => openModal('diagnostics'),
+    });
+    return;
+  }
+  if (preflight.issues.length > 0) {
+    const decision = await openLaunchPreflightDialog(instanceName, profileId, profileName, preflight.issues);
+    if (decision !== 'continue') {
+      showToast('!', 'Launch canceled', 'Preflight did not pass');
+      return;
+    }
+  }
+
+  const missingRequired = await getMissingRequiredTrackedInstalls(instanceName);
+  if (missingRequired.length > 0) {
+    const decision = await openLaunchMissingDialog(instanceName, missingRequired);
+    if (decision !== 'continue') {
+      showToast('!', 'Launch canceled', 'Missing required files were not installed');
+      return;
+    }
+  }
 
   openProvisionOverlay(instanceName, details.sub);
   await new Promise((resolve) => requestAnimationFrame(() => resolve()));
-  setLaunchOverlayProgress(8, 'Provisioning runtime files...', false);
+  if (isActiveProvisionCanceled(instanceName)) {
+    await finalizeCanceledLaunch(instanceName, false);
+    return;
+  }
+  setLaunchOverlayProgress(8, 'Provisioning runtime files...', false, 'Provisioning');
+  setDiagnosticsLastLaunchCommand('provision_instance', {
+    instanceName,
+    version: details.version,
+    profileId,
+    profileName,
+    forceRedownload: false,
+    maxConcurrency: 4,
+  });
   const provisionRes = await invokeBackend('provision_instance', {
     request: {
       instanceName,
@@ -3390,12 +7317,16 @@ async function doLaunchSequence() {
       maxConcurrency: 4,
     },
   });
+  if (isActiveProvisionCanceled(instanceName)) {
+    await finalizeCanceledLaunch(instanceName, false);
+    return;
+  }
   if (!provisionRes.ok) {
     failProvisionOverlay(String(provisionRes.error || 'Provision command failed'), 'Provision failed');
     return;
   }
 
-  setLaunchOverlayProgress(91, 'Provision complete. Launching Minecraft...', false);
+  setLaunchOverlayProgress(91, 'Provision complete. Launching Minecraft...', false, 'Provisioned');
   await refreshInstancesFromBackend(true);
   const launchRequest = {
     instanceName,
@@ -3404,16 +7335,31 @@ async function doLaunchSequence() {
     args: null,
     workingDir: '',
   };
+  if (ACTIVE_PROVISION && ACTIVE_PROVISION.instanceName === instanceName) {
+    ACTIVE_PROVISION.launchRequested = false;
+  }
+  setDiagnosticsLastLaunchCommand('launch_instance', launchRequest);
   const launchRes = await invokeBackend('launch_instance', { request: launchRequest });
+  if (launchRes.ok && ACTIVE_PROVISION && ACTIVE_PROVISION.instanceName === instanceName) {
+    ACTIVE_PROVISION.launchRequested = true;
+  }
+  if (isActiveProvisionCanceled(instanceName)) {
+    await finalizeCanceledLaunch(instanceName, !!launchRes.ok);
+    return;
+  }
   if (!launchRes.ok) {
     failProvisionOverlay(String(launchRes.error || 'Launch command failed'), 'Launch failed');
     await refreshInstancesFromBackend(true);
     return;
   }
 
-  setLaunchOverlayProgress(95, 'Process created. Verifying startup...', false);
-  const startupOutcome = await waitForLaunchStartup(instanceName);
+  setLaunchOverlayProgress(95, 'Process created. Verifying startup...', false, 'Launching');
+  const startupOutcome = await waitForLaunchStartup(instanceName, Date.now());
   if (!startupOutcome.ok) {
+    if (startupOutcome.canceled) {
+      await finalizeCanceledLaunch(instanceName, true);
+      return;
+    }
     failProvisionOverlay(startupOutcome.error || 'Minecraft failed to start', 'Launch failed');
     await refreshInstancesFromBackend(true);
     return;
@@ -3423,44 +7369,52 @@ async function doLaunchSequence() {
   await refreshInstancesFromBackend(true);
 }
 function cancelLaunch(btn) {
-  const ol = btn.closest('.launch-overlay');
-  clearInterval(ol._interval);
-  ol.classList.add('hiding');
-  ol.addEventListener('animationend', () => ol.remove(), {once:true});
+  void cancelProvisionLaunch(btn);
 }
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // PROFILE SELECT
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 function selectLaunchProfile(el) {
   document.querySelectorAll('.profile-select-item').forEach(p => p.classList.remove('selected'));
   el.classList.add('selected');
 }
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // OFFLINE UUID GENERATOR
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 function updateOfflineUUID(name) {
   const el = document.getElementById('offline-uuid-preview');
   if (!el) return;
-  if (!name) { el.textContent = 'Ã¯Â¿Â½?" enter a username Ã¯Â¿Â½?"'; return; }
+  if (!name) { el.textContent = 'Enter a username to preview UUID'; return; }
   let hash = 0;
   for (let i = 0; i < name.length; i++) hash = (Math.imul(31, hash) + name.charCodeAt(i)) | 0;
   const hex = Math.abs(hash).toString(16).padStart(8,'0');
-  el.textContent = `OfflinePlayer:${name} Ã¯Â¿Â½?' ${hex}-xxxx-3xxx-yxxx-xxxxxxxxxxxx`;
+  el.textContent = `OfflinePlayer:${name} - ${hex}-xxxx-3xxx-yxxx-xxxxxxxxxxxx`;
 }
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // CONTEXT MENU
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 const ctxMenu = document.getElementById('ctx-menu');
 let activeSelectMenu = null;
+let activeIconPickerInput = null;
+let activeIconPickerTrigger = null;
+let activeGroupPicker = null;
+if (ctxMenu) {
+  ctxMenu.addEventListener('click', (event) => event.stopPropagation());
+}
 
 function showCtxMenu(e, target) {
   e.preventDefault();
   e.stopPropagation();
   activeSelectMenu = null;
+  activeIconPickerInput = null;
+  activeIconPickerTrigger = null;
+  activeGroupPicker = null;
   ctxMenu.classList.remove('select-menu');
+  ctxMenu.classList.remove('icon-picker-menu');
+  ctxMenu.classList.remove('group-picker-menu');
   ctxMenu.style.maxHeight = '';
   ctxMenu.style.overflowY = '';
   ctxMenu.style.overflowX = '';
@@ -3512,11 +7466,116 @@ function showCtxMenu(e, target) {
   setTimeout(() => document.addEventListener('click', hideCtx, {once:true}), 0);
 }
 
+function showInstanceInfoRowContextMenu(e, target) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+
+  const normalizedTarget = String(target || 'root').trim().toLowerCase();
+  const effectiveTarget = normalizedTarget === 'worlds' || normalizedTarget === 'saves'
+    ? 'worlds'
+    : normalizedTarget === 'mods'
+      ? 'mods'
+      : 'root';
+  const label = effectiveTarget === 'worlds' ? 'Worlds' : effectiveTarget === 'mods' ? 'Mods' : 'Instance';
+  const manageAction = effectiveTarget === 'mods'
+    ? `<div class="ctx-item" onclick="hideCtx();openModal('manage-mods')"><i data-lucide="list" width="12" height="12"></i>Manage Installed</div><div class="ctx-sep"></div>`
+    : '';
+
+  activeSelectMenu = null;
+  activeIconPickerInput = null;
+  activeIconPickerTrigger = null;
+  activeGroupPicker = null;
+  ctxMenu.classList.remove('select-menu');
+  ctxMenu.classList.remove('icon-picker-menu');
+  ctxMenu.classList.remove('group-picker-menu');
+  ctxMenu.style.maxHeight = '';
+  ctxMenu.style.overflowY = '';
+  ctxMenu.style.overflowX = '';
+  ctxMenu.scrollTop = 0;
+  ctxMenu.style.minWidth = '198px';
+
+  ctxMenu.innerHTML = `
+    ${manageAction}
+    <div class="ctx-item" onclick="hideCtx();openSelectedInstanceFolder('${effectiveTarget}')"><i data-lucide="folder-open" width="12" height="12"></i>Open ${label} Folder</div>
+    <div class="ctx-item" onclick="hideCtx();openSelectedInstanceFolderInTerminal('${effectiveTarget}')"><i data-lucide="terminal" width="12" height="12"></i>Open in Terminal</div>
+    <div class="ctx-item" onclick="hideCtx();copySelectedInstanceFolderPath('${effectiveTarget}')"><i data-lucide="copy" width="12" height="12"></i>Copy Path</div>
+    <div class="ctx-sep"></div>
+    <div class="ctx-item" onclick="hideCtx();openSelectedInstanceFolder('root')"><i data-lucide="folder" width="12" height="12"></i>Open Instance Root</div>
+  `;
+  ctxMenu.style.display = 'block';
+
+  const x = Math.min(Math.max(8, e.clientX), window.innerWidth - 206);
+  const y = Math.min(Math.max(8, e.clientY), window.innerHeight - ctxMenu.scrollHeight - 8);
+  ctxMenu.style.left = x + 'px';
+  ctxMenu.style.top = y + 'px';
+  lucide.createIcons();
+  setTimeout(() => document.addEventListener('click', hideCtx, { once: true }), 0);
+}
+
+function openGroupHeaderContextMenu(e, groupId) {
+  const group = findInstanceGroupById(groupId);
+  if (!group) return;
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  activeSelectMenu = null;
+  activeIconPickerInput = null;
+  activeIconPickerTrigger = null;
+  activeGroupPicker = null;
+  ctxMenu.classList.remove('select-menu');
+  ctxMenu.classList.remove('icon-picker-menu');
+  ctxMenu.classList.remove('group-picker-menu');
+  ctxMenu.style.maxHeight = '';
+  ctxMenu.style.overflowY = '';
+  ctxMenu.style.overflowX = '';
+  ctxMenu.scrollTop = 0;
+  ctxMenu.style.minWidth = '190px';
+
+  const collapseLabel = group.collapsed ? 'Expand Group' : 'Collapse Group';
+  const safeId = String(group.id || '').replace(/'/g, "\\'");
+  ctxMenu.innerHTML = `
+    <div class="ctx-item" onclick="hideCtx();openRenameGroupModal('${safeId}')"><i data-lucide="pencil" width="12" height="12"></i>Rename Group</div>
+    <div class="ctx-item" onclick="hideCtx();cycleInstanceGroupColor('${safeId}')"><i data-lucide="palette" width="12" height="12"></i>Cycle Color</div>
+    <div class="ctx-item" onclick="hideCtx();toggleInstanceGroupById('${safeId}')"><i data-lucide="chevrons-up-down" width="12" height="12"></i>${collapseLabel}</div>
+    <div class="ctx-sep"></div>
+    <div class="ctx-item danger" onclick="hideCtx();openDeleteGroupModal('${safeId}')"><i data-lucide="trash-2" width="12" height="12"></i>Delete Group</div>
+  `;
+  ctxMenu.style.display = 'block';
+
+  const anchor = e && e.currentTarget && typeof e.currentTarget.getBoundingClientRect === 'function'
+    ? e.currentTarget.getBoundingClientRect()
+    : null;
+  if (anchor) {
+    const x = Math.min(Math.max(8, Math.floor(anchor.left)), window.innerWidth - 198);
+    const y = Math.min(Math.floor(anchor.bottom + 4), window.innerHeight - ctxMenu.scrollHeight - 8);
+    ctxMenu.style.left = x + 'px';
+    ctxMenu.style.top = y + 'px';
+  } else if (e) {
+    const x = Math.min(e.clientX, window.innerWidth - 198);
+    const y = Math.min(e.clientY, window.innerHeight - ctxMenu.scrollHeight - 8);
+    ctxMenu.style.left = x + 'px';
+    ctxMenu.style.top = y + 'px';
+  }
+  lucide.createIcons();
+  setTimeout(() => document.addEventListener('click', hideCtx, { once: true }), 0);
+}
+
 function showSelectContextMenu(e, selectEl) {
   if (!selectEl || selectEl.disabled) return;
   e.preventDefault();
   e.stopPropagation();
   activeSelectMenu = selectEl;
+  activeIconPickerInput = null;
+  activeIconPickerTrigger = null;
+  activeGroupPicker = null;
 
   const options = Array.from(selectEl.options || []);
   if (options.length === 0) return;
@@ -3540,6 +7599,8 @@ function showSelectContextMenu(e, selectEl) {
   ctxMenu.innerHTML = groupedItems.join('');
 
   const rect = selectEl.getBoundingClientRect();
+  ctxMenu.classList.remove('icon-picker-menu');
+  ctxMenu.classList.remove('group-picker-menu');
   ctxMenu.classList.add('select-menu');
   ctxMenu.style.display = 'block';
   ctxMenu.style.minWidth = Math.max(170, Math.floor(rect.width)) + 'px';
@@ -3561,6 +7622,80 @@ function showSelectContextMenu(e, selectEl) {
   setTimeout(() => document.addEventListener('click', hideCtx, { once: true }), 0);
 }
 
+async function openInstanceIconMenuFor(e, inputId, triggerId) {
+  const input = document.getElementById(inputId);
+  const trigger = document.getElementById(triggerId);
+  if (!input || !trigger) return;
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  const icons = await ensureInstanceIconCatalog();
+  const current = normalizeIconKey(input.value) || resolveDefaultInstanceIconKey();
+  const selected = icons.includes(current) ? current : (icons[0] || '');
+  if (!selected) return;
+
+  if (inputId === 'edit-inst-icon-key') setEditInstanceIconSelection(selected);
+  else setAddInstanceIconSelection(selected);
+  activeSelectMenu = null;
+  activeIconPickerInput = input;
+  activeIconPickerTrigger = trigger;
+  activeGroupPicker = null;
+
+  const items = icons.map((iconKey) => {
+    const selectedClass = iconKey === selected ? ' selected' : '';
+    const label = escapeHtml(iconLabelFromKey(iconKey));
+    const path = instanceIconPath(iconKey);
+    return `<div class="ctx-item icon-picker-item${selectedClass}" data-icon-key="${iconKey}" onclick="pickIconMenuOption('${iconKey}')"><img src="${path}" alt="${label} icon" loading="lazy"><span>${label}</span></div>`;
+  });
+  ctxMenu.innerHTML = items.join('');
+
+  const rect = trigger.getBoundingClientRect();
+  ctxMenu.classList.add('select-menu');
+  ctxMenu.classList.add('icon-picker-menu');
+  ctxMenu.classList.remove('group-picker-menu');
+  ctxMenu.style.display = 'block';
+  ctxMenu.style.minWidth = Math.max(260, Math.floor(rect.width)) + 'px';
+  const maxHeight = Math.max(220, window.innerHeight - 24);
+  ctxMenu.style.maxHeight = maxHeight + 'px';
+  ctxMenu.style.overflowY = 'auto';
+  ctxMenu.style.overflowX = 'hidden';
+
+  const menuHeight = Math.min(ctxMenu.scrollHeight, maxHeight);
+  const menuWidth = Math.max(260, Math.floor(rect.width));
+  const x = Math.min(Math.max(8, Math.floor(rect.left)), window.innerWidth - menuWidth - 8);
+  const y = Math.min(Math.floor(rect.bottom + 4), window.innerHeight - menuHeight - 8);
+  ctxMenu.style.left = x + 'px';
+  ctxMenu.style.top = y + 'px';
+  const selectedItem = ctxMenu.querySelector('.ctx-item.selected');
+  if (selectedItem && typeof selectedItem.scrollIntoView === 'function') {
+    selectedItem.scrollIntoView({ block: 'nearest' });
+  }
+  setTimeout(() => document.addEventListener('click', hideCtx, { once: true }), 0);
+}
+
+async function openAddInstanceIconMenu(e) {
+  await openInstanceIconMenuFor(e, 'add-inst-icon-key', 'add-inst-icon-trigger');
+}
+
+async function openEditInstanceIconMenu(e) {
+  await openInstanceIconMenuFor(e, 'edit-inst-icon-key', 'edit-inst-icon-trigger');
+}
+
+function pickIconMenuOption(iconKey) {
+  if (!activeIconPickerInput) return;
+  const selected = normalizeIconKey(iconKey);
+  if (!selected) return;
+  activeIconPickerInput.value = selected;
+  if (activeIconPickerInput.id === 'edit-inst-icon-key') {
+    setEditInstanceIconSelection(selected);
+  } else {
+    setAddInstanceIconSelection(selected);
+  }
+  hideCtx();
+}
+
 function pickSelectMenuOption(index) {
   if (!activeSelectMenu) return;
   const selectEl = activeSelectMenu;
@@ -3570,6 +7705,150 @@ function pickSelectMenuOption(index) {
   selectEl.dispatchEvent(new Event('input', { bubbles: true }));
   selectEl.dispatchEvent(new Event('change', { bubbles: true }));
   hideCtx();
+}
+
+function openGroupInstancePicker(e, groupId) {
+  const group = findInstanceGroupById(groupId);
+  if (!group) return;
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  ensureInstanceGroupsLoaded();
+  activeSelectMenu = null;
+  activeIconPickerInput = null;
+  activeIconPickerTrigger = null;
+
+  const names = INSTANCE_LIST_CACHE
+    .map((instance) => String(instance && instance.name ? instance.name : '').trim())
+    .filter(Boolean);
+  const uniqueNames = Array.from(new Set(names));
+  const candidateNames = uniqueNames.filter((name) => {
+    const assigned = resolveInstanceGroupId(name);
+    return !assigned || assigned === group.id;
+  });
+  const initialNames = new Set(
+    candidateNames.filter((name) => resolveInstanceGroupId(name) === group.id)
+  );
+  activeGroupPicker = {
+    groupId: group.id,
+    candidateNames,
+    selectedNames: new Set(initialNames),
+    initialNames,
+  };
+
+  ctxMenu.innerHTML = '';
+  ctxMenu.classList.remove('select-menu');
+  ctxMenu.classList.remove('icon-picker-menu');
+  ctxMenu.classList.add('group-picker-menu');
+  ctxMenu.style.display = 'block';
+  ctxMenu.style.minWidth = '230px';
+  ctxMenu.style.maxHeight = '';
+  ctxMenu.style.overflowY = '';
+  ctxMenu.style.overflowX = '';
+
+  if (candidateNames.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'group-picker-empty';
+    empty.textContent = 'No available instances';
+    ctxMenu.appendChild(empty);
+  } else {
+    candidateNames.forEach((name) => {
+      const row = document.createElement('div');
+      row.className = 'group-picker-row';
+      if (activeGroupPicker.selectedNames.has(name)) row.classList.add('selected');
+      row.dataset.instanceName = name;
+      row.innerHTML = `
+        <span class="group-picker-dot"></span>
+        <span class="group-picker-name">${escapeHtml(name)}</span>
+      `;
+      row.addEventListener('click', () => {
+        if (!activeGroupPicker) return;
+        if (activeGroupPicker.selectedNames.has(name)) {
+          activeGroupPicker.selectedNames.delete(name);
+          row.classList.remove('selected');
+        } else {
+          activeGroupPicker.selectedNames.add(name);
+          row.classList.add('selected');
+        }
+      });
+      ctxMenu.appendChild(row);
+    });
+  }
+
+  const sep = document.createElement('div');
+  sep.className = 'ctx-sep';
+  ctxMenu.appendChild(sep);
+
+  const actions = document.createElement('div');
+  actions.className = 'group-picker-actions';
+
+  const cancelBtn = document.createElement('button');
+  cancelBtn.className = 'group-icon-btn';
+  cancelBtn.type = 'button';
+  cancelBtn.title = 'Cancel';
+  cancelBtn.innerHTML = '<i data-lucide="x" width="12" height="12"></i>';
+  cancelBtn.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    hideCtx();
+  });
+  actions.appendChild(cancelBtn);
+
+  const applyBtn = document.createElement('button');
+  applyBtn.className = 'group-icon-btn';
+  applyBtn.type = 'button';
+  applyBtn.title = 'Apply';
+  applyBtn.innerHTML = '<i data-lucide="check" width="12" height="12"></i>';
+  applyBtn.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    applyGroupPickerSelection();
+  });
+  actions.appendChild(applyBtn);
+  ctxMenu.appendChild(actions);
+
+  const anchor = e && e.currentTarget && typeof e.currentTarget.getBoundingClientRect === 'function'
+    ? e.currentTarget
+    : null;
+  if (anchor) {
+    const rect = anchor.getBoundingClientRect();
+    const menuHeight = Math.min(ctxMenu.scrollHeight, Math.max(220, window.innerHeight - 24));
+    const menuWidth = 230;
+    const x = Math.min(Math.max(8, Math.floor(rect.left)), window.innerWidth - menuWidth - 8);
+    const y = Math.min(Math.floor(rect.bottom + 4), window.innerHeight - menuHeight - 8);
+    ctxMenu.style.left = x + 'px';
+    ctxMenu.style.top = y + 'px';
+  }
+  lucide.createIcons();
+  setTimeout(() => document.addEventListener('click', hideCtx, { once: true }), 0);
+}
+
+function applyGroupPickerSelection() {
+  if (!activeGroupPicker) return;
+  const { groupId, candidateNames, selectedNames, initialNames } = activeGroupPicker;
+  let changed = false;
+  candidateNames.forEach((name) => {
+    const isSelected = selectedNames.has(name);
+    const wasSelected = initialNames.has(name);
+    if (isSelected && !wasSelected) {
+      INSTANCE_GROUP_ASSIGNMENTS[name] = groupId;
+      changed = true;
+      return;
+    }
+    if (!isSelected && wasSelected) {
+      delete INSTANCE_GROUP_ASSIGNMENTS[name];
+      changed = true;
+    }
+  });
+
+  hideCtx();
+  if (!changed) return;
+  persistInstanceGroups();
+  renderInstancesFromBackend(INSTANCE_LIST_CACHE, true);
+  const group = findInstanceGroupById(groupId);
+  const groupName = group ? group.name : 'Group';
+  showToast('OK', 'Group updated', groupName + ' membership saved');
 }
 
 function initSelectContextMenus() {
@@ -3595,42 +7874,170 @@ function initSelectContextMenus() {
   }, true);
 }
 
+function canScrollElementInDirection(element, deltaY) {
+  if (!element || !deltaY) return false;
+  const maxScrollTop = element.scrollHeight - element.clientHeight;
+  if (maxScrollTop <= 0) return false;
+  if (deltaY < 0) return element.scrollTop > 0;
+  if (deltaY > 0) return element.scrollTop < maxScrollTop - 1;
+  return false;
+}
+
+function initBrowseWheelDelegation() {
+  document.querySelectorAll('.browse-layout').forEach((layout) => {
+    layout.addEventListener('wheel', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target) return;
+
+      const nestedScrollable = target.closest('.browse-filter-body.scrollable, .browse-filters, .browse-feed');
+      if (nestedScrollable && canScrollElementInDirection(nestedScrollable, event.deltaY)) {
+        return;
+      }
+
+      const feed = layout.querySelector('.browse-feed');
+      if (!feed) return;
+      if (!canScrollElementInDirection(feed, event.deltaY)) return;
+
+      feed.scrollTop += event.deltaY;
+      if (event.deltaX) feed.scrollLeft += event.deltaX;
+      event.preventDefault();
+    }, { passive: false });
+  });
+}
+
 function hideCtx() {
   ctxMenu.style.display = 'none';
   ctxMenu.classList.remove('select-menu');
+  ctxMenu.classList.remove('icon-picker-menu');
+  ctxMenu.classList.remove('group-picker-menu');
   ctxMenu.style.minWidth = '170px';
   ctxMenu.style.maxHeight = '';
   ctxMenu.style.overflowY = '';
   ctxMenu.style.overflowX = '';
   ctxMenu.scrollTop = 0;
   activeSelectMenu = null;
+  activeIconPickerInput = null;
+  activeIconPickerTrigger = null;
+  activeGroupPicker = null;
 }
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // RUNNING STATE
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
-let sessionSeconds = 720;
-setInterval(() => {
-  sessionSeconds++;
-  const m = Math.floor(sessionSeconds / 60);
-  const s = sessionSeconds % 60;
-  const txt = m >= 60 ? `${Math.floor(m/60)}h ${m%60}m` : `${m}m ${String(s).padStart(2,'0')}s`;
-  const el = document.getElementById('detail-session');
-  if (el) el.textContent = `Session: ${txt}`;
-  const cl = document.getElementById('card-playtime-live');
-  if (cl) cl.textContent = m + 'm';
-}, 1000);
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
+function formatSessionDuration(totalSeconds) {
+  const seconds = Math.max(0, Number(totalSeconds) || 0);
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  if (h > 0) return `${h}h ${m}m`;
+  return `${m}m ${String(s).padStart(2, '0')}s`;
+}
 
-function killInstance() {
+function getInstanceSessionSeconds(details) {
+  if (!details || !details.running) return 0;
+  const started = parseLastPlayedEpoch(details.lastPlayedEpoch || null);
+  if (!started) return 0;
+  const now = Math.floor(Date.now() / 1000);
+  return Math.max(0, now - started);
+}
+
+function refreshSelectedSessionLabel() {
+  const selectedName = getSelectedInstanceName();
+  const sessionEl = document.getElementById('detail-session');
+  if (!sessionEl) return;
+  if (!selectedName || !INSTANCE_DATA[selectedName]) {
+    sessionEl.textContent = 'Session: -';
+    return;
+  }
+  const details = INSTANCE_DATA[selectedName];
+  if (!details.running) {
+    sessionEl.textContent = 'Session: -';
+    return;
+  }
+  sessionEl.textContent = 'Session: ' + formatSessionDuration(getInstanceSessionSeconds(details));
+}
+
+setInterval(refreshSelectedSessionLabel, 1000);
+
+function shouldPollInstanceRuntimeState() {
+  if (ACTIVE_PROVISION) return true;
+  if (!INSTANCE_DATA || typeof INSTANCE_DATA !== 'object') return false;
+  return Object.values(INSTANCE_DATA).some((details) => details && details.running);
+}
+
+function buildInstanceRuntimePollSignature(rows) {
+  if (!Array.isArray(rows) || rows.length === 0) return '';
+  const normalized = rows
+    .map((row) => ({
+      name: String(row && row.name ? row.name : '').trim(),
+      running: !!(row && row.running),
+      lastPlayed: parseLastPlayedEpoch(row && row.lastPlayed),
+      lastExitState: String((row && row.lastExitState) || '').trim().toLowerCase(),
+      lastExitCode:
+        row && typeof row.lastExitCode === 'number' && Number.isFinite(row.lastExitCode)
+          ? row.lastExitCode
+          : '',
+      lastExitReason: String((row && row.lastExitReason) || '').trim(),
+      lastExitAt: parseLastPlayedEpoch(row && row.lastExitAtEpoch),
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base', numeric: true }));
+  return normalized
+    .map(
+      (item) =>
+        item.name +
+        '~' +
+        (item.running ? '1' : '0') +
+        '~' +
+        item.lastPlayed +
+        '~' +
+        item.lastExitState +
+        '~' +
+        item.lastExitCode +
+        '~' +
+        item.lastExitReason +
+        '~' +
+        item.lastExitAt
+    )
+    .join('|');
+}
+
+async function pollInstanceRuntimeStateTick() {
+  if (INSTANCE_RUNTIME_POLL_IN_FLIGHT) return;
+  if (!shouldPollInstanceRuntimeState()) return;
+  INSTANCE_RUNTIME_POLL_IN_FLIGHT = true;
+  try {
+    const listRes = await invokeBackend('list_instances');
+    if (!listRes.ok || !Array.isArray(listRes.data)) return;
+    const nextSignature = buildInstanceRuntimePollSignature(listRes.data);
+    if (nextSignature === INSTANCE_RUNTIME_POLL_SIGNATURE) return;
+    INSTANCE_RUNTIME_POLL_SIGNATURE = nextSignature;
+    renderInstancesFromBackend(listRes.data, true);
+  } finally {
+    INSTANCE_RUNTIME_POLL_IN_FLIGHT = false;
+  }
+}
+
+function setupInstanceRuntimeStatePolling() {
+  if (INSTANCE_RUNTIME_POLL_TIMER) return;
+  INSTANCE_RUNTIME_POLL_TIMER = setInterval(() => {
+    void pollInstanceRuntimeStateTick();
+  }, INSTANCE_RUNTIME_POLL_MS);
+}
+
+async function killInstance() {
   closeModal();
   const instanceName = getSelectedInstanceName();
   if (!instanceName) {
     showToast('!', 'Missing instance', 'Please select an instance first');
     return;
   }
-  void invokeBackend('kill_instance', { request: { instanceName } });
+  const killRes = await invokeBackend('kill_instance', { request: { instanceName } });
+  if (!killRes.ok) {
+    showToast('!', 'Kill failed', formatBackendError(killRes.error, 'Could not stop the game process'));
+    return;
+  }
   showToast('STOP','Game stopped', instanceName + ' session ended');
-  void refreshInstancesFromBackend(true);
+  await refreshInstancesFromBackend(true);
   document.querySelectorAll('.instance-card.running').forEach(c => c.classList.remove('running'));
   const rb = document.getElementById('detail-running-bar');
   if (rb) rb.classList.remove('visible');
@@ -3643,9 +8050,9 @@ function killInstance() {
   }
 }
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // FILTER & SEARCH
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 function setFilter(chip, type) {
   document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
   chip.classList.add('active');
@@ -3686,15 +8093,23 @@ function applyInstanceVisibility() {
   });
 }
 
+function setActiveFilterChip(type) {
+  const chips = Array.from(document.querySelectorAll('.filter-chip'));
+  chips.forEach((chip) => chip.classList.remove('active'));
+  const target = chips.find((chip) => {
+    const handler = String(chip.getAttribute('onclick') || '');
+    return handler.includes(`'${type}'`);
+  });
+  if (target) target.classList.add('active');
+}
+
 function filterInstances(q) {
   INSTANCE_SEARCH_QUERY = String(q || '').trim();
   applyInstanceVisibility();
 }
 
 function sortInstances(val, silent) {
-  const grids = ['group-survival', 'group-modpacks']
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
+  const grids = Array.from(document.querySelectorAll('.instance-grid[data-role="instance-grid"]'));
 
   const naturalCompare = (a, b) => String(a || '').localeCompare(String(b || ''), undefined, { numeric: true, sensitivity: 'base' });
   const parseVersion = (input) => String(input || '').split('.').map((part) => Number(part) || 0);
@@ -3733,6 +8148,8 @@ function sortInstances(val, silent) {
     });
 
     cards.forEach((card) => grid.appendChild(card));
+    const addCard = grid.querySelector('.add-card');
+    if (addCard) grid.appendChild(addCard);
   });
 
   if (!silent) {
@@ -3740,20 +8157,30 @@ function sortInstances(val, silent) {
   }
 }
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // GROUP COLLAPSE
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 function toggleGroup(header) {
+  if (!header) return;
   const chevron = header.querySelector('.group-chevron');
   const grid = header.nextElementSibling;
+  if (!chevron || !grid || !grid.classList.contains('instance-grid')) return;
   const collapsed = chevron.classList.contains('collapsed');
-  chevron.classList.toggle('collapsed', !collapsed);
-  grid.style.display = collapsed ? '' : 'none';
+  const nextCollapsed = !collapsed;
+  chevron.classList.toggle('collapsed', nextCollapsed);
+  grid.style.display = nextCollapsed ? 'none' : '';
+
+  const groupId = String(header.dataset.groupId || '').trim();
+  if (!groupId) return;
+  const group = findInstanceGroupById(groupId);
+  if (!group) return;
+  group.collapsed = nextCollapsed;
+  persistInstanceGroups();
 }
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // DRAG & DROP
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 let draggedCard = null;
 function dragStart(e) {
   draggedCard = e.currentTarget;
@@ -3780,7 +8207,7 @@ function dropCard(e) {
     else parent.insertBefore(draggedCard, target);
     draggedCard.classList.remove('dragging');
     draggedCard = null;
-    showToast('Ã¯Â¿Â½?.Ã¯Â¸Â','Reordered','Instance order updated');
+    showToast('OK','Reordered','Instance order updated');
   }
 }
 document.addEventListener('dragend', () => {
@@ -3788,9 +8215,9 @@ document.addEventListener('dragend', () => {
   document.querySelectorAll('.drag-over').forEach(c => c.classList.remove('drag-over'));
 });
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // HELPERS
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 function toggleCheck(el) {
   const on = !el.classList.contains('on');
   el.classList.toggle('on', on);
@@ -3803,6 +8230,252 @@ function selectIcon(el) {
   el.classList.add('sel');
 }
 
+function normalizeBannerKey(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\.webp$/i, '')
+    .replace(/[^a-z0-9_]/g, '');
+}
+
+function bannerKeyFromFile(file) {
+  return normalizeBannerKey(file);
+}
+
+function bannerFileBySeed(seed) {
+  const files = Array.isArray(BANNER_IMAGE_FILES) ? BANNER_IMAGE_FILES : [];
+  const seedText = String(seed || 'banner');
+  if (!files.length) return '';
+  let hash = 0;
+  for (let i = 0; i < seedText.length; i++) {
+    hash = ((hash << 5) - hash + seedText.charCodeAt(i)) | 0;
+  }
+  const index = Math.abs(hash) % files.length;
+  return files[index];
+}
+
+function bannerKeyBySeed(seed) {
+  return bannerKeyFromFile(bannerFileBySeed(seed));
+}
+
+function bannerFileFromKey(bannerKey) {
+  const key = normalizeBannerKey(bannerKey);
+  if (!key) return '';
+  const candidate = key + '.webp';
+  if (Array.isArray(BANNER_IMAGE_FILES) && BANNER_IMAGE_FILES.includes(candidate)) return candidate;
+  return '';
+}
+
+function bannerImagePathByKey(bannerKey) {
+  const file = bannerFileFromKey(bannerKey);
+  if (!file) return '';
+  return 'assets/banner/' + file;
+}
+
+function resolveInstanceBannerKey(value, seed) {
+  const explicit = normalizeBannerKey(value);
+  if (explicit && bannerFileFromKey(explicit)) return explicit;
+  return bannerKeyBySeed(seed);
+}
+
+function bannerImagePathBySeed(seed) {
+  const file = bannerFileBySeed(seed);
+  if (file) return 'assets/banner/' + file;
+  const seedText = String(seed || 'banner');
+  return 'https://picsum.photos/seed/' + encodeURIComponent(seedText) + '/300/100';
+}
+
+function normalizeIconKey(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[\s-]+/g, '_')
+    .replace(/[^a-z0-9_]/g, '');
+}
+
+function iconLabelFromKey(iconKey) {
+  const normalized = normalizeIconKey(iconKey);
+  if (!normalized) return 'Select icon';
+  return normalized
+    .split('_')
+    .filter((token) => token.length > 0)
+    .map((token) => token.charAt(0).toUpperCase() + token.slice(1))
+    .join(' ');
+}
+
+function instanceIconPath(iconKey) {
+  const normalized = normalizeIconKey(iconKey);
+  if (!normalized) return '';
+  return 'assets/instance-icons/isometric-256/' + normalized + '.png';
+}
+
+function getKnownInstanceIcons() {
+  return INSTANCE_ICON_KEYS.length ? INSTANCE_ICON_KEYS : INSTANCE_ICON_FALLBACK_KEYS;
+}
+
+function resolveDefaultInstanceIconKey() {
+  const icons = getKnownInstanceIcons();
+  return icons.length ? icons[0] : '';
+}
+
+function stableHashIndex(seed, length) {
+  const size = Number(length) || 0;
+  if (size <= 0) return -1;
+  const seedText = String(seed || 'icon');
+  let hash = 0;
+  for (let i = 0; i < seedText.length; i++) {
+    hash = ((hash << 5) - hash + seedText.charCodeAt(i)) | 0;
+  }
+  return Math.abs(hash) % size;
+}
+
+function resolveAutoInstanceIconKey(seed) {
+  const icons = getKnownInstanceIcons();
+  if (!icons.length) return '';
+  const index = stableHashIndex(seed, icons.length);
+  return icons[index] || icons[0];
+}
+
+function pickRandomInstanceIconKey() {
+  const icons = getKnownInstanceIcons();
+  if (!icons.length) return '';
+  if (window.crypto && typeof window.crypto.getRandomValues === 'function') {
+    const arr = new Uint32Array(1);
+    window.crypto.getRandomValues(arr);
+    return icons[arr[0] % icons.length] || icons[0];
+  }
+  const index = Math.floor(Math.random() * icons.length);
+  return icons[index] || icons[0];
+}
+
+async function ensureInstanceIconCatalog() {
+  if (INSTANCE_ICON_KEYS.length) return INSTANCE_ICON_KEYS;
+  if (INSTANCE_ICON_MANIFEST_PROMISE) return INSTANCE_ICON_MANIFEST_PROMISE;
+  INSTANCE_ICON_MANIFEST_PROMISE = (async () => {
+    try {
+      const res = await fetch(INSTANCE_ICON_MANIFEST_PATH, { cache: 'no-store' });
+      if (!res.ok) throw new Error('status ' + res.status);
+      const payload = await res.json();
+      const icons = Array.isArray(payload && payload.icons)
+        ? payload.icons.map(normalizeIconKey).filter((key) => key.length > 0)
+        : [];
+      const unique = Array.from(new Set(icons));
+      if (unique.length) {
+        INSTANCE_ICON_KEYS = unique;
+      }
+    } catch (err) {
+      console.warn('[icons] failed to load 256px manifest', err);
+    }
+    if (!INSTANCE_ICON_KEYS.length) {
+      INSTANCE_ICON_KEYS = INSTANCE_ICON_FALLBACK_KEYS.slice();
+    }
+    return INSTANCE_ICON_KEYS;
+  })();
+  return INSTANCE_ICON_MANIFEST_PROMISE;
+}
+
+function setInstanceIconSelectionByIds(inputId, triggerId, previewId, labelId, iconKey) {
+  const hidden = document.getElementById(inputId);
+  const trigger = document.getElementById(triggerId);
+  const preview = document.getElementById(previewId);
+  const label = document.getElementById(labelId);
+  if (!hidden || !trigger || !preview || !label) return;
+
+  const known = getKnownInstanceIcons();
+  let selected = normalizeIconKey(iconKey) || normalizeIconKey(hidden.value);
+  if (!selected) selected = resolveDefaultInstanceIconKey();
+  if (known.length && !known.includes(selected)) selected = resolveAutoInstanceIconKey(selected || trigger.id || inputId);
+
+  hidden.value = selected;
+  trigger.dataset.iconKey = selected;
+  label.textContent = iconLabelFromKey(selected);
+
+  const src = instanceIconPath(selected);
+  preview.style.opacity = '1';
+  preview.src = src;
+  preview.alt = iconLabelFromKey(selected) + ' icon';
+  preview.onerror = () => {
+    preview.style.opacity = '0.35';
+  };
+  preview.onload = () => {
+    preview.style.opacity = '1';
+  };
+}
+
+function setAddInstanceIconSelection(iconKey) {
+  setInstanceIconSelectionByIds(
+    'add-inst-icon-key',
+    'add-inst-icon-trigger',
+    'add-inst-icon-preview-img',
+    'add-inst-icon-preview-label',
+    iconKey
+  );
+}
+
+function setEditInstanceIconSelection(iconKey) {
+  setInstanceIconSelectionByIds(
+    'edit-inst-icon-key',
+    'edit-inst-icon-trigger',
+    'edit-inst-icon-preview-img',
+    'edit-inst-icon-preview-label',
+    iconKey
+  );
+}
+
+function resolveInstanceBannerKeyForName(instanceName) {
+  const name = String(instanceName || '').trim();
+  const details = name && INSTANCE_DATA && INSTANCE_DATA[name] ? INSTANCE_DATA[name] : null;
+  return resolveInstanceBannerKey(details && details.bannerKey ? details.bannerKey : '', name || 'banner');
+}
+
+function setDetailBannerByKey(instanceName, bannerKey) {
+  const layer = document.getElementById('detail-banner-image');
+  if (!layer) return;
+  const resolvedKey = resolveInstanceBannerKey(bannerKey, instanceName || 'banner');
+  const src = bannerImagePathByKey(resolvedKey) || bannerImagePathBySeed(instanceName || 'banner');
+  layer.style.backgroundImage = `url('${src}')`;
+  layer.dataset.bannerKey = resolvedKey;
+}
+
+function pickBannerFromModal(bannerKey) {
+  const selected = resolveInstanceBannerKey(bannerKey, getSelectedInstanceName() || selectedInstanceNameForModal());
+  const hidden = document.getElementById('banner-picker-selected-key');
+  if (hidden) hidden.value = selected;
+  document.querySelectorAll('#banner-picker-grid .banner-cell').forEach((cell) => {
+    cell.classList.toggle('selected', cell.dataset.bannerKey === selected);
+  });
+}
+
+function hydrateBannerPickerModal() {
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  pickBannerFromModal(resolveInstanceBannerKeyForName(instanceName));
+}
+
+async function applyBannerFromModal() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+
+  const hidden = document.getElementById('banner-picker-selected-key');
+  const selectedKey = resolveInstanceBannerKey(hidden ? hidden.value : '', instanceName);
+  const res = await invokeBackend('update_instance_launch_config', {
+    request: {
+      instanceName,
+      bannerKey: selectedKey || '',
+    },
+  });
+  if (!res.ok) {
+    showToast('!', 'Banner failed', 'Could not update instance banner');
+    return;
+  }
+
+  closeModal();
+  await refreshInstancesFromBackend(true);
+  showToast('OK', 'Banner updated', 'Card and details banner synced');
+}
+
 function switchTab(el) {
   el.closest('.tabs').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
@@ -3812,6 +8485,1341 @@ let INSTANCE_DATA = {};
 let INSTANCE_RUNTIME = {};
 let INSTANCE_FILTER_TYPE = 'all';
 let INSTANCE_SEARCH_QUERY = '';
+let INSTANCE_LIST_CACHE = [];
+let INSTANCE_VIEW_MODE = 'grid';
+let INSTANCE_GROUPS = [];
+let INSTANCE_GROUP_ASSIGNMENTS = {};
+let INSTANCE_GROUPS_LOADED = false;
+let ACTIVE_INSTANCE_INFO_REQUEST_ID = 0;
+
+function normalizeInstanceViewMode(value) {
+  const mode = String(value || '').trim().toLowerCase();
+  return mode === 'list' ? 'list' : 'grid';
+}
+
+function applyInstanceViewMode(mode) {
+  INSTANCE_VIEW_MODE = normalizeInstanceViewMode(mode || INSTANCE_VIEW_MODE);
+  const panelContent = document.getElementById('panel-content');
+  if (panelContent) {
+    panelContent.classList.toggle('view-list', INSTANCE_VIEW_MODE === 'list');
+    panelContent.dataset.viewMode = INSTANCE_VIEW_MODE;
+  }
+  document.querySelectorAll('.view-btn').forEach((btn) => {
+    const btnMode = normalizeInstanceViewMode(btn.dataset.view || btn.getAttribute('data-view'));
+    btn.classList.toggle('active', btnMode === INSTANCE_VIEW_MODE);
+  });
+}
+
+function setInstanceViewMode(mode, persist) {
+  INSTANCE_VIEW_MODE = normalizeInstanceViewMode(mode);
+  applyInstanceViewMode(INSTANCE_VIEW_MODE);
+  if (persist === false) return;
+  try {
+    if (!window.localStorage) return;
+    window.localStorage.setItem(INSTANCE_VIEW_STORE_KEY, INSTANCE_VIEW_MODE);
+  } catch (err) {
+    console.warn('[view] failed to persist mode', err);
+  }
+}
+
+function initInstanceViewMode() {
+  let storedMode = 'grid';
+  try {
+    if (window.localStorage) {
+      storedMode = window.localStorage.getItem(INSTANCE_VIEW_STORE_KEY) || 'grid';
+    }
+  } catch (err) {
+    console.warn('[view] failed to load mode', err);
+  }
+  applyInstanceViewMode(storedMode);
+  document.querySelectorAll('.view-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      setInstanceViewMode(btn.dataset.view || 'grid', true);
+    });
+  });
+}
+
+function ensureInstanceNotesLoaded() {
+  if (INSTANCE_NOTES_LOADED) return;
+  INSTANCE_NOTES_LOADED = true;
+  INSTANCE_NOTES = {};
+  try {
+    if (!window.localStorage) return;
+    const raw = window.localStorage.getItem(INSTANCE_NOTES_STORE_KEY);
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return;
+    Object.keys(parsed).forEach((key) => {
+      const name = String(key || '').trim();
+      const note = String(parsed[key] || '');
+      if (!name || !note.trim()) return;
+      INSTANCE_NOTES[name] = note;
+    });
+  } catch (err) {
+    console.warn('[notes] failed to load notes', err);
+    INSTANCE_NOTES = {};
+  }
+}
+
+function persistInstanceNotes() {
+  try {
+    if (!window.localStorage) return;
+    window.localStorage.setItem(INSTANCE_NOTES_STORE_KEY, JSON.stringify(INSTANCE_NOTES));
+  } catch (err) {
+    console.warn('[notes] failed to persist notes', err);
+  }
+}
+
+function normalizeInstanceNoteText(value) {
+  return String(value || '').replace(/\r\n/g, '\n').trim();
+}
+
+function getInstanceNote(instanceName) {
+  ensureInstanceNotesLoaded();
+  const key = String(instanceName || '').trim();
+  if (!key) return '';
+  return String(INSTANCE_NOTES[key] || '');
+}
+
+function setInstanceNote(instanceName, noteText) {
+  ensureInstanceNotesLoaded();
+  const key = String(instanceName || '').trim();
+  if (!key) return;
+  const note = normalizeInstanceNoteText(noteText);
+  if (!note) delete INSTANCE_NOTES[key];
+  else INSTANCE_NOTES[key] = note;
+  persistInstanceNotes();
+}
+
+function removeInstanceNote(instanceName) {
+  ensureInstanceNotesLoaded();
+  const key = String(instanceName || '').trim();
+  if (!key || !(key in INSTANCE_NOTES)) return;
+  delete INSTANCE_NOTES[key];
+  persistInstanceNotes();
+}
+
+function renameInstanceNote(oldName, newName) {
+  ensureInstanceNotesLoaded();
+  const from = String(oldName || '').trim();
+  const to = String(newName || '').trim();
+  if (!from || !to || from === to) return;
+  const note = getInstanceNote(from);
+  if (!note) return;
+  setInstanceNote(to, note);
+  removeInstanceNote(from);
+}
+
+function copyInstanceNote(sourceName, targetName) {
+  ensureInstanceNotesLoaded();
+  const source = String(sourceName || '').trim();
+  const target = String(targetName || '').trim();
+  if (!source || !target || source === target) return;
+  const note = getInstanceNote(source);
+  if (!note) return;
+  setInstanceNote(target, note);
+}
+
+function normalizeTrackedInstallTarget(value) {
+  const normalized = String(value || '').trim().toLowerCase();
+  if (normalized === 'mods') return 'mods';
+  if (normalized === 'resourcepacks') return 'resourcepacks';
+  if (normalized === 'shaderpacks') return 'shaderpacks';
+  if (normalized === 'modpacks') return 'modpacks';
+  return 'mods';
+}
+
+function normalizeTrackedInstallEntry(value) {
+  const row = value && typeof value === 'object' ? value : {};
+  const target = normalizeTrackedInstallTarget(row.target);
+  const fileName = String(row.fileName || row.file_name || '').trim();
+  const entryId = String(row.id || (target + ':' + fileName.toLowerCase())).trim();
+  if (!fileName || !entryId) return null;
+  return {
+    id: entryId,
+    title: String(row.title || fileName).trim() || fileName,
+    provider: String(row.provider || '').trim().toLowerCase() || 'browse',
+    itemId: String(row.itemId || row.item_id || '').trim(),
+    target,
+    fileName,
+    url: String(row.url || '').trim(),
+    path: String(row.path || '').trim(),
+    bytesWritten: Number(row.bytesWritten || row.bytes_written || 0) || 0,
+    installedAt: Number(row.installedAt || row.installed_at || Date.now()) || Date.now(),
+    required: !!row.required,
+    sourceType: String(row.sourceType || row.source_type || 'main').trim(),
+    rootTitle: String(row.rootTitle || row.root_title || '').trim(),
+    pageUrl: String(row.pageUrl || row.page_url || '').trim(),
+    iconUrl: String(row.iconUrl || row.icon_url || '').trim(),
+  };
+}
+
+function ensureInstanceInstallsLoaded() {
+  if (INSTANCE_INSTALLS_LOADED) return;
+  INSTANCE_INSTALLS_LOADED = true;
+  INSTANCE_INSTALLS = {};
+  try {
+    if (!window.localStorage) return;
+    const raw = window.localStorage.getItem(INSTANCE_INSTALLS_STORE_KEY);
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return;
+    Object.keys(parsed).forEach((instanceName) => {
+      const key = String(instanceName || '').trim();
+      if (!key) return;
+      const rows = Array.isArray(parsed[instanceName]) ? parsed[instanceName] : [];
+      const cleaned = rows
+        .map(normalizeTrackedInstallEntry)
+        .filter(Boolean);
+      if (cleaned.length) INSTANCE_INSTALLS[key] = cleaned;
+    });
+  } catch (err) {
+    console.warn('[installs] failed to load install registry', err);
+    INSTANCE_INSTALLS = {};
+  }
+}
+
+function persistInstanceInstalls() {
+  try {
+    if (!window.localStorage) return;
+    window.localStorage.setItem(INSTANCE_INSTALLS_STORE_KEY, JSON.stringify(INSTANCE_INSTALLS));
+  } catch (err) {
+    console.warn('[installs] failed to persist install registry', err);
+  }
+}
+
+function getTrackedInstallsForInstance(instanceName) {
+  ensureInstanceInstallsLoaded();
+  const key = String(instanceName || '').trim();
+  if (!key) return [];
+  const rows = Array.isArray(INSTANCE_INSTALLS[key]) ? INSTANCE_INSTALLS[key] : [];
+  return rows
+    .slice()
+    .sort((left, right) => Number(right.installedAt || 0) - Number(left.installedAt || 0));
+}
+
+function countTrackedInstallsForTarget(instanceName, target) {
+  const normalizedTarget = normalizeTrackedInstallTarget(target);
+  return getTrackedInstallsForInstance(instanceName).filter((row) => row.target === normalizedTarget).length;
+}
+
+function upsertTrackedInstallForInstance(instanceName, row) {
+  ensureInstanceInstallsLoaded();
+  const key = String(instanceName || '').trim();
+  if (!key) return;
+  const entry = normalizeTrackedInstallEntry(row);
+  if (!entry) return;
+  const rows = Array.isArray(INSTANCE_INSTALLS[key]) ? INSTANCE_INSTALLS[key].slice() : [];
+  const nextRows = rows.filter((item) => String(item.id || '').trim() !== entry.id);
+  nextRows.push(entry);
+  INSTANCE_INSTALLS[key] = nextRows;
+  persistInstanceInstalls();
+}
+
+function removeTrackedInstallForInstance(instanceName, entryId) {
+  ensureInstanceInstallsLoaded();
+  const key = String(instanceName || '').trim();
+  const targetId = String(entryId || '').trim();
+  if (!key || !targetId) return false;
+  const rows = Array.isArray(INSTANCE_INSTALLS[key]) ? INSTANCE_INSTALLS[key] : [];
+  const nextRows = rows.filter((item) => String(item.id || '').trim() !== targetId);
+  if (nextRows.length === rows.length) return false;
+  if (nextRows.length) INSTANCE_INSTALLS[key] = nextRows;
+  else delete INSTANCE_INSTALLS[key];
+  persistInstanceInstalls();
+  return true;
+}
+
+function removeTrackedInstallsForInstance(instanceName) {
+  ensureInstanceInstallsLoaded();
+  const key = String(instanceName || '').trim();
+  if (!key || !Object.prototype.hasOwnProperty.call(INSTANCE_INSTALLS, key)) return;
+  delete INSTANCE_INSTALLS[key];
+  persistInstanceInstalls();
+}
+
+function renameTrackedInstallsForInstance(oldName, newName) {
+  ensureInstanceInstallsLoaded();
+  const from = String(oldName || '').trim();
+  const to = String(newName || '').trim();
+  if (!from || !to || from === to) return;
+  const rows = Array.isArray(INSTANCE_INSTALLS[from]) ? INSTANCE_INSTALLS[from].slice() : [];
+  if (!rows.length) return;
+  const current = Array.isArray(INSTANCE_INSTALLS[to]) ? INSTANCE_INSTALLS[to].slice() : [];
+  const mergedMap = new Map();
+  current.concat(rows).forEach((row) => {
+    const normalized = normalizeTrackedInstallEntry(row);
+    if (!normalized) return;
+    mergedMap.set(normalized.id, normalized);
+  });
+  INSTANCE_INSTALLS[to] = Array.from(mergedMap.values());
+  delete INSTANCE_INSTALLS[from];
+  persistInstanceInstalls();
+}
+
+function copyTrackedInstallsForInstance(sourceName, targetName) {
+  ensureInstanceInstallsLoaded();
+  const source = String(sourceName || '').trim();
+  const target = String(targetName || '').trim();
+  if (!source || !target || source === target) return;
+  const rows = Array.isArray(INSTANCE_INSTALLS[source]) ? INSTANCE_INSTALLS[source] : [];
+  if (!rows.length) return;
+  const current = Array.isArray(INSTANCE_INSTALLS[target]) ? INSTANCE_INSTALLS[target].slice() : [];
+  const mergedMap = new Map();
+  current.forEach((row) => {
+    const normalized = normalizeTrackedInstallEntry(row);
+    if (!normalized) return;
+    mergedMap.set(normalized.id, normalized);
+  });
+  rows.forEach((row) => {
+    const normalized = normalizeTrackedInstallEntry(Object.assign({}, row, { installedAt: Date.now() }));
+    if (!normalized) return;
+    mergedMap.set(normalized.id, normalized);
+  });
+  INSTANCE_INSTALLS[target] = Array.from(mergedMap.values());
+  persistInstanceInstalls();
+}
+
+function getTrackedInstallEntry(instanceName, entryId) {
+  const key = String(instanceName || '').trim();
+  const targetId = String(entryId || '').trim();
+  if (!key || !targetId) return null;
+  const rows = getTrackedInstallsForInstance(key);
+  return rows.find((row) => String(row.id || '').trim() === targetId) || null;
+}
+
+function formatTrackedInstallAge(installedAt) {
+  const stamp = Number(installedAt || 0);
+  if (!Number.isFinite(stamp) || stamp <= 0) return 'unknown';
+  return formatRelativeDate(new Date(stamp).toISOString());
+}
+
+function dedupeFileNamesForCheck(rows) {
+  const seen = new Set();
+  const out = [];
+  (Array.isArray(rows) ? rows : []).forEach((name) => {
+    const value = String(name || '').trim();
+    if (!value) return;
+    const key = value.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    out.push(value);
+  });
+  return out;
+}
+
+async function checkInstanceFilesForTarget(instanceName, target, fileNames) {
+  const list = dedupeFileNamesForCheck(fileNames);
+  if (!list.length) return new Map();
+  const res = await invokeBackend('check_instance_files', {
+    request: {
+      instanceName,
+      target,
+      fileNames: list,
+    },
+  });
+  const out = new Map();
+  if (!res.ok || !res.data || !Array.isArray(res.data.files)) {
+    list.forEach((name) => out.set(String(name).toLowerCase(), true));
+    return out;
+  }
+  res.data.files.forEach((row) => {
+    const fileName = String(row && row.file_name ? row.file_name : row && row.fileName ? row.fileName : '').trim();
+    if (!fileName) return;
+    out.set(fileName.toLowerCase(), Boolean(row && row.exists));
+  });
+  return out;
+}
+
+async function listInstanceFilesForTarget(instanceName, target) {
+  const res = await invokeBackend('list_instance_files', {
+    request: {
+      instanceName,
+      target,
+    },
+  });
+  if (!res.ok || !res.data || !Array.isArray(res.data.files)) return [];
+  return res.data.files
+    .map((value) => String(value || '').trim())
+    .filter(Boolean);
+}
+
+function hasJarFileWithToken(files, token) {
+  const needle = String(token || '').trim().toLowerCase();
+  if (!needle) return false;
+  return (Array.isArray(files) ? files : []).some((fileName) => {
+    const lower = String(fileName || '').trim().toLowerCase();
+    return lower.endsWith('.jar') && lower.includes(needle);
+  });
+}
+
+function formatDependencyTitleFromToken(token) {
+  const value = String(token || '').trim().toLowerCase();
+  if (!value) return 'Dependency';
+  if (value === 'sodium') return 'Sodium';
+  if (value === 'iris') return 'Iris Shaders';
+  if (value === 'oculus') return 'Oculus';
+  if (value === 'embeddium') return 'Embeddium';
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+async function resolveRuntimeArtifactForInstance(instanceName, projectId, title) {
+  try {
+    const installState = buildBrowseInstallStateFromInstance(
+      { topTab: 'mods', loader: 'any', version: 'any' },
+      instanceName
+    );
+    installState.topTab = 'mods';
+    return await resolveModrinthInstallArtifact(
+      { id: projectId, title },
+      installState
+    );
+  } catch (_err) {
+    return null;
+  }
+}
+
+async function inferShaderRuntimeMissingRows(instanceName, existingRows) {
+  const key = String(instanceName || '').trim();
+  if (!key) return [];
+  const details = INSTANCE_DATA && INSTANCE_DATA[key] ? INSTANCE_DATA[key] : null;
+  const loader = normalizeLoader(details && (details.loaderKey || details.loader) ? (details.loaderKey || details.loader) : 'vanilla');
+  if (!['fabric', 'quilt', 'forge', 'neoforge'].includes(loader)) return [];
+
+  const shaderFiles = await listInstanceFilesForTarget(key, 'shaderpacks');
+  const hasShaderpacks = shaderFiles.some((fileName) => /\.(zip|jar)$/i.test(String(fileName || '')));
+  if (!hasShaderpacks) return [];
+
+  const modsFiles = await listInstanceFilesForTarget(key, 'mods');
+  const modsFileSet = new Set(modsFiles.map((name) => String(name || '').trim().toLowerCase()).filter(Boolean));
+  const runtimeDefs = loader === 'fabric' || loader === 'quilt'
+    ? [{ id: 'iris', title: 'Iris Shaders', token: 'iris', fallbackDeps: ['sodium'] }]
+    : [
+        { id: 'oculus', title: 'Oculus', token: 'oculus', fallbackDeps: [] },
+        { id: 'embeddium', title: 'Embeddium', token: 'embeddium', fallbackDeps: [] },
+      ];
+  const existingKeys = new Set(
+    (Array.isArray(existingRows) ? existingRows : []).map((row) => {
+      return normalizeTrackedInstallTarget(row && row.target ? row.target : 'mods') + ':' + String(row && row.fileName ? row.fileName : '').trim().toLowerCase();
+    })
+  );
+  const installStateBase = buildBrowseInstallStateFromInstance(
+    { topTab: 'mods', loader, version: String(details && details.version ? details.version : 'any').trim().toLowerCase() || 'any' },
+    key
+  );
+  const out = [];
+  const pushInferredMissing = (row) => {
+    if (!row || typeof row !== 'object') return;
+    const target = normalizeTrackedInstallTarget(row.target);
+    const fileName = String(row.fileName || '').trim();
+    if (!fileName) return;
+    const dedupeKey = target + ':' + fileName.toLowerCase();
+    if (existingKeys.has(dedupeKey)) return;
+    existingKeys.add(dedupeKey);
+    out.push(Object.assign({}, row, { target, missing: true, inferred: true, required: true }));
+  };
+
+  for (const runtime of runtimeDefs) {
+    const artifact = await resolveRuntimeArtifactForInstance(key, runtime.id, runtime.title);
+    const runtimeFileName = String(artifact && artifact.fileName ? artifact.fileName : (runtime.token + '.jar')).trim();
+    const runtimePresent = artifact && artifact.fileName
+      ? modsFileSet.has(String(artifact.fileName).toLowerCase())
+      : hasJarFileWithToken(modsFiles, runtime.token);
+    if (!runtimePresent) {
+      pushInferredMissing({
+        id: 'inferred-runtime:' + runtime.id,
+        title: runtime.title,
+        provider: 'modrinth',
+        itemId: runtime.id,
+        target: 'mods',
+        fileName: runtimeFileName,
+        url: String(artifact && artifact.url ? artifact.url : '').trim(),
+        path: '',
+        bytesWritten: 0,
+        installedAt: Date.now(),
+        sourceType: 'runtime',
+        rootTitle: 'Shader Runtime',
+        pageUrl: 'https://modrinth.com/project/' + encodeURIComponent(String(runtime.id || '').trim()),
+        iconUrl: '',
+      });
+    }
+
+    if (artifact) {
+      const depState = Object.assign({}, installStateBase, {
+        topTab: 'mods',
+        itemId: runtime.id,
+      });
+      const depRows = await resolveBrowseDependencyArtifacts('modrinth', artifact, depState);
+      const requiredDeps = (Array.isArray(depRows) ? depRows : []).filter((row) => row && row.required);
+      for (const dep of requiredDeps) {
+        if (dep.error) {
+          continue;
+        }
+        const depArtifact = dep.artifact || null;
+        const depTarget = normalizeTrackedInstallTarget(depArtifact && depArtifact.target ? depArtifact.target : 'mods');
+        const depFileName = String(depArtifact && depArtifact.fileName ? depArtifact.fileName : '').trim();
+        if (!depFileName) {
+          continue;
+        }
+        const depPresent = depTarget === 'mods'
+          ? modsFileSet.has(depFileName.toLowerCase())
+          : false;
+        if (depPresent) continue;
+        const depIdRaw = String(dep.id || '').trim();
+        const depItemId = depIdRaw.startsWith('modrinth:') ? depIdRaw.slice('modrinth:'.length) : depIdRaw;
+        pushInferredMissing({
+          id: 'inferred-runtime-dep:' + runtime.id + ':' + (depIdRaw || depFileName.toLowerCase()),
+          title: String(dep.title || depFileName).trim() || depFileName,
+          provider: providerFromDependencyId(depIdRaw, 'modrinth'),
+          itemId: depItemId,
+          target: depTarget,
+          fileName: depFileName,
+          url: String(depArtifact && depArtifact.url ? depArtifact.url : '').trim(),
+          path: '',
+          bytesWritten: 0,
+          installedAt: Date.now(),
+          sourceType: 'runtime-dependency',
+          rootTitle: runtime.title,
+          pageUrl: String(dep.url || '').trim(),
+          iconUrl: String(dep.iconUrl || '').trim(),
+        });
+      }
+    } else if (Array.isArray(runtime.fallbackDeps) && runtime.fallbackDeps.length) {
+      runtime.fallbackDeps.forEach((token) => {
+        if (hasJarFileWithToken(modsFiles, token)) return;
+        pushInferredMissing({
+          id: 'inferred-runtime-fallback:' + runtime.id + ':' + token,
+          title: formatDependencyTitleFromToken(token),
+          provider: 'modrinth',
+          itemId: String(token || '').trim(),
+          target: 'mods',
+          fileName: String(token || '').trim().toLowerCase() + '.jar',
+          url: '',
+          path: '',
+          bytesWritten: 0,
+          installedAt: Date.now(),
+          sourceType: 'runtime-dependency',
+          rootTitle: runtime.title,
+        });
+      });
+    }
+  }
+  return out;
+}
+
+async function resolveTrackedInstallMissingState(instanceName, rows) {
+  const normalizedRows = Array.isArray(rows) ? rows.slice() : [];
+  if (!instanceName) return normalizedRows;
+  const byTarget = new Map();
+  normalizedRows.forEach((row) => {
+    const target = normalizeTrackedInstallTarget(row && row.target ? row.target : 'mods');
+    const fileName = String(row && row.fileName ? row.fileName : '').trim();
+    if (!fileName) return;
+    if (!byTarget.has(target)) byTarget.set(target, []);
+    byTarget.get(target).push(fileName);
+  });
+  const existsByTarget = new Map();
+  for (const [target, names] of byTarget.entries()) {
+    existsByTarget.set(target, await checkInstanceFilesForTarget(instanceName, target, names));
+  }
+
+  const hydratedRows = normalizedRows.map((row) => {
+    const target = normalizeTrackedInstallTarget(row && row.target ? row.target : 'mods');
+    const fileName = String(row && row.fileName ? row.fileName : '').trim().toLowerCase();
+    if (!fileName) return Object.assign({}, row, { missing: false });
+    const existsMap = existsByTarget.get(target);
+    const exists = existsMap ? existsMap.get(fileName) : true;
+    return Object.assign({}, row, { missing: exists === false });
+  });
+  const inferredRows = await inferShaderRuntimeMissingRows(instanceName, hydratedRows);
+  return hydratedRows.concat(inferredRows);
+}
+
+function getMissingRequiredTrackedRows(rows) {
+  return (Array.isArray(rows) ? rows : []).filter((row) => row && row.required && row.missing);
+}
+
+function updateManagedModsInstallMissingButton(rows) {
+  const button = document.getElementById('manage-mods-install-missing');
+  if (!button) return;
+  const missingRequired = getMissingRequiredTrackedRows(rows);
+  if (!missingRequired.length) {
+    button.disabled = true;
+    button.innerHTML = '<i data-lucide="check-circle" width="12" height="12"></i>No Missing';
+    lucide.createIcons();
+    return;
+  }
+  button.disabled = false;
+  button.innerHTML = '<i data-lucide="wrench" width="12" height="12"></i>Install Missing (' + String(missingRequired.length) + ')';
+  lucide.createIcons();
+}
+
+async function installTrackedRowsToInstance(instanceName, rows, existsPolicy, progressCb) {
+  const list = Array.isArray(rows) ? rows : [];
+  const policy = String(existsPolicy || 'overwrite').trim().toLowerCase() === 'skip' ? 'skip' : 'overwrite';
+  const results = {
+    total: list.length,
+    installed: 0,
+    failed: 0,
+    unresolved: 0,
+    errors: [],
+  };
+  for (let i = 0; i < list.length; i += 1) {
+    const row = list[i];
+    const title = String(row && (row.title || row.fileName) ? (row.title || row.fileName) : 'Item').trim();
+    if (typeof progressCb === 'function') {
+      progressCb(i, list.length, row, 'working');
+    }
+    const url = String(row && row.url ? row.url : '').trim();
+    if (!url) {
+      results.unresolved += 1;
+      results.errors.push(title + ': missing source URL');
+      if (typeof progressCb === 'function') {
+        progressCb(i, list.length, row, 'unresolved');
+      }
+      continue;
+    }
+    try {
+      const result = await installBrowseArtifactToInstance(
+        instanceName,
+        {
+          target: row.target,
+          url,
+          fileName: row.fileName,
+        },
+        policy
+      );
+      const resolvedTarget = result && result.target ? result.target : row.target;
+      const resolvedFileName = (result && result.file_name) || row.fileName || '';
+      const fallbackId = String(resolvedTarget || 'mods') + ':' + String(resolvedFileName).toLowerCase();
+      const inferredId = String(row && row.id ? row.id : '').trim();
+      const entryId = (!!row.inferred || inferredId.startsWith('inferred-'))
+        ? fallbackId
+        : (inferredId || fallbackId);
+      upsertTrackedInstallForInstance(instanceName, {
+        id: entryId,
+        title: row.title,
+        provider: row.provider,
+        itemId: row.itemId,
+        target: resolvedTarget,
+        fileName: resolvedFileName,
+        url,
+        path: (result && result.path) || row.path || '',
+        bytesWritten: Number(result && result.bytes_written ? result.bytes_written : 0),
+        installedAt: Date.now(),
+        required: !!row.required,
+        sourceType: row.sourceType || 'main',
+        rootTitle: row.rootTitle || '',
+        pageUrl: String(row.pageUrl || '').trim(),
+        iconUrl: String(row.iconUrl || '').trim(),
+      });
+      results.installed += 1;
+      if (typeof progressCb === 'function') {
+        progressCb(i, list.length, row, 'ok');
+      }
+    } catch (err) {
+      results.failed += 1;
+      const reason = err && err.message ? String(err.message) : 'Install failed';
+      results.errors.push(title + ': ' + reason);
+      if (typeof progressCb === 'function') {
+        progressCb(i, list.length, row, 'failed', reason);
+      }
+    }
+  }
+  if (results.installed > 0) {
+    await refreshSelectedInstanceInfo(instanceName);
+    refreshInstanceTrackedInstallSummary(instanceName);
+  }
+  return results;
+}
+
+function refreshInstanceTrackedInstallSummary(instanceName) {
+  const key = String(instanceName || '').trim();
+  if (!key) return;
+  const details = INSTANCE_DATA && INSTANCE_DATA[key] ? INSTANCE_DATA[key] : null;
+  const modsTracked = countTrackedInstallsForTarget(key, 'mods');
+  if (details) {
+    details.modsTracked = modsTracked;
+  }
+  const selected = getSelectedInstanceName();
+  if (selected !== key) return;
+  const modsEl = document.getElementById('di-mods');
+  if (!modsEl) return;
+  const base = details && details.mods ? String(details.mods) : modsEl.textContent;
+  const trackedLabel = modsTracked > 0 ? ' (' + String(modsTracked) + ' tracked)' : '';
+  modsEl.textContent = String(base || '0 installed').replace(/\s+\(\d+\s+tracked\)$/i, '') + trackedLabel;
+}
+
+function resolveTrackedInstallPageUrl(row) {
+  const direct = String(row && row.pageUrl ? row.pageUrl : '').trim();
+  if (/^https?:\/\//i.test(direct)) return direct;
+  const provider = String(row && row.provider ? row.provider : '').trim().toLowerCase();
+  const itemIdRaw = String(row && row.itemId ? row.itemId : '').trim();
+  if (provider !== 'modrinth') return '';
+  let projectId = itemIdRaw;
+  if (projectId.toLowerCase().startsWith('modrinth:')) {
+    projectId = projectId.slice('modrinth:'.length);
+  }
+  projectId = projectId.trim();
+  if (!projectId) return '';
+  return 'https://modrinth.com/project/' + encodeURIComponent(projectId);
+}
+
+function resolveTrackedInstallIconUrl(row) {
+  const direct = String(row && row.iconUrl ? row.iconUrl : '').trim();
+  return /^https?:\/\//i.test(direct) ? direct : '';
+}
+
+async function openTrackedInstallPageFromModal(encodedEntryId) {
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  const entryId = decodeURIComponent(String(encodedEntryId || '').trim());
+  if (!instanceName || !entryId) return;
+  const rows = MANAGED_MODS_PRESENCE_CACHE && MANAGED_MODS_PRESENCE_CACHE.instanceName === instanceName
+    ? MANAGED_MODS_PRESENCE_CACHE.rows
+    : [];
+  const row = rows.find((item) => String(item && item.id ? item.id : '').trim() === entryId) || getTrackedInstallEntry(instanceName, entryId);
+  if (!row) {
+    showToast('!', 'Open failed', 'Tracked entry not found');
+    return;
+  }
+  const url = resolveTrackedInstallPageUrl(row);
+  if (!url) {
+    showToast('!', 'Open failed', 'Project page URL is missing');
+    return;
+  }
+  const opened = await openExternalHttpUrl(url);
+  if (!opened) {
+    showToast('!', 'Open failed', 'Could not open browser automatically');
+  }
+}
+
+async function hydrateManagedModsModal() {
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  const listEl = document.getElementById('manage-mods-list');
+  const statusEl = document.getElementById('manage-mods-status');
+  if (!listEl || !statusEl) return;
+  if (!instanceName) {
+    MANAGED_MODS_PRESENCE_CACHE = { instanceName: '', rows: [] };
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">Select an instance first.</div>';
+    statusEl.textContent = '';
+    updateManagedModsInstallMissingButton([]);
+    return;
+  }
+
+  const rows = getTrackedInstallsForInstance(instanceName);
+  const hydratedRows = await resolveTrackedInstallMissingState(instanceName, rows);
+  MANAGED_MODS_PRESENCE_CACHE = { instanceName, rows: hydratedRows };
+  if (!hydratedRows.length) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No tracked installs yet. Install from Browse to track mods/packs/shaders.</div>';
+    statusEl.textContent = 'Tracked installs: 0';
+    updateManagedModsInstallMissingButton([]);
+    return;
+  }
+
+  listEl.innerHTML = hydratedRows
+    .map((row) => {
+      const encodedId = encodeURIComponent(String(row.id || ''));
+      const targetLabel = getBrowseInstallTargetLabel(row.target);
+      const isInferred = !!row.inferred;
+      const pageUrl = resolveTrackedInstallPageUrl(row);
+      const iconUrl = resolveTrackedInstallIconUrl(row);
+      const canOpenPage = pageUrl ? '' : ' disabled';
+      const openTitle = pageUrl ? 'Open project page' : 'Project page URL is missing';
+      const iconFallback = escapeHtml(String(row.title || row.fileName || '?').trim().charAt(0).toUpperCase() || '?');
+      const iconMarkup = iconUrl
+        ? '<img class="tracked-item-icon-img" src="' + escapeHtml(iconUrl) + '" loading="lazy" alt="' + escapeHtml(row.title || row.fileName || 'Item') + ' logo" onerror="this.onerror=null;this.style.display=\'none\';if(this.nextElementSibling)this.nextElementSibling.style.display=\'flex\'"><span class="tracked-item-icon-fallback" style="display:none">' + iconFallback + '</span>'
+        : '<span class="tracked-item-icon-fallback">' + iconFallback + '</span>';
+      const canUpdate = row.url && !isInferred ? '' : ' disabled';
+      const canRemove = isInferred ? ' disabled' : '';
+      const updateTitle = isInferred ? 'Runtime requirement hint' : (row.url ? 'Update from source' : 'No source URL');
+      const statusBadges = [
+        row.required
+          ? '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(255,255,255,0.14);font-size:9px;font-family:var(--mono);color:var(--t3)">Required</span>'
+          : '',
+        row.missing
+          ? '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(220,80,80,0.4);font-size:9px;font-family:var(--mono);color:#d56f6f">Missing</span>'
+          : '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(70,150,90,0.35);font-size:9px;font-family:var(--mono);color:#67b37a">Installed</span>',
+      ].filter(Boolean).join('');
+      const reinstallTitle = row.url ? 'Install this missing item' : 'No source URL';
+      const canReinstall = row.missing && row.url ? '' : ' disabled';
+      return (
+        '<div class="list-item" style="align-items:flex-start;gap:8px">' +
+        '<div class="tracked-item-icon">' + iconMarkup + '</div>' +
+        '<div style="flex:1;min-width:0">' +
+        '<div style="font-size:12px;font-family:var(--mono);color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + escapeHtml(row.title || row.fileName) + '</div>' +
+        '<div style="margin-top:2px;font-size:10px;font-family:var(--mono);color:var(--t4)">' +
+        escapeHtml(targetLabel) + ' | ' + escapeHtml(String(row.provider || 'browse')) + ' | ' + escapeHtml(formatTrackedInstallAge(row.installedAt)) +
+        '</div>' +
+        '<div style="margin-top:4px;font-size:9.5px;font-family:var(--mono);color:var(--t4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + escapeHtml(row.fileName) + '</div>' +
+        '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;flex-wrap:wrap">' + statusBadges + '</div>' +
+        '</div>' +
+        '<div style="display:flex;gap:6px;align-items:center">' +
+        '<button class="btn btn-ghost" style="height:24px;padding:0 7px;font-size:10px" title="' + escapeHtml(openTitle) + '" onclick="openTrackedInstallPageFromModal(\'' + encodedId + '\')"' + canOpenPage + '><i data-lucide="info" width="11" height="11"></i></button>' +
+        '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px" title="' + escapeHtml(reinstallTitle) + '" onclick="installSingleTrackedFromModal(\'' + encodedId + '\')"' + canReinstall + '><i data-lucide="download" width="11" height="11"></i>Install</button>' +
+        '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px" title="' + escapeHtml(updateTitle) + '" onclick="updateTrackedInstallFromModal(\'' + encodedId + '\')"' + canUpdate + '><i data-lucide="refresh-cw" width="11" height="11"></i>Update</button>' +
+        '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px;color:var(--red)" onclick="removeTrackedInstallFromModal(\'' + encodedId + '\')"' + canRemove + '><i data-lucide="trash-2" width="11" height="11"></i>Remove</button>' +
+        '</div>' +
+        '</div>'
+      );
+    })
+    .join('');
+  const missingTotal = hydratedRows.filter((row) => row.missing).length;
+  const missingRequired = getMissingRequiredTrackedRows(hydratedRows).length;
+  statusEl.textContent =
+    'Tracked installs: ' +
+    String(hydratedRows.length) +
+    (missingTotal > 0
+      ? (' | Missing: ' + String(missingTotal) + (missingRequired > 0 ? (' (' + String(missingRequired) + ' required)') : ''))
+      : '');
+  updateManagedModsInstallMissingButton(hydratedRows);
+  lucide.createIcons();
+}
+
+function refreshManagedModsModal() {
+  void hydrateManagedModsModal();
+}
+
+async function installSingleTrackedFromModal(encodedEntryId) {
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  const entryId = decodeURIComponent(String(encodedEntryId || '').trim());
+  if (!instanceName || !entryId) return;
+  const rows = MANAGED_MODS_PRESENCE_CACHE && MANAGED_MODS_PRESENCE_CACHE.instanceName === instanceName
+    ? MANAGED_MODS_PRESENCE_CACHE.rows
+    : [];
+  const row = rows.find((item) => String(item && item.id ? item.id : '').trim() === entryId) || getTrackedInstallEntry(instanceName, entryId);
+  if (!row) {
+    showToast('!', 'Install failed', 'Tracked entry not found');
+    return;
+  }
+  const outcome = await installTrackedRowsToInstance(instanceName, [row], 'overwrite');
+  await hydrateManagedModsModal();
+  if (outcome.installed > 0) {
+    showToast('OK', 'Installed', String(row.title || row.fileName || 'Item') + ' installed');
+    return;
+  }
+  const reason = outcome.errors[0] || 'Install failed';
+  showToast('!', 'Install failed', reason);
+}
+
+async function installMissingTrackedFromModal() {
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  if (!instanceName) return;
+  const rows = MANAGED_MODS_PRESENCE_CACHE && MANAGED_MODS_PRESENCE_CACHE.instanceName === instanceName
+    ? MANAGED_MODS_PRESENCE_CACHE.rows
+    : await resolveTrackedInstallMissingState(instanceName, getTrackedInstallsForInstance(instanceName));
+  const missingRequired = getMissingRequiredTrackedRows(rows);
+  if (!missingRequired.length) {
+    showToast('OK', 'No missing files', 'All required tracked items are present');
+    return;
+  }
+
+  const button = document.getElementById('manage-mods-install-missing');
+  if (button) {
+    button.disabled = true;
+    button.innerHTML = '<i data-lucide="loader-circle" width="12" height="12"></i>Installing...';
+    lucide.createIcons();
+  }
+  const statusEl = document.getElementById('manage-mods-status');
+  if (statusEl) {
+    statusEl.textContent = 'Installing missing required files...';
+    statusEl.style.color = 'var(--t3)';
+  }
+  const outcome = await installTrackedRowsToInstance(instanceName, missingRequired, 'overwrite');
+  await hydrateManagedModsModal();
+  if (outcome.failed > 0 || outcome.unresolved > 0) {
+    showToast(
+      '!',
+      'Missing install incomplete',
+      'Installed ' + String(outcome.installed) + '/' + String(outcome.total) + ' required files'
+    );
+    return;
+  }
+  showToast('OK', 'Missing fixed', 'Installed ' + String(outcome.installed) + ' required files');
+}
+
+function openManagedModsBrowseInstall() {
+  closeModal();
+  setPage('modrinth');
+}
+
+async function removeTrackedInstallFromModal(encodedEntryId) {
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  const entryId = decodeURIComponent(String(encodedEntryId || '').trim());
+  if (!instanceName || !entryId) return;
+  const entry = getTrackedInstallEntry(instanceName, entryId);
+  if (!entry) {
+    showToast('!', 'Not found', 'Tracked install entry not found');
+    return;
+  }
+
+  const res = await invokeBackend('remove_instance_file', {
+    request: {
+      instanceName,
+      target: entry.target,
+      fileName: entry.fileName,
+    },
+  });
+  if (!res.ok) {
+    showToast('!', 'Remove failed', 'Could not delete file from instance');
+    return;
+  }
+  removeTrackedInstallForInstance(instanceName, entryId);
+  await refreshSelectedInstanceInfo(instanceName);
+  refreshInstanceTrackedInstallSummary(instanceName);
+  await hydrateManagedModsModal();
+  showToast('OK', 'Removed', entry.title + ' removed');
+}
+
+async function updateTrackedInstallFromModal(encodedEntryId) {
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  const entryId = decodeURIComponent(String(encodedEntryId || '').trim());
+  if (!instanceName || !entryId) return;
+  const entry = getTrackedInstallEntry(instanceName, entryId);
+  if (!entry || !entry.url) {
+    showToast('!', 'Update failed', 'Source URL is missing');
+    return;
+  }
+
+  const listEl = document.getElementById('manage-mods-list');
+  if (listEl) listEl.style.opacity = '0.75';
+  try {
+    const result = await installBrowseArtifactToInstance(
+      instanceName,
+      {
+        target: entry.target,
+        url: entry.url,
+        fileName: entry.fileName,
+      },
+      'overwrite'
+    );
+    upsertTrackedInstallForInstance(instanceName, {
+      id: entry.id,
+      title: entry.title,
+      provider: entry.provider,
+      itemId: entry.itemId,
+      target: entry.target,
+      fileName: result.file_name || entry.fileName,
+      url: entry.url,
+      path: result.path || entry.path,
+      bytesWritten: Number(result.bytes_written || 0),
+      installedAt: Date.now(),
+      required: entry.required,
+      sourceType: entry.sourceType || 'main',
+      rootTitle: entry.rootTitle || '',
+      pageUrl: String(entry.pageUrl || '').trim(),
+      iconUrl: String(entry.iconUrl || '').trim(),
+    });
+    await refreshSelectedInstanceInfo(instanceName);
+    refreshInstanceTrackedInstallSummary(instanceName);
+    await hydrateManagedModsModal();
+    showToast('OK', 'Updated', entry.title + ' updated');
+  } catch (err) {
+    const reason = err && err.message ? String(err.message) : 'Update failed';
+    showToast('!', 'Update failed', reason);
+  } finally {
+    if (listEl) listEl.style.opacity = '';
+  }
+}
+
+function updateNotesModalMeta() {
+  const input = document.getElementById('instance-notes-input');
+  const meta = document.getElementById('instance-notes-meta');
+  if (!input || !meta) return;
+  meta.textContent = String(input.value.length) + ' chars';
+}
+
+function hydrateNotesModal() {
+  const input = document.getElementById('instance-notes-input');
+  if (!input) return;
+  input.value = getInstanceNote(getSelectedInstanceName() || selectedInstanceNameForModal());
+  input.addEventListener('input', updateNotesModalMeta);
+  updateNotesModalMeta();
+  input.focus();
+  input.setSelectionRange(input.value.length, input.value.length);
+}
+
+function clearNotesFromModal() {
+  const input = document.getElementById('instance-notes-input');
+  if (!input) return;
+  input.value = '';
+  updateNotesModalMeta();
+  input.focus();
+}
+
+function saveNotesFromModal() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+  const input = document.getElementById('instance-notes-input');
+  const next = input ? input.value : '';
+  setInstanceNote(instanceName, next);
+  closeModal();
+  showToast('OK', 'Notes saved', 'Saved for ' + instanceName);
+}
+
+function sanitizeInstanceGroupName(value) {
+  return String(value || '').trim().replace(/\s+/g, ' ').slice(0, 32);
+}
+
+function formatInstanceCountLabel(count) {
+  return count + (count === 1 ? ' instance' : ' instances');
+}
+
+function groupColorForIndex(index) {
+  const palette = INSTANCE_GROUP_COLOR_POOL;
+  return palette[index % palette.length];
+}
+
+function normalizeInstanceGroupColor(value, index) {
+  const color = String(value || '').trim();
+  if (/^#[0-9a-f]{6}$/i.test(color)) return color;
+  return groupColorForIndex(index);
+}
+
+function generateInstanceGroupId() {
+  return 'grp_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8);
+}
+
+function persistInstanceGroups() {
+  try {
+    if (!window.localStorage) return;
+    const payload = {
+      groups: INSTANCE_GROUPS.map((group, index) => ({
+        id: String(group.id || ''),
+        name: sanitizeInstanceGroupName(group.name || ''),
+        color: normalizeInstanceGroupColor(group.color, index),
+        collapsed: !!group.collapsed,
+      })),
+      assignments: { ...INSTANCE_GROUP_ASSIGNMENTS },
+    };
+    window.localStorage.setItem(INSTANCE_GROUP_STORE_KEY, JSON.stringify(payload));
+  } catch (err) {
+    console.warn('[groups] failed to persist group state', err);
+  }
+}
+
+function ensureInstanceGroupsLoaded() {
+  if (INSTANCE_GROUPS_LOADED) return;
+  INSTANCE_GROUPS_LOADED = true;
+  INSTANCE_GROUPS = [];
+  INSTANCE_GROUP_ASSIGNMENTS = {};
+
+  try {
+    if (!window.localStorage) return;
+    const raw = window.localStorage.getItem(INSTANCE_GROUP_STORE_KEY);
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    const groupEntries = Array.isArray(parsed && parsed.groups) ? parsed.groups : [];
+    const seenIds = new Set();
+    INSTANCE_GROUPS = groupEntries
+      .map((entry, index) => {
+        const id = String(entry && entry.id ? entry.id : '').trim();
+        const name = sanitizeInstanceGroupName(entry && entry.name ? entry.name : '');
+        if (!id || !name || seenIds.has(id)) return null;
+        seenIds.add(id);
+        return {
+          id,
+          name,
+          color: normalizeInstanceGroupColor(entry.color, index),
+          collapsed: !!entry.collapsed,
+        };
+      })
+      .filter(Boolean);
+
+    const assignments = parsed && typeof parsed.assignments === 'object' && parsed.assignments
+      ? parsed.assignments
+      : {};
+    const cleanedAssignments = {};
+    Object.keys(assignments).forEach((instanceName) => {
+      const key = String(instanceName || '').trim();
+      const groupId = String(assignments[instanceName] || '').trim();
+      if (!key || !groupId) return;
+      cleanedAssignments[key] = groupId;
+    });
+    INSTANCE_GROUP_ASSIGNMENTS = cleanedAssignments;
+  } catch (err) {
+    console.warn('[groups] failed to load group state', err);
+    INSTANCE_GROUPS = [];
+    INSTANCE_GROUP_ASSIGNMENTS = {};
+  }
+}
+
+function findInstanceGroupById(groupId) {
+  const id = String(groupId || '').trim();
+  if (!id) return null;
+  return INSTANCE_GROUPS.find((group) => group.id === id) || null;
+}
+
+function resolveInstanceGroupId(instanceName) {
+  const key = String(instanceName || '').trim();
+  if (!key) return '';
+  const groupId = String(INSTANCE_GROUP_ASSIGNMENTS[key] || '').trim();
+  if (!groupId) return '';
+  return findInstanceGroupById(groupId) ? groupId : '';
+}
+
+function syncInstanceGroupState(instances) {
+  ensureInstanceGroupsLoaded();
+  const validNames = new Set(
+    (Array.isArray(instances) ? instances : [])
+      .map((item) => String(item && item.name ? item.name : '').trim())
+      .filter(Boolean)
+  );
+  const validGroupIds = new Set(INSTANCE_GROUPS.map((group) => group.id));
+  let dirty = false;
+
+  Object.keys(INSTANCE_GROUP_ASSIGNMENTS).forEach((instanceName) => {
+    if (!validNames.has(instanceName)) {
+      delete INSTANCE_GROUP_ASSIGNMENTS[instanceName];
+      dirty = true;
+      return;
+    }
+    const groupId = String(INSTANCE_GROUP_ASSIGNMENTS[instanceName] || '').trim();
+    if (!groupId || !validGroupIds.has(groupId)) {
+      delete INSTANCE_GROUP_ASSIGNMENTS[instanceName];
+      dirty = true;
+    }
+  });
+
+  if (dirty) persistInstanceGroups();
+}
+
+function createInstanceGroup(rawName) {
+  ensureInstanceGroupsLoaded();
+  const input = typeof rawName === 'string'
+    ? rawName
+    : (typeof window.prompt === 'function' ? window.prompt('Group name') : '');
+  const name = sanitizeInstanceGroupName(input);
+  if (!name) {
+    showToast('!', 'Invalid name', 'Group name is required');
+    return false;
+  }
+
+  const exists = INSTANCE_GROUPS.some(
+    (group) => group.name.toLowerCase() === name.toLowerCase()
+  );
+  if (exists) {
+    showToast('!', 'Group exists', 'Choose another name');
+    return false;
+  }
+
+  INSTANCE_GROUPS.push({
+    id: generateInstanceGroupId(),
+    name,
+    color: groupColorForIndex(INSTANCE_GROUPS.length),
+    collapsed: false,
+  });
+  persistInstanceGroups();
+  renderInstancesFromBackend(INSTANCE_LIST_CACHE, true);
+  showToast('OK', 'Group created', name + ' is ready');
+  return true;
+}
+
+function hydrateCreateGroupModal() {
+  const input = document.getElementById('create-group-name');
+  if (!input) return;
+  setTimeout(() => {
+    input.focus();
+    input.select();
+  }, 0);
+}
+
+function submitCreateGroupFromModal() {
+  const input = document.getElementById('create-group-name');
+  const name = input ? String(input.value || '') : '';
+  if (!createInstanceGroup(name)) return;
+  closeModal();
+}
+
+function openRenameGroupModal(groupId) {
+  const group = findInstanceGroupById(groupId);
+  if (!group) {
+    showToast('!', 'Missing group', 'Group was not found');
+    return;
+  }
+  RENAME_GROUP_TARGET_ID = group.id;
+  openModal('rename-group');
+}
+
+function hydrateRenameGroupModal() {
+  const input = document.getElementById('rename-group-name');
+  const group = findInstanceGroupById(RENAME_GROUP_TARGET_ID);
+  if (!input || !group) return;
+  input.value = group.name || '';
+  setTimeout(() => {
+    input.focus();
+    input.select();
+  }, 0);
+}
+
+function submitRenameGroupFromModal() {
+  const group = findInstanceGroupById(RENAME_GROUP_TARGET_ID);
+  if (!group) {
+    showToast('!', 'Missing group', 'Group was not found');
+    return;
+  }
+  const input = document.getElementById('rename-group-name');
+  const nextName = sanitizeInstanceGroupName(input ? input.value : '');
+  if (!nextName) {
+    showToast('!', 'Invalid name', 'Group name is required');
+    return;
+  }
+  const duplicate = INSTANCE_GROUPS.some((item) => {
+    if (!item || item.id === group.id) return false;
+    return String(item.name || '').toLowerCase() === nextName.toLowerCase();
+  });
+  if (duplicate) {
+    showToast('!', 'Group exists', 'Choose another name');
+    return;
+  }
+  if (group.name === nextName) {
+    closeModal();
+    return;
+  }
+  group.name = nextName;
+  persistInstanceGroups();
+  closeModal();
+  renderInstancesFromBackend(INSTANCE_LIST_CACHE, true);
+  showToast('OK', 'Group renamed', nextName);
+}
+
+function cycleInstanceGroupColor(groupId) {
+  const group = findInstanceGroupById(groupId);
+  if (!group) return;
+  const pool = INSTANCE_GROUP_COLOR_POOL;
+  const currentIndex = pool.findIndex((color) => color.toLowerCase() === String(group.color || '').toLowerCase());
+  const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % pool.length : 0;
+  group.color = pool[nextIndex];
+  persistInstanceGroups();
+  renderInstancesFromBackend(INSTANCE_LIST_CACHE, true);
+  showToast('OK', 'Group updated', group.name + ' color changed');
+}
+
+function toggleInstanceGroupById(groupId) {
+  const group = findInstanceGroupById(groupId);
+  if (!group) return;
+  group.collapsed = !group.collapsed;
+  persistInstanceGroups();
+  renderInstancesFromBackend(INSTANCE_LIST_CACHE, true);
+}
+
+function getInstanceGroupAssignedCount(groupId) {
+  const id = String(groupId || '').trim();
+  if (!id) return 0;
+  return Object.values(INSTANCE_GROUP_ASSIGNMENTS).filter((value) => value === id).length;
+}
+
+function openDeleteGroupModal(groupId) {
+  const group = findInstanceGroupById(groupId);
+  if (!group) {
+    showToast('!', 'Missing group', 'Group was not found');
+    return;
+  }
+  DELETE_GROUP_TARGET_ID = group.id;
+  openModal('delete-group');
+}
+
+function hydrateDeleteGroupModal() {
+  const group = findInstanceGroupById(DELETE_GROUP_TARGET_ID);
+  const nameEl = document.getElementById('delete-group-name');
+  const countEl = document.getElementById('delete-group-count');
+  if (!nameEl || !countEl) return;
+  if (!group) {
+    nameEl.textContent = '-';
+    countEl.textContent = '0';
+    return;
+  }
+  const assignedCount = getInstanceGroupAssignedCount(group.id);
+  nameEl.textContent = group.name || '-';
+  countEl.textContent = String(assignedCount);
+}
+
+function submitDeleteGroupFromModal() {
+  const group = findInstanceGroupById(DELETE_GROUP_TARGET_ID);
+  if (!group) {
+    showToast('!', 'Missing group', 'Group was not found');
+    closeModal();
+    return;
+  }
+
+  Object.keys(INSTANCE_GROUP_ASSIGNMENTS).forEach((instanceName) => {
+    if (INSTANCE_GROUP_ASSIGNMENTS[instanceName] === group.id) {
+      delete INSTANCE_GROUP_ASSIGNMENTS[instanceName];
+    }
+  });
+  INSTANCE_GROUPS = INSTANCE_GROUPS.filter((item) => item.id !== group.id);
+  if (RENAME_GROUP_TARGET_ID === group.id) RENAME_GROUP_TARGET_ID = '';
+  if (DELETE_GROUP_TARGET_ID === group.id) DELETE_GROUP_TARGET_ID = '';
+  persistInstanceGroups();
+  closeModal();
+  renderInstancesFromBackend(INSTANCE_LIST_CACHE, true);
+  showToast('OK', 'Group deleted', group.name + ' removed');
+}
+
+function deleteInstanceGroupWithConfirm(groupId) {
+  openDeleteGroupModal(groupId);
+}
+
+function moveGroupEntries() {
+  ensureInstanceGroupsLoaded();
+  const selectedInstance = getSelectedInstanceName();
+  const currentGroupId = resolveInstanceGroupId(selectedInstance);
+  const entries = [{ id: '', name: 'No group', color: '#3a3a3a' }];
+  INSTANCE_GROUPS.forEach((group, index) => {
+    entries.push({
+      id: group.id,
+      name: group.name,
+      color: normalizeInstanceGroupColor(group.color, index + 1),
+    });
+  });
+  if (!entries.some((entry) => entry.id === currentGroupId)) {
+    MOVE_GROUP_SELECTED_ID = '';
+  } else {
+    MOVE_GROUP_SELECTED_ID = currentGroupId;
+  }
+  return entries.map((entry) => {
+    const isCurrent = entry.id === currentGroupId;
+    const isSelected = entry.id === MOVE_GROUP_SELECTED_ID;
+    const labelColor = isSelected ? 'var(--t1)' : 'var(--t2)';
+    return `
+      <div class="group-row${isSelected ? ' sel' : ''}" data-group-id="${escapeHtml(entry.id)}" onclick="selectMoveGroupOption(this)">
+        <div style="width:9px;height:9px;border-radius:2px;background:${entry.color};flex-shrink:0"></div>
+        <span style="flex:1;font-size:12px;font-family:var(--mono);color:${labelColor}">${escapeHtml(entry.name)}</span>
+        ${isCurrent ? '<span style="font-size:10px;font-family:var(--mono);color:var(--t4)">current</span>' : ''}
+      </div>`;
+  }).join('');
+}
+
+function selectMoveGroupOption(row) {
+  if (!row) return;
+  document.querySelectorAll('.group-row').forEach((item) => item.classList.remove('sel'));
+  row.classList.add('sel');
+  MOVE_GROUP_SELECTED_ID = String(row.dataset.groupId || '').trim();
+}
+
+function applyMoveGroupFromModal() {
+  const instanceName = getSelectedInstanceName();
+  if (!instanceName) {
+    showToast('!', 'Missing instance', 'Please select an instance first');
+    return;
+  }
+  const groupId = String(MOVE_GROUP_SELECTED_ID || '').trim();
+  if (groupId && !findInstanceGroupById(groupId)) {
+    showToast('!', 'Invalid group', 'Selected group no longer exists');
+    return;
+  }
+  if (groupId) {
+    INSTANCE_GROUP_ASSIGNMENTS[instanceName] = groupId;
+  } else {
+    delete INSTANCE_GROUP_ASSIGNMENTS[instanceName];
+  }
+  persistInstanceGroups();
+  closeModal();
+  renderInstancesFromBackend(INSTANCE_LIST_CACHE, true);
+  showToast('OK', 'Moved', instanceName + ' group updated');
+}
 
 
 
@@ -3841,12 +9849,165 @@ function loaderIcon(value) {
   return 'package';
 }
 
+function loaderArtPath(value, iconKey) {
+  const custom = instanceIconPath(iconKey);
+  if (custom) return custom;
+  const path = loaderLogoAssetPath(value);
+  if (path) return path;
+  return '';
+}
+
+function isOfficialLoaderLogoPath(value) {
+  return String(value || '').includes('assets/loader-logos/official/');
+}
+
+function loaderLogoAssetPath(value) {
+  const loader = normalizeLoader(value);
+  const map = {
+    vanilla: 'vanilla.png',
+    fabric: 'fabric.png',
+    forge: 'forge.jpg',
+    neoforge: 'neoforge.png',
+    quilt: 'quilt.png',
+  };
+  const file = map[loader];
+  if (!file) return '';
+  return 'assets/loader-logos/official/' + file;
+}
+
+function loaderLogoImgMarkup(loaderValue, className) {
+  const path = loaderLogoAssetPath(loaderValue);
+  const label = escapeHtml(loaderLabel(loaderValue));
+  const classes = className ? ' ' + className : '';
+  if (!path) {
+    const fallback = loaderIcon(loaderValue);
+    return `<i data-lucide="${fallback}" width="12" height="12" style="color:var(--t2)"></i>`;
+  }
+  return `<img class="loader-logo-img${classes}" src="${path}" alt="${label} logo" loading="lazy">`;
+}
+
+function loaderCardTagMarkup(loaderValue, loaderVersionValue) {
+  const loader = normalizeLoader(loaderValue);
+  const version = String(loaderVersionValue || '').trim();
+  const title = escapeHtml(loaderDisplayLabel(loader, version));
+  const versionMarkup = version && loader !== 'vanilla'
+    ? `<span class="loader-card-ver">${escapeHtml(version)}</span>`
+    : '';
+  return `
+    <span class="card-tag loader-tag" title="${title}">
+      ${loaderLogoImgMarkup(loader, 'loader-logo-card')}
+      ${versionMarkup}
+    </span>
+  `;
+}
+
+function loaderBadgeMarkup(loaderValue, loaderVersionValue) {
+  const loader = normalizeLoader(loaderValue);
+  const version = String(loaderVersionValue || '').trim();
+  const title = escapeHtml(loaderDisplayLabel(loader, version));
+  const versionMarkup = version && loader !== 'vanilla'
+    ? `<span class="loader-badge-ver">${escapeHtml(version)}</span>`
+    : '';
+  return `
+    <span class="loader-badge-logo" title="${title}">
+      ${loaderLogoImgMarkup(loader, 'loader-logo-badge')}
+      ${versionMarkup}
+    </span>
+  `;
+}
+
+function loaderInfoMarkup(loaderValue, loaderVersionValue) {
+  const loader = normalizeLoader(loaderValue);
+  const version = String(loaderVersionValue || '').trim();
+  const title = escapeHtml(loaderDisplayLabel(loader, version));
+  const nameMarkup = `<span class="loader-info-name">${escapeHtml(loaderLabel(loader))}</span>`;
+  const versionMarkup = version && loader !== 'vanilla'
+    ? `<span class="loader-info-ver">${escapeHtml(version)}</span>`
+    : '';
+  return `
+    <span class="loader-inline" title="${title}">
+      ${loaderLogoImgMarkup(loader, 'loader-logo-inline')}
+      ${nameMarkup}
+      ${versionMarkup}
+    </span>
+  `;
+}
+
+function cardIconMarkup(loaderValue, iconKey, fallbackIcon) {
+  const src = loaderArtPath(loaderValue, iconKey);
+  const fallback = fallbackIcon || loaderIcon(loaderValue);
+  const label = escapeHtml(loaderLabel(loaderValue));
+  if (!src) {
+    return `<i data-lucide="${fallback}" width="32" height="32" style="color:var(--t2)"></i>`;
+  }
+  const imgClass = isOfficialLoaderLogoPath(src) ? 'card-icon-img loader-art-img' : 'card-icon-img';
+  return `
+    <img class="${imgClass}" src="${src}" alt="${label} icon" loading="lazy"
+         onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='inline-block';">
+    <i data-lucide="${fallback}" width="32" height="32" style="color:var(--t2);display:none"></i>
+  `;
+}
+
+function detailIconMarkup(loaderValue, iconKey, fallbackIcon) {
+  const src = loaderArtPath(loaderValue, iconKey);
+  const fallback = fallbackIcon || loaderIcon(loaderValue);
+  const label = escapeHtml(loaderLabel(loaderValue));
+  if (!src) {
+    return `<i data-lucide="${fallback}" width="22" height="22" style="color:var(--t2)"></i>`;
+  }
+  const imgClass = isOfficialLoaderLogoPath(src) ? 'detail-icon-img loader-art-img' : 'detail-icon-img';
+  return `
+    <img class="${imgClass}" src="${src}" alt="${label} icon" loading="lazy"
+         onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='inline-block';">
+    <i data-lucide="${fallback}" width="22" height="22" style="color:var(--t2);display:none"></i>
+  `;
+}
+
 function playtimeText(totalMinutes) {
   const minutes = Number(totalMinutes || 0);
   const hours = Math.floor(minutes / 60);
   const mins = minutes % 60;
   if (hours <= 0) return mins + 'm';
   return hours + 'h ' + mins + 'm';
+}
+
+function formatMemoryMb(valueMb) {
+  const value = Number(valueMb || 0);
+  if (!Number.isFinite(value) || value <= 0) return '-';
+  if (value % 1024 === 0) return (value / 1024) + ' GB';
+  return value + ' MB';
+}
+
+function formatMemoryRange(minMb, maxMb) {
+  const min = Number(minMb || 0);
+  const max = Number(maxMb || 0);
+  if (min > 0 && max > 0) {
+    return formatMemoryMb(min) + ' - ' + formatMemoryMb(max);
+  }
+  if (max > 0) return formatMemoryMb(max);
+  if (min > 0) return formatMemoryMb(min);
+  return 'Auto';
+}
+
+function shortenMiddle(value, maxChars) {
+  const text = String(value || '').trim();
+  const limit = Number(maxChars || 0);
+  if (!text || !Number.isFinite(limit) || limit < 8 || text.length <= limit) {
+    return text;
+  }
+  const keep = limit - 3;
+  const left = Math.ceil(keep * 0.6);
+  const right = Math.max(2, keep - left);
+  return text.slice(0, left) + '...' + text.slice(text.length - right);
+}
+
+function formatJavaInfoDisplay(javaVersion, javaPath) {
+  const path = String(javaPath || '').trim();
+  const version = String(javaVersion || '').trim();
+  if (version) return version;
+  const compactPath = shortenMiddle(path, 42);
+  if (compactPath) return compactPath;
+  return 'Auto';
 }
 
 function parseLastPlayedEpoch(value) {
@@ -3911,7 +10072,7 @@ function formatLastPlayed(value) {
 
 function formatExitStatus(state, code, reason, atEpoch) {
   const normalized = String(state || '').trim().toLowerCase();
-  if (!normalized) return 'Ã¯Â¿Â½?"';
+  if (!normalized) return '-';
 
   let label = 'Exited';
   if (normalized === 'killed') label = 'Killed';
@@ -3930,12 +10091,15 @@ function formatExitStatus(state, code, reason, atEpoch) {
     parts.push('check logs');
   }
 
-  return parts.length > 0 ? label + ' Â· ' + parts.join(' Â· ') : label;
+  return parts.length > 0 ? label + ' - ' + parts.join(' - ') : label;
 }
 
 function instanceToDetailData(instance) {
   const loader = normalizeLoader(instance.loader);
   const loaderVersion = String(instance.loaderVersion || '').trim();
+  const instanceName = String(instance.name || '').trim();
+  const resolvedIconKey = normalizeIconKey(instance.iconKey) || resolveAutoInstanceIconKey(instanceName || loader || 'instance');
+  const bannerKey = resolveInstanceBannerKey(instance.bannerKey, instanceName || 'banner');
   const label = loaderLabel(loader);
   const loaderDisplay = loaderDisplayLabel(loader, loaderVersion);
   const version = String(instance.version || '').trim();
@@ -3944,16 +10108,26 @@ function instanceToDetailData(instance) {
   const lastExitState = instance.lastExitState || null;
   const lastExitCode = typeof instance.lastExitCode === 'number' ? instance.lastExitCode : null;
   const lastExitReason = instance.lastExitReason ? String(instance.lastExitReason) : null;
+  const memoryMinMb = Number.isFinite(Number(instance.memoryMinMb)) ? Math.max(0, Math.round(Number(instance.memoryMinMb))) : 0;
+  const memoryMaxMb = Number.isFinite(Number(instance.memoryMaxMb)) ? Math.max(0, Math.round(Number(instance.memoryMaxMb))) : 0;
   const sub = loader === 'vanilla'
     ? 'minecraft ' + version
     : 'minecraft ' + version + ' - ' + loaderDisplay;
   return {
+    loaderKey: loader,
     icon: loaderIcon(loader),
+    iconKey: resolvedIconKey,
+    bannerKey,
     badge: label.toUpperCase(),
     loader: loaderDisplay,
     loaderVersion,
     version,
-    mods: '0 installed',
+    java: 'Auto',
+    memoryMinMb,
+    memoryMaxMb,
+    memory: formatMemoryRange(memoryMinMb, memoryMaxMb),
+    mods: Number.isFinite(Number(instance.modsCount)) ? (Number(instance.modsCount) + ' installed') : '0 installed',
+    worlds: Number.isFinite(Number(instance.worldsCount)) ? (Number(instance.worldsCount) + ' worlds') : '0 worlds',
     lastPlayedEpoch,
     last: formatLastPlayed(lastPlayedEpoch),
     lastExitState,
@@ -3970,6 +10144,9 @@ function instanceToDetailData(instance) {
 function instanceCardMarkup(instance) {
   const name = instance.name || 'Instance';
   const loader = normalizeLoader(instance.loader);
+  const iconKey = normalizeIconKey(instance.iconKey) || resolveAutoInstanceIconKey(name || loader || 'instance');
+  const bannerKey = resolveInstanceBannerKey(instance.bannerKey, name);
+  const bannerSrc = bannerImagePathByKey(bannerKey) || bannerImagePathBySeed(name);
   const loaderVersion = String(instance.loaderVersion || '').trim();
   const version = String(instance.version || '').trim();
   const running = !!instance.running;
@@ -3977,10 +10154,11 @@ function instanceCardMarkup(instance) {
   const playtimeHours = Math.floor(Number(instance.playtimeMinutes || 0) / 60);
   const last = formatLastPlayed(instance.lastPlayed);
   const safeName = name.replace(/'/g, '&#39;');
+  const cornerLogoTitle = escapeHtml(loaderDisplayLabel(loader, loaderVersion));
 
   return `
     <div class="instance-card${running ? " running" : ""}"
-         data-loader="${loader}" data-version="${version}" data-loader-version="${escapeHtml(loaderVersion)}" data-name="${safeName}" data-playtime="${playtimeHours}"
+         data-loader="${loader}" data-version="${version}" data-loader-version="${escapeHtml(loaderVersion)}" data-name="${safeName}" data-playtime="${playtimeHours}" data-banner-key="${escapeHtml(bannerKey)}"
          onclick="selectCard(this)"
          draggable="true"
          ondragstart="dragStart(event)"
@@ -3989,9 +10167,12 @@ function instanceCardMarkup(instance) {
          oncontextmenu="showCtxMenu(event,this)">
       <div class="card-thumb">
         <div class="card-thumb-bg"></div>
-        <div class="card-banner" style="background-image:url('https://picsum.photos/seed/${encodeURIComponent(name)}/300/100')"></div>
+        <div class="card-banner" style="background-image:url('${bannerSrc}')"></div>
+        <div class="card-loader-corner${running ? ' with-running' : ''}" title="${cornerLogoTitle}">
+          ${loaderLogoImgMarkup(loader, 'loader-logo-corner-img')}
+        </div>
         ${running ? '<div class="running-badge"><div class="running-pulse"></div>Running</div>' : ''}
-        <div class="card-icon"><i data-lucide="${icon}" width="32" height="32" style="color:var(--t2)"></i></div>
+        <div class="card-icon">${cardIconMarkup(loader, iconKey, icon)}</div>
         <button class="card-play" onclick="event.stopPropagation();selectCard(this.closest('.instance-card'));${running ? "killInstance()" : "launchSequence()"}">
           ${running
             ? '<svg viewBox="0 0 10 10" fill="currentColor" width="10" height="10"><rect x="2" y="2" width="6" height="6" rx="1"/></svg>'
@@ -4001,14 +10182,13 @@ function instanceCardMarkup(instance) {
       <div class="card-body">
         <div class="card-name">${name}</div>
         <div class="card-meta"><span>${version}</span><span class="card-meta-dot"></span><span>${last}</span></div>
-        <div class="card-tags"><span class="card-tag">${loaderDisplayLabel(loader, loaderVersion)}</span></div>
         <div class="card-playtime"><i data-lucide="clock" width="9" height="9"></i>${playtimeText(instance.playtimeMinutes)} total</div>
       </div>
     </div>`;
 }
 
-function updateInstanceCountLabels(survivalCount, modpackCount, totalCount) {
-  const totalLabel = totalCount + (totalCount === 1 ? ' instance' : ' instances');
+function updateInstanceCountLabels(totalCount) {
+  const totalLabel = formatInstanceCountLabel(totalCount);
   const countBadge = document.getElementById('instance-count-badge');
   if (countBadge) countBadge.textContent = totalLabel;
 
@@ -4018,17 +10198,13 @@ function updateInstanceCountLabels(survivalCount, modpackCount, totalCount) {
   const statusItems = Array.from(document.querySelectorAll('.statusbar .status-item'));
   const instanceStatus = statusItems.find((item) => /instance/i.test(item.textContent));
   if (instanceStatus) instanceStatus.textContent = totalLabel;
-
-  const survivalGrid = document.getElementById('group-survival');
-  const modpacksGrid = document.getElementById('group-modpacks');
-  const survivalCountEl = survivalGrid && survivalGrid.previousElementSibling
-    ? survivalGrid.previousElementSibling.querySelector('.group-count')
-    : null;
-  const modpackCountEl = modpacksGrid && modpacksGrid.previousElementSibling
-    ? modpacksGrid.previousElementSibling.querySelector('.group-count')
-    : null;
-  if (survivalCountEl) survivalCountEl.textContent = survivalCount + (survivalCount === 1 ? ' instance' : ' instances');
-  if (modpackCountEl) modpackCountEl.textContent = modpackCount + (modpackCount === 1 ? ' instance' : ' instances');
+  document.querySelectorAll('#panel-content .group-header').forEach((header) => {
+    const countEl = header.querySelector('.group-count');
+    const grid = header.nextElementSibling;
+    if (!countEl || !grid || !grid.classList.contains('instance-grid')) return;
+    const count = grid.querySelectorAll('.instance-card').length;
+    countEl.textContent = formatInstanceCountLabel(count);
+  });
 }
 
 function createAddInstanceCard() {
@@ -4042,6 +10218,73 @@ function createAddInstanceCard() {
   return card;
 }
 
+function createInstanceGroupSection(panelContent, group, instances, options) {
+  const settings = options || {};
+  const header = document.createElement('div');
+  header.className = 'group-header';
+  header.dataset.groupId = group.id || '';
+  header.addEventListener('click', () => toggleGroup(header));
+
+  const dot = document.createElement('div');
+  dot.className = 'group-dot';
+  dot.style.background = group.color || '#3a3a3a';
+  header.appendChild(dot);
+
+  const label = document.createElement('span');
+  label.className = 'group-label';
+  label.textContent = group.name || 'No group';
+  header.appendChild(label);
+
+  const count = document.createElement('span');
+  count.className = 'group-count';
+  count.textContent = formatInstanceCountLabel(instances.length);
+  header.appendChild(count);
+
+  if (settings.allowAssign) {
+    const actions = document.createElement('div');
+    actions.className = 'group-header-actions';
+    const addBtn = document.createElement('button');
+    addBtn.className = 'group-icon-btn';
+    addBtn.type = 'button';
+    addBtn.title = 'Add instances';
+    addBtn.innerHTML = '<i data-lucide="plus" width="11" height="11"></i>';
+    addBtn.addEventListener('click', (event) => openGroupInstancePicker(event, group.id));
+    actions.appendChild(addBtn);
+
+    const menuBtn = document.createElement('button');
+    menuBtn.className = 'group-icon-btn';
+    menuBtn.type = 'button';
+    menuBtn.title = 'Group options';
+    menuBtn.innerHTML = '<i data-lucide="ellipsis-vertical" width="11" height="11"></i>';
+    menuBtn.addEventListener('click', (event) => openGroupHeaderContextMenu(event, group.id));
+    actions.appendChild(menuBtn);
+
+    header.appendChild(actions);
+  }
+
+  const chevron = document.createElement('i');
+  chevron.className = 'group-chevron';
+  chevron.setAttribute('data-lucide', 'chevron-down');
+  chevron.setAttribute('width', '12');
+  chevron.setAttribute('height', '12');
+  if (group.collapsed) chevron.classList.add('collapsed');
+  header.appendChild(chevron);
+
+  const grid = document.createElement('div');
+  grid.className = 'instance-grid';
+  grid.dataset.role = 'instance-grid';
+  grid.dataset.groupId = group.id || '';
+  if (group.collapsed) grid.style.display = 'none';
+
+  instances.forEach((instance) => {
+    grid.insertAdjacentHTML('beforeend', instanceCardMarkup(instance));
+  });
+  if (settings.includeAddCard) grid.appendChild(createAddInstanceCard());
+
+  panelContent.appendChild(header);
+  panelContent.appendChild(grid);
+}
+
 function resetDetailPanelEmptyState() {
   const detailName = document.getElementById('detail-name');
   const detailSub = document.getElementById('detail-sub');
@@ -4053,13 +10296,18 @@ function resetDetailPanelEmptyState() {
   const lastExit = document.getElementById('di-exit');
   const loader = document.getElementById('di-loader');
   const version = document.getElementById('di-version');
+  const java = document.getElementById('di-java');
+  const memory = document.getElementById('di-memory');
   const mods = document.getElementById('di-mods');
+  const worlds = document.getElementById('di-worlds');
   const playtime = document.getElementById('di-playtime');
+  const session = document.getElementById('detail-session');
 
   if (detailName) detailName.textContent = 'No instances';
   if (detailSub) detailSub.textContent = 'Create your first instance';
   if (detailBadge) detailBadge.textContent = 'EMPTY';
   if (detailIcon) detailIcon.innerHTML = '<i data-lucide="package" width="22" height="22" style="color:var(--t2)"></i>';
+  setDetailBannerByKey('banner-empty', '');
   if (runningBar) runningBar.classList.remove('visible');
   if (launchBtn) {
     launchBtn.className = 'det-btn det-btn-secondary';
@@ -4068,30 +10316,43 @@ function resetDetailPanelEmptyState() {
   }
   if (loader) loader.textContent = '-';
   if (version) version.textContent = '-';
+  if (java) {
+    java.textContent = '-';
+    java.removeAttribute('title');
+  }
+  if (memory) memory.textContent = '-';
   if (mods) mods.textContent = '0 installed';
+  if (worlds) worlds.textContent = '0 worlds';
   if (playtime) playtime.textContent = '0m';
+  if (session) session.textContent = 'Session: -';
   if (lastPlayed) lastPlayed.textContent = 'Never';
   if (lastExit) {
     lastExit.textContent = '-';
     lastExit.removeAttribute('title');
   }
+  syncDetailLaunchProgress();
 }
 
 function renderInstancesFromBackend(instances, preserveSelection) {
   if (!Array.isArray(instances)) return;
-
+  ensureInstanceGroupsLoaded();
+  syncInstanceGroupState(instances);
+  INSTANCE_LIST_CACHE = instances.map((instance) => ({ ...instance }));
   const selectedName = preserveSelection ? getSelectedInstanceName() : null;
-  const survivalGrid = document.getElementById('group-survival');
-  const modpacksGrid = document.getElementById('group-modpacks');
-  if (!survivalGrid || !modpacksGrid) return;
-
-  survivalGrid.innerHTML = '';
-  modpacksGrid.innerHTML = '';
+  const panelContent = document.getElementById('panel-content');
+  if (!panelContent) return;
+  panelContent.innerHTML = '';
 
   INSTANCE_DATA = {};
   INSTANCE_RUNTIME = {};
-  let survivalCount = 0;
-  let modpackCount = 0;
+  const noGroupInstances = [];
+  const customGroups = INSTANCE_GROUPS.map((group, index) => ({
+    id: group.id,
+    name: group.name,
+    color: normalizeInstanceGroupColor(group.color, index),
+    collapsed: !!group.collapsed,
+  }));
+  const groupedInstances = new Map(customGroups.map((group) => [group.id, []]));
 
   instances.forEach((instance) => {
     const details = instanceToDetailData(instance);
@@ -4102,16 +10363,63 @@ function renderInstancesFromBackend(instances, preserveSelection) {
       workingDir: instance.workingDir || null,
     };
 
-    const loader = normalizeLoader(instance.loader);
-    const targetGrid = (loader === 'forge' || loader === 'neoforge' || loader === 'quilt') ? modpacksGrid : survivalGrid;
-    if (targetGrid === modpacksGrid) modpackCount += 1;
-    else survivalCount += 1;
-
-    targetGrid.insertAdjacentHTML('beforeend', instanceCardMarkup(instance));
+    const groupId = resolveInstanceGroupId(instance.name);
+    if (groupId && groupedInstances.has(groupId)) {
+      groupedInstances.get(groupId).push(instance);
+    } else {
+      noGroupInstances.push(instance);
+    }
   });
 
-  modpacksGrid.appendChild(createAddInstanceCard());
-  updateInstanceCountLabels(survivalCount, modpackCount, instances.length);
+  const showNoGroup = customGroups.length === 0 || noGroupInstances.length > 0;
+  if (showNoGroup) {
+    createInstanceGroupSection(
+      panelContent,
+      { id: '', name: 'No group', color: '#3a3a3a', collapsed: false },
+      noGroupInstances,
+      { includeAddCard: true, allowAssign: false }
+    );
+  }
+  customGroups.forEach((group) => {
+    createInstanceGroupSection(
+      panelContent,
+      group,
+      groupedInstances.get(group.id) || [],
+      { includeAddCard: false, allowAssign: true }
+    );
+  });
+
+  if (!showNoGroup && customGroups.length > 0 && panelContent.querySelectorAll('.add-card').length === 0) {
+    const firstGrid = panelContent.querySelector('.instance-grid[data-role="instance-grid"]');
+    if (firstGrid) firstGrid.appendChild(createAddInstanceCard());
+  }
+
+  const grids = Array.from(panelContent.querySelectorAll('.instance-grid[data-role="instance-grid"]'));
+  const hasCards = grids.some((grid) => grid.querySelector('.instance-card'));
+  const hasVisibleCards = grids.some((grid) => {
+    if (grid.style.display === 'none') return false;
+    return !!grid.querySelector('.instance-card');
+  });
+  if (hasCards && !hasVisibleCards) {
+    let expandedPersistedGroup = false;
+    const firstWithCard = grids.find((grid) => grid.querySelector('.instance-card'));
+    if (firstWithCard) {
+      firstWithCard.style.display = '';
+      const header = firstWithCard.previousElementSibling;
+      const chevron = header && header.querySelector ? header.querySelector('.group-chevron') : null;
+      if (chevron) chevron.classList.remove('collapsed');
+      if (header && header.dataset && header.dataset.groupId) {
+        const group = findInstanceGroupById(header.dataset.groupId);
+        if (group && group.collapsed) {
+          group.collapsed = false;
+          expandedPersistedGroup = true;
+        }
+      }
+    }
+    if (expandedPersistedGroup) persistInstanceGroups();
+  }
+
+  updateInstanceCountLabels(instances.length);
 
   const cards = Array.from(document.querySelectorAll('.instance-card'));
   const preferred = selectedName ? cards.find((card) => card.dataset.name === selectedName) : null;
@@ -4124,6 +10432,14 @@ function renderInstancesFromBackend(instances, preserveSelection) {
     sortInstances(sortSelect.value, true);
   }
   applyInstanceVisibility();
+  const renderedCards = Array.from(document.querySelectorAll('.instance-card'));
+  const visibleCards = renderedCards.filter((card) => card.style.display !== 'none');
+  if (renderedCards.length > 0 && visibleCards.length === 0 && !INSTANCE_SEARCH_QUERY) {
+    INSTANCE_FILTER_TYPE = 'all';
+    setActiveFilterChip('all');
+    applyInstanceVisibility();
+  }
+  applyInstanceViewMode(INSTANCE_VIEW_MODE);
   lucide.createIcons();
 }
 
@@ -4131,11 +10447,58 @@ async function refreshInstancesFromBackend(preserveSelection) {
   const keepSelection = preserveSelection !== false;
   const res = await invokeBackend('list_instances');
   if (res.ok && Array.isArray(res.data)) {
+    INSTANCE_RUNTIME_POLL_SIGNATURE = buildInstanceRuntimePollSignature(res.data);
     renderInstancesFromBackend(res.data, keepSelection);
     return true;
   }
   return false;
 }
+
+async function refreshSelectedInstanceInfo(instanceName) {
+  const name = String(instanceName || '').trim();
+  if (!name) return;
+  const requestId = ++ACTIVE_INSTANCE_INFO_REQUEST_ID;
+  const res = await invokeBackend('get_instance_info', {
+    request: { instanceName: name },
+  });
+  if (!res.ok || !res.data || typeof res.data !== 'object') return;
+
+  const selected = getSelectedInstanceName();
+  if (requestId !== ACTIVE_INSTANCE_INFO_REQUEST_ID || selected !== name) return;
+
+  const details = INSTANCE_DATA[name];
+  if (!details) return;
+  const info = res.data;
+  const modsCount = Number(info.modsCount || 0);
+  const worldsCount = Number(info.worldsCount || 0);
+  const minMb = Number(info.memoryMinMb || 0);
+  const maxMb = Number(info.memoryMaxMb || 0);
+  const javaDisplay = formatJavaInfoDisplay(info.javaVersion, info.javaPath);
+  const memoryDisplay = formatMemoryRange(minMb, maxMb);
+
+  details.java = javaDisplay;
+  details.memoryMinMb = minMb;
+  details.memoryMaxMb = maxMb;
+  details.memory = memoryDisplay;
+  details.mods = modsCount + ' installed';
+  details.worlds = worldsCount + ' worlds';
+
+  const javaEl = document.getElementById('di-java');
+  const memoryEl = document.getElementById('di-memory');
+  const modsEl = document.getElementById('di-mods');
+  const worldsEl = document.getElementById('di-worlds');
+
+  if (javaEl) {
+    javaEl.textContent = javaDisplay;
+    if (info.javaPath) javaEl.title = String(info.javaPath);
+    else javaEl.removeAttribute('title');
+  }
+  if (memoryEl) memoryEl.textContent = memoryDisplay;
+  if (modsEl) modsEl.textContent = details.mods;
+  if (worldsEl) worldsEl.textContent = details.worlds;
+  refreshInstanceTrackedInstallSummary(name);
+}
+
 function selectCard(el) {
   document.querySelectorAll('.instance-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
@@ -4148,12 +10511,23 @@ function selectCard(el) {
   d.exitStatus = exitText;
   document.getElementById('detail-name').textContent  = name;
   document.getElementById('detail-sub').textContent   = d.sub;
-  document.getElementById('detail-badge').textContent = d.badge;
+  document.getElementById('detail-badge').innerHTML = loaderBadgeMarkup(d.loaderKey, d.loaderVersion);
   const detailIcon = document.getElementById('detail-icon');
-  if (detailIcon) { detailIcon.innerHTML = `<i data-lucide="${d.icon}" width="22" height="22" style="color:var(--t2)"></i>`; }
-  document.getElementById('di-loader').textContent    = d.loader;
+  if (detailIcon) { detailIcon.innerHTML = detailIconMarkup(d.loaderKey, d.iconKey, d.icon); }
+  setDetailBannerByKey(name, d.bannerKey);
+  document.getElementById('di-loader').innerHTML      = loaderInfoMarkup(d.loaderKey, d.loaderVersion);
   document.getElementById('di-version').textContent   = d.version;
+  const detailJava = document.getElementById('di-java');
+  const detailMemory = document.getElementById('di-memory');
+  const detailWorlds = document.getElementById('di-worlds');
+  if (detailJava) {
+    detailJava.textContent = d.java || 'Auto';
+    detailJava.removeAttribute('title');
+  }
+  if (detailMemory) detailMemory.textContent = d.memory || 'Auto';
   document.getElementById('di-mods').textContent      = d.mods;
+  if (detailWorlds) detailWorlds.textContent = d.worlds || '0 worlds';
+  refreshInstanceTrackedInstallSummary(name);
   document.getElementById('di-last').textContent      = lastText;
   const detailExit = document.getElementById('di-exit');
   if (detailExit) {
@@ -4175,6 +10549,9 @@ function selectCard(el) {
     lb.onclick   = launchSequence;
     lb.innerHTML = '<i data-lucide="play" width="13" height="13"></i> Launch';
   }
+  refreshSelectedSessionLabel();
+  void refreshSelectedInstanceInfo(name);
+  syncDetailLaunchProgress();
   lucide.createIcons();
 }
 
@@ -4213,12 +10590,7 @@ function refreshLastPlayedLabels() {
   }
 }
 
-document.querySelectorAll('.view-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
+initInstanceViewMode();
 
 function updateClock() {
   const el = document.getElementById('statusbar-time');
@@ -4228,17 +10600,17 @@ updateClock();
 setInterval(updateClock, 30000);
 setInterval(refreshLastPlayedLabels, 60000);
 
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 // SERVER WIZARD
-// Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½Ã¯Â¿Â½.Ã¯Â¿Â½
+// ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
 let srvCurrentStep = 1;
 const SRV_TOTAL = 4;
 const srvTypeDescs = {
-  vanilla: 'Vanilla Ã¯Â¿Â½?" Official Mojang server, no plugins or mods.',
-  paper:   'Paper Ã¯Â¿Â½?" High-performance fork with plugin support.',
-  fabric:  'Fabric Ã¯Â¿Â½?" Lightweight modding platform.',
-  forge:   'Forge Ã¯Â¿Â½?" The original modding API.',
-  purpur:  'Purpur Ã¯Â¿Â½?" Paper fork with extra customization.',
+  vanilla: 'Vanilla - Official Mojang server, no plugins or mods.',
+  paper:   'Paper - High-performance fork with plugin support.',
+  fabric:  'Fabric - Lightweight modding platform.',
+  forge:   'Forge - The original modding API.',
+  purpur:  'Purpur - Paper fork with extra customization.',
 };
 let srvAddedPlugins = [];
 
@@ -4286,7 +10658,7 @@ function renderSrvStep() {
     const v = document.getElementById('srv-version');
     const t = document.getElementById('srv-type');
     const r = document.getElementById('srv-ram');
-    const sn = document.getElementById('sum-name'); if (sn && n) sn.textContent = n.value || 'Ã¯Â¿Â½?"';
+    const sn = document.getElementById('sum-name'); if (sn && n) sn.textContent = n.value || '-';
     const sv = document.getElementById('sum-version'); if (sv && v) sv.textContent = v.value;
     const st = document.getElementById('sum-type'); if (st && t) st.textContent = t.options[t.selectedIndex].text;
     const sr = document.getElementById('sum-ram'); if (sr && r) sr.textContent = r.value + ' GB';
@@ -4299,7 +10671,7 @@ function updateSrvType(val) {
   if (desc) desc.textContent = srvTypeDescs[val] || '';
   const v  = document.getElementById('srv-version');
   const pt = document.getElementById('prev-type');
-  if (pt && v) pt.textContent = val.charAt(0).toUpperCase() + val.slice(1) + ' Â· ' + v.value;
+  if (pt && v) pt.textContent = val.charAt(0).toUpperCase() + val.slice(1) + ' - ' + v.value;
 }
 
 function onSrvNameInput(val) {
@@ -4310,7 +10682,7 @@ function onSrvNameInput(val) {
 function onSrvVersionChange(val) {
   const t  = document.getElementById('srv-type');
   const pt = document.getElementById('prev-type');
-  if (pt && t) pt.textContent = t.options[t.selectedIndex].text + ' Â· ' + val;
+  if (pt && t) pt.textContent = t.options[t.selectedIndex].text + ' - ' + val;
 }
 
 function selectSrvIcon(el, iconName) {
@@ -4353,18 +10725,24 @@ function checkEula() {
 }
 
 function toggleSrvAdd(btn, name) {
-  const added = btn.textContent.trim().startsWith('Ã¯Â¿Â½o"');
+  const added = /\bAdded\b/i.test(btn.textContent || '');
   if (!added) {
-    btn.textContent     = 'Ã¯Â¿Â½o" Added';
-    btn.style.borderColor = 'var(--b3)'; btn.style.color = 'var(--t3)';
+    btn.textContent = 'Added';
+    btn.style.borderColor = 'var(--b3)';
+    btn.style.color = 'var(--t3)';
     srvAddedPlugins.push(name);
   } else {
-    btn.textContent     = '+ Add';
-    btn.style.borderColor = 'var(--b2)'; btn.style.color = 'var(--t2)';
-    srvAddedPlugins = srvAddedPlugins.filter(p => p !== name);
+    btn.textContent = '+ Add';
+    btn.style.borderColor = 'var(--b2)';
+    btn.style.color = 'var(--t2)';
+    srvAddedPlugins = srvAddedPlugins.filter((p) => p !== name);
   }
   const pp = document.getElementById('prev-plugins');
-  if (pp) pp.innerHTML = srvAddedPlugins.length ? srvAddedPlugins.map(p=>`<div style="margin-bottom:3px;">Ã¯Â¿Â½?Ã¯Â¿Â½ ${p}</div>`).join('') : 'None yet';
+  if (pp) {
+    pp.innerHTML = srvAddedPlugins.length
+      ? srvAddedPlugins.map((p) => '<div style="margin-bottom:3px;">- ' + p + '</div>').join('')
+      : 'None yet';
+  }
 }
 
 function startServerDeploy() {
@@ -4372,6 +10750,7 @@ function startServerDeploy() {
   const versionEl = document.getElementById('srv-version');
   const typeEl = document.getElementById('srv-type');
   const ramEl = document.getElementById('srv-ram');
+  const deployBtn = document.getElementById('srv-launch-btn');
   const hostEl = document.querySelector('.srv-host-card.selected');
   const hostLabel = hostEl ? hostEl.querySelector('div > div:first-child') : null;
   const request = {
@@ -4381,35 +10760,56 @@ function startServerDeploy() {
     ramGb: ramEl ? Number(ramEl.value) : 4,
     host: hostLabel ? hostLabel.textContent.trim() : 'This Computer'
   };
+
+  let statusEl = document.getElementById('srv-deploy-status');
+  if (!statusEl && deployBtn && deployBtn.parentElement) {
+    statusEl = document.createElement('div');
+    statusEl.id = 'srv-deploy-status';
+    statusEl.style.marginTop = '8px';
+    statusEl.style.fontSize = '10px';
+    statusEl.style.fontFamily = 'var(--mono)';
+    statusEl.style.color = 'var(--t4)';
+    statusEl.style.textAlign = 'center';
+    deployBtn.parentElement.insertBefore(statusEl, deployBtn.nextSibling);
+  }
+
+  if (deployBtn) {
+    deployBtn.disabled = true;
+    deployBtn.style.background = 'var(--s4)';
+    deployBtn.style.color = 'var(--t2)';
+    deployBtn.style.cursor = 'default';
+    deployBtn.innerHTML = '<i data-lucide="loader-circle" width="15" height="15"></i> Deploying... 0%';
+  }
+  if (statusEl) statusEl.textContent = 'Initializing deployment...';
+  showToast('*', 'Deploy started', name + ' deployment started');
+
   void invokeBackend('deploy_server', { request });
-  const ol = document.createElement('div');
-  ol.className = 'launch-overlay';
-  ol.innerHTML = `
-    <div class="launch-icon" style="width:80px;height:80px;background:var(--s2);border:1px solid var(--b3);border-radius:18px;display:flex;align-items:center;justify-content:center;"><i data-lucide="server" width="40" height="40" style="color:var(--t2)"></i></div>
-    <div class="launch-name">${name}</div>
-    <div class="launch-sub">Deploying serverÃ¯Â¿Â½?Ã¯Â¿Â½</div>
-    <div class="launch-prog"><div class="launch-prog-fill" id="dep-fill"></div></div>
-    <div style="font-size:11px;font-family:var(--mono);color:var(--t4);margin-top:4px" id="dep-label">InitializingÃ¯Â¿Â½?Ã¯Â¿Â½</div>
-  `;
-  document.body.appendChild(ol);
   lucide.createIcons();
-  // FIX: query fill and label from ol, not global scope
-  const fill  = ol.querySelector('#dep-fill');
-  const label = ol.querySelector('#dep-label');
-  const steps = [[20,'Downloading server JARÃ¯Â¿Â½?Ã¯Â¿Â½'],[45,'Accepting EULAÃ¯Â¿Â½?Ã¯Â¿Â½'],[65,'Installing pluginsÃ¯Â¿Â½?Ã¯Â¿Â½'],[85,'Generating worldÃ¯Â¿Â½?Ã¯Â¿Â½'],[100,'Server ready!']];
+  const steps = [[20,'Downloading server JAR...'],[45,'Accepting EULA...'],[65,'Installing plugins...'],[85,'Generating world...'],[100,'Server ready!']];
   let i = 0;
   const iv = setInterval(() => {
     if (i >= steps.length) {
       clearInterval(iv);
-      setTimeout(() => {
-        ol.classList.add('hiding');
-        ol.addEventListener('animationend', () => ol.remove(), {once:true});
-        showToast('Ã¯Â¿Â½Y-Ã¯Â¿Â½Ã¯Â¸Â','Server deployed!', name + ' is now running on :25565');
-      }, 500);
+      if (deployBtn) {
+        deployBtn.disabled = false;
+        deployBtn.style.background = 'var(--t1)';
+        deployBtn.style.color = '#000';
+        deployBtn.style.cursor = 'pointer';
+        deployBtn.innerHTML = '<i data-lucide="server" width="15" height="15"></i> Deploy Again';
+      }
+      if (statusEl) statusEl.textContent = 'Server ready on :25565';
+      lucide.createIcons();
+      showToast('OK','Server deployed!', name + ' is now running on :25565');
       return;
     }
-    fill.style.width  = steps[i][0] + '%';
-    label.textContent = steps[i][1];
+    const percent = steps[i][0];
+    const message = steps[i][1];
+    if (deployBtn) {
+      deployBtn.innerHTML = '<i data-lucide="loader-circle" width="15" height="15"></i> Deploying... ' + percent + '%';
+    }
+    if (statusEl) statusEl.textContent = message;
+    lucide.createIcons();
     i++;
   }, 700);
 }
+

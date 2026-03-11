@@ -364,6 +364,8 @@ mod tests {
             runtime.instances = vec![InstanceRecord {
                 id: "inst-rt-1".to_string(),
                 name: "Roundtrip".to_string(),
+                icon_key: None,
+                banner_key: None,
                 loader: "fabric".to_string(),
                 loader_version: Some("0.16.10".to_string()),
                 version: "1.20.1".to_string(),
@@ -493,6 +495,8 @@ mod tests {
             runtime.instances.push(InstanceRecord {
                 id: "inst-1".to_string(),
                 name: "Smoke Instance".to_string(),
+                icon_key: None,
+                banner_key: None,
                 loader: "vanilla".to_string(),
                 loader_version: None,
                 version: "1.21.4".to_string(),

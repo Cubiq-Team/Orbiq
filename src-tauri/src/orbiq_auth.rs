@@ -128,10 +128,7 @@ fn orbiq_logo_html() -> String {
     let svg = ORBIQ_LOGO_SVG
         .replace("width=\"500\"", "width=\"28\"")
         .replace("height=\"500\"", "height=\"28\"");
-    format!(
-        "<div class=\"logo-box\">{}</div>",
-        svg
-    )
+    format!("<div class=\"logo-box\">{}</div>", svg)
 }
 
 fn email_style_block() -> &'static str {
@@ -466,7 +463,12 @@ fn send_otp_email(target_email: &str, code: &str, expires_at_epoch: u64) -> Resu
         ttl_minutes,
         context_panel
     );
-    send_html_email(target_email, "Orbiq verification code", text_body, html_body)
+    send_html_email(
+        target_email,
+        "Orbiq verification code",
+        text_body,
+        html_body,
+    )
 }
 
 pub fn send_orbiq_welcome_email(

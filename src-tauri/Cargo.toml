@@ -28,7 +28,11 @@ tauri-plugin-single-instance = { version = "2.4.0", features = ["deep-link"] }
 rayon = "1.10"
 reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
 sha1 = "0.10"
+sha2 = "0.10"
+base64 = "0.22"
+rand = "0.8"
 keyring = "3"
 zip = { version = "2", default-features = false, features = ["deflate"] }
 lettre = { version = "0.11", default-features = false, features = ["builder", "smtp-transport", "pool", "hostname", "rustls-tls"] }
 chrono = { version = "0.4", default-features = false, features = ["clock"] }
+dotenvy = "0.15"

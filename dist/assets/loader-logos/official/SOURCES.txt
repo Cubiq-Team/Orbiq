@@ -1,0 +1,10 @@
+Official loader logos used by Orbiq launcher UI.
+
+Downloaded on 2026-03-10 from:
+- Vanilla (Mojang): https://github.com/mojang.png
+- Fabric: https://github.com/FabricMC.png
+- Forge: https://github.com/MinecraftForge.png
+- NeoForge: https://github.com/neoforged.png
+- Quilt: https://github.com/QuiltMC.png
+
+These are project/org profile images published on the official GitHub organizations.

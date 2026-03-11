@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orbiq</title>
 <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <link rel="stylesheet" href="./styles/app.css">
 
 </head>
@@ -16,7 +15,7 @@
   <!-- TITLEBAR -->
   <div class="titlebar">
     <div class="brand">
-      <div class="brand-logo"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 375 375" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M 192.214844 200.441406 C 157.855469 212.945312 126.144531 222.195312 103.179688 226.886719 C 82.046875 231.1875 68.328125 231.652344 66.722656 227.242188 C 65.171875 222.988281 75.167969 214.964844 92.863281 205.195312 C 94.625 204.21875 95.625 202.261719 95.351562 200.269531 C 95.347656 200.234375 95.339844 200.199219 95.335938 200.167969 C 94.886719 196.851562 91.339844 194.929688 88.335938 196.402344 C 42.695312 218.757812 14.417969 239.167969 18.125 249.359375 C 21.925781 259.792969 58.359375 256.875 109.644531 243.871094 C 111.503906 243.398438 113.476562 244.046875 114.671875 245.550781 C 138.878906 276.074219 180.777344 289.191406 219.402344 275.132812 C 268.214844 257.367188 279.625 221.777344 280.753906 195.453125 C 281.40625 180.277344 276.433594 169.785156 192.214844 200.441406 Z M 192.214844 200.441406 " fill-opacity="1" fill-rule="nonzero"/><path fill="currentColor" d="M 357.019531 126.011719 C 353.140625 115.359375 315.296875 118.621094 262.375 132.300781 C 238.5 100.003906 195.394531 85.796875 155.742188 100.230469 C 114.808594 115.128906 100.574219 143.695312 96.171875 167.042969 C 93.109375 183.289062 95.65625 197.835938 180.082031 167.105469 C 213.90625 154.796875 245.15625 145.648438 268.03125 140.894531 C 289.765625 136.371094 303.945312 135.816406 305.578125 140.304688 C 307.007812 144.242188 298.5625 151.398438 283.269531 160.199219 C 279.882812 162.148438 278.171875 166.0625 278.925781 169.898438 C 278.9375 169.960938 278.949219 170.023438 278.960938 170.082031 C 280.105469 175.980469 286.621094 179.09375 291.992188 176.402344 C 334.574219 155.058594 360.582031 135.800781 357.019531 126.011719 Z M 357.019531 126.011719 " fill-opacity="1" fill-rule="nonzero"/></svg></div>
+      <div class="brand-logo"><img src="assets/Orbiq.svg" width="22" height="22" alt="Orbiq" style="display:block;border-radius:5px;"></div>
       <span class="brand-name">Orbiq</span>
     </div>
 
@@ -53,10 +52,10 @@
 
     <div class="search-wrap">
       <div class="search-ico"><i data-lucide="search" width="12" height="12"></i></div>
-      <input class="search-input" type="text" placeholder="Search instances…" oninput="filterInstances(this.value)">
+      <input class="search-input" type="text" placeholder="Search instancesÃ¢â‚¬Â¦" oninput="filterInstances(this.value)">
     </div>
 
-    <div class="auth-pill" onclick="openModal('orbiq-accounts')">
+    <div class="auth-pill" onclick="goToAccountsPage()">
       <div class="auth-avatar">
         <img src="https://mc-heads.net/avatar/Dream/32" alt="" onerror="this.style.display='none'">
       </div>
@@ -90,7 +89,7 @@
 
       <div class="sb-section">
         <div class="sb-label">Instances</div>
-        <button class="sb-item active" onclick="setPage('instances',this)">
+        <button class="sb-item active" id="sb-instances-all" onclick="setPage('instances',this)">
           <i data-lucide="layout-grid" width="13" height="13"></i>
           All
           <span class="sb-badge">3</span>
@@ -113,12 +112,12 @@
 
       <div class="sb-section">
         <div class="sb-label">Browse</div>
-        <button class="sb-item" onclick="openModal('install-modpack')">
-          <i data-lucide="search" width="13" height="13"></i>
+        <button class="sb-item" id="sb-modrinth" onclick="setPage('modrinth',this)">
+          <img class="sb-brand-logo" src="assets/browse-logos/modrinth.svg" alt="Modrinth logo">
           Modrinth
         </button>
-        <button class="sb-item" onclick="openModal('install-modpack')">
-          <i data-lucide="layers" width="13" height="13"></i>
+        <button class="sb-item" id="sb-curseforge" onclick="setPage('curseforge',this)">
+          <img class="sb-brand-logo" src="assets/browse-logos/curseforge.svg" alt="CurseForge logo">
           CurseForge
         </button>
       </div>
@@ -155,7 +154,7 @@
 
       <div class="sb-footer">
         <div class="sb-div"></div>
-        <button class="sb-item" onclick="openModal('orbiq-accounts')">
+        <button class="sb-item" id="sb-accounts" onclick="goToAccountsPage(this)">
           <i data-lucide="users" width="13" height="13"></i>
           Accounts
         </button>
@@ -169,7 +168,7 @@
     <!-- MAIN PAGES -->
     <div class="main">
 
-      <!-- ── INSTANCES PAGE ── -->
+      <!-- Ã¢â€â‚¬Ã¢â€â‚¬ INSTANCES PAGE Ã¢â€â‚¬Ã¢â€â‚¬ -->
       <div class="page active" id="page-instances">
         <div class="instances-panel">
 
@@ -183,129 +182,50 @@
               <option value="playtime">Sort: Play Time</option>
             </select>
             <div class="view-toggle">
-              <button class="view-btn active"><i data-lucide="layout-grid" width="12" height="12"></i></button>
-              <button class="view-btn"><i data-lucide="list" width="12" height="12"></i></button>
+              <button class="view-btn active" data-view="grid" title="Grid view" aria-label="Grid view"><i data-lucide="layout-grid" width="12" height="12"></i></button>
+              <button class="view-btn" data-view="list" title="List view" aria-label="List view"><i data-lucide="list" width="12" height="12"></i></button>
             </div>
           </div>
 
           <div class="filter-bar">
             <button class="filter-chip active" onclick="setFilter(this,'all')">All</button>
-            <button class="filter-chip" onclick="setFilter(this,'vanilla')">Vanilla</button>
-            <button class="filter-chip" onclick="setFilter(this,'fabric')">Fabric</button>
-            <button class="filter-chip" onclick="setFilter(this,'forge')">Forge</button>
+            <button class="filter-chip loader-chip" title="Vanilla" aria-label="Vanilla" onclick="setFilter(this,'vanilla')"><img class="filter-loader-icon" src="assets/loader-logos/official/vanilla.png" alt="Vanilla"></button>
+            <button class="filter-chip loader-chip" title="Fabric" aria-label="Fabric" onclick="setFilter(this,'fabric')"><img class="filter-loader-icon" src="assets/loader-logos/official/fabric.png" alt="Fabric"></button>
+            <button class="filter-chip loader-chip" title="Forge" aria-label="Forge" onclick="setFilter(this,'forge')"><img class="filter-loader-icon" src="assets/loader-logos/official/forge.jpg" alt="Forge"></button>
             <div class="filter-sep"></div>
             <button class="filter-chip" onclick="setFilter(this,'running')">
               <i data-lucide="activity" width="10" height="10"></i>Running
             </button>
+            <button class="create-group-btn" onclick="openModal('create-group')">
+              <i data-lucide="folder-plus" width="12" height="12"></i>Create Group
+            </button>
           </div>
 
-          <div class="panel-content" id="panel-content">
-            <div class="group-header" onclick="toggleGroup(this)">
-              <div class="group-dot" style="background:#2a4a2a"></div>
-              <span class="group-label">Survival Worlds</span>
-              <span class="group-count">2 instances</span>
-              <i data-lucide="chevron-down" width="12" height="12" class="group-chevron"></i>
-            </div>
-            <div class="instance-grid" id="group-survival">
-              <div class="instance-card running selected"
-                   data-loader="vanilla" data-version="1.21.4" data-name="Instance" data-playtime="3"
-                   onclick="selectCard(this)"
-                   draggable="true"
-                   ondragstart="dragStart(event)"
-                   ondragover="dragOver(event)"
-                   ondrop="dropCard(event)"
-                   oncontextmenu="showCtxMenu(event,this)">
-                <div class="card-thumb">
-                  <div class="card-thumb-bg"></div>
-                  <div class="card-banner" style="background-image:url('https://picsum.photos/seed/mc1/300/100')"></div>
-                  <div class="running-badge"><div class="running-pulse"></div>Running</div>
-                  <div class="card-icon"><i data-lucide="package" width="32" height="32" style="color:var(--t2)"></i></div>
-                  <button class="card-play" onclick="event.stopPropagation();selectCard(this.closest('.instance-card'));killInstance()" title="Kill">
-                    <svg viewBox="0 0 10 10" fill="currentColor" width="10" height="10"><rect x="2" y="2" width="6" height="6" rx="1"/></svg>
-                  </button>
-                </div>
-                <div class="card-body">
-                  <div class="card-name">Instance</div>
-                  <div class="card-meta"><span>1.21.4</span><span class="card-meta-dot"></span><span id="card-playtime-live">12m</span></div>
-                  <div class="card-tags"><span class="card-tag">Vanilla</span></div>
-                  <div class="card-playtime"><i data-lucide="clock" width="9" height="9"></i>3h 12m total</div>
-                </div>
-              </div>
-
-              <div class="instance-card"
-                   data-loader="fabric" data-version="1.20.1" data-name="Fabric Test" data-playtime="8"
-                   onclick="selectCard(this)"
-                   draggable="true"
-                   ondragstart="dragStart(event)"
-                   ondragover="dragOver(event)"
-                   ondrop="dropCard(event)"
-                   oncontextmenu="showCtxMenu(event,this)">
-                <div class="card-thumb">
-                  <div class="card-thumb-bg"></div>
-                  <div class="card-banner" style="background-image:url('https://picsum.photos/seed/mc2/300/100')"></div>
-                  <div class="card-icon"><i data-lucide="settings" width="32" height="32" style="color:var(--t2)"></i></div>
-                  <button class="card-play" onclick="event.stopPropagation();selectCard(this.closest('.instance-card'));launchSequence()">
-                    <svg viewBox="0 0 10 10" fill="currentColor" width="10" height="10"><path d="M2 1.5L8.5 5 2 8.5V1.5z"/></svg>
-                  </button>
-                </div>
-                <div class="card-body">
-                  <div class="card-name">Fabric Test</div>
-                  <div class="card-meta"><span>1.20.1</span><span class="card-meta-dot"></span><span>3d ago</span></div>
-                  <div class="card-tags"><span class="card-tag">Fabric</span></div>
-                  <div class="card-playtime"><i data-lucide="clock" width="9" height="9"></i>8h 45m total</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="group-header" onclick="toggleGroup(this)">
-              <div class="group-dot" style="background:#2a2a4a"></div>
-              <span class="group-label">Modpacks</span>
-              <span class="group-count">1 instance</span>
-              <i data-lucide="chevron-down" width="12" height="12" class="group-chevron"></i>
-            </div>
-            <div class="instance-grid" id="group-modpacks">
-              <div class="instance-card"
-                   data-loader="forge" data-version="1.20.1" data-name="All the Mods 9" data-playtime="22"
-                   onclick="selectCard(this)"
-                   draggable="true"
-                   ondragstart="dragStart(event)"
-                   ondragover="dragOver(event)"
-                   ondrop="dropCard(event)"
-                   oncontextmenu="showCtxMenu(event,this)">
-                <div class="card-thumb">
-                  <div class="card-thumb-bg"></div>
-                  <div class="card-banner" style="background-image:url('https://picsum.photos/seed/mc3/300/100')"></div>
-                  <div class="card-icon"><i data-lucide="globe" width="32" height="32" style="color:var(--t2)"></i></div>
-                  <button class="card-play" onclick="event.stopPropagation();selectCard(this.closest('.instance-card'));launchSequence()">
-                    <svg viewBox="0 0 10 10" fill="currentColor" width="10" height="10"><path d="M2 1.5L8.5 5 2 8.5V1.5z"/></svg>
-                  </button>
-                </div>
-                <div class="card-body">
-                  <div class="card-name">All the Mods 9</div>
-                  <div class="card-meta"><span>1.20.1</span><span class="card-meta-dot"></span><span>1w ago</span></div>
-                  <div class="card-tags"><span class="card-tag">Forge</span></div>
-                  <div class="card-playtime"><i data-lucide="clock" width="9" height="9"></i>22h 3m total</div>
-                </div>
-              </div>
-
-              <div class="add-card" onclick="openModal('add-instance')">
-                <div class="add-card-icon"><i data-lucide="plus" width="13" height="13"></i></div>
-                <span>Add Instance</span>
-              </div>
-            </div>
-          </div>
+          <div class="panel-content" id="panel-content"></div>
         </div>
 
         <!-- Detail panel -->
         <div class="detail-panel">
           <div class="detail-header-img">
-            <div style="position:absolute;inset:0;background-image:url('https://picsum.photos/seed/mc1/400/200');background-size:cover;background-position:center;opacity:0.3"></div>
+            <div class="detail-banner-image" id="detail-banner-image" style="background-image:url('assets/banner/2d5f7afcbee2ee385db0532d7234d8be3cdc3504.webp')"></div>
             <div class="detail-header-overlay"></div>
-            <div class="detail-header-badge" id="detail-badge">VANILLA</div>
+            <div class="detail-header-badge" id="detail-badge"><span class="loader-badge-logo"><img class="loader-logo-img loader-logo-badge" src="assets/loader-logos/official/vanilla.png" alt="Vanilla logo"></span></div>
+            <div class="detail-launch-progress" id="detail-launch-progress">
+              <div class="detail-launch-track">
+                <div class="detail-launch-fill" id="detail-launch-fill"></div>
+              </div>
+              <div class="detail-launch-head">
+                <span class="detail-launch-name" id="detail-launch-name">Launching</span>
+                <span class="detail-launch-percent" id="detail-launch-percent">0%</span>
+              </div>
+              <div class="detail-launch-label" id="detail-launch-label">Preparing runtime...</div>
+            </div>
           </div>
 
           <div class="detail-identity">
-            <div class="detail-icon-wrap" id="detail-icon"><i data-lucide="package" width="22" height="22" style="color:var(--t2)"></i></div>
+            <div class="detail-icon-wrap" id="detail-icon">
+              <img class="detail-icon-img" src="assets/loader-logos/official/vanilla.png" alt="Vanilla icon">
+            </div>
             <div>
               <div class="detail-name" id="detail-name">Instance</div>
               <div class="detail-sub" id="detail-sub">minecraft 1.21.4</div>
@@ -314,7 +234,7 @@
 
           <div class="detail-running-bar visible" id="detail-running-bar">
             <div class="running-pulse"></div>
-            <span class="detail-session-time" id="detail-session">Session: 12m</span>
+            <span class="detail-session-time" id="detail-session">Session: -</span>
             <button class="btn btn-danger" style="height:22px;padding:0 9px;font-size:10px" onclick="killInstance()">
               <i data-lucide="zap-off" width="10" height="10"></i> Kill
             </button>
@@ -325,13 +245,14 @@
           <div class="detail-info">
             <div class="info-section-label">Instance Info</div>
             <div class="info-grid" id="detail-info-grid">
-              <div class="info-row"><span class="info-key">Loader</span><span class="info-val tag" id="di-loader">Vanilla</span></div>
+              <div class="info-row"><span class="info-key">Loader</span><span class="info-val tag" id="di-loader"><span class="loader-inline"><img class="loader-logo-img loader-logo-inline" src="assets/loader-logos/official/vanilla.png" alt="Vanilla logo"></span></span></div>
               <div class="info-row"><span class="info-key">Version</span><span class="info-val" id="di-version">1.21.4</span></div>
-              <div class="info-row"><span class="info-key">Java</span><span class="info-val">17.0.9</span></div>
-              <div class="info-row"><span class="info-key">Memory</span><span class="info-val">2 – 4 GB</span></div>
-              <div class="info-row"><span class="info-key">Mods</span><span class="info-val dim" id="di-mods">0 installed</span></div>
+              <div class="info-row info-row-action" title="Click to edit Java" onclick="openInstanceJavaConfig()"><span class="info-key">Java</span><span class="info-val" id="di-java">Auto</span></div>
+              <div class="info-row info-row-action" title="Click to edit Memory" onclick="openInstanceMemoryConfig()"><span class="info-key">Memory</span><span class="info-val" id="di-memory">Auto</span></div>
+              <div class="info-row info-row-action" title="Manage installed items" onclick="openModal('manage-mods')" oncontextmenu="showInstanceInfoRowContextMenu(event,'mods')"><span class="info-key">Mods</span><span class="info-val dim" id="di-mods">0 installed</span></div>
+              <div class="info-row info-row-action" title="Open Worlds folder" onclick="openSelectedInstanceFolder('worlds')" oncontextmenu="showInstanceInfoRowContextMenu(event,'worlds')"><span class="info-key">Worlds</span><span class="info-val dim" id="di-worlds">0 worlds</span></div>
               <div class="info-row"><span class="info-key">Last Played</span><span class="info-val live"><span class="live-dot"></span><span id="di-last">Just now</span></span></div>
-              <div class="info-row"><span class="info-key">Last Exit</span><span class="info-val dim" id="di-exit">—</span></div>
+              <div class="info-row"><span class="info-key">Last Exit</span><span class="info-val dim" id="di-exit">-</span></div>
               <div class="info-row"><span class="info-key">Play Time</span><span class="info-val" id="di-playtime">3h 12m</span></div>
             </div>
 
@@ -340,7 +261,7 @@
               <div class="pt-row"><span class="pt-label">Mon</span><div class="pt-bar"><div class="pt-fill" style="width:60%"></div></div><span class="pt-val">1h 2m</span></div>
               <div class="pt-row"><span class="pt-label">Tue</span><div class="pt-bar"><div class="pt-fill" style="width:80%"></div></div><span class="pt-val">1h 24m</span></div>
               <div class="pt-row"><span class="pt-label">Wed</span><div class="pt-bar"><div class="pt-fill" style="width:30%"></div></div><span class="pt-val">32m</span></div>
-              <div class="pt-row"><span class="pt-label">Thu</span><div class="pt-bar"><div class="pt-fill" style="width:0%"></div></div><span class="pt-val">—</span></div>
+              <div class="pt-row"><span class="pt-label">Thu</span><div class="pt-bar"><div class="pt-fill" style="width:0%"></div></div><span class="pt-val">Ã¢â‚¬â€</span></div>
               <div class="pt-row"><span class="pt-label">Fri</span><div class="pt-bar"><div class="pt-fill" style="width:100%"></div></div><span class="pt-val">1h 42m</span></div>
               <div class="pt-row"><span class="pt-label">Today</span><div class="pt-bar"><div class="pt-fill" style="width:12%;background:var(--green)"></div></div><span class="pt-val" style="color:var(--green)">12m</span></div>
             </div>
@@ -379,7 +300,7 @@
         </div>
       </div>
 
-      <!-- ── NEWS PAGE ── -->
+      <!-- Ã¢â€â‚¬Ã¢â€â‚¬ NEWS PAGE Ã¢â€â‚¬Ã¢â€â‚¬ -->
       <div class="page" id="page-news">
         <div class="news-panel">
           <div class="panel-header">
@@ -395,7 +316,107 @@
         </div>
       </div>
 
-      <!-- ── FRIENDS PAGE ── -->
+      <!-- BROWSE PAGES -->
+      <div class="page" id="page-modrinth">
+        <div class="browse-panel">
+          <div class="panel-header">
+            <div class="browse-provider-title">
+              <img class="browse-provider-logo-img" src="assets/browse-logos/modrinth.svg" alt="Modrinth logo">
+              <span class="panel-title">Modrinth</span>
+            </div>
+            <div class="browse-actions">
+              <button class="btn btn-ghost" style="height:28px;font-size:11px" onclick="openBrowseProviderWebsite('modrinth')">
+                <i data-lucide="external-link" width="11" height="11"></i> Open Website
+              </button>
+              <button class="btn btn-primary" style="height:28px;font-size:11px" onclick="openModal('install-modpack')">
+                <i data-lucide="download" width="11" height="11"></i> Import Modpack
+              </button>
+            </div>
+          </div>
+          <div class="browse-content">
+            <div class="browse-toolbar">
+              <div class="browse-search-wrap">
+                <i data-lucide="search" width="12" height="12"></i>
+                <input
+                  id="modrinth-browse-search"
+                  class="browse-search-input"
+                  type="text"
+                  placeholder="Search mods, modpacks..."
+                  oninput="onBrowseSearchInput('modrinth', this.value)"
+                >
+              </div>
+              <button class="tb-btn" onclick="refreshBrowseProvider('modrinth', true)">Refresh</button>
+            </div>
+            <div class="browse-tabs" id="modrinth-browse-top-tabs"></div>
+            <div class="browse-layout browse-layout-modrinth">
+              <aside class="browse-filters" id="modrinth-browse-filters"></aside>
+              <section class="browse-results">
+                <div class="browse-results-head">
+                  <span class="browse-results-title">Results</span>
+                  <div class="browse-results-head-right">
+                    <div class="browse-pagination" id="modrinth-browse-pagination"></div>
+                  </div>
+                </div>
+                <div class="browse-feed" id="modrinth-browse-feed"></div>
+                <div class="browse-results-foot">
+                  <div class="browse-pagination" id="modrinth-browse-pagination-bottom"></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page" id="page-curseforge">
+        <div class="browse-panel">
+          <div class="panel-header">
+            <div class="browse-provider-title">
+              <img class="browse-provider-logo-img" src="assets/browse-logos/curseforge.svg" alt="CurseForge logo">
+              <span class="panel-title">CurseForge</span>
+            </div>
+            <div class="browse-actions">
+              <button class="btn btn-ghost" style="height:28px;font-size:11px" onclick="openBrowseProviderWebsite('curseforge')">
+                <i data-lucide="external-link" width="11" height="11"></i> Open Website
+              </button>
+              <button class="btn btn-primary" style="height:28px;font-size:11px" onclick="openModal('install-modpack')">
+                <i data-lucide="download" width="11" height="11"></i> Import Modpack
+              </button>
+            </div>
+          </div>
+          <div class="browse-content">
+            <div class="browse-toolbar">
+              <div class="browse-search-wrap">
+                <i data-lucide="search" width="12" height="12"></i>
+                <input
+                  id="curseforge-browse-search"
+                  class="browse-search-input"
+                  type="text"
+                  placeholder="Search mods, modpacks..."
+                  oninput="onBrowseSearchInput('curseforge', this.value)"
+                >
+              </div>
+              <button class="tb-btn" onclick="refreshBrowseProvider('curseforge', true)">Refresh</button>
+            </div>
+            <div class="browse-tabs" id="curseforge-browse-top-tabs"></div>
+            <div class="browse-layout browse-layout-curseforge">
+              <aside class="browse-filters" id="curseforge-browse-filters"></aside>
+              <section class="browse-results">
+                <div class="browse-results-head">
+                  <span class="browse-results-title">Results</span>
+                  <div class="browse-results-head-right">
+                    <div class="browse-pagination" id="curseforge-browse-pagination"></div>
+                  </div>
+                </div>
+                <div class="browse-feed" id="curseforge-browse-feed"></div>
+                <div class="browse-results-foot">
+                  <div class="browse-pagination" id="curseforge-browse-pagination-bottom"></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ã¢â€â‚¬Ã¢â€â‚¬ FRIENDS PAGE Ã¢â€â‚¬Ã¢â€â‚¬ -->
       <div class="page" id="page-friends">
         <div class="friends-panel">
           <div class="panel-header">
@@ -409,7 +430,7 @@
         </div>
       </div>
 
-      <!-- ── SERVER PAGE ── -->
+      <!-- Ã¢â€â‚¬Ã¢â€â‚¬ SERVER PAGE Ã¢â€â‚¬Ã¢â€â‚¬ -->
       <div class="page" id="page-server">
         <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
           <div class="panel-header">
@@ -440,8 +461,8 @@
                   <div class="field"><div class="label">Minecraft Version</div><select class="select" id="srv-version" onchange="onSrvVersionChange(this.value)"><option>1.21.4</option><option>1.21.1</option><option>1.20.6</option><option>1.20.1</option><option>1.19.4</option></select></div>
                   <div class="field"><div class="label">Server Type</div><select class="select" id="srv-type" onchange="updateSrvType(this.value)"><option value="vanilla">Vanilla</option><option value="paper">Paper</option><option value="fabric">Fabric</option><option value="forge">Forge</option><option value="purpur">Purpur</option></select></div>
                 </div>
-                <div class="field"><div class="label">Description</div><textarea class="textarea" rows="2" placeholder="Optional server description…">A friendly survival server for friends!</textarea></div>
-                <div style="margin-top:4px;padding:10px 12px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;display:flex;align-items:center;gap:9px;"><i data-lucide="info" width="14" height="14" style="color:var(--t4);flex-shrink:0;"></i><span style="font-size:11px;font-family:var(--mono);color:var(--t3);" id="srv-type-desc">Vanilla — Official Mojang server, no plugins or mods.</span></div>
+                <div class="field"><div class="label">Description</div><textarea class="textarea" rows="2" placeholder="Optional server descriptionÃ¢â‚¬Â¦">A friendly survival server for friends!</textarea></div>
+                <div style="margin-top:4px;padding:10px 12px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;display:flex;align-items:center;gap:9px;"><i data-lucide="info" width="14" height="14" style="color:var(--t4);flex-shrink:0;"></i><span style="font-size:11px;font-family:var(--mono);color:var(--t3);" id="srv-type-desc">Vanilla Ã¢â‚¬â€ Official Mojang server, no plugins or mods.</span></div>
               </div>
               <div class="srv-step" id="srv-step-2" style="display:none;">
                 <div style="font-size:18px;font-weight:800;color:var(--t1);margin-bottom:4px;">Game Settings</div>
@@ -449,14 +470,14 @@
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Game Mode</div><select class="select"><option>Survival</option><option>Creative</option><option>Adventure</option><option>Spectator</option></select></div><div class="field"><div class="label">Difficulty</div><select class="select"><option>Normal</option><option>Easy</option><option>Hard</option><option>Peaceful</option></select></div></div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Max Players</div><input class="input" type="number" value="20" min="1" max="200"></div><div class="field"><div class="label">View Distance</div><select class="select"><option>8 chunks</option><option>10 chunks</option><option>12 chunks</option><option>16 chunks</option></select></div></div>
                 <div class="field"><div class="label">RAM Allocation</div><div style="margin:6px 0 4px;"><input type="range" class="slider" min="1" max="16" value="4" id="srv-ram" oninput="document.getElementById('srv-ram-val').textContent=this.value+' GB'"></div><div style="display:flex;justify-content:space-between;"><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">1 GB</span><span style="font-size:11px;font-family:var(--mono);color:var(--t2)" id="srv-ram-val">4 GB</span><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">16 GB</span></div></div>
-                <div class="field"><div class="label">World Seed</div><input class="input" placeholder="Leave empty for random seed…"></div>
+                <div class="field"><div class="label">World Seed</div><input class="input" placeholder="Leave empty for random seedÃ¢â‚¬Â¦"></div>
                 <div class="label" style="margin-bottom:8px;">Rules</div>
                 <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;overflow:hidden;" id="srv-rules"></div>
               </div>
               <div class="srv-step" id="srv-step-3" style="display:none;">
                 <div style="font-size:18px;font-weight:800;color:var(--t1);margin-bottom:4px;">Mods &amp; Plugins</div>
                 <div style="font-size:12px;font-family:var(--mono);color:var(--t3);margin-bottom:22px;">Add plugins or mods to your server.</div>
-                <div class="field" style="position:relative;"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4);"></i><input class="input" style="padding-left:28px;" placeholder="Search plugins &amp; mods…"></div>
+                <div class="field" style="position:relative;"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4);"></i><input class="input" style="padding-left:28px;" placeholder="Search plugins &amp; modsÃ¢â‚¬Â¦"></div>
                 <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">RECOMMENDED</div>
                 <div id="srv-plugins-list"></div>
               </div>
@@ -482,7 +503,7 @@
               <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:12px;">Preview</div>
               <div style="background:var(--s2);border:1px solid var(--b2);border-radius:10px;overflow:hidden;margin-bottom:14px;">
                 <div style="height:56px;background:linear-gradient(135deg,#1a2a1a,var(--s3));display:flex;align-items:center;justify-content:center;" id="prev-icon"><i data-lucide="castle" width="32" height="32" style="color:var(--t2)"></i></div>
-                <div style="padding:9px 10px;"><div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:3px;" id="prev-name">My Awesome Server</div><div style="font-size:10px;font-family:var(--mono);color:var(--t3);margin-bottom:6px;" id="prev-type">Vanilla · 1.21.4</div><div style="display:flex;align-items:center;gap:5px;font-size:10px;font-family:var(--mono);color:var(--t4);"><div style="width:5px;height:5px;border-radius:50%;background:var(--t4);"></div><span>Offline — not deployed</span></div></div>
+                <div style="padding:9px 10px;"><div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:3px;" id="prev-name">My Awesome Server</div><div style="font-size:10px;font-family:var(--mono);color:var(--t3);margin-bottom:6px;" id="prev-type">Vanilla Ã‚Â· 1.21.4</div><div style="display:flex;align-items:center;gap:5px;font-size:10px;font-family:var(--mono);color:var(--t4);"><div style="width:5px;height:5px;border-radius:50%;background:var(--t4);"></div><span>Offline Ã¢â‚¬â€ not deployed</span></div></div>
               </div>
               <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">Config</div>
               <div style="display:flex;flex-direction:column;gap:3px;">
@@ -499,6 +520,69 @@
         </div>
       </div>
 
+      <!-- ACCOUNTS PAGE -->
+      <div class="page" id="page-accounts">
+        <div class="accounts-panel">
+          <div class="panel-header">
+            <span class="panel-title">Orbiq Account</span>
+            <span class="count-badge" id="accounts-profile-count">0 profiles</span>
+            <div style="margin-left:auto;display:flex;gap:6px">
+              <button class="btn btn-ghost" style="height:28px;font-size:11px" onclick="openModal('link-microsoft')">
+                <i data-lucide="link" width="11" height="11"></i> Link Microsoft
+              </button>
+              <button class="btn btn-ghost" style="height:28px;font-size:11px" onclick="openModal('add-offline-profile')">
+                <i data-lucide="user-plus" width="11" height="11"></i> Add Profile
+              </button>
+            </div>
+          </div>
+          <div class="accounts-content">
+            <div class="orbiq-acct-card">
+              <div class="orbiq-acct-header">
+                <div class="orbiq-acct-logo"><img src="assets/Orbiq.svg" width="32" height="32" alt="Orbiq" style="display:block;border-radius:8px;"></div>
+                <div class="orbiq-acct-info">
+                  <div class="orbiq-acct-name">Dream</div>
+                  <div class="orbiq-acct-email">dream@orbiq.app</div>
+                </div>
+                <div class="orbiq-acct-badge">
+                  <div style="width:5px;height:5px;border-radius:50%;background:var(--green)"></div>
+                  Signed in
+                </div>
+              </div>
+              <div class="orbiq-acct-meta">
+                <div class="orbiq-acct-meta-row">
+                  <span>Orbiq ID</span>
+                  <span class="orbiq-acct-id">ORQ-0000-0000</span>
+                </div>
+                <div class="orbiq-acct-meta-row">
+                  <span>Plan</span>
+                  <span class="orbiq-acct-plan">Free</span>
+                </div>
+              </div>
+              <div class="linked-list"></div>
+            </div>
+            <div class="accounts-help">
+              <div class="accounts-help-title">How it works</div>
+              <div class="accounts-help-row">
+                <div class="accounts-help-icon ms">
+                  <div class="ms-grid" style="width:8px;height:8px;"><div style="background:#f25022;border-radius:0.5px"></div><div style="background:#7fba00;border-radius:0.5px"></div><div style="background:#00a4ef;border-radius:0.5px"></div><div style="background:#ffb900;border-radius:0.5px"></div></div>
+                </div>
+                <span>Microsoft: Official servers and purchased license</span>
+              </div>
+              <div class="accounts-help-row">
+                <div class="accounts-help-icon offline"><i data-lucide="user" width="9" height="9"></i></div>
+                <span>Offline profile: Cracked servers and local play</span>
+              </div>
+            </div>
+          </div>
+          <div class="accounts-footer">
+            <button class="btn btn-ghost" id="orbiq-auth-action-btn" onclick="onOrbiqAccountsAuthAction()">
+              <i data-lucide="log-out" width="12" height="12"></i>Sign Out
+            </button>
+            <button class="btn btn-primary" onclick="setPage('instances', document.getElementById('sb-instances-all'))">Back to Instances</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -508,13 +592,13 @@
       <div class="status-dot" style="background:var(--green)"></div>
       Online
     </div>
-    <div class="status-item">Dream · Microsoft</div>
+    <div class="status-item">Dream Ã‚Â· Microsoft</div>
     <div class="status-item">
       <div class="status-dot" style="background:var(--blue)"></div>
-      Instance — Running
+      Instance Ã¢â‚¬â€ Running
     </div>
     <div style="flex:1"></div>
-    <div class="status-item" id="statusbar-time">—</div>
+    <div class="status-item" id="statusbar-time">Ã¢â‚¬â€</div>
     <div class="status-item">Orbiq v2.2.0</div>
     <div class="status-item">3 instances</div>
   </div>
@@ -531,8 +615,12 @@
 <!-- CONTEXT MENU -->
 <div class="ctx-menu" id="ctx-menu" style="display:none"></div>
 
+<script src="./scripts/vendor/lucide.min.js"></script>
 <script src="./scripts/app.js"></script>
 
 </body>
 </html>
+
+
+
 

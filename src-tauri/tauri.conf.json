@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "identifier": "com.orbiq.launcher",
   "build": {
+    "devUrl": "http://127.0.0.1:1420",
     "frontendDist": "../dist",
-    "beforeDevCommand": "npm run build:web",
+    "beforeDevCommand": "npm run dev:web",
     "beforeBuildCommand": "npm run build:web"
   },
   "app": {

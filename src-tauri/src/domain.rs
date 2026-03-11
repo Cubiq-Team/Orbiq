@@ -73,6 +73,10 @@ where
 pub struct InstanceRecord {
     pub id: String,
     pub name: String,
+    #[serde(default)]
+    pub icon_key: Option<String>,
+    #[serde(default)]
+    pub banner_key: Option<String>,
     pub loader: String,
     #[serde(default)]
     pub loader_version: Option<String>,
@@ -167,6 +171,10 @@ pub struct CreateInstanceRequest {
     pub loader: String,
     pub version: String,
     #[serde(default)]
+    pub icon_key: Option<String>,
+    #[serde(default)]
+    pub banner_key: Option<String>,
+    #[serde(default)]
     pub loader_version: Option<String>,
 }
 
@@ -197,6 +205,28 @@ pub struct UpdateLaunchConfigRequest {
     pub executable: Option<String>,
     pub args: Option<Vec<String>>,
     pub working_dir: Option<String>,
+    #[serde(default)]
+    pub icon_key: Option<String>,
+    #[serde(default)]
+    pub banner_key: Option<String>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GetInstanceInfoRequest {
+    pub instance_name: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct InstanceInfoResponse {
+    pub instance_name: String,
+    pub java_path: Option<String>,
+    pub java_version: Option<String>,
+    pub memory_min_mb: Option<u32>,
+    pub memory_max_mb: Option<u32>,
+    pub mods_count: u32,
+    pub worlds_count: u32,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -221,6 +251,104 @@ pub struct OpenInstanceDirectoryResponse {
     pub target: String,
     pub path: String,
     pub status: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OpenExternalUrlRequest {
+    pub url: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OpenExternalUrlResponse {
+    pub url: String,
+    pub status: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct InstallBrowseItemRequest {
+    pub instance_name: String,
+    #[serde(default)]
+    pub target: Option<String>,
+    pub url: String,
+    #[serde(default)]
+    pub file_name: Option<String>,
+    #[serde(default)]
+    pub if_exists: Option<String>,
+    pub overwrite: Option<bool>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct InstallBrowseItemResponse {
+    pub instance_name: String,
+    pub target: String,
+    pub file_name: String,
+    pub path: String,
+    pub bytes_written: u64,
+    pub status: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RemoveInstanceFileRequest {
+    pub instance_name: String,
+    #[serde(default)]
+    pub target: Option<String>,
+    pub file_name: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RemoveInstanceFileResponse {
+    pub instance_name: String,
+    pub target: String,
+    pub file_name: String,
+    pub path: String,
+    pub status: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CheckInstanceFilesRequest {
+    pub instance_name: String,
+    #[serde(default)]
+    pub target: Option<String>,
+    #[serde(default)]
+    pub file_names: Vec<String>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CheckInstanceFileEntry {
+    pub file_name: String,
+    pub exists: bool,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CheckInstanceFilesResponse {
+    pub instance_name: String,
+    pub target: String,
+    pub files: Vec<CheckInstanceFileEntry>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ListInstanceFilesRequest {
+    pub instance_name: String,
+    #[serde(default)]
+    pub target: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ListInstanceFilesResponse {
+    pub instance_name: String,
+    pub target: String,
+    pub files: Vec<String>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -276,6 +404,40 @@ pub struct MicrosoftDeviceCodeStartResponse {
     pub message: String,
     pub interval_seconds: u32,
     pub expires_at_epoch: u64,
+    #[serde(default)]
+    pub client_id: Option<String>,
+    #[serde(default)]
+    pub tenant: Option<String>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MicrosoftOAuthStartRequest {
+    pub client_id: Option<String>,
+    pub scopes: Option<Vec<String>>,
+    pub redirect_uri: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MicrosoftOAuthStartResponse {
+    pub authorization_url: String,
+    pub state: String,
+    pub expires_at_epoch: u64,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CompleteMicrosoftOAuthLoginRequest {
+    pub state: String,
+    pub code: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CompleteMicrosoftOAuthLoginResponse {
+    pub status: String,
+    pub profile: ProfileRecord,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -374,6 +536,54 @@ pub struct ProvisionInstanceRequest {
     pub profile_name: Option<String>,
     pub force_redownload: Option<bool>,
     pub max_concurrency: Option<u8>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PreflightInstanceLaunchRequest {
+    pub instance_name: String,
+    #[serde(default)]
+    pub profile_id: Option<String>,
+    #[serde(default)]
+    pub profile_name: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PreflightIssue {
+    pub severity: String,
+    pub code: String,
+    pub message: String,
+    pub fixable: bool,
+    pub action: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PreflightInstanceLaunchResponse {
+    pub instance_name: String,
+    pub loader: String,
+    pub version: String,
+    pub blocking_count: u32,
+    pub warning_count: u32,
+    pub issues: Vec<PreflightIssue>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct DebugBundleRequest {
+    #[serde(default)]
+    pub instance_name: Option<String>,
+    #[serde(default)]
+    pub include_logs: Option<bool>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct DebugBundleResult {
+    pub path: String,
+    pub size: u64,
+    pub created_at: u64,
 }
 
 #[derive(Debug, Clone, Serialize)]

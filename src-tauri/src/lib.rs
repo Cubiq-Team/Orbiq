@@ -14,7 +14,14 @@ use tauri_plugin_deep_link::DeepLinkExt;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    let _ = dotenvy::dotenv_override();
+
     tauri::Builder::default()
+        .on_page_load(|window, payload| {
+            if cfg!(debug_assertions) && payload.url().as_str() == "about:blank" {
+                let _ = window.eval("window.location.replace('http://127.0.0.1:1420/');");
+            }
+        })
         .plugin(tauri_plugin_single_instance::init(|app, _argv, _cwd| {
             if let Some(window) = app.get_webview_window("main") {
                 let _ = window.show();
@@ -42,6 +49,7 @@ pub fn run() {
         })
         .invoke_handler(tauri::generate_handler![
             commands::list_instances,
+            commands::get_instance_info,
             commands::get_profiles,
             commands::get_java_runtime_info,
             commands::create_instance,
@@ -53,11 +61,22 @@ pub fn run() {
             commands::delete_instance,
             commands::update_instance_launch_config,
             commands::open_instance_directory,
+            commands::resolve_instance_directory,
+            commands::open_instance_directory_in_terminal,
+            commands::open_external_url,
+            commands::install_browse_item,
+            commands::remove_instance_file,
+            commands::check_instance_files,
+            commands::list_instance_files,
+            commands::preflight_instance_launch,
+            commands::export_debug_bundle,
             commands::create_offline_profile,
             commands::set_active_profile,
             commands::remove_profile,
             commands::start_microsoft_device_code_login,
             commands::poll_microsoft_device_code_login,
+            commands::start_microsoft_oauth_login_command,
+            commands::complete_microsoft_oauth_login_command,
             commands::refresh_microsoft_profile_token,
             commands::logout_microsoft_profile,
             commands::start_orbiq_email_verification,

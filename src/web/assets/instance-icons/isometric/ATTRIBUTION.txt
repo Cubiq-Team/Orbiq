@@ -1,0 +1,20 @@
+Isometric mini blocks attribution
+
+Icons source:
+- https://github.com/7eventy7/isometric-mini-blocks
+Author:
+- 7eventy7
+License:
+- CC BY-NC-SA 4.0
+- https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+This launcher bundles selected icons from the pack:
+- vanilla.png (from natural_grass_block.png)
+- fabric.png (from utility_loom.png)
+- forge.png (from utility_smithing_table.png)
+- neoforge.png (from technical_crafter.png)
+- quilt.png (from wool_white.png)
+
+Additional texture credit referenced by upstream project:
+- F8thful texture pack by Ewan Howell
+- https://www.curseforge.com/minecraft/texture-packs/f8thful

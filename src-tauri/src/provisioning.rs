@@ -2118,6 +2118,88 @@ fn replace_launch_tokens(raw: &str, replacements: &HashMap<&str, String>) -> Str
     value
 }
 
+fn sanitize_game_args(args: Vec<String>) -> Vec<String> {
+    fn parse_quick_play<'a>(value: &'a str) -> Option<(&'static str, Option<&'a str>)> {
+        const FLAGS: [&str; 4] = [
+            "--quickPlayPath",
+            "--quickPlaySingleplayer",
+            "--quickPlayMultiplayer",
+            "--quickPlayRealms",
+        ];
+        for flag in FLAGS {
+            if value == flag {
+                return Some((flag, None));
+            }
+            if let Some(rest) = value.strip_prefix(flag) {
+                if let Some(inline) = rest.strip_prefix('=') {
+                    return Some((flag, Some(inline)));
+                }
+            }
+        }
+        None
+    }
+    let is_unset_quick_play_value = |value: &str| {
+        let trimmed = value.trim();
+        trimmed.is_empty() || trimmed.starts_with("${quickPlay")
+    };
+
+    let mut cleaned = Vec::with_capacity(args.len());
+    let mut i = 0usize;
+    let mut seen_quick_play = false;
+    while i < args.len() {
+        let current_trimmed = args[i].trim().to_string();
+        if current_trimmed.is_empty() {
+            i += 1;
+            continue;
+        }
+
+        let current = current_trimmed;
+        if let Some((_flag, inline_value)) = parse_quick_play(&current) {
+            if let Some(inline) = inline_value {
+                if seen_quick_play || is_unset_quick_play_value(inline) {
+                    i += 1;
+                    continue;
+                }
+                seen_quick_play = true;
+                cleaned.push(current);
+                i += 1;
+                continue;
+            }
+
+            let next = args.get(i + 1).map(|value| value.trim().to_string());
+            let next_is_flag = next.as_deref().and_then(parse_quick_play).is_some();
+            let drop_pair = next
+                .as_deref()
+                .map(is_unset_quick_play_value)
+                .unwrap_or(true)
+                || next_is_flag
+                || seen_quick_play;
+            if drop_pair {
+                i += if next.is_some() && !next_is_flag {
+                    2
+                } else {
+                    1
+                };
+                continue;
+            }
+            seen_quick_play = true;
+            cleaned.push(current);
+            if let Some(value) = next {
+                cleaned.push(value);
+                i += 2;
+                continue;
+            }
+            i += 1;
+            continue;
+        }
+
+        cleaned.push(current);
+        i += 1;
+    }
+
+    cleaned
+}
+
 fn split_legacy_arguments(value: &str) -> Vec<String> {
     value
         .split_whitespace()
@@ -2306,6 +2388,7 @@ fn build_launch_args_for_profile(
             .map(|item| replace_launch_tokens(item, &replacements))
             .collect::<Vec<_>>()
     };
+    resolved_game = sanitize_game_args(resolved_game);
 
     if !resolved_jvm.iter().any(|item| item.starts_with("-Xms")) {
         resolved_jvm.insert(0, "-Xms1G".to_string());
@@ -2830,6 +2913,49 @@ mod tests {
     use std::process::{Command, Stdio};
     use std::thread;
     use std::time::{Duration, Instant};
+
+    #[test]
+    fn sanitize_game_args_removes_empty_and_duplicate_quick_play_values() {
+        let args = vec![
+            "--username".to_string(),
+            "Player".to_string(),
+            "--quickPlayPath".to_string(),
+            "".to_string(),
+            "--quickPlaySingleplayer".to_string(),
+            "${quickPlaySingleplayer}".to_string(),
+            "--quickPlayMultiplayer".to_string(),
+            "example.net".to_string(),
+            "--quickPlayRealms".to_string(),
+            "realm".to_string(),
+            "   ".to_string(),
+        ];
+
+        let sanitized = sanitize_game_args(args);
+
+        assert!(!sanitized.iter().any(|value| value.trim().is_empty()));
+        assert!(sanitized.contains(&"--quickPlayMultiplayer".to_string()));
+        assert!(sanitized.contains(&"example.net".to_string()));
+        assert!(!sanitized.contains(&"--quickPlayPath".to_string()));
+        assert!(!sanitized.contains(&"--quickPlaySingleplayer".to_string()));
+        assert!(!sanitized.contains(&"--quickPlayRealms".to_string()));
+    }
+
+    #[test]
+    fn sanitize_game_args_handles_inline_quick_play_values() {
+        let args = vec![
+            "--quickPlayPath=".to_string(),
+            "--quickPlaySingleplayer=WorldA".to_string(),
+            "--quickPlayMultiplayer=example.org".to_string(),
+            "--demo".to_string(),
+        ];
+
+        let sanitized = sanitize_game_args(args);
+
+        assert!(sanitized.contains(&"--quickPlaySingleplayer=WorldA".to_string()));
+        assert!(!sanitized.contains(&"--quickPlayPath=".to_string()));
+        assert!(!sanitized.contains(&"--quickPlayMultiplayer=example.org".to_string()));
+        assert!(sanitized.contains(&"--demo".to_string()));
+    }
 
     #[test]
     fn asset_object_destination_uses_hash_prefix() {
