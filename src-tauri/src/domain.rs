@@ -135,6 +135,25 @@ pub struct DeployServerResponse {
     pub status: String,
     pub host: String,
     pub port: u16,
+    pub version: String,
+    pub server_type: String,
+    pub ram_gb: u8,
+    pub running: bool,
+    pub players_online: u16,
+    pub max_players: u16,
+    pub join_code: String,
+    pub runtime_mode: String,
+    pub idle_shutdown_enabled: bool,
+    pub idle_shutdown_minutes: u16,
+    pub idle_shutdown_seconds_remaining: Option<u64>,
+    pub shutdown_warning_active: bool,
+    pub shutdown_warning_seconds_remaining: Option<u64>,
+    pub local_address: String,
+    pub lan_address: Option<String>,
+    pub public_address: Option<String>,
+    pub public_subdomain: Option<String>,
+    pub last_started_at_epoch: Option<u64>,
+    pub last_stopped_at_epoch: Option<u64>,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -268,6 +287,67 @@ pub struct OpenExternalUrlResponse {
 
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct UpdateMinecraftSkinRequest {
+    pub profile_id: String,
+    pub image_base64: String,
+    #[serde(default)]
+    pub variant: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct UpdateMinecraftSkinResponse {
+    pub profile_id: String,
+    pub variant: String,
+    pub status: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GetMinecraftSkinStatusRequest {
+    pub profile_id: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MinecraftSkinHistoryEntry {
+    pub url: String,
+    pub variant: String,
+    pub captured_at_epoch: u64,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GetMinecraftSkinStatusResponse {
+    pub profile_id: String,
+    pub player_name: String,
+    pub skin_url: Option<String>,
+    pub cape_url: Option<String>,
+    pub variant: Option<String>,
+    pub history: Vec<MinecraftSkinHistoryEntry>,
+    pub status: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RollbackMinecraftSkinRequest {
+    pub profile_id: String,
+    #[serde(default)]
+    pub history_index: Option<usize>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RollbackMinecraftSkinResponse {
+    pub profile_id: String,
+    pub player_name: String,
+    pub skin_url: String,
+    pub variant: String,
+    pub status: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct InstallBrowseItemRequest {
     pub instance_name: String,
     #[serde(default)]
@@ -308,6 +388,27 @@ pub struct RemoveInstanceFileResponse {
     pub file_name: String,
     pub path: String,
     pub status: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SetInstanceFileEnabledRequest {
+    pub instance_name: String,
+    #[serde(default)]
+    pub target: Option<String>,
+    pub file_name: String,
+    pub enabled: bool,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SetInstanceFileEnabledResponse {
+    pub instance_name: String,
+    pub target: String,
+    pub file_name: String,
+    pub path: String,
+    pub status: String,
+    pub enabled: bool,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -353,12 +454,252 @@ pub struct ListInstanceFilesResponse {
 
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct ListInstanceDirectoryEntriesRequest {
+    pub instance_name: String,
+    #[serde(default)]
+    pub target: Option<String>,
+    #[serde(default)]
+    pub include_files: Option<bool>,
+    #[serde(default)]
+    pub include_directories: Option<bool>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct InstanceDirectoryEntry {
+    pub name: String,
+    pub is_directory: bool,
+    pub size_bytes: u64,
+    pub modified_at_epoch: Option<u64>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ListInstanceDirectoryEntriesResponse {
+    pub instance_name: String,
+    pub target: String,
+    pub path: String,
+    pub entries: Vec<InstanceDirectoryEntry>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ListInstanceWorldsRequest {
+    pub instance_name: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct InstanceWorldSummary {
+    pub world_name: String,
+    pub display_name: Option<String>,
+    pub path: String,
+    pub size_bytes: u64,
+    pub last_played_epoch: Option<u64>,
+    pub game_mode: Option<String>,
+    pub difficulty: Option<String>,
+    pub seed: Option<String>,
+    pub playtime_minutes: Option<u64>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ListInstanceWorldsResponse {
+    pub instance_name: String,
+    pub worlds_root: String,
+    pub running: bool,
+    pub worlds: Vec<InstanceWorldSummary>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GetInstanceWorldDetailsRequest {
+    pub instance_name: String,
+    pub world_name: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct InstanceWorldDetailsResponse {
+    pub instance_name: String,
+    pub world_name: String,
+    pub path: String,
+    pub running: bool,
+    pub level_name: Option<String>,
+    pub size_bytes: u64,
+    pub last_played_epoch: Option<u64>,
+    pub game_mode: Option<String>,
+    pub difficulty: Option<String>,
+    pub seed: Option<String>,
+    pub playtime_minutes: Option<u64>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ListWorldPlayersRequest {
+    pub instance_name: String,
+    pub world_name: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct WorldPlayerSummary {
+    pub player_uuid: String,
+    pub path: String,
+    pub modified_at_epoch: Option<u64>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ListWorldPlayersResponse {
+    pub instance_name: String,
+    pub world_name: String,
+    pub running: bool,
+    pub players: Vec<WorldPlayerSummary>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GetWorldPlayerInventoryRequest {
+    pub instance_name: String,
+    pub world_name: String,
+    pub player_uuid: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct WorldInventoryItem {
+    pub slot: i32,
+    pub item_id: String,
+    pub display_name: String,
+    pub count: u32,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct WorldPlayerInventoryResponse {
+    pub instance_name: String,
+    pub world_name: String,
+    pub player_uuid: String,
+    pub running: bool,
+    pub health: Option<f32>,
+    pub food_level: Option<i32>,
+    pub xp_level: Option<i32>,
+    pub position: Option<Vec<f64>>,
+    pub hotbar: Vec<WorldInventoryItem>,
+    pub inventory: Vec<WorldInventoryItem>,
+    pub armor: Vec<WorldInventoryItem>,
+    pub offhand: Vec<WorldInventoryItem>,
+    pub ender_chest: Vec<WorldInventoryItem>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ResolveItemTextureRequest {
+    pub item_id: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ResolveItemTextureResponse {
+    pub item_id: String,
+    pub data_uri: Option<String>,
+    pub from_cache: bool,
+    pub source_url: Option<String>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct DeployServerRequest {
     pub name: String,
     pub version: String,
     pub server_type: String,
     pub ram_gb: u8,
     pub host: String,
+    #[serde(default)]
+    pub port: Option<u16>,
+    #[serde(default)]
+    pub max_players: Option<u16>,
+    #[serde(default)]
+    pub motd: Option<String>,
+    #[serde(default)]
+    pub runtime_mode: Option<String>,
+    #[serde(default)]
+    pub idle_shutdown_enabled: Option<bool>,
+    #[serde(default)]
+    pub idle_shutdown_minutes: Option<u16>,
+    #[serde(default)]
+    pub public_subdomain: Option<String>,
+    #[serde(default)]
+    pub public_address: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ServerRecommendation {
+    pub server_type: String,
+    pub ram_gb: u8,
+    pub players: String,
+    pub plugins: String,
+    pub mods: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AnalyzePcResponse {
+    pub cpu_cores: u16,
+    pub total_ram_gb: u16,
+    pub disk_total_gb: u64,
+    pub disk_free_gb: u64,
+    pub java_detected: bool,
+    pub java_version: Option<String>,
+    pub recommended: ServerRecommendation,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct DeploymentControlRequest {
+    pub deployment_id: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SetDeploymentPlayersRequest {
+    pub deployment_id: String,
+    pub players_online: u16,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ResolveJoinCodeRequest {
+    pub join_code: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ResolveJoinCodeResponse {
+    pub deployment_id: String,
+    pub name: String,
+    pub host: String,
+    pub port: u16,
+    pub local_address: String,
+    pub lan_address: Option<String>,
+    pub public_address: Option<String>,
+    pub public_subdomain: Option<String>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OpenDeploymentDirectoryRequest {
+    pub deployment_id: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OpenDeploymentDirectoryResponse {
+    pub deployment_id: String,
+    pub path: String,
+    pub status: String,
 }
 
 #[derive(Debug, Clone, Deserialize)]

@@ -1,5 +1,7 @@
 use std::collections::HashMap;
 use std::env;
+use std::fs;
+use std::path::PathBuf;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::{Mutex, OnceLock};
 use std::time::Duration;
@@ -1224,32 +1226,182 @@ fn keyring_entry(profile_id: &str) -> Result<Entry, String> {
         .map_err(|err| format!("failed to initialize keyring entry: {}", err))
 }
 
+fn sanitize_token_file_name(profile_id: &str) -> String {
+    let raw = profile_id.trim();
+    let mut value = String::new();
+    for ch in raw.chars() {
+        if ch.is_ascii_alphanumeric() || ch == '-' || ch == '_' || ch == '.' {
+            value.push(ch);
+        } else {
+            value.push('_');
+        }
+    }
+    if value.is_empty() {
+        "default".to_string()
+    } else {
+        value
+    }
+}
+
+fn fallback_token_path(profile_id: &str) -> Option<PathBuf> {
+    let appdata = env::var("APPDATA").ok().filter(|value| !value.trim().is_empty());
+    let home = env::var("HOME").ok().filter(|value| !value.trim().is_empty());
+    let mut base = if let Some(path) = appdata {
+        PathBuf::from(path)
+    } else if let Some(path) = home {
+        PathBuf::from(path).join(".config")
+    } else {
+        return None;
+    };
+
+    base = base.join("com.orbiq.launcher").join("auth").join("tokens");
+    Some(base.join(format!(
+        "{}.json",
+        sanitize_token_file_name(profile_id)
+    )))
+}
+
+fn write_fallback_token(profile_id: &str, payload: &str) -> Result<(), String> {
+    let Some(path) = fallback_token_path(profile_id) else {
+        return Err("fallback token path is unavailable".to_string());
+    };
+    if let Some(parent) = path.parent() {
+        fs::create_dir_all(parent)
+            .map_err(|err| format!("failed to create fallback token directory: {}", err))?;
+    }
+    fs::write(&path, payload)
+        .map_err(|err| format!("failed to write fallback token file '{}': {}", path.display(), err))
+}
+
+fn read_fallback_token(profile_id: &str) -> Result<Option<String>, String> {
+    let Some(path) = fallback_token_path(profile_id) else {
+        return Ok(None);
+    };
+    if !path.exists() {
+        return Ok(None);
+    }
+    let raw = fs::read_to_string(&path)
+        .map_err(|err| format!("failed to read fallback token file '{}': {}", path.display(), err))?;
+    if raw.trim().is_empty() {
+        return Ok(None);
+    }
+    Ok(Some(raw))
+}
+
+fn clear_fallback_token(profile_id: &str) -> Result<(), String> {
+    let Some(path) = fallback_token_path(profile_id) else {
+        return Ok(());
+    };
+    if !path.exists() {
+        return Ok(());
+    }
+    fs::remove_file(&path)
+        .map_err(|err| format!("failed to delete fallback token file '{}': {}", path.display(), err))
+}
+
 pub fn store_microsoft_token(profile_id: &str, token: &MicrosoftTokenRecord) -> Result<(), String> {
-    let entry = keyring_entry(profile_id)?;
     let payload = serde_json::to_string(token)
         .map_err(|err| format!("failed to serialize token payload: {}", err))?;
-    entry
-        .set_password(&payload)
-        .map_err(|err| format!("failed to save token in keyring: {}", err))
+
+    let keyring_result = match keyring_entry(profile_id) {
+        Ok(entry) => entry
+            .set_password(&payload)
+            .map_err(|err| format!("failed to save token in keyring: {}", err)),
+        Err(err) => Err(err),
+    };
+    let fallback_result = write_fallback_token(profile_id, &payload);
+
+    if keyring_result.is_ok() || fallback_result.is_ok() {
+        if let Err(err) = &keyring_result {
+            eprintln!("[auth] keyring store warning for '{}': {}", profile_id, err);
+        }
+        if let Err(err) = &fallback_result {
+            eprintln!("[auth] fallback token store warning for '{}': {}", profile_id, err);
+        }
+        return Ok(());
+    }
+
+    Err(format!(
+        "{}; {}",
+        keyring_result
+            .err()
+            .unwrap_or_else(|| "keyring store failed".to_string()),
+        fallback_result
+            .err()
+            .unwrap_or_else(|| "fallback token store failed".to_string())
+    ))
 }
 
 pub fn load_microsoft_token(profile_id: &str) -> Result<Option<MicrosoftTokenRecord>, String> {
-    let entry = keyring_entry(profile_id)?;
-    match entry.get_password() {
-        Ok(value) => serde_json::from_str::<MicrosoftTokenRecord>(&value)
-            .map(Some)
-            .map_err(|err| format!("failed to parse token from keyring: {}", err)),
-        Err(keyring::Error::NoEntry) => Ok(None),
-        Err(err) => Err(format!("failed to read token from keyring: {}", err)),
+    match keyring_entry(profile_id) {
+        Ok(entry) => match entry.get_password() {
+            Ok(value) => {
+                return serde_json::from_str::<MicrosoftTokenRecord>(&value)
+                    .map(Some)
+                    .map_err(|err| format!("failed to parse token from keyring: {}", err));
+            }
+            Err(keyring::Error::NoEntry) => {}
+            Err(err) => {
+                eprintln!(
+                    "[auth] keyring read warning for '{}': {}",
+                    profile_id, err
+                );
+            }
+        },
+        Err(err) => {
+            eprintln!(
+                "[auth] keyring init warning for '{}': {}",
+                profile_id, err
+            );
+        }
     }
+
+    let fallback_raw = match read_fallback_token(profile_id) {
+        Ok(value) => value,
+        Err(err) => {
+            eprintln!(
+                "[auth] fallback token read warning for '{}': {}",
+                profile_id, err
+            );
+            None
+        }
+    };
+
+    if let Some(raw) = fallback_raw {
+        let parsed = serde_json::from_str::<MicrosoftTokenRecord>(&raw)
+            .map_err(|err| format!("failed to parse token from fallback store: {}", err))?;
+        if let Ok(entry) = keyring_entry(profile_id) {
+            let _ = entry.set_password(&raw);
+        }
+        return Ok(Some(parsed));
+    }
+
+    Ok(None)
 }
 
 pub fn clear_microsoft_token(profile_id: &str) -> Result<(), String> {
-    let entry = keyring_entry(profile_id)?;
-    match entry.delete_credential() {
-        Ok(()) | Err(keyring::Error::NoEntry) => Ok(()),
-        Err(err) => Err(format!("failed to clear token from keyring: {}", err)),
+    let keyring_result = match keyring_entry(profile_id) {
+        Ok(entry) => match entry.delete_credential() {
+            Ok(()) | Err(keyring::Error::NoEntry) => Ok(()),
+            Err(err) => Err(format!("failed to clear token from keyring: {}", err)),
+        },
+        Err(err) => Err(err),
+    };
+    let fallback_result = clear_fallback_token(profile_id);
+
+    if keyring_result.is_ok() || fallback_result.is_ok() {
+        return Ok(());
     }
+
+    Err(format!(
+        "{}; {}",
+        keyring_result
+            .err()
+            .unwrap_or_else(|| "keyring clear failed".to_string()),
+        fallback_result
+            .err()
+            .unwrap_or_else(|| "fallback clear failed".to_string())
+    ))
 }
 
 pub fn refresh_microsoft_token(profile_id: &str) -> Result<MicrosoftTokenRecord, String> {

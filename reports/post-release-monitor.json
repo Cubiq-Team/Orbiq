@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-03-11T05:47:57.538Z",
+  "status": "ok",
+  "files": [
+    "C:\\Users\\Moroodol\\Downloads\\ORBIQMCL\\forge-1.20.1-47.4.10-installer.jar.log",
+    "C:\\Users\\Moroodol\\Downloads\\ORBIQMCL\\forge-1.21.11-61.1.0-installer.jar.log",
+    "C:\\Users\\Moroodol\\Downloads\\ORBIQMCL\\smoke_launch.log",
+    "C:\\Users\\Moroodol\\Downloads\\ORBIQMCL\\tauri_dev.log",
+    "C:\\Users\\Moroodol\\Downloads\\ORBIQMCL\\tauri_dev_fresh.log",
+    "C:\\Users\\Moroodol\\Downloads\\ORBIQMCL\\tauri_dev_new.log",
+    "C:\\Users\\Moroodol\\Downloads\\ORBIQMCL\\tauri_live.log",
+    "C:\\Users\\Moroodol\\Downloads\\ORBIQMCL\\tauri_live_dbg.log"
+  ],
+  "thresholds": {
+    "maxAuth": null,
+    "maxProvision": null,
+    "maxLaunch": null,
+    "maxInstall": null
+  },
+  "summary": {
+    "scannedFiles": 8,
+    "linesRead": 96743,
+    "backendFailures": 0,
+    "authFailures": 0,
+    "provisionFailures": 0,
+    "launchFailures": 0,
+    "installFailures": 0,
+    "otherFailures": 0,
+    "topCodes": [],
+    "sampleFailures": []
+  },
+  "violations": []
+}

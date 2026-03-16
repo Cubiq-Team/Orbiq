@@ -236,6 +236,8 @@ struct LaunchRule {
     action: String,
     #[serde(default)]
     os: Option<LaunchRuleOs>,
+    #[serde(default)]
+    features: HashMap<String, bool>,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -1312,10 +1314,11 @@ fn parse_launch_argument_value(items: &[String], key: &str) -> Option<String> {
 }
 
 fn parse_forge_mcp_runtime_id(profile: &LaunchVersionProfile) -> Option<String> {
+    let feature_flags = default_launch_feature_flags();
     let game_args = profile
         .arguments
         .as_ref()
-        .map(|arguments| evaluate_launch_arguments(&arguments.game))
+        .map(|arguments| evaluate_launch_arguments(&arguments.game, &feature_flags))
         .unwrap_or_default();
     let mcp = parse_launch_argument_value(&game_args, "--fml.mcpVersion")?;
     let mc_version = parse_launch_argument_value(&game_args, "--fml.mcVersion")
@@ -2011,7 +2014,7 @@ fn resolve_loader_profile(
     }
 }
 
-fn evaluate_rule_applies(rule: &LaunchRule) -> bool {
+fn evaluate_rule_applies(rule: &LaunchRule, feature_flags: &HashMap<String, bool>) -> bool {
     if let Some(os) = rule.os.as_ref() {
         if let Some(name) = os.name.as_ref() {
             let expected = name.trim().to_ascii_lowercase();
@@ -2026,16 +2029,22 @@ fn evaluate_rule_applies(rule: &LaunchRule) -> bool {
             }
         }
     }
+    for (feature_name, expected_value) in &rule.features {
+        let actual_value = feature_flags.get(feature_name).copied().unwrap_or(false);
+        if actual_value != *expected_value {
+            return false;
+        }
+    }
     true
 }
 
-fn should_use_conditional_arg(rules: &[LaunchRule]) -> bool {
+fn should_use_conditional_arg(rules: &[LaunchRule], feature_flags: &HashMap<String, bool>) -> bool {
     if rules.is_empty() {
         return true;
     }
     let mut allowed = false;
     for rule in rules {
-        if !evaluate_rule_applies(rule) {
+        if !evaluate_rule_applies(rule, feature_flags) {
             continue;
         }
         let action = rule.action.trim().to_ascii_lowercase();
@@ -2055,13 +2064,16 @@ fn flatten_conditional_values(value: &serde_json::Value) -> Vec<String> {
     }
 }
 
-fn evaluate_launch_arguments(items: &[LaunchArgument]) -> Vec<String> {
+fn evaluate_launch_arguments(
+    items: &[LaunchArgument],
+    feature_flags: &HashMap<String, bool>,
+) -> Vec<String> {
     let mut resolved = Vec::new();
     for item in items {
         match item {
             LaunchArgument::Text(value) => resolved.push(value.clone()),
             LaunchArgument::Conditional(value) => {
-                if !should_use_conditional_arg(&value.rules) {
+                if !should_use_conditional_arg(&value.rules, feature_flags) {
                     continue;
                 }
                 resolved.extend(flatten_conditional_values(&value.value));
@@ -2208,6 +2220,17 @@ fn split_legacy_arguments(value: &str) -> Vec<String> {
         .collect()
 }
 
+fn default_launch_feature_flags() -> HashMap<String, bool> {
+    HashMap::from([
+        ("is_demo_user".to_string(), false),
+        ("has_custom_resolution".to_string(), false),
+        ("has_quick_plays_support".to_string(), false),
+        ("is_quick_play_singleplayer".to_string(), false),
+        ("is_quick_play_multiplayer".to_string(), false),
+        ("is_quick_play_realms".to_string(), false),
+    ])
+}
+
 fn default_game_args(version_id: &str, assets_index: &str) -> Vec<String> {
     vec![
         "--username".to_string(),
@@ -2248,6 +2271,7 @@ fn build_launch_args_for_profile(
     let mut libraries = Vec::<LaunchVersionLibrary>::new();
     let mut library_indices = HashMap::<String, usize>::new();
     let mut classpath_entries = Vec::<String>::new();
+    let feature_flags = default_launch_feature_flags();
 
     for profile in &chain {
         if let Some(value) = profile.main_class.as_ref() {
@@ -2265,8 +2289,8 @@ fn build_launch_args_for_profile(
             legacy_args = Some(value.clone());
         }
         if let Some(arguments) = profile.arguments.as_ref() {
-            jvm_args.extend(evaluate_launch_arguments(&arguments.jvm));
-            game_args.extend(evaluate_launch_arguments(&arguments.game));
+            jvm_args.extend(evaluate_launch_arguments(&arguments.jvm, &feature_flags));
+            game_args.extend(evaluate_launch_arguments(&arguments.game, &feature_flags));
         }
         for library in &profile.libraries {
             let key = library_identity_key(library);
@@ -2955,6 +2979,22 @@ mod tests {
         assert!(!sanitized.contains(&"--quickPlayPath=".to_string()));
         assert!(!sanitized.contains(&"--quickPlayMultiplayer=example.org".to_string()));
         assert!(sanitized.contains(&"--demo".to_string()));
+    }
+
+    #[test]
+    fn evaluate_launch_arguments_ignores_demo_flag_when_not_demo_user() {
+        let items = vec![LaunchArgument::Conditional(ConditionalLaunchArgument {
+            value: serde_json::Value::String("--demo".to_string()),
+            rules: vec![LaunchRule {
+                action: "allow".to_string(),
+                os: None,
+                features: HashMap::from([("is_demo_user".to_string(), true)]),
+            }],
+        })];
+
+        let flags = default_launch_feature_flags();
+        let resolved = evaluate_launch_arguments(&items, &flags);
+        assert!(!resolved.contains(&"--demo".to_string()));
     }
 
     #[test]

@@ -199,16 +199,34 @@ const MODALS = {
         <div style="font-size:12px;font-family:var(--mono);color:var(--t3);margin-bottom:14px;line-height:1.7">
           Linking your Microsoft account lets you play on <strong style="color:var(--t2)">official servers</strong> using your purchased Minecraft license.
         </div>
-        <div style="width:80px;height:80px;background:var(--s2);border:1px solid var(--b2);border-radius:12px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center"><i data-lucide="shield-check" width="44" height="44" style="color:var(--t3)"></i></div>
+        <div style="width:80px;height:80px;background:var(--s2);border:1px solid var(--b2);border-radius:12px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <img id="ms-device-hero-qr-image" alt="Microsoft QR" src="" style="width:100%;height:100%;object-fit:cover;display:none">
+          <div id="ms-device-hero-qr-fallback" style="display:flex;align-items:center;justify-content:center;color:var(--t3);width:100%;height:100%"><i data-lucide="qr-code" width="44" height="44"></i></div>
+        </div>
         <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4)">Secure browser sign-in</div>
+      </div>
+      <div class="ms-device-mini-card">
+        <div class="ms-device-mini-row">
+          <span class="ms-device-mini-label">Link</span>
+          <a id="ms-device-link-url" class="ms-device-mini-link" href="https://www.microsoft.com/link" target="_blank" rel="noreferrer noopener">https://www.microsoft.com/link</a>
+          <button class="btn btn-ghost ms-device-mini-action" onclick="openMicrosoftDeviceLinkOnly()"><i data-lucide="external-link" width="11" height="11"></i>Open</button>
+        </div>
+        <div class="ms-device-mini-row">
+          <span class="ms-device-mini-label">Code</span>
+          <span id="ms-device-user-code" class="ms-device-mini-code">--------</span>
+          <button class="btn btn-ghost ms-device-mini-action" onclick="copyMicrosoftDeviceCode(true)"><i data-lucide="copy" width="11" height="11"></i>Copy</button>
+        </div>
+        <div class="ms-device-mini-steps">1) Open link 2) Enter code 3) Approve and return to launcher</div>
       </div>
       <button class="btn-ms" onclick="startMicrosoftLoginFlow()">
         <div class="ms-grid" style="width:14px;height:14px;"><div style="background:#fff;border-radius:1px"></div><div style="background:#fff;border-radius:1px"></div><div style="background:#fff;border-radius:1px"></div><div style="background:#fff;border-radius:1px"></div></div>
-        Continue with Microsoft
+        Open Link and Copy Code
       </button>
       <div id="ms-device-status" style="font-size:11px;font-family:var(--mono);color:var(--t4);margin-top:9px;text-align:center"></div>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-ghost" onclick="refreshMicrosoftDeviceCodeFlow(true)"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh Code</button></div>`,
+
+  'ms-login': () => MODALS['link-microsoft'](),
 
   'add-offline-profile': () => `
     <div class="mh">
@@ -233,7 +251,7 @@ const MODALS = {
       </div>
       <div>
         <div class="label" style="margin-bottom:4px">UUID (auto-generated)</div>
-        <div class="uuid-preview" id="offline-uuid-preview">ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" enter a username ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?"</div>
+        <div class="uuid-preview" id="offline-uuid-preview">Type a username to generate UUID</div>
       </div>
     </div>
     <div class="mf">
@@ -324,7 +342,7 @@ const MODALS = {
     </div>
     <div class="mh">
       <i data-lucide="user" class="mh-icon" width="16" height="16"></i>
-      <span class="mh-title">Dream ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Microsoft</span>
+      <span class="mh-title">Dream - Microsoft</span>
       <button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button>
     </div>
     <div class="mb">
@@ -352,7 +370,7 @@ const MODALS = {
       </div>
     </div>
     <div class="mf" style="justify-content:space-between">
-      <button class="btn btn-danger" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"-','Unlinked','Microsoft account removed')">
+      <button class="btn btn-danger" onclick="closeModal();showToast('OK','Unlinked','Microsoft account removed')">
         <i data-lucide="unlink" width="12" height="12"></i>Unlink
       </button>
       <button class="btn btn-primary" onclick="closeModal()">Done</button>
@@ -361,7 +379,7 @@ const MODALS = {
   'offline-profile-detail': () => `
     <div class="mh">
       <i data-lucide="user" class="mh-icon" width="16" height="16"></i>
-      <span class="mh-title">Batbold ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Offline Profile</span>
+      <span class="mh-title">Batbold - Offline Profile</span>
       <button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button>
     </div>
     <div class="mb">
@@ -378,7 +396,7 @@ const MODALS = {
       <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;overflow:hidden;margin-bottom:12px">
         <div class="info-row"><span class="info-key">Type</span><span class="info-val">Offline / Cracked</span></div>
         <div class="info-row"><span class="info-key">Servers</span><span class="info-val">Cracked only</span></div>
-        <div class="info-row"><span class="info-key">UUID</span><span class="info-val dim" style="font-size:9.5px">3f7a2b4c-1d8e-4f9aÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½</span></div>
+        <div class="info-row"><span class="info-key">UUID</span><span class="info-val dim" style="font-size:9.5px">3f7a2b4c-1d8e-4f9a-8a1e-2f4b8c9d7a10</span></div>
         <div class="info-row"><span class="info-key">Created</span><span class="info-val">Jan 12, 2025</span></div>
       </div>
       <div style="background:rgba(180,120,0,0.05);border:1px solid rgba(180,120,0,0.12);border-radius:8px;padding:9px 12px;display:flex;gap:8px;align-items:flex-start">
@@ -387,19 +405,19 @@ const MODALS = {
       </div>
     </div>
     <div class="mf" style="justify-content:space-between">
-      <button class="btn btn-danger" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y-'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','Removed','Offline profile deleted')">
+      <button class="btn btn-danger" onclick="closeModal();showToast('OK','Removed','Offline profile deleted')">
         <i data-lucide="trash-2" width="12" height="12"></i>Delete
       </button>
       <div style="display:flex;gap:6px">
         <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-        <button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o.','Active','Batbold is now the active profile')">Set Active</button>
+        <button class="btn btn-primary" onclick="closeModal();showToast('OK','Active','Batbold is now the active profile')">Set Active</button>
       </div>
     </div>`,
 
   'profile-select-launch': () => `
     <div class="mh">
       <i data-lucide="play" class="mh-icon" width="16" height="16"></i>
-      <span class="mh-title">Launch ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Choose Profile</span>
+      <span class="mh-title">Launch - Choose Profile</span>
       <button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button>
     </div>
     <div class="mb">
@@ -409,11 +427,11 @@ const MODALS = {
       <div class="profile-select-list">
         <div class="profile-select-item selected ms-type" onclick="selectLaunchProfile(this)">
           <div class="ps-avatar">
-            <img src="https://mc-heads.net/avatar/Dream/64" onerror="this.parentNode.innerHTML='ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y~Z'" style="width:100%;image-rendering:pixelated">
+            <img src="https://mc-heads.net/avatar/Dream/64" onerror="this.parentNode.innerHTML='?'" style="width:100%;image-rendering:pixelated">
           </div>
           <div style="flex:1">
             <div class="ps-name">Dream</div>
-            <div class="ps-desc">Microsoft Ãƒâ€šÃ‚Â· Official servers ÃƒÂ¯Ã‚Â¿Ã‚Â½o"</div>
+            <div class="ps-desc">Microsoft - Official servers</div>
           </div>
           <div class="ps-tag ms">
             <div class="ms-grid" style="width:10px;height:10px;margin-right:5px;display:inline-grid;gap:1px"><div style="background:#f25022;border-radius:0.5px"></div><div style="background:#7fba00;border-radius:0.5px"></div><div style="background:#00a4ef;border-radius:0.5px"></div><div style="background:#ffb900;border-radius:0.5px"></div></div>
@@ -424,7 +442,7 @@ const MODALS = {
           <div class="ps-avatar offline-av" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="user" width="18" height="18" style="color:var(--t3)"></i></div>
           <div style="flex:1">
             <div class="ps-name">Batbold</div>
-            <div class="ps-desc">Offline Ãƒâ€šÃ‚Â· Cracked servers only</div>
+            <div class="ps-desc">Offline - Cracked servers only</div>
           </div>
           <div class="ps-tag off">Offline</div>
         </div>
@@ -432,7 +450,7 @@ const MODALS = {
           <div class="ps-avatar offline-av" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="gamepad-2" width="18" height="18" style="color:var(--t3)"></i></div>
           <div style="flex:1">
             <div class="ps-name">ProGamer</div>
-            <div class="ps-desc">Offline Ãƒâ€šÃ‚Â· Cracked servers only</div>
+            <div class="ps-desc">Offline - Cracked servers only</div>
           </div>
           <div class="ps-tag off">Offline</div>
         </div>
@@ -470,9 +488,12 @@ const MODALS = {
       </div>
       <div class="field"><div class="label">Loader</div><select class="select" id="add-inst-loader"><option>Vanilla</option><option>Fabric</option><option>Forge</option><option>NeoForge</option><option>Quilt</option></select></div>
       <div class="field"><div class="label">Minecraft Version</div><select class="select" id="add-inst-version"><option>Loading versions...</option></select></div>
+      <div style="display:flex;justify-content:flex-end;margin:-6px 0 8px">
+        <button class="btn btn-ghost" style="height:26px;padding:0 10px;font-size:10px" onclick="openVersionSelectorFromAddInstance()"><i data-lucide="tag" width="11" height="11"></i>Version List</button>
+      </div>
       <div class="field"><div class="label">Loader Version</div><select class="select" id="add-inst-loader-version"><option value="">Auto (latest)</option></select></div>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="createInstanceFromModal()">Create</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="openModal('import')"><i data-lucide="package-open" width="12" height="12"></i>Import</button><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="createInstanceFromModal()">Create</button></div>`,
 
   'edit-instance': () => `
     <div class="mh"><i data-lucide="pencil" class="mh-icon" width="16" height="16"></i><span class="mh-title" id="edit-modal-title">Edit - Instance</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
@@ -498,7 +519,7 @@ const MODALS = {
       <div class="field"><div class="label">Working Directory</div><input class="input" id="edit-launch-wd" placeholder="e.g. C:\\Minecraft\\Instances\\MyInstance"></div>
       <div class="field"><div class="label">JVM Preset</div>
         <div class="preset-grid">
-          ${[['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½sÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Vanilla','Balanced'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½<ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','Heavy','Max perf'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Stream','Low RAM']].map(([e,n,d],i)=>`<div class="preset-card${i===0?' sel':''}" onclick="document.querySelectorAll('.preset-card').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')"><div class="preset-icon">${e}</div><div class="preset-name">${n}</div><div class="preset-desc">${d}</div></div>`).join('')}
+          ${[['VL','Vanilla','Balanced'],['HV','Heavy','Max perf'],['ST','Stream','Low RAM']].map(([e,n,d],i)=>`<div class="preset-card${i===0?' sel':''}" onclick="document.querySelectorAll('.preset-card').forEach(c=>c.classList.remove('sel'));this.classList.add('sel')"><div class="preset-icon">${e}</div><div class="preset-name">${n}</div><div class="preset-desc">${d}</div></div>`).join('')}
         </div>
       </div>
       <label class="check-row"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Use global Java settings</span></label>
@@ -559,19 +580,22 @@ const MODALS = {
   'launch-progress': () => `
     <div class="mh"><i data-lucide="loader" class="mh-icon spin" width="16" height="16"></i><span class="mh-title">Launching ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      <div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Downloading assetsÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½</span><span style="font-size:11px;font-family:var(--mono);color:var(--t3)">68%</span></div><div class="prog-track"><div class="prog-fill" style="width:68%"></div></div></div>
-      <div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Libraries</span><span style="font-size:11px;font-family:var(--mono);color:var(--green)">Done ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o"</span></div><div class="prog-track"><div class="prog-fill" style="width:100%"></div></div></div>
-      <div><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Java runtime</span><span style="font-size:11px;font-family:var(--mono);color:var(--green)">Done ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o"</span></div><div class="prog-track"><div class="prog-fill" style="width:100%"></div></div></div>
+      <div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Downloading assets...</span><span style="font-size:11px;font-family:var(--mono);color:var(--t3)">68%</span></div><div class="prog-track"><div class="prog-fill" style="width:68%"></div></div></div>
+      <div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Libraries</span><span style="font-size:11px;font-family:var(--mono);color:var(--green)">Done</span></div><div class="prog-track"><div class="prog-fill" style="width:100%"></div></div></div>
+      <div><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:11px;font-family:var(--mono);color:var(--t2)">Java runtime</span><span style="font-size:11px;font-family:var(--mono);color:var(--green)">Done</span></div><div class="prog-track"><div class="prog-fill" style="width:100%"></div></div></div>
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button></div>`,
 
   'manage-mods': () => `
     <div class="mh"><i data-lucide="puzzle" class="mh-icon" width="16" height="16"></i><span class="mh-title">Installed Items - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      <div id="manage-mods-list" class="ver-list" style="max-height:280px"></div>
+      <div id="manage-mods-list" class="manage-mods-list"></div>
       <div id="manage-mods-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)"></div>
     </div>
     <div class="mf">
+      <button class="btn btn-ghost" onclick="openModal('resource-packs')"><i data-lucide="image" width="12" height="12"></i>Packs</button>
+      <button class="btn btn-ghost" onclick="openModal('shader-packs')"><i data-lucide="sun" width="12" height="12"></i>Shaders</button>
+      <button class="btn btn-ghost" onclick="openModal('mod-updates')"><i data-lucide="refresh-cw" width="12" height="12"></i>Updates</button>
       <button class="btn btn-ghost" id="manage-mods-install-missing" onclick="installMissingTrackedFromModal()"><i data-lucide="wrench" width="12" height="12"></i>Install Missing</button>
       <button class="btn btn-ghost" onclick="openManagedModsBrowseInstall()"><i data-lucide="plus" width="12" height="12"></i>Install</button>
       <button class="btn btn-ghost" onclick="refreshManagedModsModal()"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button>
@@ -627,16 +651,91 @@ const MODALS = {
     </div>`,
 
   'skin-manager': () => `
-    <div class="mh"><i data-lucide="user" class="mh-icon" width="16" height="16"></i><span class="mh-title">Skin ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Dream</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
-    <div class="mb" style="display:flex;gap:14px;align-items:flex-start">
-      <div style="width:60px;height:84px;background:var(--s2);border:1px solid var(--b2);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden"><img src="https://mc-heads.net/body/Dream/64" style="height:82px;image-rendering:pixelated" onerror="this.style.display='none'"></div>
-      <div style="flex:1">
-        <div class="field"><div class="label">Model</div><select class="select"><option>Classic (Steve)</option><option>Slim (Alex)</option></select></div>
-        <div class="field"><div class="label">Cape</div><select class="select"><option>None</option><option>Migrator Cape</option></select></div>
-        <div class="dropzone" style="padding:10px"><i data-lucide="upload" width="16" height="16"></i><span style="font-size:10.5px;font-family:var(--mono)">Drop .png skin file</span></div>
+    <div class="mh"><i data-lucide="user" class="mh-icon" width="16" height="16"></i><span class="mh-title" id="skin-manager-title">Skin</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb skin-manager-body" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="skin-manager-left-pane" style="width:332px;flex-shrink:0">
+        <div class="field" style="margin-bottom:10px">
+          <div class="label">Skin Manager</div>
+          <div class="skin-action-grid">
+            <button class="skin-action-btn" onclick="triggerSkinFilePicker()"><i data-lucide="upload" width="13" height="13"></i>Upload Skin</button>
+            <button class="skin-action-btn" onclick="importSkinFromUsername()"><i data-lucide="at-sign" width="13" height="13"></i>Import Username</button>
+            <button class="skin-action-btn" onclick="browseSkinCatalogFromModal()"><i data-lucide="compass" width="13" height="13"></i>Browse Skins</button>
+            <button class="skin-action-btn" onclick="focusSkinDropzone()"><i data-lucide="mouse-pointer" width="13" height="13"></i>Drag and Drop</button>
+          </div>
+        </div>
+
+        <div class="dropzone" id="skin-manager-dropzone" style="padding:12px" ondragover="onSkinFileDragOver(event)" ondragleave="onSkinFileDragLeave(event)" ondrop="onSkinFileDrop(event)" onclick="triggerSkinFilePicker()">
+          <i data-lucide="file-up" width="16" height="16"></i>
+          <span style="font-size:10.5px;font-family:var(--mono)">Drop .png skin file</span>
+        </div>
+
+        <div class="field" style="margin-top:10px">
+          <div class="label">Recent Skins</div>
+          <div id="skin-manager-recent-grid" class="skin-recent-grid"></div>
+        </div>
+      </div>
+
+      <div style="flex:1;min-width:0">
+        <div id="skin-manager-viewer-wrap" style="width:100%;height:336px;background:var(--s2);border:1px solid var(--b2);border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+          <canvas id="skin-manager-3d-canvas" width="520" height="332" style="width:100%;height:100%;display:block"></canvas>
+          <div id="skin-manager-viewer-fallback" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:10px;text-align:center;font-size:11px;font-family:var(--mono);color:var(--t4);background:rgba(10,10,10,0.82)">3D preview unavailable</div>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:7px;margin-bottom:12px">
+          <button class="btn btn-ghost" style="height:28px;padding:0 10px" onclick="resetSkinViewerCamera()"><i data-lucide="rotate-cw" width="12" height="12"></i>Reset View</button>
+          <button class="btn btn-ghost" id="skin-manager-auto-rotate-btn" style="height:28px;padding:0 10px" onclick="toggleSkinViewerAutoRotate()"><i data-lucide="refresh-cw" width="12" height="12"></i>Auto Rotate</button>
+          <div style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--t4);display:flex;align-items:center">Drag to rotate - Scroll to zoom</div>
+        </div>
+
+        <div class="skin-manager-meta-grid">
+        <div class="field">
+          <div class="label">Profile</div>
+          <div id="skin-manager-profile" style="padding:8px 10px;border:1px solid var(--b2);border-radius:7px;background:var(--s2);font-size:11px;font-family:var(--mono);color:var(--t3);line-height:1.4">-</div>
+        </div>
+        <div class="field">
+          <div class="label">Current Skin Sync</div>
+          <div id="skin-manager-current" style="padding:8px 10px;border:1px solid var(--b2);border-radius:7px;background:var(--s2);font-size:10.5px;font-family:var(--mono);color:var(--t4);line-height:1.5">Loading...</div>
+        </div>
+        <div class="field"><div class="label">Model</div><select class="select" id="skin-manager-model" onchange="onSkinModelChanged()"><option value="classic">Classic (Steve)</option><option value="slim">Slim (Alex)</option></select></div>
+        <div class="field">
+          <div class="label">Skin PNG</div>
+          <input id="skin-manager-file-input" type="file" accept=".png,image/png" style="display:none" onchange="onSkinFileChosen(event)">
+          <div style="display:flex;gap:6px;align-items:center">
+            <button class="btn btn-ghost" style="height:28px;padding:0 10px" onclick="triggerSkinFilePicker()">Choose File</button>
+            <span id="skin-manager-file-name" style="font-size:10.5px;font-family:var(--mono);color:var(--t4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">No file selected</span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="label">Cape Preview (optional)</div>
+          <input id="skin-manager-cape-file-input" type="file" accept=".png,image/png" style="display:none" onchange="onSkinCapeFileChosen(event)">
+          <div style="display:flex;gap:6px;align-items:center">
+            <button class="btn btn-ghost" style="height:28px;padding:0 10px" onclick="triggerSkinCapeFilePicker()">Choose Cape</button>
+            <button class="btn btn-ghost" id="skin-manager-cape-clear-btn" style="height:28px;padding:0 10px" onclick="clearSkinCapePreview()">Clear</button>
+            <span id="skin-manager-cape-file-name" style="font-size:10.5px;font-family:var(--mono);color:var(--t4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Use synced cape</span>
+          </div>
+          <div style="margin-top:4px;font-size:10px;font-family:var(--mono);color:var(--t4)">Preview-only cape image. Official cape management remains on Microsoft profile page.</div>
+        </div>
+        <div class="field" style="margin-top:8px">
+          <div class="label">History & Rollback</div>
+          <div style="display:flex;gap:6px;align-items:center">
+            <select class="select" id="skin-manager-history-select" style="flex:1"></select>
+            <button class="btn btn-ghost" id="skin-manager-rollback-btn" style="height:28px;padding:0 10px" onclick="rollbackSkinFromModal()"><i data-lucide="rotate-ccw" width="12" height="12"></i>Rollback</button>
+          </div>
+        </div>
+        <div id="skin-manager-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4);line-height:1.5"></div>
+      </div>
+      </div>
       </div>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Skin applied','Your skin has been updated')">Apply Skin</button></div>`,
+    <div class="mf" style="justify-content:space-between">
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-ghost" style="height:30px" onclick="refreshSkinManagerModal()"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button>
+        <button class="btn btn-ghost" style="height:30px" onclick="openMinecraftSkinPageFromModal()"><i data-lucide="external-link" width="12" height="12"></i>Open Skin Page</button>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" id="skin-manager-apply-btn" onclick="applySkinFromModal()"><i data-lucide="shirt" width="12" height="12"></i>Apply Skin</button>
+      </div>
+    </div>`,
 
   'accounts': () => `
     <div class="ms-banner"><div class="ms-grid"><div></div><div></div><div></div><div></div></div><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">Microsoft accounts</span></div>
@@ -648,32 +747,38 @@ const MODALS = {
 
   'settings': () => `
     <div class="mh"><i data-lucide="settings" class="mh-icon" width="16" height="16"></i><span class="mh-title">Settings</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
-    <div class="mb">
-      <div class="field"><div class="label">Java Path</div><input class="input" value="/usr/bin/java"></div>
-      <div class="field"><div class="label">Default Memory</div><div style="margin:6px 0 4px"><input type="range" class="slider" min="1" max="16" value="4"></div></div>
-      <div class="field"><div class="label">Theme</div><select class="select"><option>Dark</option><option>Light</option><option>System</option></select></div>
-      <div class="field"><div class="label">Update Channel</div><select class="select"><option>Stable</option><option>Beta</option><option>Nightly</option></select></div>
-      <label class="check-row"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Auto-update launcher</span></label>
-      <label class="check-row"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-label">Send anonymous analytics</span></label>
-      <label class="check-row"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Close to tray on launch</span></label>
+    <div class="mb settings-modal-body">
+      <div class="field"><div class="label">Java Path</div><input class="input" id="settings-java-path" placeholder="Auto (launcher default)"></div>
+      <div class="field">
+        <div class="label">Default Memory</div>
+        <div style="margin:6px 0 4px"><input type="range" class="slider" id="settings-default-memory" min="1" max="16" step="1" value="4" oninput="updateSettingsMemoryLabel()"></div>
+        <div class="settings-memory-meta"><span>1 GB</span><span id="settings-default-memory-value">4 GB</span><span>16 GB</span></div>
+      </div>
+      <div class="field">
+        <div class="label">Launcher Defaults</div>
+        <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);line-height:1.6">
+          Java path and memory below are used only when instance launch settings are Auto.
+        </div>
+      </div>
+      <label class="check-row"><div class="check-box" id="settings-auto-update-check" onclick="toggleCheck(this)"></div><span class="check-label">Auto-update launcher</span></label>
+      <label class="check-row"><div class="check-box" id="settings-analytics-check" onclick="toggleCheck(this)"></div><span class="check-label">Send anonymous analytics</span></label>
+      <label class="check-row"><div class="check-box" id="settings-close-to-tray-check" onclick="toggleCheck(this)"></div><span class="check-label">Close to tray on launch</span></label>
+      <div class="settings-inline-tools">
+        <button class="btn btn-ghost" onclick="openModal('java-manager')"><i data-lucide="cpu" width="12" height="12"></i>Java</button>
+        <button class="btn btn-ghost" onclick="openModal('diagnostics')"><i data-lucide="activity" width="12" height="12"></i>Diagnostics</button>
+      </div>
+      <div id="settings-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)"></div>
     </div>
-    <div class="mf"><button class="btn btn-ghost">Reset Defaults</button><button class="btn btn-ghost" onclick="openModal('diagnostics')">Diagnostics</button><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Settings saved','Global settings updated')">Save</button></div>`,
-
-  'profiles': () => `
-    <div class="mh"><i data-lucide="layers" class="mh-icon" width="16" height="16"></i><span class="mh-title">Profiles</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
-    <div class="mb">
-      <div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);margin-bottom:10px">Profiles let you switch between different Java/memory configurations instantly.</div>
-      ${[['#3a5a3a','Gaming','High memory, max FPS',true],['#2a3a5a','Work','Balanced, battery saver',false],['#3a2a2a','Low-end PC','Minimal RAM, no shaders',false]].map(([c,n,d,sel])=>`
-      <div class="profile-card${sel?' sel':''}" onclick="document.querySelectorAll('.profile-card').forEach(p=>p.classList.remove('sel'));this.classList.add('sel')">
-        <div class="profile-card-dot" style="background:${c}"></div>
-        <div><div class="profile-card-name">${n}</div><div class="profile-card-desc">${d}</div></div>
-        ${sel?`<div style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--t4)">Active</div>`:''}
-      </div>`).join('')}
-    </div>
-    <div class="mf"><button class="btn btn-ghost"><i data-lucide="plus" width="12" height="12"></i>New Profile</button><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o.','Profile switched','Now using Gaming profile')">Apply</button></div>`,
+    <div class="mf settings-modal-footer">
+      <button class="btn btn-ghost" onclick="resetSettingsModal()">Reset</button>
+      <div class="settings-modal-footer-right">
+        <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveSettingsModal()">Save</button>
+      </div>
+    </div>`,
 
   'export': () => `
-    <div class="mh"><i data-lucide="package-open" class="mh-icon" width="16" height="16"></i><span class="mh-title">Export ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="package-open" class="mh-icon" width="16" height="16"></i><span class="mh-title">Export - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="field"><div class="label">Format</div><select class="select"><option>Modrinth (.mrpack)</option><option>CurseForge (.zip)</option><option>MultiMC (.zip)</option></select></div>
       <div class="field"><div class="label">Version</div><input class="input" value="1.0.0"></div>
@@ -686,22 +791,22 @@ const MODALS = {
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary"><i data-lucide="download" width="12" height="12"></i>Export</button></div>`,
 
   'share-link': () => `
-    <div class="mh"><i data-lucide="share-2" class="mh-icon" width="16" height="16"></i><span class="mh-title">Share Instance ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="share-2" class="mh-icon" width="16" height="16"></i><span class="mh-title">Share Instance - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="label" style="margin-bottom:6px">Share Link</div>
       <div class="share-link-box"><i data-lucide="link" width="13" height="13" style="color:var(--t4);flex-shrink:0"></i><span id="share-link-value">${escapeHtml(buildInstanceShareLink())}</span><button style="background:var(--s3);border:1px solid var(--b3);border-radius:5px;padding:2px 8px;font-size:10px;font-family:var(--mono);color:var(--t3);cursor:pointer;flex-shrink:0" onclick="copyShareLinkFromModal()">Copy</button></div>
       <div class="field" style="margin-top:12px"><div class="label">Expires</div><select class="select"><option>Never</option><option>24 hours</option><option>7 days</option></select></div>
       <label class="check-row" style="margin-top:8px"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Include mods &amp; configs</span></label>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Close</button><button class="btn btn-primary" onclick="showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"-','Link shared','Share link generated')"><i data-lucide="share-2" width="12" height="12"></i>Generate New</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Close</button><button class="btn btn-primary" onclick="showToast('OK','Link shared','Share link generated')"><i data-lucide="share-2" width="12" height="12"></i>Generate New</button></div>`,
 
   'download-mods': () => `
     <div class="mh"><i data-lucide="search" class="mh-icon" width="16" height="16"></i><span class="mh-title">Download Mods</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="tabs"><button class="tab active" onclick="switchTab(this)">Modrinth</button><button class="tab" onclick="switchTab(this)">CurseForge</button></div>
-      <div class="field" style="position:relative"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4)"></i><input class="input" style="padding-left:28px" placeholder="Search modsÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½"></div>
-      ${[['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½sÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Sodium','Render engine rewrite',false],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YOÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Lithium','Game logic optimization',true],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"?','Iris Shaders','Shader support',false],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Fabric API','Required library',false]].map(([e,n,d,added])=>`
-      <div class="list-item"><div style="width:26px;height:26px;background:var(--s3);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">${e}</div><div style="flex:1"><div style="font-size:12px;font-family:var(--mono);color:var(--t2)">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4)">${d}</div></div><button style="height:25px;padding:0 9px;border-radius:5px;border:1px solid ${added?'var(--b3)':'var(--b2)'};background:${added?'var(--s3)':'var(--s2)'};font-size:10.5px;font-family:var(--mono);color:${added?'var(--t3)':'var(--t2)'};cursor:pointer">${added?'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½o" Added':'+ Add'}</button></div>`).join('')}
+      <div class="field" style="position:relative"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4)"></i><input class="input" style="padding-left:28px" placeholder="Search mods..."></div>
+      ${[['SO','Sodium','Render engine rewrite',false],['LI','Lithium','Game logic optimization',true],['IR','Iris Shaders','Shader support',false],['FA','Fabric API','Required library',false]].map(([e,n,d,added])=>`
+      <div class="list-item"><div style="width:26px;height:26px;background:var(--s3);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:var(--mono);flex-shrink:0">${e}</div><div style="flex:1"><div style="font-size:12px;font-family:var(--mono);color:var(--t2)">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4)">${d}</div></div><button style="height:25px;padding:0 9px;border-radius:5px;border:1px solid ${added?'var(--b3)':'var(--b2)'};background:${added?'var(--s3)':'var(--s2)'};font-size:10.5px;font-family:var(--mono);color:${added?'var(--t3)':'var(--t2)'};cursor:pointer">${added?'Added':'+ Add'}</button></div>`).join('')}
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Close</button></div>`,
 
@@ -710,9 +815,9 @@ const MODALS = {
     <div class="mb">
       <div class="tabs"><button class="tab active" onclick="switchTab(this)">Modrinth</button><button class="tab" onclick="switchTab(this)">CurseForge</button><button class="tab" onclick="switchTab(this)">Local</button></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
-        ${[['ÃƒÂ¯Ã‚Â¿Ã‚Â½YOÃƒÂ¯Ã‚Â¿Ã‚Â½','All the Mods 9','1.21.1 Ãƒâ€šÃ‚Â· Forge'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½sTÃƒÂ¯Ã‚Â¸Ã‚Â','Create: Astral','1.20.1 Ãƒâ€šÃ‚Â· Fabric'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½YÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½','Better MC','1.21.4 Ãƒâ€šÃ‚Â· Fabric'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½Y"ÃƒÂ¯Ã‚Â¿Ã‚Â½','Prominence II','1.20.1 Ãƒâ€šÃ‚Â· Forge'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½YOÃƒÂ¯Ã‚Â¿Ã‚Â½','Roguelike Adv.','1.20.1 Ãƒâ€šÃ‚Â· Forge'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½Y"ÃƒÂ¯Ã‚Â¿Ã‚Â½','Cobblemon','1.21.1 Ãƒâ€šÃ‚Â· Fabric']].map(([e,n,v])=>`
+        ${[['ATM','All the Mods 9','1.21.1 - Forge'],['CA','Create: Astral','1.20.1 - Fabric'],['BMC','Better MC','1.21.4 - Fabric'],['PR','Prominence II','1.20.1 - Forge'],['RA','Roguelike Adv.','1.20.1 - Forge'],['COB','Cobblemon','1.21.1 - Fabric']].map(([e,n,v])=>`
         <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;padding:9px;cursor:pointer;transition:border-color 0.12s" onmouseenter="this.style.borderColor='var(--b3)'" onmouseleave="this.style.borderColor='var(--b2)'">
-          <div style="font-size:20px;margin-bottom:5px">${e}</div>
+          <div style="font-size:12px;font-family:var(--mono);margin-bottom:5px">${e}</div>
           <div style="font-size:11.5px;font-family:var(--mono);color:var(--t2)">${n}</div>
           <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px">${v}</div>
         </div>`).join('')}
@@ -763,18 +868,32 @@ const MODALS = {
   'world-manager': () => `
     <div class="mh"><i data-lucide="globe" class="mh-icon" width="16" height="16"></i><span class="mh-title">Worlds - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      ${[['globe-2','New World','Survival - 2d ago - 142 MB'],['mountain','Mountain Base','Creative - 5d ago - 88 MB'],['waves','Ocean World','Survival - 2w ago - 56 MB'],['flame','Volcano SMP','Hardcore - 1mo ago - 212 MB']].map(([icon,n,m])=>`
-      <div class="world-row"><div style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--t2);flex-shrink:0"><i data-lucide="${icon}" width="16" height="16"></i></div><div style="flex:1"><div style="font-size:12px;font-family:var(--mono);color:var(--t2)">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:1px">${m}</div></div><button style="background:transparent;border:none;cursor:pointer;color:var(--t4);padding:3px;display:flex" onclick="this.closest('.world-row').remove()"><i data-lucide="trash-2" width="12" height="12"></i></button></div>`).join('')}
+      <div id="world-manager-list" class="ver-list" style="max-height:250px"></div>
+      <div style="font-size:11px;font-family:var(--mono);color:var(--t4);margin-top:8px" id="world-manager-meta">Loading worlds...</div>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="openSelectedInstanceFolder('saves')"><i data-lucide="folder-open" width="12" height="12"></i>Open Worlds</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="openModal('datapacks')"><i data-lucide="database" width="12" height="12"></i>Data Packs</button><button class="btn btn-ghost" onclick="openSelectedInstanceFolder('saves')"><i data-lucide="folder-open" width="12" height="12"></i>Open Worlds</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
+
+  'world-detail': () => `
+    <div class="mh"><i data-lucide="map" class="mh-icon" width="16" height="16"></i><span class="mh-title">World Detail</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div class="tabs" style="margin-bottom:8px">
+        <button class="tab active" id="world-tab-overview" onclick="setWorldDetailTab('overview')">Overview</button>
+        <button class="tab" id="world-tab-players" onclick="setWorldDetailTab('players')">Players</button>
+        <button class="tab" id="world-tab-inventory" onclick="setWorldDetailTab('inventory')">Inventory</button>
+        <button class="tab" id="world-tab-stats" onclick="setWorldDetailTab('stats')">Stats</button>
+      </div>
+      <div id="world-detail-body" style="font-size:12px;font-family:var(--mono);color:var(--t3);min-height:220px">Loading world details...</div>
+    </div>
+    <div class="mf">
+      <button class="btn btn-ghost" onclick="openSelectedInstanceFolder('saves')"><i data-lucide="folder-open" width="12" height="12"></i>Open Worlds</button>
+      <button class="btn btn-primary" onclick="closeModal()">Done</button>
+    </div>`,
 
   'screenshots': () => `
-    <div class="mh"><i data-lucide="camera" class="mh-icon" width="16" height="16"></i><span class="mh-title">Screenshots ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="camera" class="mh-icon" width="16" height="16"></i><span class="mh-title">Screenshots - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      <div class="ss-grid">
-        ${Array(6).fill(0).map((_,i)=>`<div class="ss-cell" style="background-image:url('${bannerImagePathBySeed('ss-' + i)}');background-size:cover"></div>`).join('')}
-      </div>
-      <div style="font-size:11px;font-family:var(--mono);color:var(--t4);text-align:center">6 screenshots Ãƒâ€šÃ‚Â· 12 MB</div>
+      <div id="screenshots-list" class="ver-list" style="max-height:250px"></div>
+      <div style="font-size:11px;font-family:var(--mono);color:var(--t4);margin-top:8px" id="screenshots-meta">Loading screenshots...</div>
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="openSelectedInstanceFolder('screenshots')"><i data-lucide="folder-open" width="12" height="12"></i>Open Folder</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
 
@@ -790,7 +909,7 @@ const MODALS = {
     </div>`,
 
   'duplicate': () => `
-    <div class="mh"><i data-lucide="copy" class="mh-icon" width="16" height="16"></i><span class="mh-title">Duplicate ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="copy" class="mh-icon" width="16" height="16"></i><span class="mh-title">Duplicate - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       <div class="field"><div class="label">New Name</div><input class="input" id="duplicate-inst-name" value="${escapeHtml(buildDuplicateInstanceName())}"></div>
       <label class="check-row"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Mods &amp; configs</span></label>
@@ -811,12 +930,12 @@ const MODALS = {
     <div class="mb">
       <div class="field"><div class="label">Username</div><input class="input" placeholder="e.g. Technoblade2"></div>
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Request sent','Friend request sent!')"><i data-lucide="send" width="12" height="12"></i>Send Request</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();showToast('OK','Request sent','Friend request sent!')"><i data-lucide="send" width="12" height="12"></i>Send Request</button></div>`,
 
   'shared-session': () => `
     <div class="mh"><i data-lucide="arrow-right-to-line" class="mh-icon" width="16" height="16"></i><span class="mh-title">Join Session</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
-      <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-bottom:12px"><div style="font-size:24px">ÃƒÂ¯Ã‚Â¿Ã‚Â½YOÃƒÂ¯Ã‚Â¿Ã‚Â½</div><div><div style="font-size:13px;font-weight:700;color:var(--t1)">All the Mods 9</div><div style="font-size:10.5px;font-family:var(--mono);color:var(--t3)">Technoblade2 Ãƒâ€šÃ‚Â· 1.21.1 Ãƒâ€šÃ‚Â· Forge</div></div><div style="margin-left:auto;display:flex;align-items:center;gap:4px"><div class="li-dot on"></div><span style="font-size:10px;font-family:var(--mono);color:var(--green)">Online</span></div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-bottom:12px"><div style="font-size:12px;font-family:var(--mono)">ATM</div><div><div style="font-size:13px;font-weight:700;color:var(--t1)">All the Mods 9</div><div style="font-size:10.5px;font-family:var(--mono);color:var(--t3)">Technoblade2 - 1.21.1 - Forge</div></div><div style="margin-left:auto;display:flex;align-items:center;gap:4px"><div class="li-dot on"></div><span style="font-size:10px;font-family:var(--mono);color:var(--green)">Online</span></div></div>
       <label class="check-row"><div class="check-box on" onclick="toggleCheck(this)"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Auto-sync mods</span></label>
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="closeModal();launchSequence()"><i data-lucide="play" width="12" height="12"></i>Join Session</button></div>`,
@@ -889,13 +1008,125 @@ const MODALS = {
     </div>
     <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="applyMoveGroupFromModal()">Move</button></div>`,
 
+  'resource-packs': () => `
+    <div class="mh"><i data-lucide="image" class="mh-icon" width="16" height="16"></i><span class="mh-title">Resource Packs - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div id="resource-packs-list" class="ver-list" style="max-height:260px"></div>
+      <div id="resource-packs-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Loading resource packs...</div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="openInstanceAssetFolder('resourcepacks')"><i data-lucide="folder-open" width="12" height="12"></i>Open Folder</button><button class="btn btn-ghost" onclick="refreshInstanceAssetModal('resource-packs')"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
+
+  'shader-packs': () => `
+    <div class="mh"><i data-lucide="sun" class="mh-icon" width="16" height="16"></i><span class="mh-title">Shader Packs - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div id="shader-packs-list" class="ver-list" style="max-height:260px"></div>
+      <div id="shader-packs-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Loading shader packs...</div>
+      <div class="warn-box" style="margin-top:10px;margin-bottom:0"><i data-lucide="info" width="14" height="14" style="color:var(--yellow);flex-shrink:0"></i><span class="warn-text">Iris/Oculus is required for shader runtime.</span></div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="openInstanceAssetFolder('shaderpacks')"><i data-lucide="folder-open" width="12" height="12"></i>Open Folder</button><button class="btn btn-ghost" onclick="refreshInstanceAssetModal('shader-packs')"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
+
+  'import': () => `
+    <div class="mh"><i data-lucide="package-open" class="mh-icon" width="16" height="16"></i><span class="mh-title">Import Instance</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div class="tabs"><button class="tab active" onclick="switchTab(this)">File</button><button class="tab" onclick="switchTab(this)">URL</button></div>
+      <div class="dropzone"><i data-lucide="folder-open" width="22" height="22"></i><span style="font-size:11px;font-family:var(--mono)">Drop .mrpack/.zip here</span></div>
+      <div class="field" style="margin-top:10px"><div class="label">Or paste URL</div><input class="input" placeholder="https://modrinth.com/modpack/..."></div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary"><i data-lucide="download" width="12" height="12"></i>Import</button></div>`,
+
+  'java-manager': () => `
+    <div class="mh"><i data-lucide="cpu" class="mh-icon" width="16" height="16"></i><span class="mh-title">Java Installations</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div id="java-manager-list" class="ver-list" style="max-height:260px"></div>
+      <div id="java-manager-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Detecting Java runtimes...</div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="refreshJavaManagerModal()"><i data-lucide="scan" width="12" height="12"></i>Auto Detect</button><button class="btn btn-ghost" onclick="openModal('instance-info-java')"><i data-lucide="settings" width="12" height="12"></i>Use in Instance</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
+
+  'console': () => `
+    <div class="mh"><i data-lucide="terminal" class="mh-icon" width="16" height="16"></i><span class="mh-title">Game Console - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div id="console-log-files" class="ver-list" style="max-height:240px"></div>
+      <div id="console-log-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Loading log files...</div>
+    </div>
+    <div class="mf" style="justify-content:space-between"><button class="btn btn-ghost" onclick="openInstanceAssetFolder('logs')"><i data-lucide="folder-open" width="12" height="12"></i>Open Logs</button><div style="display:flex;gap:6px"><button class="btn btn-ghost" onclick="refreshConsoleModal()"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button><button class="btn btn-ghost" onclick="openModal('diagnostics')">Diagnostics</button><button class="btn btn-danger" onclick="killInstance()"><i data-lucide="zap-off" width="12" height="12"></i>Kill Game</button></div></div>`,
+
+  'crash': () => `
+    <div class="mh"><i data-lucide="circle-x" class="mh-icon" width="16" height="16" style="color:var(--red)"></i><span class="mh-title" style="color:var(--red)">Game Crashed</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div class="warn-box danger"><i data-lucide="triangle-alert" width="16" height="16" style="color:var(--red);flex-shrink:0"></i><span class="warn-text">java.lang.OutOfMemoryError: Java heap space</span></div>
+      <div class="log-area">
+        <div class="log-err">[ERROR] JVM max heap: 2G</div>
+        <div class="log-err">[ERROR] Used heap: 1.99G</div>
+        <div class="log-warn">[HINT] Increase memory for this instance.</div>
+      </div>
+      <div style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Suggested fix: open instance memory and set max to 4-6 GB.</div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="openModal('instance-info-memory')"><i data-lucide="hard-drive" width="12" height="12"></i>Open Memory</button><button class="btn btn-ghost" onclick="openModal('diagnostics')">Diagnostics</button><button class="btn btn-primary" onclick="closeModal()">Close</button></div>`,
+
+  'dependencies': () => `
+    <div class="mh"><i data-lucide="link" class="mh-icon" width="16" height="16"></i><span class="mh-title">Missing Dependencies</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div id="dependencies-list" class="ver-list" style="max-height:250px"></div>
+      <div id="dependencies-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Scanning dependencies...</div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="refreshDependenciesModal()"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button><button class="btn btn-ghost" onclick="closeModal()">Close</button><button class="btn btn-primary" id="dependencies-install-btn" onclick="installDependenciesFromModal()"><i data-lucide="download" width="12" height="12"></i>Install Required</button></div>`,
+
+  'mod-conflict': () => `
+    <div class="mh"><i data-lucide="shield-alert" class="mh-icon" width="16" height="16" style="color:var(--yellow)"></i><span class="mh-title">Mod Conflict Detected</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div id="mod-conflict-list" class="ver-list" style="max-height:250px"></div>
+      <div id="mod-conflict-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Checking conflicts...</div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="refreshModConflictModal()"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button><button class="btn btn-ghost" onclick="openModal('diagnostics')">Diagnostics</button><button class="btn btn-primary" id="mod-conflict-fix-btn" onclick="openModal('dependencies')"><i data-lucide="wrench" width="12" height="12"></i>Open Fixes</button></div>`,
+
+  'mod-updates': () => `
+    <div class="mh"><i data-lucide="refresh-cw" class="mh-icon" width="16" height="16"></i><span class="mh-title">Mod Updates - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div id="mod-updates-list" class="ver-list" style="max-height:250px"></div>
+      <div id="mod-updates-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Loading tracked installs...</div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="toggleAllModUpdatesSelection(true)">Select all</button><button class="btn btn-ghost" onclick="refreshModUpdatesModal()"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button><button class="btn btn-ghost" onclick="closeModal()">Later</button><button class="btn btn-primary" id="mod-updates-apply-btn" onclick="applyModUpdatesFromModal()"><i data-lucide="download" width="12" height="12"></i>Update Selected</button></div>`,
+
+  'version-selector': () => `
+    <div class="mh"><i data-lucide="tag" class="mh-icon" width="16" height="16"></i><span class="mh-title">Version Selector</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div class="tabs"><button class="tab active" id="version-tab-release" onclick="setVersionSelectorMode('release')">Release</button><button class="tab" id="version-tab-snapshot" onclick="setVersionSelectorMode('snapshot')">Snapshot</button><button class="tab" id="version-tab-old" onclick="setVersionSelectorMode('old')">Old</button></div>
+      <div class="field" style="position:relative"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4)"></i><input class="input" id="version-selector-search" style="padding-left:28px" placeholder="Filter versions..." oninput="onVersionSelectorSearchInput(this.value)"></div>
+      <div id="version-selector-list" class="ver-list" style="max-height:190px"></div>
+      <div id="version-selector-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Loading versions...</div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Cancel</button><button class="btn btn-primary" onclick="applyVersionSelectorSelection()">Select</button></div>`,
+
+  'update-launcher': () => `
+    <div class="mh"><i data-lucide="arrow-up-circle" class="mh-icon" width="16" height="16"></i><span class="mh-title">Update Available</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb" style="text-align:center">
+      <div style="font-size:30px;margin-bottom:8px">🎉</div>
+      <div style="font-size:15px;font-weight:700;color:var(--t1);margin-bottom:2px">Orbiq v2.1.0</div>
+      <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:12px">Current: v2.0.3</div>
+      <div style="text-align:left;background:var(--s2);border:1px solid var(--b2);border-radius:8px;padding:10px 12px">
+        <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:7px">What's new:</div>
+        <div style="font-size:11px;font-family:var(--mono);color:var(--t3);line-height:1.6">- Diagnostics panel improvements</div>
+        <div style="font-size:11px;font-family:var(--mono);color:var(--t3);line-height:1.6">- Browse/runtime stability updates</div>
+        <div style="font-size:11px;font-family:var(--mono);color:var(--t3);line-height:1.6">- Instance and account UX polish</div>
+      </div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="closeModal()">Later</button><button class="btn btn-primary"><i data-lucide="download" width="12" height="12"></i>Update Now</button></div>`,
+
+  'datapacks': () => `
+    <div class="mh"><i data-lucide="database" class="mh-icon" width="16" height="16"></i><span class="mh-title">Data Packs - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mb">
+      <div id="datapacks-list" class="ver-list" style="max-height:260px"></div>
+      <div id="datapacks-status" style="margin-top:8px;font-size:10.5px;font-family:var(--mono);color:var(--t4)">Loading worlds...</div>
+    </div>
+    <div class="mf"><button class="btn btn-ghost" onclick="openInstanceAssetFolder('saves')"><i data-lucide="folder-open" width="12" height="12"></i>Open Saves</button><button class="btn btn-ghost" onclick="refreshDatapacksModal()"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button><button class="btn btn-primary" onclick="closeModal()">Done</button></div>`,
+
   'backup': () => `
-    <div class="mh"><i data-lucide="archive" class="mh-icon" width="16" height="16"></i><span class="mh-title">Backup ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
+    <div class="mh"><i data-lucide="archive" class="mh-icon" width="16" height="16"></i><span class="mh-title">Backup - ${escapeHtml(selectedInstanceNameForModal())}</span><button class="mh-close" onclick="closeModal()"><i data-lucide="x" width="14" height="14"></i></button></div>
     <div class="mb">
       ${[['backup_2025-03-01','234 MB','2 days ago'],['backup_2025-02-20','198 MB','2 weeks ago']].map(([n,s,d])=>`
-      <div class="bk-row"><i data-lucide="hard-drive" width="15" height="15" style="color:var(--t4);flex-shrink:0"></i><div style="flex:1"><div style="font-size:12px;font-family:var(--mono);color:var(--t2)">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4)">${s} Ãƒâ€šÃ‚Â· ${d}</div></div><button style="background:transparent;border:none;cursor:pointer;color:var(--t4);display:flex" onclick="this.closest('.bk-row').remove()"><i data-lucide="trash-2" width="11" height="11"></i></button></div>`).join('')}
+      <div class="bk-row"><i data-lucide="hard-drive" width="15" height="15" style="color:var(--t4);flex-shrink:0"></i><div style="flex:1"><div style="font-size:12px;font-family:var(--mono);color:var(--t2)">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4)">${s} - ${d}</div></div><button style="background:transparent;border:none;cursor:pointer;color:var(--t4);display:flex" onclick="this.closest('.bk-row').remove()"><i data-lucide="trash-2" width="11" height="11"></i></button></div>`).join('')}
     </div>
-    <div class="mf"><button class="btn btn-ghost" onclick="showToast('ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Backup created','Saved backup successfully')"><i data-lucide="plus" width="12" height="12"></i>New Backup</button><button class="btn btn-primary"><i data-lucide="rotate-ccw" width="12" height="12"></i>Restore</button></div>`,
+    <div class="mf"><button class="btn btn-ghost" onclick="showToast('OK','Backup created','Saved backup successfully')"><i data-lucide="plus" width="12" height="12"></i>New Backup</button><button class="btn btn-primary"><i data-lucide="rotate-ccw" width="12" height="12"></i>Restore</button></div>`,
 };
 
 // ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½.ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½
@@ -1023,14 +1254,32 @@ const ORBIQ_ACCOUNT_STORE_KEY = 'orbiq.account.v1';
 const INSTANCE_GROUP_STORE_KEY = 'orbiq.instance-groups.v1';
 const INSTANCE_NOTES_STORE_KEY = 'orbiq.instance-notes.v1';
 const INSTANCE_VIEW_STORE_KEY = 'orbiq.instance-view.v1';
+const LAUNCHER_SETTINGS_STORE_KEY = 'orbiq.launcher-settings.v1';
 const INSTANCE_INSTALLS_STORE_KEY = 'orbiq.instance-installs.v1';
+const WEEKLY_PLAYTIME_STORE_KEY = 'orbiq.instance-weekly-play.v1';
+const WEEKLY_PLAYTIME_DAY_COUNT = 7;
+const WEEKLY_PLAYTIME_RETENTION_DAYS = 35;
 const INSTANCE_GROUP_COLOR_POOL = ['#3a3a3a', '#2a4a2a', '#2a2a4a', '#4a2a2a', '#3a2a4a', '#2a4a4a'];
 let ORBIQ_ACCOUNT_STATE = null;
 let ORBIQ_REGISTER_STATE = null;
 let ORBIQ_REGISTER_RESULT = null;
 let PENDING_DEEP_LINK_OTP = '';
 let MICROSOFT_AUTH_POLL = null;
+let MICROSOFT_DEVICE_POLL_BUSY = false;
+let MICROSOFT_DEVICE_STATE = {
+  sessionId: '',
+  userCode: '',
+  verificationUri: 'https://www.microsoft.com/link',
+  verificationUriComplete: '',
+  intervalSeconds: 5,
+  expiresAtEpoch: 0,
+  loading: false,
+};
 let MICROSOFT_OAUTH_EXPECTED_STATE = '';
+let MICROSOFT_OAUTH_FLOW_ACTIVE = false;
+let MICROSOFT_OAUTH_COMPLETE_IN_FLIGHT = false;
+const HANDLED_MICROSOFT_OAUTH_CALLBACKS = new Set();
+const MAX_HANDLED_MICROSOFT_OAUTH_CALLBACKS = 24;
 let ACTIVE_PROFILE_DETAIL_ID = null;
 const HANDLED_DEEP_LINKS = new Set();
 const MAX_HANDLED_DEEP_LINKS = 24;
@@ -1041,9 +1290,20 @@ let INSTANCE_NOTES_LOADED = false;
 let INSTANCE_NOTES = {};
 let INSTANCE_INSTALLS_LOADED = false;
 let INSTANCE_INSTALLS = {};
+let WEEKLY_PLAYTIME_CACHE = null;
+let INSTANCE_WEEKLY_SESSION_STATE = {};
 let MANAGED_MODS_PRESENCE_CACHE = { instanceName: '', rows: [] };
+let LAUNCHER_SETTINGS_LOADED = false;
+let LAUNCHER_SETTINGS = {};
+let MOD_UPDATES_MODAL_STATE = { instanceName: '', rows: [], selected: {} };
+let MOD_DEPENDENCIES_MODAL_STATE = { instanceName: '', rows: [] };
+let MOD_CONFLICT_MODAL_STATE = { instanceName: '', issues: [] };
 let LAUNCH_MISSING_DIALOG_STATE = null;
 let LAUNCH_PREFLIGHT_DIALOG_STATE = null;
+let SERVER_DEPLOYMENTS_CACHE = [];
+let SERVER_SELECTED_DEPLOYMENT_ID = '';
+let SERVER_MANAGER_POLL = null;
+let SERVER_WARNING_TOAST_AT = 0;
 const DIAGNOSTICS_STATE = {
   latestError: null,
   lastCommand: null,
@@ -1090,11 +1350,19 @@ async function invokeBackend(command, payload) {
     const data = await tauriInvoke(command, payload || {});
     return { ok: true, data, error: null };
   } catch (err) {
-    console.error('[backend] ' + command + ' failed', err);
     const raw = String(err || '');
     const normalized = formatBackendError(raw, 'Backend request failed');
     const matched = raw.match(/^\s*\[([A-Z0-9_]+)\]\s*/);
     const code = matched ? String(matched[1] || '').trim() : '';
+    const lowered = raw.toLowerCase();
+    const isInstanceInfoNotFound = String(command || '').trim() === 'get_instance_info'
+      && lowered.includes('instance')
+      && lowered.includes('not found');
+    if (code === 'AUTH_RELINK_REQUIRED' || code === 'AUTH_ACCOUNT_SECURITY_INTERRUPT' || isInstanceInfoNotFound) {
+      console.warn('[backend] ' + command + ' failed', err);
+    } else {
+      console.error('[backend] ' + command + ' failed', err);
+    }
     DIAGNOSTICS_STATE.latestError = {
       command: String(command || ''),
       code,
@@ -1102,8 +1370,88 @@ async function invokeBackend(command, payload) {
       raw: raw,
       at: new Date().toISOString(),
     };
+    if (code === 'AUTH_RELINK_REQUIRED') {
+      promptAuthRelinkGuidance('backend:' + String(command || ''));
+    }
+    if (code === 'AUTH_ACCOUNT_SECURITY_INTERRUPT') {
+      promptAuthSecurityInterruptGuidance('backend:' + String(command || ''));
+    }
     return { ok: false, data: null, error: raw };
   }
+}
+
+function isAuthRelinkFailureMessage(text) {
+  const value = String(text || '').toLowerCase();
+  if (!value) return false;
+  return value.includes('auth_relink_required')
+    || value.includes('relink required')
+    || value.includes('link microsoft again')
+    || value.includes('token not found for profile')
+    || value.includes('refresh token is missing')
+    || value.includes('microsoft token is invalid or missing');
+}
+
+function isAuthSecurityInterruptMessage(text) {
+  const value = String(text || '').toLowerCase();
+  if (!value) return false;
+  return value.includes('auth_account_security_interrupt')
+    || value.includes('aadsts70000')
+    || value.includes('account security interrupt')
+    || (value.includes('collecting proof') && value.includes('compromised'));
+}
+
+function isMicrosoftTokenMissingError(text) {
+  const value = String(text || '').toLowerCase();
+  if (!value) return false;
+  return value.includes('token not found for profile')
+    || value.includes('refresh token is missing')
+    || value.includes('microsoft token is missing');
+}
+
+function promptAuthRelinkGuidance(source) {
+  const now = Date.now();
+  if (now - LAST_AUTH_RELINK_PROMPT_AT < 5000) return;
+  LAST_AUTH_RELINK_PROMPT_AT = now;
+  console.warn('[auth] relink required', source || 'unknown');
+  goToAccountsPage();
+  showToast(
+    'MS',
+    'Microsoft relink required',
+    'Your Microsoft session is missing or expired.',
+    {
+      label: 'Relink now',
+      onClick: () => openModal('link-microsoft'),
+    }
+  );
+}
+
+function promptAuthSecurityInterruptGuidance(source) {
+  const now = Date.now();
+  if (now - LAST_AUTH_SECURITY_PROMPT_AT < 8000) return;
+  LAST_AUTH_SECURITY_PROMPT_AT = now;
+  console.warn('[auth] security interrupt', source || 'unknown');
+  goToAccountsPage();
+  showToast(
+    'MS',
+    'Microsoft security check required',
+    'Verify your Microsoft account security, then link again.',
+    {
+      label: 'Verify now',
+      onClick: () => {
+        void openExternalHttpUrl('https://account.live.com/Activity');
+      },
+    }
+  );
+}
+
+function isInstanceInfoNotFoundError(raw, instanceName) {
+  const lowered = String(raw || '').toLowerCase();
+  if (!lowered) return false;
+  const normalizedName = String(instanceName || '').trim().toLowerCase();
+  if (normalizedName && lowered.includes(normalizedName) && lowered.includes('not found')) {
+    return true;
+  }
+  return lowered.includes("instance '") && lowered.includes('not found');
 }
 
 function rememberHandledDeepLink(url) {
@@ -1258,47 +1606,95 @@ async function completeMicrosoftOAuthFromDeepLink(rawCode, oauthState) {
     showToast('!', 'Microsoft link', 'Missing callback code/state from browser');
     return;
   }
+  if (!MICROSOFT_OAUTH_EXPECTED_STATE) {
+    const statusEl = document.getElementById('ms-device-status');
+    const reason = 'Microsoft sign-in session expired. Start Link Microsoft again.';
+    if (statusEl) statusEl.textContent = reason;
+    MICROSOFT_OAUTH_FLOW_ACTIVE = false;
+    showToast('!', 'Microsoft link expired', reason);
+    return;
+  }
+  if (rememberHandledMicrosoftOauthCallback(code, state)) {
+    return;
+  }
+  if (MICROSOFT_OAUTH_COMPLETE_IN_FLIGHT) {
+    return;
+  }
+  MICROSOFT_OAUTH_COMPLETE_IN_FLIGHT = true;
   clearMicrosoftAuthPoll();
 
-  if (MICROSOFT_OAUTH_EXPECTED_STATE && MICROSOFT_OAUTH_EXPECTED_STATE !== state) {
-    const allowMismatch = !!window.__ORBIQ_ALLOW_STATE_MISMATCH;
-    if (!allowMismatch) {
-      const reason = 'Microsoft callback state mismatch. Please start Link Microsoft again.';
-      const statusEl = document.getElementById('ms-device-status');
+  try {
+    if (MICROSOFT_OAUTH_EXPECTED_STATE && MICROSOFT_OAUTH_EXPECTED_STATE !== state) {
+      const allowMismatch = !!window.__ORBIQ_ALLOW_STATE_MISMATCH;
+      if (!allowMismatch) {
+        const reason = 'Microsoft callback state mismatch. Please start Link Microsoft again.';
+        const statusEl = document.getElementById('ms-device-status');
+        if (statusEl) statusEl.textContent = reason;
+        MICROSOFT_OAUTH_FLOW_ACTIVE = false;
+        showToast('!', 'Microsoft link failed', reason);
+        return;
+      }
+      console.warn('[ms-oauth] callback state mismatch override enabled');
+    }
+
+    const statusEl = document.getElementById('ms-device-status');
+    if (statusEl) statusEl.textContent = 'Finishing Microsoft sign-in...';
+
+    const completeRes = await invokeBackend('complete_microsoft_oauth_login_command', {
+      request: { state, code },
+    });
+    if (!completeRes.ok || !completeRes.data) {
+      const raw = String(completeRes.error || '');
+      if (raw.toLowerCase().includes('already used')) {
+        await refreshProfilesFromBackend();
+        const profiles = getRenderableProfiles();
+        const msProfiles = profiles.filter((item) => String(item && item.profileType ? item.profileType : '').toLowerCase() === 'microsoft');
+        for (const profile of msProfiles) {
+          const refreshRes = await invokeBackend('refresh_microsoft_profile_token', {
+            request: { profileId: String(profile.id || '') },
+          });
+          if (refreshRes.ok) {
+            MICROSOFT_OAUTH_EXPECTED_STATE = '';
+            MICROSOFT_OAUTH_FLOW_ACTIVE = false;
+            await completeMicrosoftLinkSuccess(String(profile.name || 'Microsoft profile'));
+            return;
+          }
+        }
+      }
+
+      const reason = formatBackendError(
+        completeRes.error,
+        'Microsoft sign-in could not be completed. Please try Link Microsoft again.'
+      );
       if (statusEl) statusEl.textContent = reason;
+      MICROSOFT_OAUTH_FLOW_ACTIVE = false;
       showToast('!', 'Microsoft link failed', reason);
       return;
     }
-    console.warn('[ms-oauth] callback state mismatch override enabled');
+
+    MICROSOFT_OAUTH_EXPECTED_STATE = '';
+    MICROSOFT_OAUTH_FLOW_ACTIVE = false;
+    const profileName =
+      completeRes.data.profile && completeRes.data.profile.name
+        ? completeRes.data.profile.name
+        : 'Microsoft profile';
+    await completeMicrosoftLinkSuccess(profileName);
+  } finally {
+    MICROSOFT_OAUTH_COMPLETE_IN_FLIGHT = false;
   }
-
-  const statusEl = document.getElementById('ms-device-status');
-  if (statusEl) statusEl.textContent = 'Finishing Microsoft sign-in...';
-
-  const completeRes = await invokeBackend('complete_microsoft_oauth_login_command', {
-    request: { state, code },
-  });
-  if (!completeRes.ok || !completeRes.data) {
-    const reason = formatBackendError(
-      completeRes.error,
-      'Microsoft sign-in could not be completed. Please try Link Microsoft again.'
-    );
-    if (statusEl) statusEl.textContent = reason;
-    showToast('!', 'Microsoft link failed', reason);
-    return;
-  }
-
-  MICROSOFT_OAUTH_EXPECTED_STATE = '';
-  const profileName =
-    completeRes.data.profile && completeRes.data.profile.name
-      ? completeRes.data.profile.name
-      : 'Microsoft profile';
-  await completeMicrosoftLinkSuccess(profileName);
 }
 
 async function handleOrbiqDeepLink(rawUrl) {
   const parsed = parseOrbiqDeepLink(rawUrl);
   if (!parsed) return;
+  const isMicrosoftCallbackAction =
+    parsed.action === 'microsoft-auth'
+    || parsed.action === 'microsoft-callback'
+    || (!!parsed.rawCode && !!parsed.state);
+  if (isMicrosoftCallbackAction && !MICROSOFT_OAUTH_FLOW_ACTIVE && !MICROSOFT_OAUTH_EXPECTED_STATE) {
+    // Ignore stale callbacks that arrive outside an active launcher-initiated OAuth flow.
+    return;
+  }
   if (parsed.rawCode || parsed.state) {
     showToast('DL', 'Deep link received', parsed.action || 'oauth-callback');
   }
@@ -1373,6 +1769,9 @@ function formatBackendError(errorText, fallbackText) {
   const message = (match ? String(match[2] || '') : cleaned).trim();
   const lower = message.toLowerCase();
 
+  if (code === 'AUTH_ACCOUNT_SECURITY_INTERRUPT') {
+    return 'Microsoft blocked sign-in for account security verification. Verify at account.live.com/Activity, then link Microsoft again.';
+  }
   if (code === 'AUTH_RELINK_REQUIRED') {
     return 'Microsoft account relink required. Open Accounts and link Microsoft again.';
   }
@@ -1391,9 +1790,21 @@ function formatBackendError(errorText, fallbackText) {
   if (code === 'AUTH_OAUTH_COMPLETE_FAILED' && lower.includes('session not found')) {
     return 'Microsoft sign-in session expired. Start Link Microsoft again.';
   }
+  if (code === 'AUTH_REFRESH_FAILED' && isAuthSecurityInterruptMessage(message)) {
+    return 'Microsoft requires account security verification. Verify at account.live.com/Activity, then link Microsoft again.';
+  }
+  if (
+    lower.includes('the application is a first party application')
+    && lower.includes('pre-authorization for the resource server')
+  ) {
+    return 'This Azure App ID is not approved for Minecraft/Xbox scopes yet. Submit/wait for approval at aka.ms/mce-reviewappid, then retry link.';
+  }
 
   if (lower.includes('invalid app registration') || lower.includes('aka.ms/appreginfo')) {
     return 'Azure app registration is invalid for Minecraft services. Submit/approve AppID first.';
+  }
+  if (isAuthSecurityInterruptMessage(lower)) {
+    return 'Microsoft requires account security verification. Verify at account.live.com/Activity, then link Microsoft again.';
   }
   if (lower.includes('does not own minecraft') || lower.includes('minecraft profile not found')) {
     return 'This Microsoft account does not own Minecraft: Java Edition.';
@@ -1407,6 +1818,7 @@ function formatBackendError(errorText, fallbackText) {
 
 async function completeMicrosoftLinkSuccess(profileName) {
   clearMicrosoftAuthPoll();
+  MICROSOFT_OAUTH_FLOW_ACTIVE = false;
   await refreshProfilesFromBackend();
   const orbiqAccount = getOrbiqAccountState();
   if (orbiqAccount) {
@@ -1628,7 +2040,7 @@ function initWindowControls() {
 function isTitlebarInteractiveTarget(target) {
   if (!target || !(target instanceof Element)) return false;
   return !!target.closest(
-    'button,input,select,textarea,a,[role="button"],.tb-btn,.wm-btn,.wm-btns,.search-wrap,.search-input,.auth-pill'
+    'button,input,select,textarea,a,[role="button"],.tb-btn,.wm-btn,.wm-btns,.titlebar-right,.search-wrap,.search-input,.auth-wrap,.auth-pill,.auth-dropdown,.auth-dd-item'
   );
 }
 
@@ -1743,9 +2155,9 @@ function profileLaunchItemMarkup(profile, selected) {
   const safeName = escapeHtml(profile.name || 'Player');
   const itemClass = isMicrosoft ? 'ms-type' : 'offline-type';
   const avatarMarkup = isMicrosoft
-    ? `<div class="ps-avatar"><img src="https://mc-heads.net/avatar/${encodeURIComponent(profile.name || 'Steve')}/64" onerror="this.parentNode.innerHTML='ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YT,'" style="width:100%;image-rendering:pixelated"></div>`
+    ? `<div class="ps-avatar"><img src="https://mc-heads.net/avatar/${encodeURIComponent(profile.name || 'Steve')}/64" onerror="this.parentNode.innerHTML='?'" style="width:100%;image-rendering:pixelated"></div>`
     : `<div class="ps-avatar offline-av" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="user" width="18" height="18" style="color:var(--t3)"></i></div>`;
-  const desc = isMicrosoft ? 'Microsoft Ãƒâ€šÃ‚Â· Official servers' : 'Offline Ãƒâ€šÃ‚Â· Cracked servers only';
+  const desc = isMicrosoft ? 'Microsoft - Official servers' : 'Offline - Cracked servers only';
   const tag = isMicrosoft
     ? `<div class="ps-tag ms"><div class="ms-grid" style="width:10px;height:10px;margin-right:5px;display:inline-grid;gap:1px"><div style="background:#f25022;border-radius:0.5px"></div><div style="background:#7fba00;border-radius:0.5px"></div><div style="background:#00a4ef;border-radius:0.5px"></div><div style="background:#ffb900;border-radius:0.5px"></div></div>Microsoft</div>`
     : '<div class="ps-tag off">Offline</div>';
@@ -1776,6 +2188,1149 @@ function hydrateLaunchProfileModal() {
   lucide.createIcons();
 }
 
+function getSkinManagerTargetProfile() {
+  const profiles = getRenderableProfiles();
+  if (!profiles.length) return null;
+  const active = profiles.find((item) => !!item.active) || profiles[0];
+  if (active && String(active.profileType || '').toLowerCase() === 'microsoft') {
+    return active;
+  }
+  const microsoft = profiles.find((item) => String(item.profileType || '').toLowerCase() === 'microsoft');
+  return microsoft || active || null;
+}
+
+function setSkinManagerStatus(message, isError) {
+  const statusEl = document.getElementById('skin-manager-status');
+  if (!statusEl) return;
+  statusEl.textContent = String(message || '');
+  statusEl.style.color = isError ? 'var(--red)' : 'var(--t4)';
+}
+
+function clearSkinManagerUploadSelection() {
+  SKIN_MANAGER_STATE.imageBase64 = '';
+  SKIN_MANAGER_STATE.localPreviewDataUrl = '';
+  SKIN_MANAGER_STATE.fileName = '';
+  SKIN_MANAGER_STATE.lastValidation = null;
+}
+
+const SKIN_RECENT_STORE_KEY = 'orbiq.skin.recent.v1';
+const SKIN_RECENT_LIMIT = 12;
+const SKIN_RECENT_RENDER_LIMIT = 6;
+
+function loadSkinRecentEntries() {
+  try {
+    if (!window.localStorage) return [];
+    const raw = window.localStorage.getItem(SKIN_RECENT_STORE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .map((row) => {
+        const dataUrl = String(row && row.dataUrl ? row.dataUrl : '').trim();
+        if (!dataUrl.startsWith('data:image/png')) return null;
+        return {
+          dataUrl,
+          fileName: String(row && row.fileName ? row.fileName : 'skin.png').trim() || 'skin.png',
+          variant: String(row && row.variant ? row.variant : 'classic').toLowerCase() === 'slim' ? 'slim' : 'classic',
+          source: String(row && row.source ? row.source : '').trim(),
+          at: Number(row && row.at ? row.at : 0) || Date.now(),
+        };
+      })
+      .filter(Boolean)
+      .slice(0, SKIN_RECENT_LIMIT);
+  } catch (_err) {
+    return [];
+  }
+}
+
+function persistSkinRecentEntries(rows) {
+  try {
+    if (!window.localStorage) return;
+    window.localStorage.setItem(SKIN_RECENT_STORE_KEY, JSON.stringify(Array.isArray(rows) ? rows.slice(0, SKIN_RECENT_LIMIT) : []));
+  } catch (_err) {}
+}
+
+function ensureSkinRecentEntriesLoaded() {
+  if (SKIN_MANAGER_STATE.recentLoaded) return;
+  SKIN_MANAGER_STATE.recentSkins = loadSkinRecentEntries();
+  SKIN_MANAGER_STATE.recentLoaded = true;
+}
+
+function pushSkinRecentEntry(dataUrl, fileName, variant, source) {
+  const normalizedUrl = String(dataUrl || '').trim();
+  if (!normalizedUrl.startsWith('data:image/png')) return;
+  ensureSkinRecentEntriesLoaded();
+
+  const entry = {
+    dataUrl: normalizedUrl,
+    fileName: String(fileName || 'skin.png').trim() || 'skin.png',
+    variant: String(variant || 'classic').toLowerCase() === 'slim' ? 'slim' : 'classic',
+    source: String(source || '').trim(),
+    at: Date.now(),
+  };
+
+  const rows = Array.isArray(SKIN_MANAGER_STATE.recentSkins) ? SKIN_MANAGER_STATE.recentSkins.slice() : [];
+  const deduped = rows.filter((row) => String(row && row.dataUrl ? row.dataUrl : '').trim() !== normalizedUrl);
+  deduped.unshift(entry);
+  if (deduped.length > SKIN_RECENT_LIMIT) deduped.length = SKIN_RECENT_LIMIT;
+  SKIN_MANAGER_STATE.recentSkins = deduped;
+  persistSkinRecentEntries(deduped);
+}
+
+function fileToDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ''));
+    reader.onerror = () => reject(new Error('failed to read selected file'));
+    reader.readAsDataURL(file);
+  });
+}
+
+function extractPngBase64(dataUrl) {
+  const normalized = String(dataUrl || '');
+  if (!normalized.startsWith('data:image/png')) return '';
+  const marker = 'base64,';
+  const markerIndex = normalized.indexOf(marker);
+  if (markerIndex < 0) return '';
+  return normalized.slice(markerIndex + marker.length).trim();
+}
+
+async function applySkinDataUrlToState(dataUrl, fileName, variantHint, sourceLabel, includeRecent) {
+  const normalized = String(dataUrl || '').trim();
+  if (!normalized.startsWith('data:image/png')) {
+    throw new Error('Skin must be a PNG image');
+  }
+  const payload = extractPngBase64(normalized);
+  if (!payload) throw new Error('Could not parse PNG payload');
+
+  const validation = await inspectSkinPngDataUrl(normalized);
+  const preferredVariant = String(variantHint || '').toLowerCase() === 'slim' ? 'slim' : '';
+  const finalVariant = validation.height === 32
+    ? 'classic'
+    : (preferredVariant || (validation.autoVariant === 'slim' ? 'slim' : 'classic'));
+
+  SKIN_MANAGER_STATE.imageBase64 = payload;
+  SKIN_MANAGER_STATE.localPreviewDataUrl = normalized;
+  SKIN_MANAGER_STATE.fileName = String(fileName || 'skin.png').trim() || 'skin.png';
+  SKIN_MANAGER_STATE.lastValidation = validation;
+  SKIN_MANAGER_STATE.variant = finalVariant;
+
+  if (includeRecent !== false) {
+    pushSkinRecentEntry(normalized, SKIN_MANAGER_STATE.fileName, finalVariant, sourceLabel || '');
+  }
+}
+
+function hydrateSkinManagerRecentGrid() {
+  const grid = document.getElementById('skin-manager-recent-grid');
+  if (!grid) return;
+  ensureSkinRecentEntriesLoaded();
+  const rows = (Array.isArray(SKIN_MANAGER_STATE.recentSkins) ? SKIN_MANAGER_STATE.recentSkins : []).slice(0, SKIN_RECENT_RENDER_LIMIT);
+  if (!rows.length) {
+    grid.innerHTML = '<div class="skin-recent-empty">No recent skins</div>';
+    return;
+  }
+  grid.innerHTML = rows.map((row, index) => (
+    '<button class="skin-recent-item" title="' + escapeHtml(row.fileName) + '" onclick="applyRecentSkinFromModal(' + String(index) + ')" oncontextmenu="openSkinRecentContextMenu(event,' + String(index) + ')">' +
+    '<img src="' + escapeHtml(row.dataUrl) + '" alt="' + escapeHtml(row.fileName) + '">' +
+    '<span>' + escapeHtml(row.variant === 'slim' ? 'Slim' : 'Classic') + '</span>' +
+    '</button>'
+  )).join('');
+}
+
+function formatSkinHistoryAge(epochValue) {
+  const epoch = Number(epochValue || 0);
+  if (!epoch || !Number.isFinite(epoch)) return 'unknown';
+  const now = Math.floor(Date.now() / 1000);
+  const diff = Math.max(0, now - epoch);
+  if (diff < 60) return 'just now';
+  if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+  if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+  return Math.floor(diff / 86400) + 'd ago';
+}
+
+function detectSlimVariantFromImageData(imageData, width, height) {
+  if (width !== 64 || height < 64 || !imageData || !imageData.length) return 'classic';
+  const alphaAt = (x, y) => {
+    if (x < 0 || y < 0 || x >= width || y >= height) return 0;
+    const offset = ((y * width) + x) * 4 + 3;
+    return imageData[offset] || 0;
+  };
+  const markers = [
+    [54, 20],
+    [55, 20],
+    [54, 31],
+    [55, 31],
+    [46, 52],
+    [47, 52],
+    [46, 63],
+    [47, 63],
+  ];
+  let transparentCount = 0;
+  markers.forEach(([x, y]) => {
+    if (alphaAt(x, y) === 0) transparentCount += 1;
+  });
+  return transparentCount >= 6 ? 'slim' : 'classic';
+}
+
+async function inspectSkinPngDataUrl(dataUrl) {
+  const source = String(dataUrl || '').trim();
+  if (!source.startsWith('data:image/png')) {
+    throw new Error('Skin must be a PNG file');
+  }
+  const image = await new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error('Could not decode PNG image'));
+    img.src = source;
+  });
+  const width = Number(image.width || 0);
+  const height = Number(image.height || 0);
+  if (width !== 64) throw new Error('Skin width must be exactly 64px');
+  if (height !== 64 && height !== 32) throw new Error('Skin height must be 64px or 32px');
+
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  if (!ctx) throw new Error('Could not inspect skin image');
+  ctx.clearRect(0, 0, width, height);
+  ctx.drawImage(image, 0, 0);
+  const pixels = ctx.getImageData(0, 0, width, height).data;
+  const autoVariant = height === 32 ? 'classic' : detectSlimVariantFromImageData(pixels, width, height);
+  return { width, height, autoVariant };
+}
+
+function getSkinview3dApi() {
+  const api = window && (window.skinview3d || window.SkinView3D);
+  if (!api || typeof api.SkinViewer !== 'function') return null;
+  return api;
+}
+
+function setSkinViewerFallback(message, visible) {
+  const fallback = document.getElementById('skin-manager-viewer-fallback');
+  if (!fallback) return;
+  fallback.style.display = visible ? 'flex' : 'none';
+  if (message) fallback.textContent = String(message);
+}
+
+function destroySkinViewerRuntime() {
+  if (SKIN_VIEWER_RUNTIME.resizeObserver) {
+    try {
+      SKIN_VIEWER_RUNTIME.resizeObserver.disconnect();
+    } catch (_err) {}
+  }
+  SKIN_VIEWER_RUNTIME.resizeObserver = null;
+  if (SKIN_VIEWER_RUNTIME.viewer && typeof SKIN_VIEWER_RUNTIME.viewer.dispose === 'function') {
+    try {
+      SKIN_VIEWER_RUNTIME.viewer.dispose();
+    } catch (_err) {}
+  }
+  SKIN_VIEWER_RUNTIME.viewer = null;
+  SKIN_VIEWER_RUNTIME.controls = null;
+  SKIN_VIEWER_RUNTIME.canvas = null;
+}
+
+function resizeSkinViewerCanvas() {
+  const canvas = document.getElementById('skin-manager-3d-canvas');
+  if (!canvas || !SKIN_VIEWER_RUNTIME.viewer) return;
+  const width = Math.max(160, Math.floor(canvas.clientWidth || canvas.parentElement?.clientWidth || 260));
+  const height = Math.max(220, Math.floor(canvas.clientHeight || canvas.parentElement?.clientHeight || 314));
+  if (canvas.width !== width) canvas.width = width;
+  if (canvas.height !== height) canvas.height = height;
+  SKIN_VIEWER_RUNTIME.viewer.width = width;
+  SKIN_VIEWER_RUNTIME.viewer.height = height;
+}
+
+function refreshSkinViewerAutoRotateButton() {
+  const button = document.getElementById('skin-manager-auto-rotate-btn');
+  if (!button) return;
+  const enabled = !!SKIN_VIEWER_RUNTIME.autoRotate;
+  button.style.borderColor = enabled ? 'rgba(80,180,120,0.42)' : '';
+  button.style.color = enabled ? 'var(--green)' : '';
+}
+
+function applySkinViewerAutoRotateState() {
+  if (SKIN_VIEWER_RUNTIME.controls) {
+    SKIN_VIEWER_RUNTIME.controls.autoRotate = !!SKIN_VIEWER_RUNTIME.autoRotate;
+    SKIN_VIEWER_RUNTIME.controls.autoRotateSpeed = 2.0;
+  }
+  refreshSkinViewerAutoRotateButton();
+}
+
+function ensureSkinViewerRuntime() {
+  const api = getSkinview3dApi();
+  const canvas = document.getElementById('skin-manager-3d-canvas');
+  if (!canvas) return null;
+  if (!api) {
+    setSkinViewerFallback('3D preview module not loaded', true);
+    return null;
+  }
+
+  if (SKIN_VIEWER_RUNTIME.viewer && SKIN_VIEWER_RUNTIME.canvas === canvas) {
+    resizeSkinViewerCanvas();
+    return SKIN_VIEWER_RUNTIME;
+  }
+
+  destroySkinViewerRuntime();
+  try {
+    const viewer = new api.SkinViewer({
+      canvas,
+      width: Math.max(160, Math.floor(canvas.clientWidth || 260)),
+      height: Math.max(220, Math.floor(canvas.clientHeight || 314)),
+      skin: null,
+    });
+    viewer.fov = 50;
+    viewer.zoom = 0.9;
+
+    let controls = null;
+    if (typeof api.createOrbitControls === 'function') {
+      controls = api.createOrbitControls(viewer);
+      if (controls) {
+        controls.enableZoom = true;
+        controls.enablePan = false;
+        controls.rotateSpeed = 0.9;
+      }
+    }
+    if (typeof api.IdleAnimation === 'function') {
+      viewer.animation = new api.IdleAnimation();
+    }
+
+    SKIN_VIEWER_RUNTIME.viewer = viewer;
+    SKIN_VIEWER_RUNTIME.controls = controls;
+    SKIN_VIEWER_RUNTIME.canvas = canvas;
+    applySkinViewerAutoRotateState();
+
+    if (typeof ResizeObserver === 'function') {
+      SKIN_VIEWER_RUNTIME.resizeObserver = new ResizeObserver(() => {
+        resizeSkinViewerCanvas();
+      });
+      SKIN_VIEWER_RUNTIME.resizeObserver.observe(canvas.parentElement || canvas);
+    }
+    resizeSkinViewerCanvas();
+    setSkinViewerFallback('', false);
+    return SKIN_VIEWER_RUNTIME;
+  } catch (_err) {
+    setSkinViewerFallback('Could not initialize 3D preview', true);
+    return null;
+  }
+}
+
+function loadSkinViewerAsset(loaderResult, onError) {
+  if (!loaderResult || typeof loaderResult.then !== 'function') return;
+  loaderResult.catch(() => {
+    if (typeof onError === 'function') onError();
+  });
+}
+
+function getDefaultSkinDataUrl() {
+  if (SKIN_VIEWER_RUNTIME.defaultSkinDataUrl) return SKIN_VIEWER_RUNTIME.defaultSkinDataUrl;
+  try {
+    const canvas = document.createElement('canvas');
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return '';
+
+    ctx.clearRect(0, 0, 64, 64);
+    // Base transparent background.
+    ctx.fillStyle = 'rgba(0,0,0,0)';
+    ctx.fillRect(0, 0, 64, 64);
+
+    // Head (8x8 at [8,8]).
+    ctx.fillStyle = '#d4ad8a';
+    ctx.fillRect(8, 8, 8, 8);
+    ctx.fillStyle = '#5a3a22';
+    ctx.fillRect(8, 8, 8, 2);
+
+    // Body (8x12 at [20,20]).
+    ctx.fillStyle = '#3d7ac5';
+    ctx.fillRect(20, 20, 8, 12);
+    // Arms.
+    ctx.fillRect(44, 20, 4, 12);
+    ctx.fillRect(36, 52, 4, 12);
+    // Legs.
+    ctx.fillStyle = '#2d4366';
+    ctx.fillRect(4, 20, 4, 12);
+    ctx.fillRect(20, 52, 8, 12);
+
+    SKIN_VIEWER_RUNTIME.defaultSkinDataUrl = canvas.toDataURL('image/png');
+    return SKIN_VIEWER_RUNTIME.defaultSkinDataUrl;
+  } catch (_err) {
+    return '';
+  }
+}
+
+function syncSkinManagerPreview(previewSource, profileName) {
+  const runtime = ensureSkinViewerRuntime();
+  if (!runtime || !runtime.viewer) return;
+
+  const defaultSkin = getDefaultSkinDataUrl();
+  const skinSource = String(previewSource || '').trim() || defaultSkin;
+  const variant = SKIN_MANAGER_STATE.variant === 'slim' ? 'slim' : 'classic';
+  try {
+    const result = runtime.viewer.loadSkin(skinSource, { model: variant });
+    loadSkinViewerAsset(result, () => {
+      if (defaultSkin && skinSource !== defaultSkin) {
+        try {
+          const fallbackResult = runtime.viewer.loadSkin(defaultSkin, { model: variant });
+          loadSkinViewerAsset(fallbackResult, () => setSkinViewerFallback('Could not load skin texture', true));
+          setSkinViewerFallback('', false);
+          return;
+        } catch (_err) {}
+      }
+      setSkinViewerFallback('Could not load skin texture', true);
+    });
+    setSkinViewerFallback('', false);
+  } catch (_err) {
+    setSkinViewerFallback('Could not render selected skin', true);
+  }
+
+  const capeSource = String(SKIN_MANAGER_STATE.localCapePreviewDataUrl || SKIN_MANAGER_STATE.currentCapeUrl || '').trim();
+  if (!capeSource) {
+    if (typeof runtime.viewer.resetCape === 'function') {
+      try {
+        runtime.viewer.resetCape();
+      } catch (_err) {}
+    } else {
+      try {
+        runtime.viewer.loadCape(null);
+      } catch (_err) {}
+    }
+    return;
+  }
+
+  try {
+    const capeResult = runtime.viewer.loadCape(capeSource);
+    loadSkinViewerAsset(capeResult, () => setSkinViewerFallback('Cape preview failed to load', true));
+  } catch (_err) {
+    setSkinViewerFallback('Cape preview failed to load', true);
+  }
+}
+
+function hydrateSkinManagerCurrentInfo() {
+  const currentEl = document.getElementById('skin-manager-current');
+  if (!currentEl) return;
+  if (SKIN_MANAGER_STATE.syncingCurrent) {
+    currentEl.textContent = 'Syncing current skin...';
+    return;
+  }
+  if (!SKIN_MANAGER_STATE.currentSkinUrl) {
+    currentEl.innerHTML =
+      '<div style="color:var(--t4)">No synced skin metadata yet.</div>' +
+      (SKIN_MANAGER_STATE.lastSyncAt
+        ? '<div style="margin-top:2px">Last check: ' + escapeHtml(formatSkinHistoryAge(Math.floor(SKIN_MANAGER_STATE.lastSyncAt / 1000))) + '</div>'
+        : '');
+    return;
+  }
+  const variantLabel = SKIN_MANAGER_STATE.currentSkinVariant === 'slim' ? 'Slim (Alex)' : 'Classic (Steve)';
+  const capeLabel = SKIN_MANAGER_STATE.currentCapeUrl ? 'Synced' : 'None';
+  currentEl.innerHTML =
+    '<div style="color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Variant: ' + escapeHtml(variantLabel) + '</div>' +
+    '<div style="margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Cape: ' + escapeHtml(capeLabel) + '</div>' +
+    '<div style="margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">URL: ' + escapeHtml(SKIN_MANAGER_STATE.currentSkinUrl) + '</div>' +
+    '<div style="margin-top:2px;color:var(--t4)">Synced ' + escapeHtml(formatSkinHistoryAge(Math.floor((SKIN_MANAGER_STATE.lastSyncAt || 0) / 1000))) + '</div>';
+}
+
+function hydrateSkinManagerHistoryOptions(isMicrosoft) {
+  const selectEl = document.getElementById('skin-manager-history-select');
+  const rollbackBtn = document.getElementById('skin-manager-rollback-btn');
+  if (!selectEl) return;
+  const rows = Array.isArray(SKIN_MANAGER_STATE.history) ? SKIN_MANAGER_STATE.history : [];
+  if (!isMicrosoft) {
+    selectEl.innerHTML = '<option value="">Microsoft profile required</option>';
+    selectEl.disabled = true;
+    if (rollbackBtn) rollbackBtn.disabled = true;
+    return;
+  }
+  if (!rows.length) {
+    selectEl.innerHTML = '<option value="">No history</option>';
+    selectEl.disabled = true;
+    if (rollbackBtn) rollbackBtn.disabled = true;
+    return;
+  }
+  selectEl.innerHTML = rows
+    .map((entry, index) => {
+      const variant = String(entry && entry.variant ? entry.variant : 'classic').toLowerCase() === 'slim'
+        ? 'slim'
+        : 'classic';
+      const capturedAt = Number(entry && entry.capturedAtEpoch ? entry.capturedAtEpoch : 0);
+      const label = '#' + (index + 1) + ' - ' + variant + ' - ' + formatSkinHistoryAge(capturedAt);
+      return '<option value="' + String(index) + '">' + escapeHtml(label) + '</option>';
+    })
+    .join('');
+  selectEl.disabled = SKIN_MANAGER_STATE.applying || SKIN_MANAGER_STATE.syncingCurrent;
+  if (rollbackBtn) {
+    rollbackBtn.disabled = SKIN_MANAGER_STATE.applying || SKIN_MANAGER_STATE.syncingCurrent || !rows.length;
+  }
+}
+
+async function syncSkinManagerFromBackend(force) {
+  const profileId = String(SKIN_MANAGER_STATE.profileId || '').trim();
+  const profileType = String(SKIN_MANAGER_STATE.profileType || '').toLowerCase();
+  if (!profileId || profileType !== 'microsoft') return false;
+  if (SKIN_MANAGER_STATE.syncingCurrent) return false;
+  const recentlySynced = SKIN_MANAGER_STATE.syncedProfileId === profileId && (Date.now() - Number(SKIN_MANAGER_STATE.lastSyncAt || 0) < 8000);
+  if (!force && recentlySynced) return true;
+
+  SKIN_MANAGER_STATE.syncingCurrent = true;
+  if (ACTIVE_MODAL_ID === 'skin-manager') hydrateSkinManagerModal();
+
+  const res = await invokeBackend('get_minecraft_skin_status', {
+    request: { profileId },
+  });
+
+  SKIN_MANAGER_STATE.syncingCurrent = false;
+  if (!res.ok || !res.data) {
+    const reason = formatBackendError(res.error, 'Could not sync current skin');
+    if (ACTIVE_MODAL_ID === 'skin-manager') {
+      hydrateSkinManagerModal();
+      setSkinManagerStatus(reason, true);
+    }
+    if (isAuthSecurityInterruptMessage(reason)) {
+      promptAuthSecurityInterruptGuidance('skin-manager-sync');
+    } else if (isAuthRelinkFailureMessage(reason)) {
+      promptAuthRelinkGuidance('skin-manager-sync');
+    }
+    return false;
+  }
+
+  const data = res.data || {};
+  SKIN_MANAGER_STATE.currentSkinUrl = String(data.skinUrl || '').trim();
+  SKIN_MANAGER_STATE.currentCapeUrl = String(data.capeUrl || '').trim();
+  SKIN_MANAGER_STATE.currentSkinVariant = String(data.variant || 'classic').toLowerCase() === 'slim' ? 'slim' : 'classic';
+  SKIN_MANAGER_STATE.history = Array.isArray(data.history) ? data.history.slice() : [];
+  if (!SKIN_MANAGER_STATE.fileName && !SKIN_MANAGER_STATE.imageBase64) {
+    SKIN_MANAGER_STATE.variant = SKIN_MANAGER_STATE.currentSkinVariant || 'classic';
+  }
+  SKIN_MANAGER_STATE.lastSyncAt = Date.now();
+  SKIN_MANAGER_STATE.syncedProfileId = profileId;
+  if (!SKIN_MANAGER_STATE.localPreviewDataUrl) {
+    SKIN_MANAGER_STATE.previewNonce = Date.now();
+  }
+  if (ACTIVE_MODAL_ID === 'skin-manager') hydrateSkinManagerModal();
+  return true;
+}
+
+function hydrateSkinManagerModal() {
+  ensureSkinRecentEntriesLoaded();
+  const profile = getSkinManagerTargetProfile();
+  const profileType = String(profile && profile.profileType ? profile.profileType : '').toLowerCase();
+  const isMicrosoft = profileType === 'microsoft';
+
+  if (!profile) {
+    const titleEl = document.getElementById('skin-manager-title');
+    if (titleEl) titleEl.textContent = 'Skin';
+    const profileEl = document.getElementById('skin-manager-profile');
+    if (profileEl) profileEl.textContent = 'No profile found. Add one from Accounts.';
+    const applyBtn = document.getElementById('skin-manager-apply-btn');
+    if (applyBtn) applyBtn.disabled = true;
+    const fileInput = document.getElementById('skin-manager-file-input');
+    if (fileInput) fileInput.disabled = true;
+    SKIN_MANAGER_STATE.history = [];
+    SKIN_MANAGER_STATE.currentSkinUrl = '';
+    SKIN_MANAGER_STATE.currentCapeUrl = '';
+    SKIN_MANAGER_STATE.currentSkinVariant = '';
+    SKIN_MANAGER_STATE.localCapePreviewDataUrl = '';
+    SKIN_MANAGER_STATE.capeFileName = '';
+    SKIN_MANAGER_STATE.syncingCurrent = false;
+    destroySkinViewerRuntime();
+    setSkinManagerStatus('No profile available for skin update.', true);
+    hydrateSkinManagerCurrentInfo();
+    hydrateSkinManagerHistoryOptions(false);
+    hydrateSkinManagerRecentGrid();
+    return;
+  }
+
+  if (SKIN_MANAGER_STATE.profileId && SKIN_MANAGER_STATE.profileId !== profile.id) {
+    clearSkinManagerUploadSelection();
+    SKIN_MANAGER_STATE.currentSkinUrl = '';
+    SKIN_MANAGER_STATE.currentCapeUrl = '';
+    SKIN_MANAGER_STATE.currentSkinVariant = '';
+    SKIN_MANAGER_STATE.localCapePreviewDataUrl = '';
+    SKIN_MANAGER_STATE.capeFileName = '';
+    SKIN_MANAGER_STATE.history = [];
+    SKIN_MANAGER_STATE.lastSyncAt = 0;
+    SKIN_MANAGER_STATE.syncedProfileId = '';
+  }
+
+  SKIN_MANAGER_STATE.profileId = String(profile.id || '');
+  SKIN_MANAGER_STATE.profileName = String(profile.name || 'Player');
+  SKIN_MANAGER_STATE.profileType = profileType;
+
+  const titleEl = document.getElementById('skin-manager-title');
+  if (titleEl) titleEl.textContent = 'Skin - ' + SKIN_MANAGER_STATE.profileName;
+
+  const profileEl = document.getElementById('skin-manager-profile');
+  if (profileEl) {
+    const subtitle = isMicrosoft
+      ? String(profile.email || 'Microsoft profile')
+      : 'Offline profile';
+    profileEl.innerHTML =
+      '<div style="font-size:11px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' +
+      escapeHtml(SKIN_MANAGER_STATE.profileName) +
+      '</div>' +
+      '<div style="font-size:10px;color:' + (isMicrosoft ? 'var(--green)' : 'var(--t4)') + ';margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' +
+      escapeHtml(subtitle) +
+      '</div>';
+  }
+
+  const modelEl = document.getElementById('skin-manager-model');
+  if (modelEl) {
+    const nextVariant = SKIN_MANAGER_STATE.variant === 'slim' ? 'slim' : 'classic';
+    modelEl.value = nextVariant;
+    modelEl.disabled = !isMicrosoft || SKIN_MANAGER_STATE.applying || SKIN_MANAGER_STATE.syncingCurrent;
+  }
+
+  const inputEl = document.getElementById('skin-manager-file-input');
+  if (inputEl) {
+    inputEl.disabled = !isMicrosoft || SKIN_MANAGER_STATE.applying || SKIN_MANAGER_STATE.syncingCurrent;
+    if (!SKIN_MANAGER_STATE.fileName) inputEl.value = '';
+  }
+  const capeInputEl = document.getElementById('skin-manager-cape-file-input');
+  if (capeInputEl) {
+    capeInputEl.disabled = !isMicrosoft || SKIN_MANAGER_STATE.applying || SKIN_MANAGER_STATE.syncingCurrent;
+    if (!SKIN_MANAGER_STATE.capeFileName) capeInputEl.value = '';
+  }
+
+  const dropzone = document.getElementById('skin-manager-dropzone');
+  if (dropzone) {
+    dropzone.style.opacity = isMicrosoft ? '1' : '0.55';
+    dropzone.style.cursor = isMicrosoft ? 'pointer' : 'default';
+    dropzone.style.pointerEvents = isMicrosoft ? 'auto' : 'none';
+  }
+
+  const fileNameEl = document.getElementById('skin-manager-file-name');
+  if (fileNameEl) {
+    fileNameEl.textContent = SKIN_MANAGER_STATE.fileName || 'No file selected';
+    fileNameEl.style.color = SKIN_MANAGER_STATE.fileName ? 'var(--t3)' : 'var(--t4)';
+  }
+  const capeFileNameEl = document.getElementById('skin-manager-cape-file-name');
+  if (capeFileNameEl) {
+    capeFileNameEl.textContent = SKIN_MANAGER_STATE.capeFileName || (SKIN_MANAGER_STATE.currentCapeUrl ? 'Use synced cape' : 'No cape');
+    capeFileNameEl.style.color = SKIN_MANAGER_STATE.capeFileName || SKIN_MANAGER_STATE.currentCapeUrl ? 'var(--t3)' : 'var(--t4)';
+  }
+  const capeClearBtn = document.getElementById('skin-manager-cape-clear-btn');
+  if (capeClearBtn) {
+    const hasCapePreview = !!String(SKIN_MANAGER_STATE.localCapePreviewDataUrl || '').trim();
+    capeClearBtn.disabled = !isMicrosoft || SKIN_MANAGER_STATE.applying || SKIN_MANAGER_STATE.syncingCurrent || !hasCapePreview;
+  }
+
+  const applyBtn = document.getElementById('skin-manager-apply-btn');
+  if (applyBtn) {
+    const disabled = !isMicrosoft || SKIN_MANAGER_STATE.applying || SKIN_MANAGER_STATE.syncingCurrent || !SKIN_MANAGER_STATE.imageBase64;
+    applyBtn.disabled = disabled;
+  }
+  hydrateSkinManagerCurrentInfo();
+  hydrateSkinManagerHistoryOptions(isMicrosoft);
+  hydrateSkinManagerRecentGrid();
+
+  const previewUrl = SKIN_MANAGER_STATE.localPreviewDataUrl
+    || SKIN_MANAGER_STATE.currentSkinUrl
+    || getDefaultSkinDataUrl();
+  syncSkinManagerPreview(previewUrl, SKIN_MANAGER_STATE.profileName);
+  refreshSkinViewerAutoRotateButton();
+
+  if (SKIN_MANAGER_STATE.applying) {
+    setSkinManagerStatus('Uploading skin...', false);
+  } else if (SKIN_MANAGER_STATE.syncingCurrent) {
+    setSkinManagerStatus('Syncing current skin state...', false);
+  } else if (!isMicrosoft) {
+    setSkinManagerStatus('Offline profile cannot sync skins. Switch to a Microsoft profile in Accounts.', true);
+  } else if (SKIN_MANAGER_STATE.lastValidation && SKIN_MANAGER_STATE.fileName) {
+    const validation = SKIN_MANAGER_STATE.lastValidation;
+    const variantLabel = SKIN_MANAGER_STATE.variant === 'slim' ? 'Slim (Alex)' : 'Classic (Steve)';
+    const capeLabel = SKIN_MANAGER_STATE.localCapePreviewDataUrl
+      ? ' + Local cape preview'
+      : (SKIN_MANAGER_STATE.currentCapeUrl ? ' + Synced cape' : '');
+    setSkinManagerStatus(
+      'Validated ' + validation.width + 'x' + validation.height + ' PNG - Auto variant: '
+      + validation.autoVariant + ' - Using: ' + variantLabel + capeLabel,
+      false
+    );
+  } else if (SKIN_MANAGER_STATE.fileName) {
+    setSkinManagerStatus('Ready to upload: ' + SKIN_MANAGER_STATE.fileName, false);
+  } else {
+    setSkinManagerStatus('Select a PNG file (max 2MB), then click Apply Skin.', false);
+  }
+
+  if (isMicrosoft && !SKIN_MANAGER_STATE.syncingCurrent) {
+    const shouldSync = SKIN_MANAGER_STATE.syncedProfileId !== SKIN_MANAGER_STATE.profileId || !SKIN_MANAGER_STATE.lastSyncAt;
+    if (shouldSync) {
+      void syncSkinManagerFromBackend(false);
+    }
+  }
+}
+
+function onSkinModelChanged() {
+  const modelEl = document.getElementById('skin-manager-model');
+  if (!modelEl) return;
+  const value = String(modelEl.value || '').toLowerCase();
+  const nextVariant = value === 'slim' ? 'slim' : 'classic';
+  if (SKIN_MANAGER_STATE.lastValidation && SKIN_MANAGER_STATE.lastValidation.height === 32 && nextVariant === 'slim') {
+    SKIN_MANAGER_STATE.variant = 'classic';
+    modelEl.value = 'classic';
+    setSkinManagerStatus('64x32 skin cannot use Slim. Switched to Classic.', true);
+    return;
+  }
+  SKIN_MANAGER_STATE.variant = nextVariant;
+  hydrateSkinManagerModal();
+}
+
+function resetSkinViewerCamera() {
+  const runtime = ensureSkinViewerRuntime();
+  if (!runtime || !runtime.controls) return;
+  if (typeof runtime.controls.reset === 'function') {
+    runtime.controls.reset();
+  }
+}
+
+function toggleSkinViewerAutoRotate() {
+  SKIN_VIEWER_RUNTIME.autoRotate = !SKIN_VIEWER_RUNTIME.autoRotate;
+  applySkinViewerAutoRotateState();
+}
+
+async function refreshSkinManagerModal() {
+  if (SKIN_MANAGER_STATE.applying) return;
+  const ok = await refreshProfilesFromBackend();
+  if (ok) {
+    SKIN_MANAGER_STATE.lastSyncAt = 0;
+    SKIN_MANAGER_STATE.syncedProfileId = '';
+  }
+  hydrateSkinManagerModal();
+  if (ok) await syncSkinManagerFromBackend(true);
+  if (ok) {
+    showToast('OK', 'Skin refreshed', 'Profile state synced');
+  } else {
+    showToast('!', 'Refresh failed', 'Could not refresh profiles');
+  }
+}
+
+async function openMinecraftSkinPageFromModal() {
+  const opened = await openExternalHttpUrl('https://www.minecraft.net/en-us/msaprofile/mygames/editprofile');
+  if (!opened) {
+    showToast('!', 'Open failed', 'Could not open Minecraft skin page');
+    return;
+  }
+  showToast('OK', 'Opened', 'Minecraft skin page opened in browser');
+}
+
+function triggerSkinFilePicker() {
+  const inputEl = document.getElementById('skin-manager-file-input');
+  if (!inputEl || inputEl.disabled) return;
+  inputEl.click();
+}
+
+function focusSkinDropzone() {
+  const dropzone = document.getElementById('skin-manager-dropzone');
+  if (!dropzone) return;
+  try {
+    dropzone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (_err) {}
+  const previousBorder = dropzone.style.borderColor;
+  const previousBackground = dropzone.style.background;
+  dropzone.style.borderColor = 'rgba(86, 198, 129, 0.7)';
+  dropzone.style.background = 'rgba(48, 120, 74, 0.18)';
+  setTimeout(() => {
+    if (!dropzone.isConnected) return;
+    dropzone.style.borderColor = previousBorder || '';
+    dropzone.style.background = previousBackground || '';
+  }, 850);
+}
+
+async function browseSkinCatalogFromModal() {
+  const opened = await openExternalHttpUrl('https://namemc.com/minecraft-skins');
+  if (!opened) {
+    showToast('!', 'Open failed', 'Could not open skin catalog');
+    return;
+  }
+  showToast('OK', 'Opened', 'Skin catalog opened in browser');
+}
+
+async function importSkinFromUsername() {
+  const usernameRaw = typeof window.prompt === 'function'
+    ? window.prompt('Minecraft username')
+    : '';
+  const username = String(usernameRaw || '').trim();
+  if (!username) return;
+  if (!/^[A-Za-z0-9_]{3,16}$/.test(username)) {
+    showToast('!', 'Invalid username', 'Use 3-16 chars: letters, numbers, underscore');
+    return;
+  }
+  setSkinManagerStatus('Importing skin from username: ' + username + ' ...', false);
+
+  try {
+    const url = 'https://minotar.net/skin/' + encodeURIComponent(username);
+    const response = await fetch(url, { cache: 'no-store', mode: 'cors' });
+    if (!response.ok) {
+      throw new Error('skin service returned ' + response.status);
+    }
+    const blob = await response.blob();
+    if (!blob || !String(blob.type || '').includes('image')) {
+      throw new Error('service did not return image data');
+    }
+    const dataUrl = await fileToDataUrl(blob);
+    await applySkinDataUrlToState(dataUrl, username + '.png', '', 'username:' + username, true);
+    const modelEl = document.getElementById('skin-manager-model');
+    if (modelEl) modelEl.value = SKIN_MANAGER_STATE.variant;
+    hydrateSkinManagerModal();
+    setSkinManagerStatus('Imported skin for ' + username + '. Review preview then Apply.', false);
+    showToast('OK', 'Imported', 'Skin loaded from username: ' + username);
+  } catch (err) {
+    const reason = err && err.message ? err.message : 'Could not import by username';
+    setSkinManagerStatus(String(reason), true);
+    showToast('!', 'Import failed', String(reason));
+  }
+}
+
+async function applyRecentSkinFromModal(index) {
+  ensureSkinRecentEntriesLoaded();
+  const rows = Array.isArray(SKIN_MANAGER_STATE.recentSkins) ? SKIN_MANAGER_STATE.recentSkins : [];
+  const row = rows[Number(index)];
+  if (!row || !row.dataUrl) return;
+  try {
+    await applySkinDataUrlToState(row.dataUrl, row.fileName || 'skin.png', row.variant || 'classic', row.source || 'recent', false);
+    const modelEl = document.getElementById('skin-manager-model');
+    if (modelEl) modelEl.value = SKIN_MANAGER_STATE.variant;
+    hydrateSkinManagerModal();
+    setSkinManagerStatus('Loaded recent skin: ' + (row.fileName || 'skin.png'), false);
+  } catch (err) {
+    const reason = err && err.message ? err.message : 'Could not load recent skin';
+    setSkinManagerStatus(String(reason), true);
+    showToast('!', 'Recent failed', String(reason));
+  }
+}
+
+function removeRecentSkinByIndex(index) {
+  ensureSkinRecentEntriesLoaded();
+  const rows = Array.isArray(SKIN_MANAGER_STATE.recentSkins) ? SKIN_MANAGER_STATE.recentSkins.slice() : [];
+  const targetIndex = Number(index);
+  if (!Number.isFinite(targetIndex) || targetIndex < 0 || targetIndex >= rows.length) return;
+  const removed = rows.splice(targetIndex, 1)[0];
+  SKIN_MANAGER_STATE.recentSkins = rows;
+  persistSkinRecentEntries(rows);
+  hydrateSkinManagerRecentGrid();
+  if (!rows.length) {
+    setSkinManagerStatus('Recent list is empty.', false);
+  }
+  showToast('OK', 'Removed', String(removed && removed.fileName ? removed.fileName : 'Recent skin'));
+}
+
+function clearAllRecentSkins() {
+  ensureSkinRecentEntriesLoaded();
+  const rows = Array.isArray(SKIN_MANAGER_STATE.recentSkins) ? SKIN_MANAGER_STATE.recentSkins : [];
+  if (!rows.length) {
+    showToast('OK', 'No recent skins', 'Recent list is already empty');
+    return;
+  }
+  SKIN_MANAGER_STATE.recentSkins = [];
+  persistSkinRecentEntries([]);
+  hydrateSkinManagerRecentGrid();
+  setSkinManagerStatus('Recent list cleared.', false);
+  showToast('OK', 'Cleared', 'Recent skins removed');
+}
+
+function openSkinRecentContextMenu(event, index) {
+  if (!event || !ctxMenu) return;
+  event.preventDefault();
+  event.stopPropagation();
+  activeSelectMenu = null;
+  activeIconPickerInput = null;
+  activeIconPickerTrigger = null;
+  activeGroupPicker = null;
+  ctxMenu.classList.remove('select-menu');
+  ctxMenu.classList.remove('icon-picker-menu');
+  ctxMenu.classList.remove('group-picker-menu');
+  ctxMenu.style.maxHeight = '';
+  ctxMenu.style.overflowY = '';
+  ctxMenu.style.overflowX = '';
+  ctxMenu.scrollTop = 0;
+  ctxMenu.style.minWidth = '176px';
+
+  const safeIndex = Math.max(0, Number(index) || 0);
+  const rows = Array.isArray(SKIN_MANAGER_STATE.recentSkins) ? SKIN_MANAGER_STATE.recentSkins : [];
+  const hasRows = rows.length > 0;
+  const hasRow = safeIndex < rows.length;
+
+  ctxMenu.innerHTML = `
+    <div class="ctx-item${hasRow ? '' : ' disabled'}" onclick="${hasRow ? ('hideCtx();applyRecentSkinFromModal(' + String(safeIndex) + ')') : 'void(0)'}"><i data-lucide="play" width="12" height="12"></i>Apply</div>
+    <div class="ctx-item${hasRow ? '' : ' disabled'}" onclick="${hasRow ? ('hideCtx();removeRecentSkinByIndex(' + String(safeIndex) + ')') : 'void(0)'}"><i data-lucide="trash-2" width="12" height="12"></i>Remove</div>
+    <div class="ctx-sep"></div>
+    <div class="ctx-item danger${hasRows ? '' : ' disabled'}" onclick="${hasRows ? 'hideCtx();clearAllRecentSkins()' : 'void(0)'}"><i data-lucide="x" width="12" height="12"></i>Clear All</div>
+  `;
+  ctxMenu.style.display = 'block';
+  const menuWidth = 182;
+  const menuHeight = Math.max(96, ctxMenu.scrollHeight);
+  const x = Math.min(Math.max(8, Math.floor(event.clientX || 0)), window.innerWidth - menuWidth - 8);
+  const y = Math.min(Math.max(8, Math.floor(event.clientY || 0)), window.innerHeight - menuHeight - 8);
+  ctxMenu.style.left = x + 'px';
+  ctxMenu.style.top = y + 'px';
+  lucide.createIcons();
+  setTimeout(() => document.addEventListener('click', hideCtx, { once: true }), 0);
+}
+
+function triggerSkinCapeFilePicker() {
+  const inputEl = document.getElementById('skin-manager-cape-file-input');
+  if (!inputEl || inputEl.disabled) return;
+  inputEl.click();
+}
+
+async function onSkinCapeFileChosen(event) {
+  const target = event && event.target ? event.target : null;
+  const file = target && target.files ? target.files[0] : null;
+  if (!file) return;
+  await loadSkinCapeFileForModal(file);
+}
+
+async function loadSkinCapeFileForModal(file) {
+  const profileType = String(SKIN_MANAGER_STATE.profileType || '').toLowerCase();
+  if (profileType !== 'microsoft') {
+    showToast('!', 'Unsupported profile', 'Cape preview requires a Microsoft profile');
+    return;
+  }
+
+  const fileName = String(file && file.name ? file.name : '').trim();
+  const lowerName = fileName.toLowerCase();
+  if (!lowerName.endsWith('.png')) {
+    showToast('!', 'Invalid file', 'Cape must be a .png file');
+    return;
+  }
+  const fileSize = Number(file && file.size ? file.size : 0);
+  if (fileSize <= 0) {
+    showToast('!', 'Invalid file', 'Selected cape file is empty');
+    return;
+  }
+  if (fileSize > (2 * 1024 * 1024)) {
+    showToast('!', 'File too large', 'Cape file must be under 2MB');
+    return;
+  }
+
+  let dataUrl = '';
+  try {
+    dataUrl = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || ''));
+      reader.onerror = () => reject(new Error('failed to read selected file'));
+      reader.readAsDataURL(file);
+    });
+  } catch (err) {
+    const reason = err && err.message ? err.message : 'Could not read cape file';
+    showToast('!', 'Read failed', String(reason));
+    return;
+  }
+
+  const normalized = String(dataUrl || '');
+  if (!normalized.startsWith('data:image/png')) {
+    showToast('!', 'Invalid file', 'Cape must be a PNG image');
+    return;
+  }
+
+  SKIN_MANAGER_STATE.localCapePreviewDataUrl = normalized;
+  SKIN_MANAGER_STATE.capeFileName = fileName || 'cape.png';
+  hydrateSkinManagerModal();
+  setSkinManagerStatus('Cape preview loaded. This does not upload a cape to Minecraft.', false);
+}
+
+function clearSkinCapePreview() {
+  SKIN_MANAGER_STATE.localCapePreviewDataUrl = '';
+  SKIN_MANAGER_STATE.capeFileName = '';
+  const inputEl = document.getElementById('skin-manager-cape-file-input');
+  if (inputEl) inputEl.value = '';
+  hydrateSkinManagerModal();
+}
+
+function onSkinFileDragOver(event) {
+  if (!event) return;
+  event.preventDefault();
+  const dropzone = document.getElementById('skin-manager-dropzone');
+  if (dropzone) {
+    dropzone.style.borderColor = 'var(--b3)';
+    dropzone.style.background = 'var(--s2)';
+  }
+}
+
+function onSkinFileDragLeave(event) {
+  if (!event) return;
+  event.preventDefault();
+  const dropzone = document.getElementById('skin-manager-dropzone');
+  if (dropzone) {
+    dropzone.style.borderColor = 'var(--b3)';
+    dropzone.style.background = '';
+  }
+}
+
+async function onSkinFileDrop(event) {
+  if (!event) return;
+  event.preventDefault();
+  onSkinFileDragLeave(event);
+  const file = event.dataTransfer && event.dataTransfer.files ? event.dataTransfer.files[0] : null;
+  if (!file) return;
+  await loadSkinFileForModal(file);
+}
+
+async function onSkinFileChosen(event) {
+  const target = event && event.target ? event.target : null;
+  const file = target && target.files ? target.files[0] : null;
+  if (!file) return;
+  await loadSkinFileForModal(file);
+}
+
+async function loadSkinFileForModal(file) {
+  const profileType = String(SKIN_MANAGER_STATE.profileType || '').toLowerCase();
+  if (profileType !== 'microsoft') {
+    showToast('!', 'Unsupported profile', 'Skin upload requires a Microsoft profile');
+    return;
+  }
+
+  const fileName = String(file && file.name ? file.name : '').trim();
+  const lowerName = fileName.toLowerCase();
+  if (!lowerName.endsWith('.png')) {
+    showToast('!', 'Invalid file', 'Skin must be a .png file');
+    return;
+  }
+  const fileSize = Number(file && file.size ? file.size : 0);
+  if (fileSize <= 0) {
+    showToast('!', 'Invalid file', 'Selected file is empty');
+    return;
+  }
+  if (fileSize > (2 * 1024 * 1024)) {
+    showToast('!', 'File too large', 'Skin file must be under 2MB');
+    return;
+  }
+
+  let dataUrl = '';
+  try {
+    dataUrl = await fileToDataUrl(file);
+  } catch (err) {
+    const reason = err && err.message ? err.message : 'Could not read skin file';
+    showToast('!', 'Read failed', String(reason));
+    return;
+  }
+
+  try {
+    await applySkinDataUrlToState(dataUrl, fileName || 'skin.png', '', 'upload:file', true);
+  } catch (err) {
+    const reason = err && err.message ? err.message : 'Invalid skin image';
+    showToast('!', 'Invalid skin', String(reason));
+    return;
+  }
+  const modelEl = document.getElementById('skin-manager-model');
+  if (modelEl) modelEl.value = SKIN_MANAGER_STATE.variant;
+  hydrateSkinManagerModal();
+}
+
+async function applySkinFromModal() {
+  if (SKIN_MANAGER_STATE.applying) return;
+
+  const profileType = String(SKIN_MANAGER_STATE.profileType || '').toLowerCase();
+  if (profileType !== 'microsoft') {
+    showToast('!', 'Unsupported profile', 'Skin update requires a Microsoft profile');
+    return;
+  }
+  if (!SKIN_MANAGER_STATE.profileId) {
+    showToast('!', 'Missing profile', 'Could not resolve target profile');
+    return;
+  }
+  if (!SKIN_MANAGER_STATE.imageBase64) {
+    showToast('!', 'Missing file', 'Choose a PNG skin file first');
+    return;
+  }
+  if (SKIN_MANAGER_STATE.lastValidation && SKIN_MANAGER_STATE.lastValidation.height === 32 && SKIN_MANAGER_STATE.variant === 'slim') {
+    showToast('!', 'Invalid variant', '64x32 skin cannot use Slim');
+    return;
+  }
+
+  SKIN_MANAGER_STATE.applying = true;
+  hydrateSkinManagerModal();
+
+  const modelEl = document.getElementById('skin-manager-model');
+  const variant = String(modelEl && modelEl.value ? modelEl.value : SKIN_MANAGER_STATE.variant || 'classic')
+    .trim()
+    .toLowerCase() === 'slim'
+    ? 'slim'
+    : 'classic';
+  SKIN_MANAGER_STATE.variant = variant;
+
+  const res = await invokeBackend('update_minecraft_skin', {
+    request: {
+      profileId: SKIN_MANAGER_STATE.profileId,
+      imageBase64: SKIN_MANAGER_STATE.imageBase64,
+      variant,
+    },
+  });
+
+  SKIN_MANAGER_STATE.applying = false;
+  if (!res.ok) {
+    const reason = formatBackendError(res.error, 'Skin upload failed');
+    hydrateSkinManagerModal();
+    setSkinManagerStatus(reason, true);
+    if (isAuthSecurityInterruptMessage(reason)) {
+      promptAuthSecurityInterruptGuidance('skin-manager');
+    } else if (isAuthRelinkFailureMessage(reason)) {
+      promptAuthRelinkGuidance('skin-manager');
+    }
+    return;
+  }
+
+  clearSkinManagerUploadSelection();
+  SKIN_MANAGER_STATE.previewNonce = Date.now();
+  const inputEl = document.getElementById('skin-manager-file-input');
+  if (inputEl) inputEl.value = '';
+  await syncSkinManagerFromBackend(true);
+  hydrateSkinManagerModal();
+  setSkinManagerStatus('Skin updated successfully. It may take up to 60 seconds to appear.', false);
+  showToast('OK', 'Skin updated', SKIN_MANAGER_STATE.profileName + ' skin uploaded');
+}
+
+async function rollbackSkinFromModal() {
+  if (SKIN_MANAGER_STATE.applying || SKIN_MANAGER_STATE.syncingCurrent) return;
+  const profileType = String(SKIN_MANAGER_STATE.profileType || '').toLowerCase();
+  if (profileType !== 'microsoft') {
+    showToast('!', 'Unsupported profile', 'Rollback requires a Microsoft profile');
+    return;
+  }
+  const profileId = String(SKIN_MANAGER_STATE.profileId || '').trim();
+  if (!profileId) {
+    showToast('!', 'Missing profile', 'Could not resolve target profile');
+    return;
+  }
+  const selectEl = document.getElementById('skin-manager-history-select');
+  const index = selectEl ? Number(selectEl.value || 0) : 0;
+  if (!Number.isFinite(index) || index < 0) {
+    showToast('!', 'Invalid selection', 'Select a valid history entry');
+    return;
+  }
+
+  SKIN_MANAGER_STATE.applying = true;
+  hydrateSkinManagerModal();
+  const res = await invokeBackend('rollback_minecraft_skin', {
+    request: {
+      profileId,
+      historyIndex: Math.floor(index),
+    },
+  });
+  SKIN_MANAGER_STATE.applying = false;
+  if (!res.ok) {
+    const reason = formatBackendError(res.error, 'Rollback failed');
+    hydrateSkinManagerModal();
+    setSkinManagerStatus(reason, true);
+    if (isAuthSecurityInterruptMessage(reason)) {
+      promptAuthSecurityInterruptGuidance('skin-manager-rollback');
+    } else if (isAuthRelinkFailureMessage(reason)) {
+      promptAuthRelinkGuidance('skin-manager-rollback');
+    }
+    return;
+  }
+
+  clearSkinManagerUploadSelection();
+  SKIN_MANAGER_STATE.previewNonce = Date.now();
+  const inputEl = document.getElementById('skin-manager-file-input');
+  if (inputEl) inputEl.value = '';
+  await syncSkinManagerFromBackend(true);
+  hydrateSkinManagerModal();
+  setSkinManagerStatus('Skin rollback applied successfully.', false);
+  showToast('OK', 'Rollback complete', 'Previous skin restored');
+}
+
 function hashPseudoUuid(name) {
   const input = String(name || '').trim();
   let hash = 0;
@@ -1803,27 +3358,90 @@ function findProfileById(profileId) {
   return profiles.find((item) => String(item.id || '').toLowerCase() === target.toLowerCase()) || null;
 }
 
-function syncAuthPillFromProfiles() {
+let AUTH_DROPDOWN_OPEN = false;
+let AUTH_DROPDOWN_LISTENERS_BOUND = false;
+
+function getActiveRenderableProfile() {
   const profiles = getRenderableProfiles();
-  const selected = profiles.find((item) => !!item.active) || profiles[0];
+  return profiles.find((item) => !!item.active) || profiles[0] || null;
+}
+
+function closeAuthDropdown() {
+  AUTH_DROPDOWN_OPEN = false;
+  const dropdown = document.getElementById('auth-dropdown');
+  if (dropdown) dropdown.classList.remove('open');
+  const pill = document.querySelector('.auth-pill');
+  if (pill) pill.classList.remove('open');
+}
+
+function toggleAuthDropdown(event) {
+  if (event && typeof event.preventDefault === 'function') event.preventDefault();
+  if (event && typeof event.stopPropagation === 'function') event.stopPropagation();
+  const dropdown = document.getElementById('auth-dropdown');
+  const pill = document.querySelector('.auth-pill');
+  if (!dropdown || !pill) return;
+  AUTH_DROPDOWN_OPEN = !AUTH_DROPDOWN_OPEN;
+  dropdown.classList.toggle('open', AUTH_DROPDOWN_OPEN);
+  pill.classList.toggle('open', AUTH_DROPDOWN_OPEN);
+}
+
+function openAccountsFromAuthDropdown() {
+  closeAuthDropdown();
+  goToAccountsPage();
+}
+
+function openLinkMicrosoftFromAuthDropdown() {
+  closeAuthDropdown();
+  openModal('link-microsoft');
+}
+
+function initAuthDropdown() {
+  if (AUTH_DROPDOWN_LISTENERS_BOUND) return;
+  AUTH_DROPDOWN_LISTENERS_BOUND = true;
+
+  document.addEventListener('click', (event) => {
+    const target = event && event.target instanceof Element ? event.target : null;
+    if (!target) {
+      closeAuthDropdown();
+      return;
+    }
+    if (target.closest('.auth-wrap')) return;
+    closeAuthDropdown();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!event || event.key !== 'Escape') return;
+    closeAuthDropdown();
+  });
+}
+
+function syncAuthPillFromProfiles() {
+  const selected = getActiveRenderableProfile();
   if (!selected) return;
 
+  const avatarSrc = 'https://mc-heads.net/avatar/' + encodeURIComponent(selected.name || 'Steve') + '/32';
   const nameEl = document.querySelector('.auth-name');
   if (nameEl) {
-    nameEl.textContent = selected.name + ' ';
-    const badge = document.createElement('span');
-    badge.className = 'orbiq-badge';
-    badge.textContent = 'ORBIQ';
-    nameEl.appendChild(badge);
+    nameEl.textContent = selected.name;
+    nameEl.title = selected.name;
   }
 
-  const avatar = document.querySelector('.auth-avatar img');
-  if (avatar) {
-    avatar.src = 'https://mc-heads.net/avatar/' + encodeURIComponent(selected.name || 'Steve') + '/32';
+  const profileType = String(selected.profileType || '').toLowerCase();
+  const subtitle = profileType === 'microsoft'
+    ? String(selected.email || 'Microsoft profile')
+    : 'Offline profile';
+  const ddName = document.querySelector('.auth-dd-name');
+  if (ddName) ddName.textContent = String(selected.name || 'Player');
+  const ddSub = document.querySelector('.auth-dd-sub');
+  if (ddSub) ddSub.textContent = subtitle;
+
+  document.querySelectorAll('.auth-avatar img, .auth-dd-avatar img').forEach((avatar) => {
+    avatar.src = avatarSrc;
+    avatar.style.display = '';
     avatar.onerror = function onAvatarError() {
       this.style.display = 'none';
     };
-  }
+  });
 }
 
 function setOrbiqLoginStatus(message, isError) {
@@ -2451,6 +4069,16 @@ function renderOrbiqAccountsListInto(root) {
       : '<i data-lucide="log-in" width="12" height="12"></i>Sign In';
   }
 
+  const microsoftCount = profiles.filter((item) => item.profileType === 'microsoft').length;
+  const activeProfileName = active && active.name ? active.name : '-';
+  const healthMicrosoft = root.querySelector('#accounts-ms-health');
+  if (healthMicrosoft) {
+    healthMicrosoft.textContent = microsoftCount > 0 ? 'Linked' : 'Not linked';
+    healthMicrosoft.className = microsoftCount > 0 ? 'accounts-ok' : 'accounts-warn';
+  }
+  const healthActive = root.querySelector('#accounts-active-profile');
+  if (healthActive) healthActive.textContent = activeProfileName;
+
   const rows = profiles.map((profile) => {
     const isMicrosoft = profile.profileType === 'microsoft';
     const isActive = !!profile.active;
@@ -2468,16 +4096,16 @@ function renderOrbiqAccountsListInto(root) {
       : 'Offline profile - Cracked servers only';
 
     const iconLeft = isMicrosoft
-      ? `<div class="ms-linked-icon ms-brand">
+      ? `<div class="acct-profile-platform ms-brand">
            <div class="ms-grid" style="width:14px;height:14px;"><div style="background:#f25022;border-radius:1px"></div><div style="background:#7fba00;border-radius:1px"></div><div style="background:#00a4ef;border-radius:1px"></div><div style="background:#ffb900;border-radius:1px"></div></div>
          </div>`
-      : `<div class="ms-linked-icon offline-brand" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="user-round" width="14" height="14" style="color:var(--t3)"></i></div>`;
+      : `<div class="acct-profile-platform offline-brand" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="user-round" width="14" height="14" style="color:var(--t3)"></i></div>`;
 
     const avatar = isMicrosoft
-      ? `<div style="width:28px;height:28px;border-radius:5px;overflow:hidden;flex-shrink:0;image-rendering:pixelated;background:var(--s3)">
+      ? `<div class="acct-profile-avatar">
            <img src="https://mc-heads.net/avatar/${encodeURIComponent(profile.name)}/32" style="width:100%;image-rendering:pixelated" onerror="this.style.display='none'">
          </div>`
-      : `<div style="width:28px;height:28px;border-radius:5px;overflow:hidden;flex-shrink:0;background:var(--s3);border:1px solid var(--b2);display:flex;align-items:center;justify-content:center;"><i data-lucide="user" width="15" height="15" style="color:var(--t3)"></i></div>`;
+      : `<div class="acct-profile-avatar offline-avatar"><i data-lucide="user" width="15" height="15" style="color:var(--t3)"></i></div>`;
 
     const typeIcon = isActive && isMicrosoft
       ? '<i data-lucide="sparkles" width="10" height="10"></i>'
@@ -2486,14 +4114,14 @@ function renderOrbiqAccountsListInto(root) {
         : (isMicrosoft ? '<i data-lucide="check-circle" width="10" height="10"></i>' : ''));
 
     return `
-      <div class="ms-linked-row${isActive ? ' active-account' : ''}" onclick="openProfileDetailById(decodeURIComponent('${encodeURIComponent(profile.id)}'))">
+      <div class="acct-profile-row${isActive ? ' active-account' : ''}" onclick="openProfileDetailById(decodeURIComponent('${encodeURIComponent(profile.id)}'))">
         ${iconLeft}
         ${avatar}
-        <div style="flex:1">
-          <div class="ms-linked-name">${escapeHtml(profile.name)}</div>
-          <div class="ms-linked-meta">${escapeHtml(meta)}</div>
+        <div class="acct-profile-copy">
+          <div class="acct-profile-name">${escapeHtml(profile.name)}</div>
+          <div class="acct-profile-meta">${escapeHtml(meta)}</div>
         </div>
-        <div class="ms-linked-type ${typeClass}">
+        <div class="acct-profile-type ${typeClass}">
           ${typeIcon}
           ${typeText}
         </div>
@@ -2501,16 +4129,21 @@ function renderOrbiqAccountsListInto(root) {
     `;
   }).join('');
   wrap.innerHTML = `
-    <div class="linked-section-label">Linked Accounts</div>
-    ${rows}
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">
+    <div class="acct-linked-head">
+      <div class="linked-section-label">Linked Profiles</div>
+      <span class="acct-linked-count">${profiles.length}</span>
+    </div>
+    <div class="acct-profile-list">
+      ${rows || '<div class="acct-profile-empty">No profiles found. Add one to start launching.</div>'}
+    </div>
+    <div class="acct-linked-actions">
       <button class="add-linked-btn" onclick="openModal('link-microsoft')">
         <div class="ms-grid" style="width:12px;height:12px;"><div style="background:#f25022;border-radius:1px"></div><div style="background:#7fba00;border-radius:1px"></div><div style="background:#00a4ef;border-radius:1px"></div><div style="background:#ffb900;border-radius:1px"></div></div>
         Link Microsoft
       </button>
       <button class="add-linked-btn" onclick="openModal('add-offline-profile')">
         <i data-lucide="user-plus" width="12" height="12"></i>
-        Add Profile
+        Add Offline
       </button>
     </div>
   `;
@@ -2907,7 +4540,7 @@ function populateEditInstanceModal() {
   if (execEl) execEl.value = cfg.executable || '';
   if (execEl) {
     if (cfg.executable) execEl.placeholder = 'e.g. java or C:\\Java\\bin\\java.exe';
-    else if (JAVA_RUNTIME_INFO.defaultPath) execEl.placeholder = JAVA_RUNTIME_INFO.defaultPath;
+    else if (resolveLauncherDefaultJavaPath()) execEl.placeholder = resolveLauncherDefaultJavaPath();
     else execEl.placeholder = 'e.g. java or C:\\Java\\bin\\java.exe';
   }
   if (argsEl) argsEl.value = stringifyArgs(cfg.args);
@@ -2932,8 +4565,9 @@ function hydrateInstanceInfoJavaModal() {
   const currentExecutable = getSelectedInstanceJavaExecutable();
   inputEl.value = '';
   inputEl.placeholder = currentExecutable || 'e.g. C:\\Java\\bin\\java.exe';
-  if (!currentExecutable && JAVA_RUNTIME_INFO.defaultPath) {
-    inputEl.placeholder = JAVA_RUNTIME_INFO.defaultPath;
+  const launcherDefaultJava = resolveLauncherDefaultJavaPath();
+  if (!currentExecutable && launcherDefaultJava) {
+    inputEl.placeholder = launcherDefaultJava;
   }
 
   selectEl.addEventListener('change', () => {
@@ -3198,6 +4832,11 @@ function applyInstanceLifecycleEvent(payload) {
     details.lastExitAtEpoch = null;
     details.exitStatus = '-';
   } else if (state === 'running') {
+    const runningAt =
+      parseLastPlayedEpoch(payload.timestampEpoch) ||
+      parseLastPlayedEpoch(details.lastPlayedEpoch) ||
+      Math.floor(Date.now() / 1000);
+    syncWeeklySessionTrackerStart(name, runningAt);
     details.running = true;
     if (payload.timestampEpoch) {
       details.lastPlayedEpoch = parseLastPlayedEpoch(payload.timestampEpoch);
@@ -3209,6 +4848,8 @@ function applyInstanceLifecycleEvent(payload) {
     details.lastExitAtEpoch = null;
     details.exitStatus = '-';
   } else if (state === 'stopped' || state === 'failed') {
+    const stoppedAt = parseLastPlayedEpoch(payload.timestampEpoch) || Math.floor(Date.now() / 1000);
+    stopWeeklySessionTracker(name, stoppedAt);
     details.running = false;
 
     if (state === 'stopped') {
@@ -3492,7 +5133,7 @@ async function setupProvisionEventStream() {
 function buildDynamicSections() {
   const fg = document.getElementById('featured-grid');
   if (fg) {
-    fg.innerHTML = [['ÃƒÂ¯Ã‚Â¿Ã‚Â½YOÃƒÂ¯Ã‚Â¿Ã‚Â½','All the Mods 9','1.21.1 Ãƒâ€šÃ‚Â· Forge','2.4M ÃƒÂ¯Ã‚Â¿Ã‚Â½?"'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½sTÃƒÂ¯Ã‚Â¸Ã‚Â','Create: Astral','1.20.1 Ãƒâ€šÃ‚Â· Fabric','1.1M ÃƒÂ¯Ã‚Â¿Ã‚Â½?"'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½YÃƒÂ¯Ã‚Â¿Ã‚Â½ÃƒÂ¯Ã‚Â¿Ã‚Â½','Better MC','1.21.4 Ãƒâ€šÃ‚Â· Fabric','890K ÃƒÂ¯Ã‚Â¿Ã‚Â½?"'],['ÃƒÂ¯Ã‚Â¿Ã‚Â½Y"ÃƒÂ¯Ã‚Â¿Ã‚Â½','Prominence II','1.20.1 Ãƒâ€šÃ‚Â· Forge','650K ÃƒÂ¯Ã‚Â¿Ã‚Â½?"']].map(([e,n,v,dl])=>`
+    fg.innerHTML = [['ATM','All the Mods 9','1.21.1 - Forge','2.4M'],['CRT','Create: Astral','1.20.1 - Fabric','1.1M'],['BMC','Better MC','1.21.4 - Fabric','890K'],['PRO','Prominence II','1.20.1 - Forge','650K']].map(([e,n,v,dl])=>`
       <div class="featured-card" onclick="openModal('install-modpack')">
         <div class="featured-thumb">${e}</div>
         <div class="featured-body"><div class="featured-name">${n}</div><div class="featured-meta">${v}</div><div class="featured-dl"><i data-lucide="download" width="9" height="9"></i>${dl}</div></div>
@@ -3502,9 +5143,9 @@ function buildDynamicSections() {
   const nl = document.getElementById('news-list');
   if (nl) {
     nl.innerHTML = [
-      {icon:'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YZÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½',src:'Minecraft',color:'#3d8c4a',title:'Minecraft 1.21.5 ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Spring Drop Released',desc:'New flower, leaf litter, and more biome variety.',date:'2 hours ago'},
-      {icon:'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½',src:'Fabric',color:'#aa7744',title:'Fabric Loader 0.17 now available',desc:'Major performance improvements and improved mod compatibility.',date:'1 day ago'},
-      {icon:'ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½sÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½',src:'Sodium',color:'#4488cc',title:'Sodium 0.6.3 ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" Memory leak fix',desc:'Critical fix for a memory leak affecting modded instances.',date:'2 days ago'},
+      {icon:'MC',src:'Minecraft',color:'#3d8c4a',title:'Minecraft 1.21.5 - Spring Drop Released',desc:'New flower, leaf litter, and more biome variety.',date:'2 hours ago'},
+      {icon:'FB',src:'Fabric',color:'#aa7744',title:'Fabric Loader 0.17 now available',desc:'Major performance improvements and improved mod compatibility.',date:'1 day ago'},
+      {icon:'SD',src:'Sodium',color:'#4488cc',title:'Sodium 0.6.3 - Memory leak fix',desc:'Critical fix for a memory leak affecting modded instances.',date:'2 days ago'},
     ].map(n=>`
     <div class="news-card"><div style="padding:12px">
       <div class="news-source"><div class="news-dot" style="background:${n.color}"></div>${n.src}</div>
@@ -3515,10 +5156,10 @@ function buildDynamicSections() {
   const fc = document.getElementById('friends-content');
   if (fc) {
     fc.innerHTML = `
-      <div class="section-title">Online ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" 3 <div class="section-title-line"></div></div>
+      <div class="section-title">Online (3) <div class="section-title-line"></div></div>
       ${[{name:'Technoblade2',status:'Playing All the Mods 9',color:'#dd5555',online:'game',canJoin:true},{name:'GoodTimesWithScar',status:'Playing Better MC',color:'#44aadd',online:'game',canJoin:false},{name:'Grian',status:'On Orbiq launcher',color:'#ddaa44',online:'on',canJoin:false}].map(f=>`
       <div class="friend-row"><div class="friend-avatar"><img src="https://mc-heads.net/avatar/${encodeURIComponent(f.name.replace(/\d+/,''))}/32" onerror="this.parentNode.style.background='${f.color}33'"></div><div class="online-dot ${f.online==='game'?'game':'on'}"></div><div style="flex:1"><div class="friend-name">${f.name}</div><div class="friend-status">${f.status}</div></div><div class="friend-actions">${f.canJoin?`<button class="friend-btn join" onclick="openModal('shared-session')"><i data-lucide="arrow-right" width="10" height="10"></i>Join</button>`:''}<button class="friend-btn"><i data-lucide="message-square" width="10" height="10"></i></button></div></div>`).join('')}
-      <div class="section-title" style="margin-top:14px">Offline ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" 2 <div class="section-title-line"></div></div>
+      <div class="section-title" style="margin-top:14px">Offline (2) <div class="section-title-line"></div></div>
       ${[{name:'Dream',status:'Last seen 2h ago'},{name:'GeorgeNotFound',status:'Last seen yesterday'}].map(f=>`<div class="friend-row" style="opacity:0.5"><div class="friend-avatar"><img src="https://mc-heads.net/avatar/${encodeURIComponent(f.name)}/32" onerror="this.parentNode.style.background='#333'"></div><div class="online-dot off"></div><div style="flex:1"><div class="friend-name">${f.name}</div><div class="friend-status">${f.status}</div></div></div>`).join('')}`;
   }
 
@@ -3547,10 +5188,10 @@ function buildDynamicSections() {
 
   const spl = document.getElementById('srv-plugins-list');
   if (spl) {
-    spl.innerHTML = [['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y"ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','EssentialsX','Core commands','Plugin','3.2M'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YOÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','WorldEdit','In-game editor','Plugin','8.1M'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y>ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','LuckPerms','Permissions','Plugin','5.4M'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½sÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Spark','Performance profiler','Mod','1.8M']].map(([e,n,d,type,dl],i)=>`
+    spl.innerHTML = [['EX','EssentialsX','Core commands','Plugin','3.2M'],['WE','WorldEdit','In-game editor','Plugin','8.1M'],['LP','LuckPerms','Permissions','Plugin','5.4M'],['SP','Spark','Performance profiler','Mod','1.8M']].map(([e,n,d,type,dl],i)=>`
       <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-bottom:5px;">
         <div style="font-size:20px;">${e}</div>
-        <div style="flex:1;"><div style="font-size:12.5px;font-weight:700;color:var(--t1);">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:1px;">${d} Ãƒâ€šÃ‚Â· <span style="color:var(--t3)">${dl} ÃƒÂ¯Ã‚Â¿Ã‚Â½?"</span></div></div>
+        <div style="flex:1;"><div style="font-size:12.5px;font-weight:700;color:var(--t1);">${n}</div><div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:1px;">${d} - <span style="color:var(--t3)">${dl} downloads</span></div></div>
         <span style="font-size:9.5px;font-family:var(--mono);padding:2px 7px;background:var(--s3);border:1px solid var(--b2);border-radius:4px;color:var(--t4);">${type}</span>
         <button class="srv-add-btn" id="srv-add-${i}" onclick="toggleSrvAdd(this,'${n}')" style="height:26px;padding:0 10px;border-radius:6px;border:1px solid var(--b2);background:var(--s3);font-size:10.5px;font-family:var(--mono);color:var(--t2);cursor:pointer;transition:all 0.12s;flex-shrink:0;">+ Add</button>
       </div>`).join('');
@@ -3558,7 +5199,7 @@ function buildDynamicSections() {
 
   const hostOpts = document.getElementById('srv-host-opts');
   if (hostOpts) {
-    hostOpts.innerHTML = [['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½Y-ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','This Computer','Run locally ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" free','local'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½~ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¸Ãƒâ€šÃ‚Â','Orbiq Cloud','Managed hosting ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½?" from $3/mo','cloud'],['ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½YÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½','Docker','Self-host with Docker','docker']].map(([e,n,d,val],i)=>`
+    hostOpts.innerHTML = [['PC','This Computer','Run locally on this device','local']].map(([e,n,d,val],i)=>`
       <div class="srv-host-card${i===0?' selected':''}" data-val="${val}" onclick="selectSrvHost(this)" style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:${i===0?'var(--s3)':'var(--s2)'};border:1px solid ${i===0?'var(--b4)':'var(--b2)'};border-radius:9px;cursor:pointer;transition:all 0.12s;">
         <div style="font-size:22px;">${e}</div>
         <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--t1);">${n}</div><div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);margin-top:2px;">${d}</div></div>
@@ -3580,8 +5221,15 @@ function buildDynamicSections() {
 
 lucide.createIcons();
 buildDynamicSections();
+onSrvIdleToggle();
+void refreshServerDeployments();
+startServerManagerPolling();
+window.addEventListener('beforeunload', () => {
+  void stopStopOnCloseDeployments();
+});
 initWindowControls();
 initTitlebarDrag();
+initAuthDropdown();
 initSelectContextMenus();
 setupInstanceRuntimeStatePolling();
 loadOrbiqAccountState();
@@ -3603,6 +5251,8 @@ function setPage(pageId, clickedItem) {
   const fallbackItemByPage = {
     instances: document.getElementById('sb-instances-all'),
     accounts: document.getElementById('sb-accounts'),
+    server: document.getElementById('sb-create-server'),
+    'my-servers': document.getElementById('sb-my-servers'),
     modrinth: document.getElementById('sb-modrinth'),
     curseforge: document.getElementById('sb-curseforge'),
   };
@@ -3611,9 +5261,195 @@ function setPage(pageId, clickedItem) {
 
   if (normalizedPageId === 'accounts') {
     void hydrateOrbiqAccountsPage();
+  } else if (normalizedPageId === 'server' || normalizedPageId === 'my-servers') {
+    void refreshServerDeployments();
   } else if (normalizedPageId === 'modrinth' || normalizedPageId === 'curseforge') {
     void ensureBrowseProviderLoaded(normalizedPageId);
   }
+}
+
+function syncSidebarInstanceActiveState(instanceName) {
+  const items = Array.from(document.querySelectorAll('.sb-instance-item'));
+  items.forEach((item) => item.classList.remove('active'));
+  const targetName = String(instanceName || '').trim();
+  if (!targetName) return;
+  const target = items.find((item) => String(item.dataset.instanceName || '').trim() === targetName);
+  if (!target) return;
+  target.classList.add('active');
+  const allBtn = document.getElementById('sb-instances-all');
+  const instancesPage = document.getElementById('page-instances');
+  if (allBtn && instancesPage && instancesPage.classList.contains('active')) {
+    allBtn.classList.remove('active');
+  }
+}
+
+function renderSidebarInstanceList(instances) {
+  const listEl = document.getElementById('sb-instance-list');
+  if (!listEl) return;
+  const rows = Array.isArray(instances) ? instances : [];
+  if (rows.length === 0) {
+    listEl.innerHTML = '<div class="sb-instance-empty">No instances yet</div>';
+    return;
+  }
+  listEl.innerHTML = rows
+    .map((row) => {
+      const name = String(row && row.name ? row.name : '').trim();
+      if (!name) return '';
+      const running = !!(row && row.running);
+      const runningMarkup = running ? '<span class="sb-instance-running-dot"></span>' : '';
+      const iconMarkup = sidebarInstanceIconMarkup(row);
+      return `
+        <button class="sb-item sb-instance-item" data-instance-name="${escapeHtml(name)}" onclick="openInstanceFromSidebar(event,this)" title="${escapeHtml(name)}">
+          ${iconMarkup}
+          <span class="sb-instance-name">${escapeHtml(name)}</span>
+          ${runningMarkup}
+        </button>
+      `;
+    })
+    .filter(Boolean)
+    .join('');
+  lucide.createIcons();
+}
+
+function sidebarInstanceIconMarkup(row) {
+  const loader = normalizeLoader(row && row.loader ? row.loader : 'vanilla');
+  const name = String(row && row.name ? row.name : '').trim();
+  const iconKey = normalizeIconKey(row && row.iconKey ? row.iconKey : '') || resolveAutoInstanceIconKey(name || loader || 'instance');
+  const src = loaderArtPath(loader, iconKey);
+  const fallback = loaderIcon(loader);
+  const label = escapeHtml(loaderLabel(loader));
+  if (!src) {
+    return `<span class="sb-instance-icon"><i data-lucide="${fallback}" width="11" height="11"></i></span>`;
+  }
+  return `
+    <span class="sb-instance-icon">
+      <img class="sb-instance-icon-img" src="${src}" alt="${label} icon" loading="lazy"
+           onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='inline-block';">
+      <i data-lucide="${fallback}" width="11" height="11" style="display:none"></i>
+    </span>
+  `;
+}
+
+function openInstanceFromSidebar(event, button) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  const name = button && button.dataset ? String(button.dataset.instanceName || '').trim() : '';
+  if (!name) {
+    setPage('instances', document.getElementById('sb-instances-all'));
+    return;
+  }
+
+  setPage('instances', button);
+  INSTANCE_FILTER_TYPE = 'all';
+  INSTANCE_SEARCH_QUERY = '';
+  setActiveFilterChip('all');
+  applyInstanceVisibility();
+
+  const searchInput = document.querySelector('.titlebar .search-input');
+  if (searchInput) searchInput.value = '';
+
+  focusInstanceCardByName(name);
+}
+
+function focusInstanceCardByName(instanceName) {
+  const name = String(instanceName || '').trim();
+  if (!name) return false;
+  const selected = Array.from(document.querySelectorAll('.instance-card')).find(
+    (card) => String(card.dataset.name || '').trim() === name
+  );
+  if (!selected) {
+    showToast('!', 'Missing instance', name + ' not found');
+    return false;
+  }
+  const parentGrid = selected.closest('.instance-grid');
+  if (parentGrid && parentGrid.style.display === 'none') {
+    parentGrid.style.display = '';
+    const header = parentGrid.previousElementSibling;
+    const chevron = header && header.querySelector ? header.querySelector('.group-chevron') : null;
+    if (chevron) chevron.classList.remove('collapsed');
+    const groupId = header && header.dataset ? String(header.dataset.groupId || '') : '';
+    const group = groupId ? findInstanceGroupById(groupId) : null;
+    if (group && group.collapsed) {
+      group.collapsed = false;
+      persistInstanceGroups();
+    }
+  }
+  selectCard(selected);
+  selected.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  return true;
+}
+
+function openInstancesSidebarContextMenu(e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const instances = Array.isArray(INSTANCE_LIST_CACHE) ? [...INSTANCE_LIST_CACHE] : [];
+  const selectedName = getSelectedInstanceName();
+  const topInstances = instances
+    .sort((left, right) => {
+      const leftRunning = !!left.running;
+      const rightRunning = !!right.running;
+      if (leftRunning !== rightRunning) return leftRunning ? -1 : 1;
+      const leftPlayed = parseLastPlayedEpoch(left.lastPlayed) || 0;
+      const rightPlayed = parseLastPlayedEpoch(right.lastPlayed) || 0;
+      if (leftPlayed !== rightPlayed) return rightPlayed - leftPlayed;
+      return String(left.name || '').localeCompare(String(right.name || ''), undefined, { sensitivity: 'base', numeric: true });
+    });
+
+  const quickListMarkup = topInstances.length > 0
+    ? topInstances.map((item) => {
+      const name = String(item && item.name ? item.name : '').trim();
+      if (!name) return '';
+      const safeName = escapeHtml(name);
+      const escapedName = name.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+      const running = !!item.running;
+      const active = selectedName && selectedName === name ? ' active' : '';
+      const iconMarkup = sidebarInstanceIconMarkup(item);
+      return `
+        <div class="ctx-item${active}" onclick="hideCtx();setPage('instances',document.getElementById('sb-instances-all'));focusInstanceCardByName('${escapedName}')">
+          ${iconMarkup}
+          <span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${safeName}</span>
+          ${running ? '<span class="sb-instance-running-dot"></span>' : ''}
+        </div>
+      `;
+    }).filter(Boolean).join('')
+    : '<div class="ctx-item" style="opacity:.7;cursor:default">No instances</div>';
+
+  activeSelectMenu = null;
+  activeIconPickerInput = null;
+  activeIconPickerTrigger = null;
+  activeGroupPicker = null;
+  ctxMenu.classList.remove('select-menu');
+  ctxMenu.classList.remove('icon-picker-menu');
+  ctxMenu.classList.remove('group-picker-menu');
+  ctxMenu.style.maxHeight = '';
+  ctxMenu.style.overflowY = '';
+  ctxMenu.style.overflowX = '';
+  ctxMenu.scrollTop = 0;
+  ctxMenu.style.minWidth = '240px';
+
+  ctxMenu.innerHTML = `
+    <div class="ctx-item" onclick="hideCtx();setPage('instances',document.getElementById('sb-instances-all'))"><i data-lucide="layout-grid" width="12" height="12"></i>Open Instances</div>
+    <div class="ctx-item" onclick="hideCtx();openModal('add-instance')"><i data-lucide="plus" width="12" height="12"></i>Add Instance</div>
+    <div class="ctx-item" onclick="hideCtx();openModal('create-group')"><i data-lucide="folder-plus" width="12" height="12"></i>Create Group</div>
+    <div class="ctx-sep"></div>
+    <div class="ctx-item" onclick="hideCtx();setPage('instances',document.getElementById('sb-instances-all'));sortInstances('name')"><i data-lucide="arrow-up-a-z" width="12" height="12"></i>Sort by Name</div>
+    <div class="ctx-item" onclick="hideCtx();setPage('instances',document.getElementById('sb-instances-all'));sortInstances('recent')"><i data-lucide="clock-3" width="12" height="12"></i>Sort by Recent</div>
+    <div class="ctx-sep"></div>
+    <div class="ctx-item" style="opacity:.7;cursor:default"><i data-lucide="list" width="12" height="12"></i>Quick Select (${topInstances.length})</div>
+    <div class="ctx-quick-select-scroll">
+      ${quickListMarkup}
+    </div>
+  `;
+  ctxMenu.style.display = 'block';
+  const x = Math.min(Math.max(8, e.clientX), window.innerWidth - 248);
+  const y = Math.min(Math.max(8, e.clientY), window.innerHeight - ctxMenu.scrollHeight - 8);
+  ctxMenu.style.left = x + 'px';
+  ctxMenu.style.top = y + 'px';
+  lucide.createIcons();
+  setTimeout(() => document.addEventListener('click', hideCtx, { once: true }), 0);
 }
 
 function goToAccountsPage(clickedItem) {
@@ -3632,13 +5468,60 @@ const modalPop = document.getElementById('modal-popup');
 let ACTIVE_MODAL_ID = '';
 let ADD_INSTANCE_PREFILL = null;
 let PENDING_BROWSE_INSTALL_CONTEXT = null;
+let ACTIVE_WORLD_DETAIL_NAME = '';
+let WORLD_DETAIL_TAB = 'overview';
+let WORLD_DETAIL_CURRENT = null;
+let WORLD_DETAIL_PLAYERS = [];
+let WORLD_DETAIL_SELECTED_PLAYER = '';
+let WORLD_DETAIL_PLAYER_CACHE = {};
+const WORLD_ITEM_TEXTURE_DATA_URI_CACHE = new Map();
+const WORLD_ITEM_TEXTURE_DATA_URI_PENDING = new Map();
+const INSTANCE_ASSET_MODAL_CACHE = {};
+const VERSION_SELECTOR_CACHE = new Map();
+let VERSION_SELECTOR_STATE = { mode: 'release', query: '', selected: '' };
+let VERSION_SELECTOR_RETURN_CONTEXT = null;
+let LAST_AUTH_RELINK_PROMPT_AT = 0;
+let LAST_AUTH_SECURITY_PROMPT_AT = 0;
+let SKIN_MANAGER_STATE = {
+  profileId: '',
+  profileName: '',
+  profileType: '',
+  variant: 'classic',
+  imageBase64: '',
+  localPreviewDataUrl: '',
+  fileName: '',
+  applying: false,
+  previewNonce: 0,
+  currentSkinUrl: '',
+  currentCapeUrl: '',
+  currentSkinVariant: '',
+  lastSyncAt: 0,
+  syncedProfileId: '',
+  syncingCurrent: false,
+  history: [],
+  lastValidation: null,
+  localCapePreviewDataUrl: '',
+  capeFileName: '',
+  recentLoaded: false,
+  recentSkins: [],
+};
+let SKIN_VIEWER_RUNTIME = {
+  viewer: null,
+  controls: null,
+  canvas: null,
+  resizeObserver: null,
+  autoRotate: true,
+  defaultSkinDataUrl: '',
+};
 let MODAL_CLOSE_TIMER = null;
 let MODAL_CLOSE_TOKEN = 0;
-
 function openModal(id) {
   if (!overlay || !modalPop) return;
   const fn = MODALS[id];
   if (!fn) return;
+  if (ACTIVE_MODAL_ID === 'skin-manager' && id !== 'skin-manager') {
+    destroySkinViewerRuntime();
+  }
   MODAL_CLOSE_TOKEN += 1;
   if (MODAL_CLOSE_TIMER) {
     clearTimeout(MODAL_CLOSE_TIMER);
@@ -3647,6 +5530,19 @@ function openModal(id) {
   overlay.classList.remove('closing');
   overlay.style.display = 'flex';
   ACTIVE_MODAL_ID = String(id || '').trim();
+  modalPop.classList.remove('modal-wide');
+  modalPop.classList.remove('modal-manage-mods');
+  modalPop.classList.remove('modal-settings');
+  modalPop.classList.remove('modal-skin-manager');
+  if (ACTIVE_MODAL_ID === 'world-detail') {
+    modalPop.classList.add('modal-wide');
+  } else if (ACTIVE_MODAL_ID === 'manage-mods') {
+    modalPop.classList.add('modal-manage-mods');
+  } else if (ACTIVE_MODAL_ID === 'settings') {
+    modalPop.classList.add('modal-settings');
+  } else if (ACTIVE_MODAL_ID === 'skin-manager') {
+    modalPop.classList.add('modal-skin-manager');
+  }
   modalPop.innerHTML = fn();
   if (id === 'edit-instance') {
     populateEditInstanceModal();
@@ -3670,10 +5566,14 @@ function openModal(id) {
     hydrateMicrosoftDetailModal();
   } else if (id === 'offline-profile-detail') {
     hydrateOfflineDetailModal();
+  } else if (id === 'link-microsoft' || id === 'ms-login') {
+    void hydrateMicrosoftLinkModal();
   } else if (id === 'banner-picker') {
     hydrateBannerPickerModal();
   } else if (id === 'notes') {
     hydrateNotesModal();
+  } else if (id === 'skin-manager') {
+    hydrateSkinManagerModal();
   } else if (id === 'manage-mods') {
     void hydrateManagedModsModal();
   } else if (id === 'create-group') {
@@ -3690,6 +5590,30 @@ function openModal(id) {
     hydrateLaunchPreflightDialogModal();
   } else if (id === 'diagnostics') {
     hydrateDiagnosticsModal();
+  } else if (id === 'world-manager') {
+    void hydrateWorldManagerModal();
+  } else if (id === 'world-detail') {
+    void hydrateWorldDetailModal();
+  } else if (id === 'screenshots') {
+    void hydrateScreenshotsModal();
+  } else if (id === 'resource-packs' || id === 'shader-packs') {
+    void hydrateInstanceAssetModal(id);
+  } else if (id === 'datapacks') {
+    void hydrateDatapacksModal();
+  } else if (id === 'java-manager') {
+    void hydrateJavaManagerModal();
+  } else if (id === 'console') {
+    void hydrateConsoleModal();
+  } else if (id === 'version-selector') {
+    void hydrateVersionSelectorModal();
+  } else if (id === 'dependencies') {
+    void hydrateDependenciesModal();
+  } else if (id === 'mod-updates') {
+    void hydrateModUpdatesModal();
+  } else if (id === 'mod-conflict') {
+    void hydrateModConflictModal();
+  } else if (id === 'settings') {
+    hydrateSettingsModal();
   }
   sanitizeMojibakeDom(modalPop);
   lucide.createIcons();
@@ -3909,6 +5833,9 @@ function closeModal() {
   if (ACTIVE_MODAL_ID === 'add-instance') {
     ADD_INSTANCE_PREFILL = null;
     PENDING_BROWSE_INSTALL_CONTEXT = null;
+  }
+  if (ACTIVE_MODAL_ID === 'skin-manager') {
+    destroySkinViewerRuntime();
   }
   if (overlay.classList.contains('closing')) return;
   const closeToken = ++MODAL_CLOSE_TOKEN;
@@ -4225,6 +6152,20 @@ async function openExternalHttpUrl(url) {
   if (typeof window.open === 'function') {
     const popup = window.open(target, '_blank', 'noopener,noreferrer');
     return !!popup;
+  }
+  return false;
+}
+
+function rememberHandledMicrosoftOauthCallback(rawCode, oauthState) {
+  const code = String(rawCode || '').trim();
+  const state = String(oauthState || '').trim();
+  if (!code || !state) return false;
+  const key = `${state}::${code}`;
+  if (HANDLED_MICROSOFT_OAUTH_CALLBACKS.has(key)) return true;
+  HANDLED_MICROSOFT_OAUTH_CALLBACKS.add(key);
+  if (HANDLED_MICROSOFT_OAUTH_CALLBACKS.size > MAX_HANDLED_MICROSOFT_OAUTH_CALLBACKS) {
+    const first = HANDLED_MICROSOFT_OAUTH_CALLBACKS.values().next();
+    if (!first.done) HANDLED_MICROSOFT_OAUTH_CALLBACKS.delete(first.value);
   }
   return false;
 }
@@ -6138,6 +8079,7 @@ async function confirmBrowseInstallFromModal() {
           bytesWritten: 0,
           installedAt: Date.now(),
           required: !!row.required,
+          enabled: true,
           sourceType: row.sourceType || 'main',
           rootTitle: row.rootTitle || String(state.item && state.item.title ? state.item.title : ''),
           pageUrl: String(row.pageUrl || '').trim(),
@@ -6158,6 +8100,7 @@ async function confirmBrowseInstallFromModal() {
         bytesWritten: Number(result && result.bytes_written ? result.bytes_written : 0),
         installedAt: Date.now(),
         required: !!row.required,
+        enabled: true,
         sourceType: row.sourceType || 'main',
         rootTitle: row.rootTitle || String(state.item && state.item.title ? state.item.title : ''),
         pageUrl: String(row.pageUrl || '').trim(),
@@ -6525,54 +8468,254 @@ async function openBrowseProviderWebsite(provider) {
   return true;
 }
 
-async function startMicrosoftLoginFlow() {
-  const statusEl = document.getElementById('ms-device-status');
-  clearMicrosoftAuthPoll();
-  MICROSOFT_OAUTH_EXPECTED_STATE = '';
-  if (statusEl) {
-    statusEl.textContent = 'Preparing secure Microsoft sign-in...';
-  }
+function formatMicrosoftDeviceSeconds(totalSeconds) {
+  const value = Number(totalSeconds || 0);
+  if (!Number.isFinite(value) || value <= 0) return '0s';
+  const minutes = Math.floor(value / 60);
+  const seconds = Math.floor(value % 60);
+  if (minutes <= 0) return String(seconds) + 's';
+  return String(minutes) + 'm ' + String(seconds) + 's';
+}
 
-  const startRes = await invokeBackend('start_microsoft_oauth_login_command', {
+function buildMicrosoftQrImageUrl(payload) {
+  const data = String(payload || '').trim();
+  if (!data) return '';
+  return 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=0&data=' + encodeURIComponent(data);
+}
+
+function setMicrosoftDeviceStatus(text, isError) {
+  const statusEl = document.getElementById('ms-device-status');
+  if (!statusEl) return;
+  statusEl.textContent = String(text || '');
+  statusEl.style.color = isError ? 'var(--red)' : 'var(--t4)';
+}
+
+function updateMicrosoftDeviceModalContent() {
+  const code = String(MICROSOFT_DEVICE_STATE.userCode || '').trim() || '--------';
+  const verificationUri = String(MICROSOFT_DEVICE_STATE.verificationUri || 'https://www.microsoft.com/link').trim() || 'https://www.microsoft.com/link';
+  const verificationUriComplete = String(MICROSOFT_DEVICE_STATE.verificationUriComplete || '').trim();
+  const qrPayload = verificationUriComplete || (verificationUri + '?otc=' + encodeURIComponent(code));
+  const qrImageUrl = buildMicrosoftQrImageUrl(qrPayload);
+
+  const codeEls = ['ms-link-code', 'ms-link-inline-code', 'ms-device-user-code'];
+  codeEls.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = code;
+  });
+
+  const linkEls = ['ms-link-url', 'ms-device-link-url'];
+  linkEls.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = verificationUri;
+    el.href = verificationUri;
+  });
+
+  const qrImgEl = document.getElementById('ms-link-qr-image');
+  const qrFallbackEl = document.getElementById('ms-link-qr-fallback');
+  const heroQrImgEl = document.getElementById('ms-device-hero-qr-image');
+  const heroQrFallbackEl = document.getElementById('ms-device-hero-qr-fallback');
+  const applyQrState = (imgEl, fallbackEl) => {
+    if (!imgEl) return;
+    if (qrImageUrl) {
+      imgEl.src = qrImageUrl;
+      imgEl.style.display = 'block';
+      imgEl.onerror = () => {
+        imgEl.style.display = 'none';
+        if (fallbackEl) fallbackEl.style.display = 'flex';
+      };
+      if (fallbackEl) fallbackEl.style.display = 'none';
+    } else {
+      imgEl.removeAttribute('src');
+      imgEl.style.display = 'none';
+      if (fallbackEl) fallbackEl.style.display = 'flex';
+    }
+  };
+  applyQrState(qrImgEl, qrFallbackEl);
+  applyQrState(heroQrImgEl, heroQrFallbackEl);
+
+  const openBtns = ['ms-link-open-btn', 'ms-device-open-btn'];
+  openBtns.forEach((id) => {
+    const btn = document.getElementById(id);
+    if (!btn) return;
+    const disabled = !MICROSOFT_DEVICE_STATE.sessionId || MICROSOFT_DEVICE_STATE.loading;
+    btn.disabled = disabled;
+    btn.style.opacity = disabled ? '0.7' : '1';
+    btn.style.cursor = disabled ? 'not-allowed' : 'pointer';
+  });
+}
+
+function stopMicrosoftDeviceCodePolling() {
+  MICROSOFT_DEVICE_POLL_BUSY = false;
+  clearMicrosoftAuthPoll();
+}
+
+async function pollMicrosoftDeviceCodeLogin() {
+  if (MICROSOFT_DEVICE_POLL_BUSY) return;
+  const sessionId = String(MICROSOFT_DEVICE_STATE.sessionId || '').trim();
+  if (!sessionId) return;
+  MICROSOFT_DEVICE_POLL_BUSY = true;
+  try {
+    const pollRes = await invokeBackend('poll_microsoft_device_code_login', {
+      request: { sessionId },
+    });
+    if (!pollRes.ok || !pollRes.data) {
+      const reason = formatBackendError(pollRes.error, 'Could not check Microsoft sign-in status');
+      setMicrosoftDeviceStatus(reason, true);
+      return;
+    }
+
+    const status = String(pollRes.data.status || '').trim().toLowerCase();
+    if (status === 'authorized') {
+      stopMicrosoftDeviceCodePolling();
+      const profileName = pollRes.data.profile && pollRes.data.profile.name
+        ? String(pollRes.data.profile.name)
+        : 'Microsoft profile';
+      await completeMicrosoftLinkSuccess(profileName);
+      return;
+    }
+
+    if (status === 'pending') {
+      const expiresAt = Number(MICROSOFT_DEVICE_STATE.expiresAtEpoch || 0) || 0;
+      const remaining = expiresAt > 0 ? Math.max(0, expiresAt - Math.floor(Date.now() / 1000)) : 0;
+      const nextPoll = Number(pollRes.data.nextPollAfterSeconds || pollRes.data.next_poll_after_seconds || MICROSOFT_DEVICE_STATE.intervalSeconds || 5) || 5;
+      setMicrosoftDeviceStatus(
+        remaining > 0
+          ? 'Waiting for approval... expires in ' + formatMicrosoftDeviceSeconds(remaining) + ' (checks every ' + String(nextPoll) + 's)'
+          : 'Waiting for approval...',
+        false
+      );
+      return;
+    }
+
+    if (status === 'denied' || status === 'expired') {
+      stopMicrosoftDeviceCodePolling();
+      const reason = String(pollRes.data.reason || '').trim() || (status === 'expired' ? 'Device code expired' : 'Sign-in was denied');
+      setMicrosoftDeviceStatus(reason, true);
+      showToast('!', status === 'expired' ? 'Code expired' : 'Sign-in denied', reason);
+      return;
+    }
+
+    setMicrosoftDeviceStatus('Unknown sign-in status: ' + status, true);
+  } finally {
+    MICROSOFT_DEVICE_POLL_BUSY = false;
+  }
+}
+
+function startMicrosoftDeviceCodePolling() {
+  stopMicrosoftDeviceCodePolling();
+  const intervalMs = Math.max(2, Number(MICROSOFT_DEVICE_STATE.intervalSeconds || 5)) * 1000;
+  MICROSOFT_AUTH_POLL = setInterval(() => {
+    void pollMicrosoftDeviceCodeLogin();
+  }, intervalMs);
+}
+
+async function refreshMicrosoftDeviceCodeFlow(showNewCodeToast) {
+  if (MICROSOFT_DEVICE_STATE.loading) return;
+  MICROSOFT_DEVICE_STATE.loading = true;
+  stopMicrosoftDeviceCodePolling();
+  setMicrosoftDeviceStatus('Requesting Microsoft link code...', false);
+  updateMicrosoftDeviceModalContent();
+
+  const startRes = await invokeBackend('start_microsoft_device_code_login', {
     request: {},
   });
+  MICROSOFT_DEVICE_STATE.loading = false;
   if (!startRes.ok || !startRes.data) {
-    const reason = formatBackendError(startRes.error, 'Could not start Microsoft login flow');
-    if (statusEl) statusEl.textContent = reason;
-    showToast('!', 'Login failed', reason);
+    const reason = formatBackendError(startRes.error, 'Could not request Microsoft link code');
+    setMicrosoftDeviceStatus(reason, true);
+    showToast('!', 'Microsoft code failed', reason);
+    updateMicrosoftDeviceModalContent();
     return;
   }
 
-  const info = startRes.data;
-  const authorizationUrl = String(info.authorizationUrl || '').trim();
-  const oauthState = String(info.state || '').trim();
-  if (!authorizationUrl || !oauthState) {
-    const reason = 'Backend returned invalid Microsoft OAuth payload.';
-    if (statusEl) statusEl.textContent = reason;
-    showToast('!', 'Login failed', reason);
-    return;
-  }
-  MICROSOFT_OAUTH_EXPECTED_STATE = oauthState;
-  try {
-    window.__ORBIQ_LAST_MS_AUTH_URL = authorizationUrl;
-  } catch (_err) {}
-  const browserOpened = await openExternalHttpUrl(authorizationUrl);
-  if (!browserOpened && statusEl) {
-    statusEl.textContent = 'Could not open browser automatically. Open this URL manually: ' + authorizationUrl;
-  }
+  MICROSOFT_DEVICE_STATE.sessionId = String(startRes.data.sessionId || startRes.data.session_id || '').trim();
+  MICROSOFT_DEVICE_STATE.userCode = String(startRes.data.userCode || startRes.data.user_code || '').trim();
+  MICROSOFT_DEVICE_STATE.verificationUri = String(startRes.data.verificationUri || startRes.data.verification_uri || 'https://www.microsoft.com/link').trim();
+  MICROSOFT_DEVICE_STATE.verificationUriComplete = String(startRes.data.verificationUriComplete || startRes.data.verification_uri_complete || '').trim();
+  MICROSOFT_DEVICE_STATE.intervalSeconds = Number(startRes.data.intervalSeconds || startRes.data.interval_seconds || 5) || 5;
+  MICROSOFT_DEVICE_STATE.expiresAtEpoch = Number(startRes.data.expiresAtEpoch || startRes.data.expires_at_epoch || 0) || 0;
 
-  startMicrosoftCallbackWatch();
-  if (statusEl) {
-    statusEl.textContent = browserOpened
-      ? 'Browser opened. Approve Microsoft access to finish linking.'
-      : 'Open the URL above and approve Microsoft access, then return to launcher.';
-  }
-
-  showToast(
-    'MS',
-    browserOpened ? 'Browser opened' : 'Manual open required',
-    'Approve Microsoft access in browser; launcher will finish automatically'
+  updateMicrosoftDeviceModalContent();
+  startMicrosoftDeviceCodePolling();
+  void pollMicrosoftDeviceCodeLogin();
+  const remaining = MICROSOFT_DEVICE_STATE.expiresAtEpoch > 0
+    ? Math.max(0, MICROSOFT_DEVICE_STATE.expiresAtEpoch - Math.floor(Date.now() / 1000))
+    : 0;
+  setMicrosoftDeviceStatus(
+    'Code ready. Expires in ' + formatMicrosoftDeviceSeconds(remaining) + '. Open link and approve.',
+    false
   );
+  if (showNewCodeToast) {
+    showToast('OK', 'New code generated', MICROSOFT_DEVICE_STATE.userCode || 'Microsoft link code');
+  }
+}
+
+async function copyMicrosoftDeviceCode(showSuccessToast) {
+  const code = String(MICROSOFT_DEVICE_STATE.userCode || '').trim();
+  if (!code) {
+    showToast('!', 'Missing code', 'Generate Microsoft link code first');
+    return false;
+  }
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    try {
+      await navigator.clipboard.writeText(code);
+      if (showSuccessToast) showToast('OK', 'Copied', 'Microsoft code copied');
+      return true;
+    } catch (err) {
+      console.warn('[ms-device] clipboard write failed', err);
+    }
+  }
+  showToast('!', 'Clipboard unavailable', code);
+  return false;
+}
+
+async function openMicrosoftDeviceLinkOnly() {
+  const target = String(MICROSOFT_DEVICE_STATE.verificationUri || 'https://www.microsoft.com/link').trim();
+  const opened = await openExternalHttpUrl(target);
+  if (!opened) {
+    showToast('!', 'Open failed', 'Could not open microsoft.com/link automatically');
+    return false;
+  }
+  return true;
+}
+
+async function openMicrosoftDeviceLinkAndCopy() {
+  const sessionId = String(MICROSOFT_DEVICE_STATE.sessionId || '').trim();
+  if (!sessionId) {
+    await refreshMicrosoftDeviceCodeFlow(false);
+    if (!String(MICROSOFT_DEVICE_STATE.sessionId || '').trim()) return;
+  }
+  const target = String(MICROSOFT_DEVICE_STATE.verificationUriComplete || MICROSOFT_DEVICE_STATE.verificationUri || 'https://www.microsoft.com/link').trim();
+  const opened = await openExternalHttpUrl(target);
+  const copied = await copyMicrosoftDeviceCode(false);
+  if (opened && copied) {
+    showToast('MS', 'Link opened', 'Browser opened and code copied');
+  } else if (opened) {
+    showToast('MS', 'Link opened', 'Browser opened. Copy code manually from the card.');
+  } else if (copied) {
+    showToast('MS', 'Copied', 'Code copied. Open microsoft.com/link manually.');
+  } else {
+    showToast('!', 'Open failed', 'Could not open link or copy code automatically');
+  }
+}
+
+async function hydrateMicrosoftLinkModal() {
+  updateMicrosoftDeviceModalContent();
+  const nowEpoch = Math.floor(Date.now() / 1000);
+  const stillValid = String(MICROSOFT_DEVICE_STATE.sessionId || '').trim()
+    && Number(MICROSOFT_DEVICE_STATE.expiresAtEpoch || 0) > nowEpoch + 12;
+  if (stillValid) {
+    startMicrosoftDeviceCodePolling();
+    void pollMicrosoftDeviceCodeLogin();
+    return;
+  }
+  await refreshMicrosoftDeviceCodeFlow(false);
+}
+
+async function startMicrosoftLoginFlow() {
+  await refreshMicrosoftDeviceCodeFlow(false);
+  await openMicrosoftDeviceLinkAndCopy();
 }
 
 // Debug helpers for deep-link smoke tests (call from devtools if needed)
@@ -6725,16 +8868,24 @@ function finishProvisionOverlay(icon, title, message) {
 
 function failProvisionOverlay(message, title) {
   if (!ACTIVE_PROVISION) return;
+  const isRelink = isAuthRelinkFailureMessage(message);
+  const isSecurityInterrupt = isAuthSecurityInterruptMessage(message);
   setLaunchOverlayProgress(
     Number.isFinite(ACTIVE_PROVISION.percent) ? ACTIVE_PROVISION.percent : 0,
     message,
     true,
     'Failed'
   );
-  showToast('!', title || 'Launch failed', message, {
-    label: 'Diagnostics',
-    onClick: () => openModal('diagnostics'),
-  });
+  if (isSecurityInterrupt) {
+    promptAuthSecurityInterruptGuidance('launch-fail');
+  } else if (isRelink) {
+    promptAuthRelinkGuidance('launch-fail');
+  } else {
+    showToast('!', title || 'Launch failed', message, {
+      label: 'Diagnostics',
+      onClick: () => openModal('diagnostics'),
+    });
+  }
   const active = ACTIVE_PROVISION;
   const clearState = () => {
     if (ACTIVE_PROVISION === active) ACTIVE_PROVISION = null;
@@ -7252,14 +9403,140 @@ function openLaunchPreflightDialog(instanceName, profileId, profileName, issues)
   });
 }
 
+function buildLaunchProfileCandidates(profiles, preferredId, preferredName) {
+  const rows = Array.isArray(profiles) ? profiles.slice() : [];
+  const ordered = [];
+  const used = new Set();
+  const pushCandidate = (profile) => {
+    if (!profile || typeof profile !== 'object') return;
+    const id = String(profile.id || '').trim().toLowerCase();
+    if (!id || used.has(id)) return;
+    used.add(id);
+    ordered.push(profile);
+  };
+
+  const normalizedId = String(preferredId || '').trim().toLowerCase();
+  if (normalizedId) {
+    pushCandidate(rows.find((item) => String(item && item.id ? item.id : '').trim().toLowerCase() === normalizedId));
+  }
+
+  const normalizedName = String(preferredName || '').trim().toLowerCase();
+  if (normalizedName) {
+    pushCandidate(rows.find((item) => String(item && item.name ? item.name : '').trim().toLowerCase() === normalizedName));
+  }
+
+  pushCandidate(rows.find((item) => !!(item && item.active)));
+
+  rows
+    .filter((item) => String(item && item.profileType ? item.profileType : '').toLowerCase() === 'microsoft')
+    .forEach(pushCandidate);
+  rows
+    .filter((item) => String(item && item.profileType ? item.profileType : '').toLowerCase() !== 'microsoft')
+    .forEach(pushCandidate);
+
+  return ordered;
+}
+
+async function resolveLaunchProfileForProvision(preferredId, preferredName) {
+  await refreshProfilesFromBackend();
+  const profiles = getRenderableProfiles();
+  if (!profiles.length) {
+    return { ok: false, error: 'No launch profiles are available.' };
+  }
+
+  const normalizedPreferredId = String(preferredId || '').trim().toLowerCase();
+  const preferredProfile = normalizedPreferredId
+    ? profiles.find((item) => String(item && item.id ? item.id : '').trim().toLowerCase() === normalizedPreferredId)
+    : null;
+  const activeProfile = profiles.find((item) => !!(item && item.active)) || null;
+  const requireMicrosoft = String(
+    (preferredProfile && preferredProfile.profileType) || (activeProfile && activeProfile.profileType) || ''
+  ).toLowerCase() === 'microsoft';
+
+  const candidates = buildLaunchProfileCandidates(profiles, preferredId, preferredName);
+  let relinkError = '';
+  let securityInterruptError = '';
+
+  for (const candidate of candidates) {
+    const profileType = String(candidate.profileType || '').toLowerCase();
+    if (profileType !== 'microsoft') {
+      if (requireMicrosoft && (relinkError || securityInterruptError)) {
+        continue;
+      }
+      return {
+        ok: true,
+        profileId: String(candidate.id || ''),
+        profileName: String(candidate.name || ''),
+        profileType,
+      };
+    }
+
+    const refreshRes = await invokeBackend('refresh_microsoft_profile_token', {
+      request: { profileId: String(candidate.id || '') },
+    });
+    if (refreshRes.ok) {
+      return {
+        ok: true,
+        profileId: String(candidate.id || ''),
+        profileName: String(candidate.name || ''),
+        profileType,
+      };
+    }
+
+    const refreshError = String(refreshRes.error || '');
+    if (isAuthSecurityInterruptMessage(refreshError)) {
+      securityInterruptError = refreshError || securityInterruptError;
+      continue;
+    }
+    if (isMicrosoftTokenMissingError(refreshError)) {
+      relinkError = refreshError || relinkError;
+      continue;
+    }
+    if (isAuthRelinkFailureMessage(refreshError)) {
+      relinkError = refreshError || relinkError;
+      continue;
+    }
+    return { ok: false, error: refreshError || 'Failed to refresh Microsoft session.' };
+  }
+
+  if (securityInterruptError) {
+    return { ok: false, securityInterrupt: true, error: securityInterruptError };
+  }
+  if (relinkError) {
+    return { ok: false, relinkRequired: true, error: relinkError };
+  }
+
+  return { ok: false, error: 'Could not resolve a launch profile for this instance.' };
+}
+
 async function doLaunchSequence() {
   const instanceName = getSelectedInstanceName();
   if (!instanceName) {
     showToast('!', 'Missing instance', 'Please select an instance first');
     return;
   }
-  const profileName = getSelectedLaunchProfileName();
-  const profileId = getSelectedLaunchProfileId();
+  const selectedProfileName = getSelectedLaunchProfileName();
+  const selectedProfileId = getSelectedLaunchProfileId();
+  const profileResolution = await resolveLaunchProfileForProvision(selectedProfileId, selectedProfileName);
+  if (!profileResolution.ok) {
+    const reason = String(profileResolution.error || 'Could not resolve launch profile');
+    if (profileResolution.securityInterrupt || isAuthSecurityInterruptMessage(reason)) {
+      promptAuthSecurityInterruptGuidance('launch-profile-resolution');
+      showToast('MS', 'Verify Microsoft account', 'Complete account security check, then link Microsoft again.');
+    } else if (profileResolution.relinkRequired || isAuthRelinkFailureMessage(reason)) {
+      promptAuthRelinkGuidance('launch-profile-resolution');
+      showToast('MS', 'Microsoft relink required', 'Link Microsoft again to continue launching.');
+    } else {
+      showToast('!', 'Profile check failed', reason, {
+        label: 'Accounts',
+        onClick: () => goToAccountsPage(),
+      });
+    }
+    return;
+  }
+
+  const profileName = profileResolution.profileName || selectedProfileName;
+  const profileId = profileResolution.profileId || selectedProfileId;
   const details = INSTANCE_DATA[instanceName];
   if (!details) {
     showToast('!', 'Missing instance', 'Please select a valid instance first');
@@ -7328,11 +9605,12 @@ async function doLaunchSequence() {
 
   setLaunchOverlayProgress(91, 'Provision complete. Launching Minecraft...', false, 'Provisioned');
   await refreshInstancesFromBackend(true);
+  const launchOverrides = buildLaunchSettingsOverrides(instanceName);
   const launchRequest = {
     instanceName,
     profileName,
-    executable: '',
-    args: null,
+    executable: launchOverrides.executable || '',
+    args: launchOverrides.args,
     workingDir: '',
   };
   if (ACTIVE_PROVISION && ACTIVE_PROVISION.instanceName === instanceName) {
@@ -7365,6 +9643,10 @@ async function doLaunchSequence() {
     return;
   }
 
+  const launcherSettings = getLauncherSettings();
+  if (launcherSettings.closeToTray) {
+    void runWindowCommand('minimize', 'plugin:window|minimize');
+  }
   finishProvisionOverlay('OK', 'Game launched', instanceName + ' is now running');
   await refreshInstancesFromBackend(true);
 }
@@ -7933,9 +10215,319 @@ function formatSessionDuration(totalSeconds) {
   return `${m}m ${String(s).padStart(2, '0')}s`;
 }
 
-function getInstanceSessionSeconds(details) {
+function normalizeWeeklyPlaytimeStore(raw) {
+  const root = raw && typeof raw === 'object' ? raw : {};
+  const byInstanceRaw = root.byInstance && typeof root.byInstance === 'object' ? root.byInstance : {};
+  const byInstance = {};
+  Object.entries(byInstanceRaw).forEach(([instanceName, value]) => {
+    const name = String(instanceName || '').trim();
+    if (!name) return;
+    const row = value && typeof value === 'object' ? value : {};
+    const daysRaw = row.days && typeof row.days === 'object' ? row.days : {};
+    const days = {};
+    Object.entries(daysRaw).forEach(([dayKey, seconds]) => {
+      const key = String(dayKey || '').trim();
+      const amount = Number(seconds || 0);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(key)) return;
+      if (!Number.isFinite(amount) || amount <= 0) return;
+      days[key] = Math.floor(amount);
+    });
+    byInstance[name] = {
+      days,
+      lastSessionKey: row.lastSessionKey ? String(row.lastSessionKey) : '',
+    };
+  });
+  return { byInstance };
+}
+
+function getWeeklyPlaytimeStore() {
+  if (WEEKLY_PLAYTIME_CACHE && typeof WEEKLY_PLAYTIME_CACHE === 'object') {
+    return WEEKLY_PLAYTIME_CACHE;
+  }
+  let parsed = null;
+  try {
+    if (window.localStorage) {
+      const raw = window.localStorage.getItem(WEEKLY_PLAYTIME_STORE_KEY);
+      if (raw) parsed = JSON.parse(raw);
+    }
+  } catch (err) {
+    console.warn('[weekly] failed to load store', err);
+  }
+  WEEKLY_PLAYTIME_CACHE = normalizeWeeklyPlaytimeStore(parsed);
+  return WEEKLY_PLAYTIME_CACHE;
+}
+
+function saveWeeklyPlaytimeStore() {
+  try {
+    if (!window.localStorage) return;
+    const store = getWeeklyPlaytimeStore();
+    window.localStorage.setItem(WEEKLY_PLAYTIME_STORE_KEY, JSON.stringify(store));
+  } catch (err) {
+    console.warn('[weekly] failed to save store', err);
+  }
+}
+
+function formatDayKeyFromEpoch(epoch) {
+  const date = new Date(Number(epoch || 0) * 1000);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+function buildRecentWeeklyDays(dayCount) {
+  const count = Math.max(1, Number(dayCount || WEEKLY_PLAYTIME_DAY_COUNT));
+  const now = new Date();
+  const rows = [];
+  for (let offset = count - 1; offset >= 0; offset -= 1) {
+    const date = new Date(now.getFullYear(), now.getMonth(), now.getDate() - offset);
+    const epoch = Math.floor(date.getTime() / 1000);
+    const isToday = offset === 0;
+    rows.push({
+      key: formatDayKeyFromEpoch(epoch),
+      label: isToday
+        ? 'Today'
+        : date.toLocaleDateString(undefined, { weekday: 'short' }),
+      isToday,
+    });
+  }
+  return rows;
+}
+
+function ensureWeeklyPlaytimeEntry(instanceName) {
+  const name = String(instanceName || '').trim();
+  if (!name) return null;
+  const store = getWeeklyPlaytimeStore();
+  if (!store.byInstance[name]) {
+    store.byInstance[name] = { days: {}, lastSessionKey: '' };
+  }
+  return store.byInstance[name];
+}
+
+function pruneWeeklyPlaytimeEntry(entry, nowEpoch) {
+  if (!entry || !entry.days || typeof entry.days !== 'object') return;
+  const cutoff = Number(nowEpoch || Math.floor(Date.now() / 1000)) - (WEEKLY_PLAYTIME_RETENTION_DAYS * 86400);
+  Object.keys(entry.days).forEach((dayKey) => {
+    const dayEpoch = parseLastPlayedEpoch(dayKey + 'T00:00:00');
+    if (!dayEpoch || dayEpoch < cutoff) {
+      delete entry.days[dayKey];
+    }
+  });
+}
+
+function getWeeklySessionState(instanceName) {
+  const name = String(instanceName || '').trim();
+  if (!name) return null;
+  if (!INSTANCE_WEEKLY_SESSION_STATE[name]) {
+    INSTANCE_WEEKLY_SESSION_STATE[name] = {
+      running: false,
+      startEpoch: 0,
+    };
+  }
+  return INSTANCE_WEEKLY_SESSION_STATE[name];
+}
+
+function syncWeeklySessionTrackerStart(instanceName, startEpoch) {
+  const state = getWeeklySessionState(instanceName);
+  if (!state) return;
+  const start = parseLastPlayedEpoch(startEpoch);
+  if (!start) return;
+  state.running = true;
+  state.startEpoch = start;
+}
+
+function commitWeeklyTrackedSession(instanceName, startEpoch, endEpoch) {
+  const name = String(instanceName || '').trim();
+  if (!name) return false;
+  const start = parseLastPlayedEpoch(startEpoch);
+  const end = parseLastPlayedEpoch(endEpoch) || Math.floor(Date.now() / 1000);
+  if (!start || !end || end <= start) return false;
+
+  const entry = ensureWeeklyPlaytimeEntry(name);
+  if (!entry) return false;
+
+  const sessionKey = `${start}:${end}`;
+  if (entry.lastSessionKey && entry.lastSessionKey === sessionKey) {
+    return false;
+  }
+
+  let cursor = start;
+  while (cursor < end) {
+    const cursorDate = new Date(cursor * 1000);
+    const nextMidnight = Math.floor(
+      new Date(
+        cursorDate.getFullYear(),
+        cursorDate.getMonth(),
+        cursorDate.getDate() + 1,
+        0,
+        0,
+        0,
+        0
+      ).getTime() / 1000
+    );
+    const chunkEnd = Math.min(end, nextMidnight);
+    const dayKey = formatDayKeyFromEpoch(cursor);
+    const delta = Math.max(0, chunkEnd - cursor);
+    if (delta > 0) {
+      const current = Number(entry.days[dayKey] || 0);
+      entry.days[dayKey] = current + delta;
+    }
+    cursor = chunkEnd;
+  }
+
+  entry.lastSessionKey = sessionKey;
+  pruneWeeklyPlaytimeEntry(entry, end);
+  saveWeeklyPlaytimeStore();
+  return true;
+}
+
+function stopWeeklySessionTracker(instanceName, endEpoch) {
+  const state = getWeeklySessionState(instanceName);
+  if (!state || !state.running || !state.startEpoch) return false;
+  const stopAt = parseLastPlayedEpoch(endEpoch) || Math.floor(Date.now() / 1000);
+  const changed = commitWeeklyTrackedSession(instanceName, state.startEpoch, stopAt);
+  state.running = false;
+  state.startEpoch = 0;
+  return changed;
+}
+
+function reconcileWeeklyPlaytimeTracker(previousMap, nextMap) {
+  const previous = previousMap && typeof previousMap === 'object' ? previousMap : {};
+  const next = nextMap && typeof nextMap === 'object' ? nextMap : {};
+  const names = new Set([...Object.keys(previous), ...Object.keys(next)]);
+  const nowEpoch = Math.floor(Date.now() / 1000);
+
+  names.forEach((name) => {
+    const prevDetails = previous[name] || null;
+    const nextDetails = next[name] || null;
+    const wasRunning = !!(prevDetails && prevDetails.running);
+    const isRunning = !!(nextDetails && nextDetails.running);
+    const nextStartEpoch = parseLastPlayedEpoch(nextDetails && nextDetails.lastPlayedEpoch);
+    const stopEpoch = parseLastPlayedEpoch(nextDetails && nextDetails.lastExitAtEpoch) || nowEpoch;
+
+    if (!wasRunning && isRunning) {
+      syncWeeklySessionTrackerStart(name, nextStartEpoch || nowEpoch);
+      return;
+    }
+
+    if (wasRunning && !isRunning) {
+      stopWeeklySessionTracker(name, stopEpoch);
+      return;
+    }
+
+    if (isRunning) {
+      const state = getWeeklySessionState(name);
+      if (!state || !state.running) {
+        syncWeeklySessionTrackerStart(name, nextStartEpoch || nowEpoch);
+      } else if (nextStartEpoch && Math.abs(nextStartEpoch - state.startEpoch) > 30) {
+        state.startEpoch = nextStartEpoch;
+      }
+    } else if (!nextDetails) {
+      delete INSTANCE_WEEKLY_SESSION_STATE[name];
+    }
+  });
+}
+
+function buildWeeklyPlaytimeSnapshot(instanceName, includeLive) {
+  const name = String(instanceName || '').trim();
+  const result = {};
+  if (!name) return result;
+
+  const store = getWeeklyPlaytimeStore();
+  const entry = store.byInstance && store.byInstance[name] ? store.byInstance[name] : null;
+  if (entry && entry.days && typeof entry.days === 'object') {
+    Object.entries(entry.days).forEach(([dayKey, seconds]) => {
+      const value = Number(seconds || 0);
+      if (!Number.isFinite(value) || value <= 0) return;
+      result[dayKey] = Math.floor(value);
+    });
+  }
+
+  if (includeLive) {
+    const details = INSTANCE_DATA && INSTANCE_DATA[name] ? INSTANCE_DATA[name] : null;
+    const state = getWeeklySessionState(name);
+    const runningStart = state && state.running
+      ? state.startEpoch
+      : parseLastPlayedEpoch(details && details.lastPlayedEpoch);
+    const nowEpoch = Math.floor(Date.now() / 1000);
+    if (details && details.running && runningStart && nowEpoch > runningStart) {
+      let cursor = runningStart;
+      while (cursor < nowEpoch) {
+        const cursorDate = new Date(cursor * 1000);
+        const nextMidnight = Math.floor(
+          new Date(
+            cursorDate.getFullYear(),
+            cursorDate.getMonth(),
+            cursorDate.getDate() + 1,
+            0,
+            0,
+            0,
+            0
+          ).getTime() / 1000
+        );
+        const chunkEnd = Math.min(nowEpoch, nextMidnight);
+        const dayKey = formatDayKeyFromEpoch(cursor);
+        const delta = Math.max(0, chunkEnd - cursor);
+        if (delta > 0) {
+          result[dayKey] = Number(result[dayKey] || 0) + delta;
+        }
+        cursor = chunkEnd;
+      }
+    }
+  }
+
+  return result;
+}
+
+function formatWeeklyPlaytimeText(totalSeconds) {
+  const seconds = Math.max(0, Math.floor(Number(totalSeconds || 0)));
+  if (seconds <= 0) return '-';
+  const minutes = Math.max(1, Math.ceil(seconds / 60));
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  if (hours <= 0) return `${mins}m`;
+  return `${hours}h ${mins}m`;
+}
+
+function renderWeeklyPlaytimeBars(instanceName) {
+  const container = document.getElementById('detail-pt-bars');
+  if (!container) return;
+
+  const name = String(instanceName || '').trim();
+  if (!name || !INSTANCE_DATA || !INSTANCE_DATA[name]) {
+    container.innerHTML = '';
+    container.dataset.renderKey = '';
+    return;
+  }
+
+  const days = buildRecentWeeklyDays(WEEKLY_PLAYTIME_DAY_COUNT);
+  const snapshot = buildWeeklyPlaytimeSnapshot(name, true);
+  const values = days.map((day) => Number(snapshot[day.key] || 0));
+  const maxSeconds = Math.max(1, ...values);
+  const renderKey = days.map((day) => `${day.key}:${Math.floor(Number(snapshot[day.key] || 0))}`).join('|');
+  if (container.dataset.renderKey === renderKey) return;
+  container.dataset.renderKey = renderKey;
+
+  container.innerHTML = days.map((day) => {
+    const seconds = Number(snapshot[day.key] || 0);
+    const width = seconds > 0 ? Math.max(2, Math.round((seconds / maxSeconds) * 100)) : 0;
+    const rowClass = day.isToday ? 'pt-row today' : 'pt-row';
+    return `
+      <div class="${rowClass}">
+        <span class="pt-label">${day.label}</span>
+        <div class="pt-bar"><div class="pt-fill" style="width:${width}%"></div></div>
+        <span class="pt-val">${formatWeeklyPlaytimeText(seconds)}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+function getInstanceSessionSeconds(details, instanceName) {
   if (!details || !details.running) return 0;
-  const started = parseLastPlayedEpoch(details.lastPlayedEpoch || null);
+  const name = String(instanceName || '').trim();
+  const state = name ? getWeeklySessionState(name) : null;
+  const trackedStart = state && state.running ? state.startEpoch : 0;
+  const started = parseLastPlayedEpoch(trackedStart || details.lastPlayedEpoch || null);
   if (!started) return 0;
   const now = Math.floor(Date.now() / 1000);
   return Math.max(0, now - started);
@@ -7947,14 +10539,17 @@ function refreshSelectedSessionLabel() {
   if (!sessionEl) return;
   if (!selectedName || !INSTANCE_DATA[selectedName]) {
     sessionEl.textContent = 'Session: -';
+    renderWeeklyPlaytimeBars('');
     return;
   }
   const details = INSTANCE_DATA[selectedName];
   if (!details.running) {
     sessionEl.textContent = 'Session: -';
+    renderWeeklyPlaytimeBars(selectedName);
     return;
   }
-  sessionEl.textContent = 'Session: ' + formatSessionDuration(getInstanceSessionSeconds(details));
+  sessionEl.textContent = 'Session: ' + formatSessionDuration(getInstanceSessionSeconds(details, selectedName));
+  renderWeeklyPlaytimeBars(selectedName);
 }
 
 setInterval(refreshSelectedSessionLabel, 1000);
@@ -8629,6 +11224,13 @@ function normalizeTrackedInstallTarget(value) {
   return 'mods';
 }
 
+function getDisabledTrackedFileName(fileName) {
+  const value = String(fileName || '').trim();
+  if (!value) return '';
+  if (value.toLowerCase().endsWith('.disabled')) return value;
+  return value + '.disabled';
+}
+
 function normalizeTrackedInstallEntry(value) {
   const row = value && typeof value === 'object' ? value : {};
   const target = normalizeTrackedInstallTarget(row.target);
@@ -8647,6 +11249,7 @@ function normalizeTrackedInstallEntry(value) {
     bytesWritten: Number(row.bytesWritten || row.bytes_written || 0) || 0,
     installedAt: Number(row.installedAt || row.installed_at || Date.now()) || Date.now(),
     required: !!row.required,
+    enabled: row.enabled !== false,
     sourceType: String(row.sourceType || row.source_type || 'main').trim(),
     rootTitle: String(row.rootTitle || row.root_title || '').trim(),
     pageUrl: String(row.pageUrl || row.page_url || '').trim(),
@@ -8844,6 +11447,2017 @@ async function listInstanceFilesForTarget(instanceName, target) {
     .filter(Boolean);
 }
 
+async function listInstanceDirectoryEntriesForTarget(instanceName, target, options) {
+  const request = {
+    instanceName,
+    target,
+    includeFiles: !(options && options.includeFiles === false),
+    includeDirectories: !(options && options.includeDirectories === false),
+  };
+  const res = await invokeBackend('list_instance_directory_entries', { request });
+  if (!res.ok || !res.data || !Array.isArray(res.data.entries)) {
+    throw new Error(formatBackendError(res.error, 'Could not list instance entries'));
+  }
+  return res.data.entries.map((entry) => ({
+    name: String(entry && entry.name ? entry.name : '').trim(),
+    isDirectory: !!(entry && (entry.isDirectory || entry.is_directory)),
+    sizeBytes: Number(entry && (entry.sizeBytes || entry.size_bytes) ? (entry.sizeBytes || entry.size_bytes) : 0) || 0,
+    modifiedAtEpoch: Number(
+      entry && (entry.modifiedAtEpoch || entry.modified_at_epoch)
+        ? (entry.modifiedAtEpoch || entry.modified_at_epoch)
+        : 0
+    ) || 0,
+  })).filter((entry) => !!entry.name);
+}
+
+function formatBytesCompact(bytes) {
+  const value = Number(bytes || 0);
+  if (!Number.isFinite(value) || value <= 0) return '0 B';
+  const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+  let size = value;
+  let unit = 0;
+  while (size >= 1024 && unit < units.length - 1) {
+    size /= 1024;
+    unit += 1;
+  }
+  const decimals = size >= 100 ? 0 : size >= 10 ? 1 : 2;
+  return size.toFixed(decimals) + ' ' + units[unit];
+}
+
+function formatEpochRelative(epoch) {
+  const stamp = Number(epoch || 0);
+  if (!Number.isFinite(stamp) || stamp <= 0) return 'Unknown';
+  return formatRelativeDate(new Date(stamp * 1000).toISOString());
+}
+
+function resolveInstanceAssetModalConfig(modalId) {
+  const key = String(modalId || '').trim();
+  if (key === 'resource-packs') {
+    return {
+      modalId: key,
+      target: 'resourcepacks',
+      listId: 'resource-packs-list',
+      statusId: 'resource-packs-status',
+      label: 'resource packs',
+      includeDirectories: true,
+    };
+  }
+  if (key === 'shader-packs') {
+    return {
+      modalId: key,
+      target: 'shaderpacks',
+      listId: 'shader-packs-list',
+      statusId: 'shader-packs-status',
+      label: 'shader packs',
+      includeDirectories: true,
+    };
+  }
+  return null;
+}
+
+function normalizeAssetBaseName(name) {
+  const value = String(name || '').trim();
+  if (!value) return '';
+  if (value.toLowerCase().endsWith('.disabled')) {
+    return value.slice(0, -'.disabled'.length).trim();
+  }
+  return value;
+}
+
+function normalizeInstanceAssetEntries(entries, includeDirectories) {
+  const dirRows = [];
+  const fileRowsByKey = new Map();
+  (Array.isArray(entries) ? entries : []).forEach((entry) => {
+    const name = String(entry && entry.name ? entry.name : '').trim();
+    if (!name) return;
+    const isDirectory = !!(entry && entry.isDirectory);
+    const sizeBytes = Number(entry && entry.sizeBytes ? entry.sizeBytes : 0) || 0;
+    const modifiedAtEpoch = Number(entry && entry.modifiedAtEpoch ? entry.modifiedAtEpoch : 0) || 0;
+    if (isDirectory) {
+      if (!includeDirectories) return;
+      dirRows.push({
+        name,
+        currentFileName: name,
+        isDirectory: true,
+        enabled: true,
+        sizeBytes,
+        modifiedAtEpoch,
+      });
+      return;
+    }
+
+    const baseName = normalizeAssetBaseName(name);
+    if (!baseName) return;
+    const lowerKey = baseName.toLowerCase();
+    const enabled = !name.toLowerCase().endsWith('.disabled');
+    const row = {
+      name: baseName,
+      currentFileName: name,
+      isDirectory: false,
+      enabled,
+      sizeBytes,
+      modifiedAtEpoch,
+    };
+    const prev = fileRowsByKey.get(lowerKey);
+    if (!prev) {
+      fileRowsByKey.set(lowerKey, row);
+      return;
+    }
+    if (row.enabled && !prev.enabled) {
+      fileRowsByKey.set(lowerKey, row);
+      return;
+    }
+    if (row.enabled === prev.enabled && row.modifiedAtEpoch > prev.modifiedAtEpoch) {
+      fileRowsByKey.set(lowerKey, row);
+    }
+  });
+
+  const files = Array.from(fileRowsByKey.values());
+  dirRows.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+  files.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+  return dirRows.concat(files);
+}
+
+function renderInstanceAssetRows(modalId, rows) {
+  return (Array.isArray(rows) ? rows : [])
+    .map((row) => {
+      const encoded = encodeURIComponent(String(row.name || ''));
+      const icon = row.isDirectory ? 'folder' : (row.enabled ? 'file-check-2' : 'file-x-2');
+      const stateText = row.isDirectory
+        ? 'directory'
+        : (row.enabled ? 'enabled' : 'disabled');
+      const metaParts = [];
+      if (Number(row.sizeBytes || 0) > 0) metaParts.push(formatBytesCompact(row.sizeBytes));
+      metaParts.push(formatEpochRelative(row.modifiedAtEpoch));
+      const meta = metaParts.join(' - ');
+      const actions = row.isDirectory
+        ? '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px" disabled><i data-lucide="slash" width="11" height="11"></i>No actions</button>'
+        : (
+          '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px" onclick="toggleInstanceAssetFromModal(\'' + escapeHtml(modalId) + '\', \'' + encoded + '\', ' + (row.enabled ? 'false' : 'true') + ')">' +
+          '<i data-lucide="' + (row.enabled ? 'pause' : 'play') + '" width="11" height="11"></i>' + (row.enabled ? 'Disable' : 'Enable') +
+          '</button>' +
+          '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px;color:var(--red)" onclick="removeInstanceAssetFromModal(\'' + escapeHtml(modalId) + '\', \'' + encoded + '\')">' +
+          '<i data-lucide="trash-2" width="11" height="11"></i>Remove</button>'
+        );
+      return (
+        '<div class="list-item" style="align-items:flex-start;gap:10px">' +
+        '<i data-lucide="' + icon + '" width="14" height="14" style="color:var(--t4);margin-top:3px;flex-shrink:0"></i>' +
+        '<div style="flex:1;min-width:0">' +
+        '<div style="font-size:12px;font-family:var(--mono);color:var(--t2);line-height:1.4;word-break:break-word">' + escapeHtml(String(row.name || '')) + '</div>' +
+        '<div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px">' + escapeHtml(stateText) + ' - ' + escapeHtml(meta) + '</div>' +
+        '</div>' +
+        '<div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">' + actions + '</div>' +
+        '</div>'
+      );
+    })
+    .join('');
+}
+
+async function hydrateInstanceAssetModal(modalId) {
+  const config = resolveInstanceAssetModalConfig(modalId);
+  if (!config) return;
+  const listEl = document.getElementById(config.listId);
+  const statusEl = document.getElementById(config.statusId);
+  if (!listEl || !statusEl) return;
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  if (!instanceName) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">Select an instance first.</div>';
+    statusEl.textContent = '';
+    return;
+  }
+  statusEl.textContent = 'Loading ' + config.label + '...';
+  try {
+    const entries = await listInstanceDirectoryEntriesForTarget(instanceName, config.target, {
+      includeFiles: true,
+      includeDirectories: !!config.includeDirectories,
+    });
+    const rows = normalizeInstanceAssetEntries(entries, !!config.includeDirectories);
+    INSTANCE_ASSET_MODAL_CACHE[config.modalId] = { instanceName, target: config.target, rows };
+    if (!rows.length) {
+      listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No ' + escapeHtml(config.label) + ' found yet.</div>';
+      statusEl.textContent = '0 items';
+      return;
+    }
+    listEl.innerHTML = renderInstanceAssetRows(config.modalId, rows);
+    const fileCount = rows.filter((row) => !row.isDirectory).length;
+    const enabledCount = rows.filter((row) => !row.isDirectory && row.enabled).length;
+    statusEl.textContent = String(rows.length) + ' items - ' + String(enabledCount) + '/' + String(fileCount) + ' files enabled';
+    lucide.createIcons();
+  } catch (error) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:#b56262">Could not load entries.</div>';
+    statusEl.textContent = formatBackendError(error && error.message ? error.message : String(error || ''), 'Load failed');
+  }
+}
+
+function refreshInstanceAssetModal(modalId) {
+  void hydrateInstanceAssetModal(modalId);
+}
+
+function openInstanceAssetFolder(target) {
+  void openSelectedInstanceFolder(target);
+}
+
+async function toggleInstanceAssetFromModal(modalId, encodedName, enabled) {
+  const config = resolveInstanceAssetModalConfig(modalId);
+  if (!config) return;
+  const cache = INSTANCE_ASSET_MODAL_CACHE[config.modalId];
+  if (!cache || !cache.instanceName) return;
+  const decodedName = decodeURIComponent(String(encodedName || '').trim());
+  const row = (Array.isArray(cache.rows) ? cache.rows : []).find(
+    (item) => !item.isDirectory && String(item.name || '').toLowerCase() === decodedName.toLowerCase()
+  );
+  if (!row) {
+    showToast('!', 'Toggle failed', 'File entry was not found');
+    return;
+  }
+
+  const res = await invokeBackend('set_instance_file_enabled', {
+    request: {
+      instanceName: cache.instanceName,
+      target: cache.target,
+      fileName: row.name,
+      enabled: !!enabled,
+    },
+  });
+  if (!res.ok) {
+    showToast('!', 'Toggle failed', formatBackendError(res.error, 'Could not update file state'));
+    return;
+  }
+  await hydrateInstanceAssetModal(config.modalId);
+  await refreshSelectedInstanceInfo(cache.instanceName);
+  showToast('OK', enabled ? 'Enabled' : 'Disabled', row.name);
+}
+
+async function removeInstanceAssetFromModal(modalId, encodedName) {
+  const config = resolveInstanceAssetModalConfig(modalId);
+  if (!config) return;
+  const cache = INSTANCE_ASSET_MODAL_CACHE[config.modalId];
+  if (!cache || !cache.instanceName) return;
+  const decodedName = decodeURIComponent(String(encodedName || '').trim());
+  const row = (Array.isArray(cache.rows) ? cache.rows : []).find(
+    (item) => !item.isDirectory && String(item.name || '').toLowerCase() === decodedName.toLowerCase()
+  );
+  if (!row) {
+    showToast('!', 'Remove failed', 'File entry was not found');
+    return;
+  }
+  const fileName = String(row.currentFileName || row.name || '').trim();
+  if (!fileName) {
+    showToast('!', 'Remove failed', 'File name is missing');
+    return;
+  }
+  const res = await invokeBackend('remove_instance_file', {
+    request: {
+      instanceName: cache.instanceName,
+      target: cache.target,
+      fileName,
+    },
+  });
+  if (!res.ok) {
+    showToast('!', 'Remove failed', formatBackendError(res.error, 'Could not remove file'));
+    return;
+  }
+  await hydrateInstanceAssetModal(config.modalId);
+  await refreshSelectedInstanceInfo(cache.instanceName);
+  showToast('OK', 'Removed', row.name);
+}
+
+async function hydrateJavaManagerModal(forceRefresh) {
+  const listEl = document.getElementById('java-manager-list');
+  const statusEl = document.getElementById('java-manager-status');
+  if (!listEl || !statusEl) return;
+  if (forceRefresh || !Array.isArray(JAVA_RUNTIME_INFO.candidates) || !JAVA_RUNTIME_INFO.candidates.length) {
+    statusEl.textContent = 'Detecting Java runtimes...';
+    const javaRes = await invokeBackend('get_java_runtime_info', { minimumMajor: 17 });
+    if (javaRes.ok && javaRes.data && typeof javaRes.data === 'object') {
+      JAVA_RUNTIME_INFO = {
+        minimumMajor: Number(javaRes.data.minimumMajor || 17),
+        defaultPath: javaRes.data.defaultPath || null,
+        candidates: Array.isArray(javaRes.data.candidates) ? javaRes.data.candidates : [],
+      };
+    } else if (!javaRes.ok) {
+      statusEl.textContent = formatBackendError(javaRes.error, 'Could not detect Java');
+    }
+  }
+
+  const candidates = Array.isArray(JAVA_RUNTIME_INFO.candidates) ? JAVA_RUNTIME_INFO.candidates : [];
+  if (!candidates.length) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No Java runtimes detected.</div>';
+    if (!statusEl.textContent) statusEl.textContent = 'No Java runtimes found';
+    return;
+  }
+
+  listEl.innerHTML = candidates
+    .map((candidate) => {
+      const path = String(candidate && candidate.path ? candidate.path : '').trim();
+      const version = String(candidate && candidate.version ? candidate.version : '').trim();
+      const source = String(candidate && candidate.source ? candidate.source : '').trim();
+      const major = Number(candidate && candidate.major ? candidate.major : 0) || 0;
+      const isDefault = JAVA_RUNTIME_INFO.defaultPath && pathsMatch(path, JAVA_RUNTIME_INFO.defaultPath);
+      return (
+        '<div class="list-item" style="align-items:flex-start;gap:9px">' +
+        '<div class="li-dot ' + (isDefault ? 'on' : '') + '" style="margin-top:5px"></div>' +
+        '<div style="flex:1;min-width:0">' +
+        '<div style="font-size:12px;font-family:var(--mono);color:var(--t2)">' + escapeHtml(version || ('Java ' + (major || '?'))) + '</div>' +
+        '<div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px;word-break:break-word">' + escapeHtml(path) + '</div>' +
+        '<div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px">Source: ' + escapeHtml(source || 'unknown') + '</div>' +
+        '</div>' +
+        (isDefault ? '<span style="font-size:10px;font-family:var(--mono);color:var(--green)">Default</span>' : '') +
+        '</div>'
+      );
+    })
+    .join('');
+  statusEl.textContent = String(candidates.length) + ' Java runtime(s) detected';
+}
+
+function refreshJavaManagerModal() {
+  void hydrateJavaManagerModal(true);
+}
+
+async function hydrateConsoleModal() {
+  const listEl = document.getElementById('console-log-files');
+  const statusEl = document.getElementById('console-log-status');
+  if (!listEl || !statusEl) return;
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  if (!instanceName) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">Select an instance first.</div>';
+    statusEl.textContent = '';
+    return;
+  }
+  statusEl.textContent = 'Loading log files...';
+  try {
+    const entries = await listInstanceDirectoryEntriesForTarget(instanceName, 'logs', {
+      includeFiles: true,
+      includeDirectories: false,
+    });
+    if (!entries.length) {
+      listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No log files found yet.</div>';
+      statusEl.textContent = '0 log files';
+      return;
+    }
+    listEl.innerHTML = entries
+      .map((entry) => (
+        '<div class="list-item" style="align-items:flex-start;gap:9px">' +
+        '<i data-lucide="file-text" width="14" height="14" style="color:var(--t4);margin-top:3px;flex-shrink:0"></i>' +
+        '<div style="flex:1;min-width:0">' +
+        '<div style="font-size:12px;font-family:var(--mono);color:var(--t2);word-break:break-word">' + escapeHtml(entry.name) + '</div>' +
+        '<div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px">' + escapeHtml(formatBytesCompact(entry.sizeBytes)) + ' - ' + escapeHtml(formatEpochRelative(entry.modifiedAtEpoch)) + '</div>' +
+        '</div>' +
+        '</div>'
+      ))
+      .join('');
+    statusEl.textContent = String(entries.length) + ' log file(s)';
+    lucide.createIcons();
+  } catch (error) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:#b56262">Could not load logs.</div>';
+    statusEl.textContent = formatBackendError(error && error.message ? error.message : String(error || ''), 'Could not read logs');
+  }
+}
+
+function refreshConsoleModal() {
+  void hydrateConsoleModal();
+}
+
+async function hydrateDatapacksModal() {
+  const listEl = document.getElementById('datapacks-list');
+  const statusEl = document.getElementById('datapacks-status');
+  if (!listEl || !statusEl) return;
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  if (!instanceName) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">Select an instance first.</div>';
+    statusEl.textContent = '';
+    return;
+  }
+  statusEl.textContent = 'Loading worlds...';
+  try {
+    const worldsState = await listInstanceWorlds(instanceName);
+    const worlds = Array.isArray(worldsState.worlds) ? worldsState.worlds : [];
+    if (!worlds.length) {
+      listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No worlds found in this instance.</div>';
+      statusEl.textContent = worldsState.running ? 'Game is running' : '0 worlds';
+      return;
+    }
+    listEl.innerHTML = worlds
+      .map((world) => {
+        const encodedWorld = encodeURIComponent(String(world.worldName || '').trim());
+        return (
+          '<div class="list-item" style="align-items:flex-start;gap:9px">' +
+          '<i data-lucide="globe" width="14" height="14" style="color:var(--t4);margin-top:3px;flex-shrink:0"></i>' +
+          '<div style="flex:1;min-width:0">' +
+          '<div style="font-size:12px;font-family:var(--mono);color:var(--t2);word-break:break-word">' + escapeHtml(world.displayName || world.worldName) + '</div>' +
+          '<div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px">' +
+          escapeHtml((world.gameMode || 'Unknown') + ' - ' + formatPlaytimeText(world.playtimeMinutes) + ' - ' + formatEpochRelative(world.lastPlayedEpoch)) +
+          '</div>' +
+          '</div>' +
+          '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px" onclick="openWorldDetailFromManager(\'' + encodedWorld + '\')"><i data-lucide="external-link" width="11" height="11"></i>Detail</button>' +
+          '</div>'
+        );
+      })
+      .join('');
+    statusEl.textContent =
+      String(worlds.length) + ' world(s)' + (worldsState.running ? ' - close game to safely edit datapacks' : '');
+    lucide.createIcons();
+  } catch (error) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:#b56262">Could not load worlds.</div>';
+    statusEl.textContent = formatBackendError(error && error.message ? error.message : String(error || ''), 'Could not load worlds');
+  }
+}
+
+function refreshDatapacksModal() {
+  void hydrateDatapacksModal();
+}
+
+function normalizeVersionSelectorMode(mode) {
+  const value = String(mode || '').trim().toLowerCase();
+  if (value === 'snapshot' || value === 'old') return value;
+  return 'release';
+}
+
+async function fetchVersionSelectorBase(mode) {
+  const normalizedMode = normalizeVersionSelectorMode(mode);
+  const includeSnapshots = normalizedMode === 'snapshot';
+  const cacheKey = includeSnapshots ? 'snapshots' : 'release';
+  if (!VERSION_SELECTOR_CACHE.has(cacheKey)) {
+    const res = await invokeBackend('list_minecraft_versions', {
+      includeSnapshots,
+      limit: 500,
+    });
+    if (!res.ok || !Array.isArray(res.data)) {
+      throw new Error(formatBackendError(res.error, 'Could not fetch versions'));
+    }
+    VERSION_SELECTOR_CACHE.set(
+      cacheKey,
+      res.data.map((value) => String(value || '').trim()).filter(Boolean)
+    );
+  }
+  const all = VERSION_SELECTOR_CACHE.get(cacheKey) || [];
+  if (normalizedMode === 'old') {
+    return all.slice(Math.min(25, all.length));
+  }
+  return all;
+}
+
+function renderVersionSelectorRows(rows) {
+  const listEl = document.getElementById('version-selector-list');
+  const statusEl = document.getElementById('version-selector-status');
+  if (!listEl || !statusEl) return;
+  const finalRows = Array.isArray(rows) ? rows : [];
+  if (!finalRows.length) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No versions found.</div>';
+    statusEl.textContent = '0 versions';
+    return;
+  }
+  if (!VERSION_SELECTOR_STATE.selected || !finalRows.includes(VERSION_SELECTOR_STATE.selected)) {
+    VERSION_SELECTOR_STATE.selected = finalRows[0];
+  }
+  listEl.innerHTML = finalRows
+    .map((value, index) => {
+      const selected = value === VERSION_SELECTOR_STATE.selected ? ' sel' : '';
+      const badge = index === 0 && VERSION_SELECTOR_STATE.mode !== 'old'
+        ? '<span class="ver-badge">Latest</span>'
+        : '';
+      return (
+        '<div class="ver-item' + selected + '" onclick="pickVersionSelectorOption(\'' + escapeHtml(value) + '\')">' +
+        '<span class="ver-name">' + escapeHtml(value) + '</span>' +
+        badge +
+        '</div>'
+      );
+    })
+    .join('');
+  statusEl.textContent = String(finalRows.length) + ' version(s)';
+}
+
+async function hydrateVersionSelectorModal() {
+  const tabs = {
+    release: document.getElementById('version-tab-release'),
+    snapshot: document.getElementById('version-tab-snapshot'),
+    old: document.getElementById('version-tab-old'),
+  };
+  Object.keys(tabs).forEach((key) => {
+    const el = tabs[key];
+    if (!el) return;
+    el.classList.toggle('active', key === VERSION_SELECTOR_STATE.mode);
+  });
+
+  const searchInput = document.getElementById('version-selector-search');
+  if (searchInput && searchInput.value !== VERSION_SELECTOR_STATE.query) {
+    searchInput.value = VERSION_SELECTOR_STATE.query;
+  }
+
+  const statusEl = document.getElementById('version-selector-status');
+  if (statusEl) statusEl.textContent = 'Loading versions...';
+  try {
+    const base = await fetchVersionSelectorBase(VERSION_SELECTOR_STATE.mode);
+    const query = String(VERSION_SELECTOR_STATE.query || '').trim().toLowerCase();
+    const filtered = query
+      ? base.filter((value) => value.toLowerCase().includes(query))
+      : base;
+    renderVersionSelectorRows(filtered);
+  } catch (error) {
+    const listEl = document.getElementById('version-selector-list');
+    if (listEl) {
+      listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:#b56262">Could not load versions.</div>';
+    }
+    if (statusEl) {
+      statusEl.textContent = formatBackendError(error && error.message ? error.message : String(error || ''), 'Could not load versions');
+    }
+  }
+}
+
+function setVersionSelectorMode(mode) {
+  VERSION_SELECTOR_STATE.mode = normalizeVersionSelectorMode(mode);
+  void hydrateVersionSelectorModal();
+}
+
+function onVersionSelectorSearchInput(value) {
+  VERSION_SELECTOR_STATE.query = String(value || '');
+  void hydrateVersionSelectorModal();
+}
+
+function pickVersionSelectorOption(value) {
+  VERSION_SELECTOR_STATE.selected = String(value || '').trim();
+  void hydrateVersionSelectorModal();
+}
+
+function openVersionSelectorFromAddInstance() {
+  const loaderSelect = document.getElementById('add-inst-loader');
+  const loaderVersionSelect = document.getElementById('add-inst-loader-version');
+  const versionSelect = document.getElementById('add-inst-version');
+  VERSION_SELECTOR_RETURN_CONTEXT = {
+    source: 'add-instance',
+    loader: loaderSelect ? String(loaderSelect.value || '').trim() : '',
+    loaderVersion: loaderVersionSelect ? String(loaderVersionSelect.value || '').trim() : '',
+  };
+  VERSION_SELECTOR_STATE.mode = 'release';
+  VERSION_SELECTOR_STATE.query = '';
+  VERSION_SELECTOR_STATE.selected = versionSelect ? String(versionSelect.value || '').trim() : '';
+  openModal('version-selector');
+}
+
+function applyVersionSelectorSelection() {
+  const selected = String(VERSION_SELECTOR_STATE.selected || '').trim();
+  if (!selected) {
+    showToast('!', 'Version not selected', 'Pick a version first');
+    return;
+  }
+
+  const context = VERSION_SELECTOR_RETURN_CONTEXT;
+  VERSION_SELECTOR_RETURN_CONTEXT = null;
+  if (context && context.source === 'add-instance') {
+    ADD_INSTANCE_PREFILL = {
+      loader: context.loader || undefined,
+      loaderVersion: context.loaderVersion || undefined,
+      version: selected,
+    };
+    openModal('add-instance');
+    showToast('OK', 'Version selected', selected + ' applied to Add Instance');
+    return;
+  }
+
+  const addSelect = document.getElementById('add-inst-version');
+  if (addSelect) {
+    if (!Array.from(addSelect.options).some((option) => String(option.value || '').trim() === selected)) {
+      const option = document.createElement('option');
+      option.value = selected;
+      option.textContent = selected;
+      addSelect.appendChild(option);
+    }
+    addSelect.value = selected;
+    addSelect.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+  closeModal();
+  showToast('OK', 'Version selected', selected);
+}
+
+function defaultLauncherSettings() {
+  return {
+    javaPath: '',
+    defaultMemoryGb: 4,
+    autoUpdate: true,
+    analytics: false,
+    closeToTray: true,
+  };
+}
+
+function normalizeLauncherMemoryGb(value) {
+  const numeric = Number(value || 0);
+  if (!Number.isFinite(numeric) || numeric <= 0) return 4;
+  return Math.max(1, Math.min(16, Math.round(numeric)));
+}
+
+function ensureLauncherSettingsLoaded() {
+  if (LAUNCHER_SETTINGS_LOADED) return;
+  LAUNCHER_SETTINGS_LOADED = true;
+  LAUNCHER_SETTINGS = defaultLauncherSettings();
+  try {
+    if (!window.localStorage) return;
+    const raw = window.localStorage.getItem(LAUNCHER_SETTINGS_STORE_KEY);
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return;
+    LAUNCHER_SETTINGS = Object.assign({}, LAUNCHER_SETTINGS, parsed);
+  } catch (err) {
+    console.warn('[launcher-settings] failed to load', err);
+    LAUNCHER_SETTINGS = defaultLauncherSettings();
+  }
+  LAUNCHER_SETTINGS.javaPath = String(LAUNCHER_SETTINGS.javaPath || '').trim();
+  LAUNCHER_SETTINGS.defaultMemoryGb = normalizeLauncherMemoryGb(LAUNCHER_SETTINGS.defaultMemoryGb);
+  LAUNCHER_SETTINGS.autoUpdate = !!LAUNCHER_SETTINGS.autoUpdate;
+  LAUNCHER_SETTINGS.analytics = !!LAUNCHER_SETTINGS.analytics;
+  LAUNCHER_SETTINGS.closeToTray = !!LAUNCHER_SETTINGS.closeToTray;
+}
+
+function persistLauncherSettings() {
+  try {
+    if (!window.localStorage) return;
+    window.localStorage.setItem(LAUNCHER_SETTINGS_STORE_KEY, JSON.stringify(LAUNCHER_SETTINGS || defaultLauncherSettings()));
+  } catch (err) {
+    console.warn('[launcher-settings] failed to persist', err);
+  }
+}
+
+function getLauncherSettings() {
+  ensureLauncherSettingsLoaded();
+  return Object.assign({}, LAUNCHER_SETTINGS);
+}
+
+function setLauncherSettings(next) {
+  ensureLauncherSettingsLoaded();
+  LAUNCHER_SETTINGS = Object.assign({}, defaultLauncherSettings(), next || {});
+  LAUNCHER_SETTINGS.javaPath = String(LAUNCHER_SETTINGS.javaPath || '').trim();
+  LAUNCHER_SETTINGS.defaultMemoryGb = normalizeLauncherMemoryGb(LAUNCHER_SETTINGS.defaultMemoryGb);
+  LAUNCHER_SETTINGS.autoUpdate = !!LAUNCHER_SETTINGS.autoUpdate;
+  LAUNCHER_SETTINGS.analytics = !!LAUNCHER_SETTINGS.analytics;
+  LAUNCHER_SETTINGS.closeToTray = !!LAUNCHER_SETTINGS.closeToTray;
+  persistLauncherSettings();
+}
+
+function resolveLauncherDefaultJavaPath() {
+  const settings = getLauncherSettings();
+  const saved = String(settings.javaPath || '').trim();
+  if (saved) return saved;
+  return String(JAVA_RUNTIME_INFO && JAVA_RUNTIME_INFO.defaultPath ? JAVA_RUNTIME_INFO.defaultPath : '').trim();
+}
+
+function updateSettingsMemoryLabel() {
+  const slider = document.getElementById('settings-default-memory');
+  const valueEl = document.getElementById('settings-default-memory-value');
+  if (!slider || !valueEl) return;
+  const gb = normalizeLauncherMemoryGb(slider.value);
+  valueEl.textContent = String(gb) + ' GB';
+}
+
+function hydrateSettingsModal() {
+  const settings = getLauncherSettings();
+  const javaPathInput = document.getElementById('settings-java-path');
+  const memorySlider = document.getElementById('settings-default-memory');
+  const statusEl = document.getElementById('settings-status');
+
+  if (javaPathInput) {
+    javaPathInput.value = settings.javaPath || '';
+    javaPathInput.placeholder = resolveLauncherDefaultJavaPath() || 'Auto (launcher default)';
+  }
+  if (memorySlider) memorySlider.value = String(normalizeLauncherMemoryGb(settings.defaultMemoryGb));
+
+  setCheckBoxState(document.getElementById('settings-auto-update-check'), !!settings.autoUpdate);
+  setCheckBoxState(document.getElementById('settings-analytics-check'), !!settings.analytics);
+  setCheckBoxState(document.getElementById('settings-close-to-tray-check'), !!settings.closeToTray);
+  updateSettingsMemoryLabel();
+  if (statusEl) statusEl.textContent = 'Saved defaults are applied when instance launch settings are Auto.';
+  lucide.createIcons();
+}
+
+function resetSettingsModal() {
+  setLauncherSettings(defaultLauncherSettings());
+  hydrateSettingsModal();
+  showToast('OK', 'Reset complete', 'Settings restored to defaults');
+}
+
+function saveSettingsModal() {
+  const javaPathInput = document.getElementById('settings-java-path');
+  const memorySlider = document.getElementById('settings-default-memory');
+  const statusEl = document.getElementById('settings-status');
+  const next = {
+    javaPath: String(javaPathInput && javaPathInput.value ? javaPathInput.value : '').trim(),
+    defaultMemoryGb: normalizeLauncherMemoryGb(memorySlider && memorySlider.value ? memorySlider.value : 4),
+    autoUpdate: readCheckBoxState(document.getElementById('settings-auto-update-check')),
+    analytics: readCheckBoxState(document.getElementById('settings-analytics-check')),
+    closeToTray: readCheckBoxState(document.getElementById('settings-close-to-tray-check')),
+  };
+  setLauncherSettings(next);
+  if (statusEl) statusEl.textContent = 'Saved.';
+  closeModal();
+  showToast('OK', 'Settings saved', 'Global settings updated');
+}
+
+function buildLaunchSettingsOverrides(instanceName) {
+  const settings = getLauncherSettings();
+  const runtime = getInstanceRuntimeConfig(instanceName) || {};
+  const runtimeExecutable = String(runtime.executable || '').trim();
+  const runtimeArgs = Array.isArray(runtime.args) ? runtime.args.slice() : [];
+  const bounds = extractHeapBoundsFromArgs(runtimeArgs);
+
+  const executableOverride = runtimeExecutable ? '' : String(settings.javaPath || '').trim();
+  let argsOverride = null;
+  if (bounds.minMb <= 0 && bounds.maxMb <= 0) {
+    const maxMb = normalizeLauncherMemoryGb(settings.defaultMemoryGb) * 1024;
+    const minMb = Math.min(maxMb, 1024);
+    const mergedArgs = upsertHeapArgs(runtimeArgs, minMb, maxMb);
+    if (JSON.stringify(mergedArgs) !== JSON.stringify(runtimeArgs)) {
+      argsOverride = mergedArgs;
+    }
+  }
+  return {
+    executable: executableOverride,
+    args: argsOverride,
+  };
+}
+
+function setCheckBoxState(checkEl, checked) {
+  if (!checkEl) return;
+  const isOn = !!checked;
+  checkEl.classList.toggle('on', isOn);
+  checkEl.innerHTML = isOn
+    ? '<i data-lucide="check" width="10" height="10" style="color:#000"></i>'
+    : '';
+}
+
+function readCheckBoxState(checkEl) {
+  return !!(checkEl && checkEl.classList && checkEl.classList.contains('on'));
+}
+
+async function resolveModalDependencyData(instanceName) {
+  const key = String(instanceName || '').trim();
+  if (!key) {
+    return {
+      missingRows: [],
+      installableRows: [],
+      preflightIssues: [],
+    };
+  }
+  const trackedRows = getTrackedInstallsForInstance(key);
+  const hydratedRows = await resolveTrackedInstallMissingState(key, trackedRows);
+  const missingRows = getMissingRequiredTrackedRows(hydratedRows);
+  const preflight = await runLaunchPreflight(
+    key,
+    getSelectedLaunchProfileId(),
+    getSelectedLaunchProfileName()
+  );
+  const preflightIssues = preflight.ok && Array.isArray(preflight.issues)
+    ? preflight.issues
+    : [];
+  const installableRows = missingRows.filter((row) => !!String(row && row.url ? row.url : '').trim());
+  return {
+    missingRows,
+    installableRows,
+    preflightIssues,
+  };
+}
+
+function renderDependenciesModalRows(missingRows, preflightIssues) {
+  const trackedMarkup = (Array.isArray(missingRows) ? missingRows : [])
+    .map((row) => {
+      const sourceReady = !!String(row && row.url ? row.url : '').trim();
+      return (
+        '<div class="list-item" style="align-items:flex-start;gap:8px">' +
+        '<div class="li-dot ' + (sourceReady ? 'warn' : 'err') + '" style="margin-top:5px"></div>' +
+        '<div style="flex:1;min-width:0">' +
+        '<div style="font-size:12px;font-family:var(--mono);color:var(--t2)">' + escapeHtml(row.title || row.fileName || 'Dependency') + '</div>' +
+        '<div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px">' + escapeHtml(getBrowseInstallTargetLabel(row.target)) + ' - ' + escapeHtml(row.fileName || '') + '</div>' +
+        '<div style="margin-top:5px">' +
+        (sourceReady
+          ? '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(70,150,90,0.35);font-size:9px;font-family:var(--mono);color:#67b37a">Auto-fix ready</span>'
+          : '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(220,80,80,0.4);font-size:9px;font-family:var(--mono);color:#d56f6f">Manual required</span>') +
+        '</div>' +
+        '</div>' +
+        '</div>'
+      );
+    })
+    .join('');
+
+  const preflightMarkup = (Array.isArray(preflightIssues) ? preflightIssues : [])
+    .filter((issue) => String(issue && issue.severity ? issue.severity : '').toLowerCase() === 'blocking')
+    .map((issue) => (
+      '<div class="list-item" style="align-items:flex-start;gap:8px">' +
+      '<div class="li-dot err" style="margin-top:5px"></div>' +
+      '<div style="flex:1;min-width:0">' +
+      '<div style="font-size:11px;font-family:var(--mono);color:#d56f6f">' + escapeHtml(String(issue && issue.code ? issue.code : 'PREFLIGHT')) + '</div>' +
+      '<div style="font-size:10px;font-family:var(--mono);color:var(--t3);margin-top:2px;line-height:1.5">' + escapeHtml(String(issue && issue.message ? issue.message : 'Issue detected')) + '</div>' +
+      (issue && issue.action
+        ? '<div style="font-size:9.5px;font-family:var(--mono);color:var(--t4);margin-top:4px">Action: ' + escapeHtml(String(issue.action)) + '</div>'
+        : '') +
+      '</div>' +
+      '</div>'
+    ))
+    .join('');
+
+  if (!trackedMarkup && !preflightMarkup) {
+    return '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No dependency issues detected.</div>';
+  }
+  return trackedMarkup + preflightMarkup;
+}
+
+async function hydrateDependenciesModal() {
+  const listEl = document.getElementById('dependencies-list');
+  const statusEl = document.getElementById('dependencies-status');
+  const installBtn = document.getElementById('dependencies-install-btn');
+  if (!listEl || !statusEl || !installBtn) return;
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  if (!instanceName) {
+    MOD_DEPENDENCIES_MODAL_STATE = { instanceName: '', rows: [] };
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">Select an instance first.</div>';
+    statusEl.textContent = '';
+    installBtn.disabled = true;
+    return;
+  }
+  statusEl.textContent = 'Scanning dependencies...';
+  const data = await resolveModalDependencyData(instanceName);
+  MOD_DEPENDENCIES_MODAL_STATE = { instanceName, rows: data.installableRows };
+  listEl.innerHTML = renderDependenciesModalRows(data.missingRows, data.preflightIssues);
+  const blockingPreflight = data.preflightIssues.filter((row) => String(row && row.severity ? row.severity : '').toLowerCase() === 'blocking').length;
+  const installableCount = data.installableRows.length;
+  const missingCount = data.missingRows.length;
+  installBtn.disabled = installableCount === 0;
+  installBtn.innerHTML = '<i data-lucide="download" width="12" height="12"></i>Install Required' + (installableCount > 0 ? ' (' + String(installableCount) + ')' : '');
+  statusEl.textContent =
+    'Missing required: ' + String(missingCount) +
+    (blockingPreflight > 0 ? ' | Blocking preflight: ' + String(blockingPreflight) : '');
+  lucide.createIcons();
+}
+
+function refreshDependenciesModal() {
+  void hydrateDependenciesModal();
+}
+
+async function installDependenciesFromModal() {
+  const state = MOD_DEPENDENCIES_MODAL_STATE;
+  const statusEl = document.getElementById('dependencies-status');
+  const installBtn = document.getElementById('dependencies-install-btn');
+  if (!state || !state.instanceName) return;
+  const rows = Array.isArray(state.rows) ? state.rows : [];
+  if (!rows.length) {
+    showToast('!', 'No installable items', 'No dependency with source URL is available');
+    return;
+  }
+  if (installBtn) {
+    installBtn.disabled = true;
+    installBtn.innerHTML = '<i data-lucide="loader-circle" width="12" height="12"></i>Installing...';
+  }
+  if (statusEl) statusEl.textContent = 'Installing dependencies...';
+  const outcome = await installTrackedRowsToInstance(state.instanceName, rows, 'overwrite', (index, total, row, phase) => {
+    if (!statusEl || phase !== 'working') return;
+    statusEl.textContent = 'Installing ' + String(index + 1) + '/' + String(total) + ': ' + String((row && (row.title || row.fileName)) || 'Dependency');
+  });
+  await hydrateDependenciesModal();
+  await refreshModConflictModal();
+  if (outcome.failed > 0 || outcome.unresolved > 0) {
+    showToast('!', 'Dependency install incomplete', 'Installed ' + String(outcome.installed) + '/' + String(outcome.total));
+    return;
+  }
+  showToast('OK', 'Dependencies installed', String(outcome.installed) + ' item(s) installed');
+}
+
+async function hydrateModConflictModal() {
+  const listEl = document.getElementById('mod-conflict-list');
+  const statusEl = document.getElementById('mod-conflict-status');
+  const fixBtn = document.getElementById('mod-conflict-fix-btn');
+  if (!listEl || !statusEl || !fixBtn) return;
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  if (!instanceName) {
+    MOD_CONFLICT_MODAL_STATE = { instanceName: '', issues: [] };
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">Select an instance first.</div>';
+    statusEl.textContent = '';
+    fixBtn.disabled = true;
+    return;
+  }
+  statusEl.textContent = 'Checking conflicts...';
+  const preflight = await runLaunchPreflight(instanceName, getSelectedLaunchProfileId(), getSelectedLaunchProfileName());
+  if (!preflight.ok) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:#b56262">Could not run preflight checks.</div>';
+    statusEl.textContent = preflight.error || 'Preflight failed';
+    fixBtn.disabled = false;
+    return;
+  }
+  const issues = (Array.isArray(preflight.issues) ? preflight.issues : [])
+    .filter((issue) => String(issue && issue.severity ? issue.severity : '').toLowerCase() === 'blocking');
+  MOD_CONFLICT_MODAL_STATE = { instanceName, issues };
+  if (!issues.length) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No blocking conflicts detected.</div>';
+    statusEl.textContent = 'No blocking conflicts';
+    fixBtn.disabled = true;
+    fixBtn.innerHTML = '<i data-lucide="check-circle" width="12" height="12"></i>No Fix Needed';
+    lucide.createIcons();
+    return;
+  }
+  listEl.innerHTML = issues
+    .map((issue) => (
+      '<div class="list-item" style="align-items:flex-start;gap:8px">' +
+      '<div class="li-dot warn" style="margin-top:5px"></div>' +
+      '<div style="flex:1;min-width:0">' +
+      '<div style="font-size:11px;font-family:var(--mono);color:var(--yellow)">' + escapeHtml(String(issue.code || 'PREFLIGHT_ISSUE')) + '</div>' +
+      '<div style="font-size:10px;font-family:var(--mono);color:var(--t3);margin-top:2px;line-height:1.5">' + escapeHtml(String(issue.message || 'Conflict detected')) + '</div>' +
+      (issue.action
+        ? '<div style="font-size:9.5px;font-family:var(--mono);color:var(--t4);margin-top:4px">Action: ' + escapeHtml(String(issue.action)) + '</div>'
+        : '') +
+      '</div>' +
+      '</div>'
+    ))
+    .join('');
+  statusEl.textContent = 'Blocking conflicts: ' + String(issues.length);
+  fixBtn.disabled = false;
+  fixBtn.innerHTML = '<i data-lucide="wrench" width="12" height="12"></i>Open Fixes';
+  lucide.createIcons();
+}
+
+function refreshModConflictModal() {
+  void hydrateModConflictModal();
+}
+
+function isTrackedRowUpdatable(row) {
+  if (!row || typeof row !== 'object') return false;
+  if (row.inferred) return false;
+  const url = String(row.url || '').trim();
+  return !!url;
+}
+
+async function hydrateModUpdatesModal() {
+  const listEl = document.getElementById('mod-updates-list');
+  const statusEl = document.getElementById('mod-updates-status');
+  const applyBtn = document.getElementById('mod-updates-apply-btn');
+  if (!listEl || !statusEl || !applyBtn) return;
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  if (!instanceName) {
+    MOD_UPDATES_MODAL_STATE = { instanceName: '', rows: [], selected: {} };
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">Select an instance first.</div>';
+    statusEl.textContent = '';
+    applyBtn.disabled = true;
+    return;
+  }
+  const rows = getTrackedInstallsForInstance(instanceName).filter(isTrackedRowUpdatable);
+  if (MOD_UPDATES_MODAL_STATE.instanceName !== instanceName) {
+    MOD_UPDATES_MODAL_STATE = { instanceName, rows: [], selected: {} };
+  }
+  MOD_UPDATES_MODAL_STATE.rows = rows;
+  const selectedMap = Object.assign({}, MOD_UPDATES_MODAL_STATE.selected || {});
+  rows.forEach((row) => {
+    const id = String(row.id || '').trim();
+    if (!id) return;
+    if (typeof selectedMap[id] !== 'boolean') {
+      selectedMap[id] = true;
+    }
+  });
+  MOD_UPDATES_MODAL_STATE.selected = selectedMap;
+  if (!rows.length) {
+    listEl.innerHTML = '<div style="padding:8px 2px;font-size:11px;font-family:var(--mono);color:var(--t4)">No updatable tracked installs found.</div>';
+    statusEl.textContent = '0 updates';
+    applyBtn.disabled = true;
+    return;
+  }
+  listEl.innerHTML = rows
+    .map((row) => {
+      const id = String(row.id || '').trim();
+      const encodedId = encodeURIComponent(id);
+      const checked = !!selectedMap[id];
+      const target = getBrowseInstallTargetLabel(row.target);
+      return (
+        '<div class="list-item" style="gap:8px">' +
+        '<div class="check-box' + (checked ? ' on' : '') + '" onclick="toggleModUpdateSelection(\'' + encodedId + '\')">' +
+        (checked ? '<i data-lucide="check" width="10" height="10" style="color:#000"></i>' : '') +
+        '</div>' +
+        '<div style="flex:1;min-width:0">' +
+        '<div style="font-size:12px;font-family:var(--mono);color:var(--t2)">' + escapeHtml(row.title || row.fileName) + '</div>' +
+        '<div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px">' + escapeHtml(target + ' - ' + formatTrackedInstallAge(row.installedAt)) + '</div>' +
+        '</div>' +
+        '</div>'
+      );
+    })
+    .join('');
+  const selectedCount = rows.filter((row) => !!selectedMap[String(row.id || '').trim()]).length;
+  statusEl.textContent = 'Tracked updates: ' + String(rows.length) + ' | Selected: ' + String(selectedCount);
+  applyBtn.disabled = selectedCount === 0;
+  applyBtn.innerHTML = '<i data-lucide="download" width="12" height="12"></i>Update Selected' + (selectedCount > 0 ? ' (' + String(selectedCount) + ')' : '');
+  lucide.createIcons();
+}
+
+function refreshModUpdatesModal() {
+  void hydrateModUpdatesModal();
+}
+
+function toggleModUpdateSelection(encodedId) {
+  const id = decodeURIComponent(String(encodedId || '').trim());
+  if (!id) return;
+  if (!MOD_UPDATES_MODAL_STATE.selected || typeof MOD_UPDATES_MODAL_STATE.selected !== 'object') {
+    MOD_UPDATES_MODAL_STATE.selected = {};
+  }
+  MOD_UPDATES_MODAL_STATE.selected[id] = !MOD_UPDATES_MODAL_STATE.selected[id];
+  void hydrateModUpdatesModal();
+}
+
+function toggleAllModUpdatesSelection(nextValue) {
+  const rows = Array.isArray(MOD_UPDATES_MODAL_STATE.rows) ? MOD_UPDATES_MODAL_STATE.rows : [];
+  const selected = {};
+  rows.forEach((row) => {
+    const id = String(row && row.id ? row.id : '').trim();
+    if (!id) return;
+    selected[id] = !!nextValue;
+  });
+  MOD_UPDATES_MODAL_STATE.selected = selected;
+  void hydrateModUpdatesModal();
+}
+
+async function applyModUpdatesFromModal() {
+  const state = MOD_UPDATES_MODAL_STATE;
+  const statusEl = document.getElementById('mod-updates-status');
+  const applyBtn = document.getElementById('mod-updates-apply-btn');
+  if (!state || !state.instanceName) return;
+  const rows = (Array.isArray(state.rows) ? state.rows : []).filter((row) => !!state.selected[String(row.id || '').trim()]);
+  if (!rows.length) {
+    showToast('!', 'No update selected', 'Select one or more tracked installs');
+    return;
+  }
+  if (applyBtn) {
+    applyBtn.disabled = true;
+    applyBtn.innerHTML = '<i data-lucide="loader-circle" width="12" height="12"></i>Updating...';
+  }
+  if (statusEl) statusEl.textContent = 'Updating selected tracked installs...';
+  const outcome = await installTrackedRowsToInstance(state.instanceName, rows, 'overwrite', (index, total, row, phase) => {
+    if (!statusEl || phase !== 'working') return;
+    statusEl.textContent = 'Updating ' + String(index + 1) + '/' + String(total) + ': ' + String((row && (row.title || row.fileName)) || 'Item');
+  });
+  await hydrateModUpdatesModal();
+  await refreshManagedModsModal();
+  if (outcome.failed > 0 || outcome.unresolved > 0) {
+    showToast('!', 'Update incomplete', 'Updated ' + String(outcome.installed) + '/' + String(outcome.total));
+    return;
+  }
+  showToast('OK', 'Updated', String(outcome.installed) + ' tracked install(s) updated');
+}
+
+async function listInstanceWorlds(instanceName) {
+  const res = await invokeBackend('list_instance_worlds', {
+    request: { instanceName },
+  });
+  if (!res.ok || !res.data) {
+    throw new Error(formatBackendError(res.error, 'Could not list worlds'));
+  }
+  const rows = Array.isArray(res.data.worlds) ? res.data.worlds : [];
+  return {
+    running: !!res.data.running,
+    worldsRoot: String(res.data.worldsRoot || res.data.worlds_root || '').trim(),
+    worlds: rows.map((row) => ({
+      worldName: String(row && (row.worldName || row.world_name) ? (row.worldName || row.world_name) : '').trim(),
+      displayName: String(row && (row.displayName || row.display_name) ? (row.displayName || row.display_name) : '').trim(),
+      path: String(row && row.path ? row.path : '').trim(),
+      sizeBytes: Number(row && (row.sizeBytes || row.size_bytes) ? (row.sizeBytes || row.size_bytes) : 0) || 0,
+      lastPlayedEpoch: Number(
+        row && (row.lastPlayedEpoch || row.last_played_epoch)
+          ? (row.lastPlayedEpoch || row.last_played_epoch)
+          : 0
+      ) || 0,
+      gameMode: String(row && (row.gameMode || row.game_mode) ? (row.gameMode || row.game_mode) : '').trim(),
+      difficulty: String(row && row.difficulty ? row.difficulty : '').trim(),
+      seed: String(row && row.seed ? row.seed : '').trim(),
+      playtimeMinutes: Number(
+        row && (row.playtimeMinutes || row.playtime_minutes)
+          ? (row.playtimeMinutes || row.playtime_minutes)
+          : 0
+      ) || 0,
+    })).filter((row) => !!row.worldName),
+  };
+}
+
+async function getInstanceWorldDetails(instanceName, worldName) {
+  const res = await invokeBackend('get_instance_world_details', {
+    request: { instanceName, worldName },
+  });
+  if (!res.ok || !res.data) {
+    throw new Error(formatBackendError(res.error, 'Could not load world details'));
+  }
+  const row = res.data;
+  return {
+    worldName: String(row.worldName || row.world_name || worldName).trim() || worldName,
+    levelName: String(row.levelName || row.level_name || '').trim(),
+    path: String(row.path || '').trim(),
+    sizeBytes: Number(row.sizeBytes || row.size_bytes || 0) || 0,
+    lastPlayedEpoch: Number(row.lastPlayedEpoch || row.last_played_epoch || 0) || 0,
+    gameMode: String(row.gameMode || row.game_mode || '').trim(),
+    difficulty: String(row.difficulty || '').trim(),
+    seed: String(row.seed || '').trim(),
+    playtimeMinutes: Number(row.playtimeMinutes || row.playtime_minutes || 0) || 0,
+    running: !!row.running,
+  };
+}
+
+async function listWorldPlayers(instanceName, worldName) {
+  const res = await invokeBackend('list_world_players', {
+    request: { instanceName, worldName },
+  });
+  if (!res.ok || !res.data) {
+    throw new Error(formatBackendError(res.error, 'Could not load world players'));
+  }
+  const rows = Array.isArray(res.data.players) ? res.data.players : [];
+  return {
+    running: !!res.data.running,
+    players: rows
+      .map((row) => ({
+        playerUuid: String(row && (row.playerUuid || row.player_uuid) ? (row.playerUuid || row.player_uuid) : '').trim(),
+        path: String(row && row.path ? row.path : '').trim(),
+        modifiedAtEpoch: Number(
+          row && (row.modifiedAtEpoch || row.modified_at_epoch)
+            ? (row.modifiedAtEpoch || row.modified_at_epoch)
+            : 0
+        ) || 0,
+      }))
+      .filter((row) => !!row.playerUuid),
+  };
+}
+
+async function getWorldPlayerInventory(instanceName, worldName, playerUuid) {
+  const res = await invokeBackend('get_world_player_inventory', {
+    request: { instanceName, worldName, playerUuid },
+  });
+  if (!res.ok || !res.data) {
+    throw new Error(formatBackendError(res.error, 'Could not load player inventory'));
+  }
+  const mapItems = (rows) => (Array.isArray(rows) ? rows : [])
+    .map((row) => ({
+      slot: Number(row && row.slot ? row.slot : 0) || 0,
+      itemId: String(row && (row.itemId || row.item_id) ? (row.itemId || row.item_id) : '').trim(),
+      displayName: String(row && (row.displayName || row.display_name) ? (row.displayName || row.display_name) : '').trim(),
+      count: Number(row && row.count ? row.count : 0) || 0,
+    }))
+    .filter((row) => !!row.itemId || !!row.displayName);
+
+  const row = res.data;
+  return {
+    instanceName: String(row.instanceName || row.instance_name || instanceName).trim() || instanceName,
+    worldName: String(row.worldName || row.world_name || worldName).trim() || worldName,
+    playerUuid: String(row.playerUuid || row.player_uuid || playerUuid).trim() || playerUuid,
+    running: !!row.running,
+    health: Number.isFinite(Number(row.health)) ? Number(row.health) : null,
+    foodLevel: Number.isFinite(Number(row.foodLevel || row.food_level))
+      ? Number(row.foodLevel || row.food_level)
+      : null,
+    xpLevel: Number.isFinite(Number(row.xpLevel || row.xp_level))
+      ? Number(row.xpLevel || row.xp_level)
+      : null,
+    position: Array.isArray(row.position) ? row.position.map((value) => Number(value)).filter((value) => Number.isFinite(value)) : [],
+    hotbar: mapItems(row.hotbar),
+    inventory: mapItems(row.inventory),
+    armor: mapItems(row.armor),
+    offhand: mapItems(row.offhand),
+    enderChest: mapItems(row.enderChest || row.ender_chest),
+  };
+}
+
+function formatPlaytimeText(minutes) {
+  const value = Number(minutes || 0);
+  if (!Number.isFinite(value) || value <= 0) return '0m';
+  const hours = Math.floor(value / 60);
+  const mins = value % 60;
+  if (hours <= 0) return mins + 'm';
+  if (mins <= 0) return hours + 'h';
+  return hours + 'h ' + mins + 'm';
+}
+
+function openWorldDetailFromManager(worldName) {
+  const name = String(worldName || '').trim();
+  if (!name) return;
+  ACTIVE_WORLD_DETAIL_NAME = name;
+  WORLD_DETAIL_TAB = 'overview';
+  WORLD_DETAIL_CURRENT = null;
+  WORLD_DETAIL_PLAYERS = [];
+  WORLD_DETAIL_SELECTED_PLAYER = '';
+  WORLD_DETAIL_PLAYER_CACHE = {};
+  openModal('world-detail');
+}
+
+function normalizeWorldDetailTab(tab) {
+  const value = String(tab || '').trim().toLowerCase();
+  if (value === 'players' || value === 'inventory' || value === 'stats') return value;
+  return 'overview';
+}
+
+function decodeActiveWorldDetailName() {
+  const encoded = String(ACTIVE_WORLD_DETAIL_NAME || '').trim();
+  if (!encoded) return '';
+  try {
+    return decodeURIComponent(encoded);
+  } catch (_err) {
+    return encoded;
+  }
+}
+
+function worldDetailSelectedPlayer() {
+  const selected = String(WORLD_DETAIL_SELECTED_PLAYER || '').trim();
+  if (!selected) return null;
+  return WORLD_DETAIL_PLAYERS.find((entry) => {
+    return String(entry && entry.playerUuid ? entry.playerUuid : '').trim() === selected;
+  }) || null;
+}
+
+function renderWorldDetailTabButtons() {
+  const tabs = ['overview', 'players', 'inventory', 'stats'];
+  const activeTab = normalizeWorldDetailTab(WORLD_DETAIL_TAB);
+  WORLD_DETAIL_TAB = activeTab;
+  tabs.forEach((tab) => {
+    const button = document.getElementById('world-tab-' + tab);
+    if (!button) return;
+    button.classList.toggle('active', tab === activeTab);
+  });
+}
+
+function formatWorldDetailDate(epoch) {
+  const stamp = Number(epoch || 0);
+  if (!Number.isFinite(stamp) || stamp <= 0) return 'Unknown';
+  return new Date(stamp * 1000).toLocaleDateString(undefined, {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+function formatWorldDetailPosition(position) {
+  if (!Array.isArray(position) || position.length < 3) return 'Unknown';
+  const values = position.slice(0, 3).map((value) => Number(value));
+  if (values.some((value) => !Number.isFinite(value))) return 'Unknown';
+  return values.map((value) => Math.round(value)).join(', ');
+}
+
+function renderWorldInventoryRows(items, emptyText) {
+  const rows = Array.isArray(items) ? items : [];
+  if (!rows.length) {
+    return '<div style="font-size:10px;font-family:var(--mono);color:var(--t4)">' + escapeHtml(emptyText || 'No items') + '</div>';
+  }
+  return rows
+    .map((item) => {
+      const label = String(item && item.displayName ? item.displayName : '').trim()
+        || String(item && item.itemId ? item.itemId : '').trim()
+        || 'Unknown Item';
+      const itemId = String(item && item.itemId ? item.itemId : '').trim();
+      const count = Number(item && item.count ? item.count : 0) || 0;
+      const slot = Number(item && item.slot ? item.slot : 0) || 0;
+      return `
+        <div class="list-item" style="padding:7px 0;align-items:flex-start">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:11px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(label)}</div>
+            <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px">${escapeHtml(itemId || 'unknown')} - slot ${escapeHtml(String(slot))}</div>
+          </div>
+          <div style="font-size:10px;font-family:var(--mono);color:var(--t3);padding-left:8px">x${escapeHtml(String(count))}</div>
+        </div>
+      `;
+    })
+    .join('');
+}
+
+function normalizeWorldItemGlyph(item) {
+  const raw = String(item && item.itemId ? item.itemId : '').trim()
+    || String(item && item.displayName ? item.displayName : '').trim();
+  const normalized = raw
+    .split(':')
+    .pop()
+    .replace(/[_\-]+/g, ' ')
+    .trim();
+  if (!normalized) return '?';
+  const parts = normalized.split(/\s+/).filter(Boolean);
+  if (!parts.length) return '?';
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[1][0]).toUpperCase();
+}
+
+function worldItemTextureCandidates(itemId) {
+  const raw = String(itemId || '').trim().toLowerCase();
+  if (!raw) return [];
+  const [namespaceRaw, pathRaw] = raw.includes(':') ? raw.split(':', 2) : ['minecraft', raw];
+  const namespace = String(namespaceRaw || '').trim();
+  const path = String(pathRaw || '').trim().replace(/[^a-z0-9_./-]/g, '');
+  if (namespace !== 'minecraft' || !path) return [];
+
+  const sources = [
+    {
+      item: 'https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.11/assets/minecraft/textures/item/',
+      block: 'https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.11/assets/minecraft/textures/block/',
+    },
+    {
+      item: 'https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/',
+      block: 'https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/blocks/',
+    },
+  ];
+  const seen = new Set();
+  const out = [];
+  const push = (url) => {
+    const value = String(url || '').trim();
+    if (!value || seen.has(value)) return;
+    seen.add(value);
+    out.push(value);
+  };
+  sources.forEach((source) => {
+    push(source.item + path + '.png');
+    push(source.block + path + '.png');
+  });
+  return out;
+}
+
+async function resolveWorldItemTextureDataUri(itemId) {
+  const key = String(itemId || '').trim().toLowerCase();
+  if (!key) return null;
+  if (WORLD_ITEM_TEXTURE_DATA_URI_CACHE.has(key)) {
+    return WORLD_ITEM_TEXTURE_DATA_URI_CACHE.get(key) || null;
+  }
+  if (WORLD_ITEM_TEXTURE_DATA_URI_PENDING.has(key)) {
+    return WORLD_ITEM_TEXTURE_DATA_URI_PENDING.get(key);
+  }
+  const pending = (async () => {
+    const res = await invokeBackend('resolve_item_texture', {
+      request: { itemId: key },
+    });
+    if (!res.ok || !res.data) return null;
+    const dataUri = String(res.data.dataUri || res.data.data_uri || '').trim();
+    if (!dataUri) return null;
+    WORLD_ITEM_TEXTURE_DATA_URI_CACHE.set(key, dataUri);
+    return dataUri;
+  })()
+    .catch(() => null)
+    .finally(() => {
+      WORLD_ITEM_TEXTURE_DATA_URI_PENDING.delete(key);
+    });
+  WORLD_ITEM_TEXTURE_DATA_URI_PENDING.set(key, pending);
+  return pending;
+}
+
+function shiftWorldItemAltSource(imgEl) {
+  if (!imgEl || !imgEl.dataset) return '';
+  const raw = String(imgEl.dataset.altSrc || '').trim();
+  if (!raw) return '';
+  const parts = raw.split('|').map((value) => String(value || '').trim()).filter(Boolean);
+  if (!parts.length) {
+    imgEl.dataset.altSrc = '';
+    return '';
+  }
+  const next = parts.shift() || '';
+  imgEl.dataset.altSrc = parts.join('|');
+  return next;
+}
+
+function handleWorldItemTextureLoad(imgEl) {
+  if (!imgEl) return;
+  const slot = imgEl.closest('.world-hotbar-slot');
+  if (!slot) return;
+  const glyphEl = slot.querySelector('.world-hotbar-slot-glyph');
+  if (glyphEl) glyphEl.classList.add('hidden');
+  imgEl.classList.add('loaded');
+}
+
+function handleWorldItemTextureError(imgEl) {
+  if (!imgEl) return;
+  const next = shiftWorldItemAltSource(imgEl);
+  if (next) {
+    imgEl.src = next;
+    return;
+  }
+  imgEl.classList.remove('loaded');
+  imgEl.style.display = 'none';
+  const slot = imgEl.closest('.world-hotbar-slot');
+  if (!slot) return;
+  const glyphEl = slot.querySelector('.world-hotbar-slot-glyph');
+  if (glyphEl) glyphEl.classList.remove('hidden');
+}
+
+async function hydrateWorldHotbarTextures() {
+  const icons = Array.from(document.querySelectorAll('.world-hotbar-slot-icon[data-item-id]'));
+  for (const imgEl of icons) {
+    if (!imgEl || imgEl.classList.contains('loaded')) continue;
+    const itemId = String(imgEl.dataset.itemId || '').trim();
+    if (!itemId) continue;
+    if (!imgEl.getAttribute('src')) {
+      const cached = await resolveWorldItemTextureDataUri(itemId);
+      if (cached) {
+        imgEl.src = cached;
+        continue;
+      }
+      const primary = String(imgEl.dataset.fallbackPrimary || '').trim();
+      if (primary) imgEl.src = primary;
+    }
+  }
+}
+
+function renderWorldHotbar(items) {
+  const rows = Array.isArray(items) ? items : [];
+  const bySlot = new Map();
+  rows.forEach((item) => {
+    const slot = Number(item && item.slot ? item.slot : -1);
+    if (!Number.isFinite(slot) || slot < 0 || slot > 8 || bySlot.has(slot)) return;
+    bySlot.set(slot, item);
+  });
+  const slotsHtml = Array.from({ length: 9 }, (_value, slot) => {
+    const item = bySlot.get(slot);
+    if (!item) {
+      return `
+        <div class="world-hotbar-slot empty">
+          <span class="world-hotbar-slot-index">${slot + 1}</span>
+        </div>
+      `;
+    }
+    const label = String(item.displayName || item.itemId || 'Unknown Item').trim() || 'Unknown Item';
+    const count = Math.max(1, Number(item.count || 1) || 1);
+    const textureCandidates = worldItemTextureCandidates(item.itemId);
+    const texturePrimary = textureCandidates.length ? textureCandidates[0] : '';
+    const textureAlt = textureCandidates.length > 1 ? textureCandidates.slice(1).join('|') : '';
+    return `
+      <div class="world-hotbar-slot" title="${escapeHtml(label)} x${escapeHtml(String(count))}">
+        <div class="world-hotbar-slot-media">
+          <img class="world-hotbar-slot-icon" data-item-id="${escapeHtml(String(item.itemId || '').trim())}" data-fallback-primary="${escapeHtml(texturePrimary)}" data-alt-src="${escapeHtml(textureAlt)}" alt="${escapeHtml(label)}" loading="lazy" onload="handleWorldItemTextureLoad(this)" onerror="handleWorldItemTextureError(this)">
+          <span class="world-hotbar-slot-glyph">${escapeHtml(normalizeWorldItemGlyph(item))}</span>
+        </div>
+        <span class="world-hotbar-slot-count">${escapeHtml(String(count))}</span>
+      </div>
+    `;
+  }).join('');
+  return `
+    <div class="world-hotbar-wrap">
+      <div class="world-hotbar-grid">${slotsHtml}</div>
+      <div class="world-hotbar-meta">${escapeHtml(String(rows.length))} occupied slots</div>
+    </div>
+  `;
+}
+
+function worldBuildSlotArray(items, slotStart, totalSlots) {
+  const rows = Array.isArray(items) ? items : [];
+  const total = Number(totalSlots || 0);
+  const start = Number(slotStart || 0);
+  if (!Number.isFinite(total) || total <= 0) return [];
+  const out = new Array(total).fill(null);
+  const spill = [];
+  rows.forEach((item) => {
+    const slot = Number(item && item.slot ? item.slot : NaN);
+    if (Number.isFinite(slot)) {
+      const idx = slot - start;
+      if (idx >= 0 && idx < total && !out[idx]) {
+        out[idx] = item;
+        return;
+      }
+    }
+    spill.push(item);
+  });
+  let spillIndex = 0;
+  for (let i = 0; i < out.length; i += 1) {
+    if (!out[i] && spillIndex < spill.length) {
+      out[i] = spill[spillIndex];
+      spillIndex += 1;
+    }
+  }
+  return out;
+}
+
+function renderWorldUiSlot(item, options) {
+  const opts = options && typeof options === 'object' ? options : {};
+  const slotIndex = Number(opts.slotIndex || 0);
+  const sizeClass = opts.compact ? ' compact' : '';
+  const accentClass = opts.accent ? ' accent' : '';
+  const showIndex = opts.showIndex !== false;
+  const label = String(item && item.displayName ? item.displayName : '').trim()
+    || String(item && item.itemId ? item.itemId : '').trim()
+    || 'Empty';
+  const count = Math.max(0, Number(item && item.count ? item.count : 0) || 0);
+  const textureCandidates = worldItemTextureCandidates(item && item.itemId ? item.itemId : '');
+  const texturePrimary = textureCandidates.length ? textureCandidates[0] : '';
+  const textureAlt = textureCandidates.length > 1 ? textureCandidates.slice(1).join('|') : '';
+  const occupied = !!item;
+  const classes = 'world-hotbar-slot world-ui-slot' + sizeClass + accentClass + (occupied ? '' : ' empty');
+  return `
+    <div class="${classes}" title="${escapeHtml(occupied ? (label + (count > 1 ? ' x' + count : '')) : 'Empty slot')}">
+      <div class="world-hotbar-slot-media">
+        <img class="world-hotbar-slot-icon" data-item-id="${escapeHtml(String(item && item.itemId ? item.itemId : '').trim())}" data-fallback-primary="${escapeHtml(texturePrimary)}" data-alt-src="${escapeHtml(textureAlt)}" alt="${escapeHtml(label)}" loading="lazy" onload="handleWorldItemTextureLoad(this)" onerror="handleWorldItemTextureError(this)">
+        <span class="world-hotbar-slot-glyph">${escapeHtml(occupied ? normalizeWorldItemGlyph(item) : (showIndex ? String(slotIndex + 1) : ''))}</span>
+      </div>
+      ${occupied && count > 1 ? `<span class="world-hotbar-slot-count">${escapeHtml(String(count))}</span>` : ''}
+    </div>
+  `;
+}
+
+function renderWorldUiSlotRow(slotArray, rowStart, rowSize, compact) {
+  const rows = Array.isArray(slotArray) ? slotArray : [];
+  const start = Number(rowStart || 0);
+  const size = Number(rowSize || 0);
+  const list = [];
+  for (let i = 0; i < size; i += 1) {
+    list.push(renderWorldUiSlot(rows[start + i] || null, { slotIndex: start + i, compact: !!compact }));
+  }
+  return `<div class="world-inv-row">${list.join('')}</div>`;
+}
+
+function worldPlayerBodyPreviewUrl(playerUuid) {
+  const raw = String(playerUuid || '').trim();
+  if (!raw) return '';
+  const cleaned = raw.replace(/-/g, '');
+  const value = /^[0-9a-fA-F]{32}$/.test(cleaned) ? cleaned : raw;
+  return 'https://mc-heads.net/body/' + encodeURIComponent(value) + '/left';
+}
+
+function formatWorldHealthText(health) {
+  const value = Number(health);
+  if (!Number.isFinite(value)) return 'Unknown';
+  const rounded = Math.max(0, Math.round(value * 10) / 10);
+  return rounded + '/20';
+}
+
+function formatWorldFoodText(foodLevel) {
+  const value = Number(foodLevel);
+  if (!Number.isFinite(value)) return 'Unknown';
+  return Math.max(0, Math.round(value)) + '/20';
+}
+
+function formatWorldXpText(xpLevel) {
+  const value = Number(xpLevel);
+  if (!Number.isFinite(value)) return 'Unknown';
+  return Math.max(0, Math.round(value)) + ' lvl';
+}
+
+function clampWorldPercent(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return 0;
+  return Math.max(0, Math.min(100, numeric));
+}
+
+function renderWorldInventoryDesign(selectedInventory, selectedPlayer) {
+  const inventorySlots = worldBuildSlotArray(selectedInventory.inventory, 9, 27);
+  const hotbarSlots = worldBuildSlotArray(selectedInventory.hotbar, 0, 9);
+  const enderSlots = worldBuildSlotArray(selectedInventory.enderChest, 0, 27);
+
+  const armorItems = Array.isArray(selectedInventory.armor) ? selectedInventory.armor : [];
+  const armorBySlot = new Map();
+  armorItems.forEach((item) => {
+    const slot = Number(item && item.slot ? item.slot : NaN);
+    if (Number.isFinite(slot) && !armorBySlot.has(slot)) armorBySlot.set(slot, item);
+  });
+  const armorSlots = [
+    armorBySlot.get(103) || armorItems[0] || null,
+    armorBySlot.get(102) || armorItems[1] || null,
+    armorBySlot.get(101) || armorItems[2] || null,
+    armorBySlot.get(100) || armorItems[3] || null,
+  ];
+  const offhandItem = Array.isArray(selectedInventory.offhand) && selectedInventory.offhand.length
+    ? selectedInventory.offhand[0]
+    : null;
+
+  const bodyUrl = worldPlayerBodyPreviewUrl(selectedPlayer && selectedPlayer.playerUuid ? selectedPlayer.playerUuid : '');
+  const healthValue = Number(selectedInventory.health);
+  const foodValue = Number(selectedInventory.foodLevel);
+  const healthPercent = clampWorldPercent((Number.isFinite(healthValue) ? healthValue : 0) / 20 * 100);
+  const foodPercent = clampWorldPercent((Number.isFinite(foodValue) ? foodValue : 0) / 20 * 100);
+  const xpLevelText = formatWorldXpText(selectedInventory.xpLevel);
+  const coordsText = formatWorldDetailPosition(selectedInventory.position);
+
+  return `
+    <div class="world-tech-window">
+      <div class="world-tech-header">
+        <div class="world-tech-header-left">
+          <span class="world-tech-header-sub">MINECRAFT</span>
+          <h3 class="world-tech-header-title">INVENTORY</h3>
+        </div>
+        <div class="world-tech-coord-box">
+          <div class="world-tech-coord-label">COORDS</div>
+          <div class="world-tech-coord-val">${escapeHtml(coordsText)}</div>
+        </div>
+      </div>
+
+      <div class="world-tech-top">
+        <div class="world-tech-panel world-tech-player-panel">
+          <span class="world-tech-lbl">PLAYER</span>
+          <div class="world-char-card">
+            ${bodyUrl ? `<img class="world-char-skin" src="${escapeHtml(bodyUrl)}" alt="Player skin" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+            <div class="world-char-fallback"${bodyUrl ? ' style="display:none"' : ''}>No Skin</div>
+          </div>
+        </div>
+
+        <div class="world-tech-panel world-tech-mid-panel">
+          <div>
+            <span class="world-tech-lbl">VITALS & LEVEL</span>
+            <div class="world-tech-vitals-row">
+              <div class="world-tech-stat">
+                <div class="world-tech-stat-head">
+                  <span class="world-tech-stat-label">HP</span>
+                  <span class="world-tech-stat-val">${escapeHtml(formatWorldHealthText(selectedInventory.health))}</span>
+                </div>
+                <div class="world-tech-stat-track"><div class="world-tech-stat-fill" style="width:${healthPercent}%"></div></div>
+              </div>
+              <div class="world-tech-stat">
+                <div class="world-tech-stat-head">
+                  <span class="world-tech-stat-label">FOOD</span>
+                  <span class="world-tech-stat-val">${escapeHtml(formatWorldFoodText(selectedInventory.foodLevel))}</span>
+                </div>
+                <div class="world-tech-stat-track"><div class="world-tech-stat-fill food" style="width:${foodPercent}%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="world-tech-craft-row">
+            <div>
+              <span class="world-tech-lbl">CRAFT</span>
+              <div class="world-tech-grid-2">
+                ${renderWorldUiSlot(null, { slotIndex: 0, compact: true, accent: true, showIndex: false })}
+                ${renderWorldUiSlot(null, { slotIndex: 1, compact: true, accent: true, showIndex: false })}
+                ${renderWorldUiSlot(null, { slotIndex: 2, compact: true, accent: true, showIndex: false })}
+                ${renderWorldUiSlot(null, { slotIndex: 3, compact: true, accent: true, showIndex: false })}
+              </div>
+            </div>
+            <div class="world-tech-arrow">→</div>
+            <div>
+              <span class="world-tech-lbl">OUTPUT</span>
+              ${renderWorldUiSlot(null, { slotIndex: 4, accent: true, showIndex: false })}
+            </div>
+          </div>
+        </div>
+
+        <div class="world-tech-panel world-tech-right-panel">
+          <span class="world-tech-lbl">ARMOR</span>
+          <div class="world-armor-stack">
+            <div class="world-tech-armor-slot-wrap">${renderWorldUiSlot(armorSlots[0], { slotIndex: 0, compact: true, accent: true })}<span class="world-tech-armor-tag">HEAD</span></div>
+            <div class="world-tech-armor-slot-wrap">${renderWorldUiSlot(armorSlots[1], { slotIndex: 1, compact: true, accent: true })}<span class="world-tech-armor-tag">BODY</span></div>
+            <div class="world-tech-armor-slot-wrap">${renderWorldUiSlot(armorSlots[2], { slotIndex: 2, compact: true, accent: true })}<span class="world-tech-armor-tag">LEGS</span></div>
+            <div class="world-tech-armor-slot-wrap">${renderWorldUiSlot(armorSlots[3], { slotIndex: 3, compact: true, accent: true })}<span class="world-tech-armor-tag">FEET</span></div>
+          </div>
+          <div class="world-tech-divider-hz"></div>
+          <div class="world-tech-armor-slot-wrap">${renderWorldUiSlot(offhandItem, { slotIndex: 0, compact: true, showIndex: false })}<span class="world-tech-armor-tag">OFF</span></div>
+        </div>
+      </div>
+
+      <div class="world-tech-section">
+        <div class="world-tech-section-header">
+          <span class="world-tech-lbl" style="margin:0">INVENTORY</span>
+        </div>
+        <div class="world-tech-grid world-tech-grid-9">
+          ${renderWorldUiSlotRow(inventorySlots, 0, 9, false)}
+          ${renderWorldUiSlotRow(inventorySlots, 9, 9, false)}
+          ${renderWorldUiSlotRow(inventorySlots, 18, 9, false)}
+        </div>
+      </div>
+
+      <div class="world-tech-section">
+        <div class="world-tech-section-header">
+          <span class="world-tech-lbl world-tech-hotbar-lbl" style="margin:0">HOTBAR</span>
+        </div>
+        <div class="world-tech-grid world-tech-grid-9 world-tech-grid-accent">
+          ${renderWorldUiSlotRow(hotbarSlots, 0, 9, false)}
+        </div>
+      </div>
+
+      <div class="world-tech-section">
+        <div class="world-tech-section-header">
+          <span class="world-tech-lbl world-tech-ender-lbl" style="margin:0">ENDER CHEST</span>
+        </div>
+        <div class="world-tech-grid world-tech-grid-9">
+          ${renderWorldUiSlotRow(enderSlots, 0, 9, true)}
+          ${renderWorldUiSlotRow(enderSlots, 9, 9, true)}
+          ${renderWorldUiSlotRow(enderSlots, 18, 9, true)}
+        </div>
+      </div>
+
+      <div class="world-tech-footer">
+        <span>JAVA EDITION</span>
+        <span>${escapeHtml(xpLevelText === 'Unknown' ? 'LVL: --' : ('LVL: ' + xpLevelText.replace(/\s*lvl$/i, '')))}</span>
+        <span>ESC TO CLOSE</span>
+      </div>
+    </div>
+  `;
+}
+
+function renderWorldDetailBody() {
+  const bodyEl = document.getElementById('world-detail-body');
+  if (!bodyEl) return;
+  renderWorldDetailTabButtons();
+  const details = WORLD_DETAIL_CURRENT;
+  if (!details) {
+    bodyEl.innerHTML = '<div style="font-size:11px;color:var(--t4)">Loading world details...</div>';
+    return;
+  }
+
+  const selectedPlayer = worldDetailSelectedPlayer();
+  const selectedUuid = selectedPlayer ? selectedPlayer.playerUuid : '';
+  const selectedCacheEntry = selectedUuid ? WORLD_DETAIL_PLAYER_CACHE[selectedUuid] : null;
+  const selectedInventory = selectedCacheEntry && selectedCacheEntry.status === 'ready'
+    ? selectedCacheEntry.data
+    : null;
+
+  if (WORLD_DETAIL_TAB === 'players') {
+    if (!WORLD_DETAIL_PLAYERS.length) {
+      bodyEl.innerHTML = '<div style="font-size:11px;color:var(--t4)">No player data found in this world yet.</div>';
+      return;
+    }
+    bodyEl.innerHTML = `
+      <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:8px">${escapeHtml(String(WORLD_DETAIL_PLAYERS.length))} playerdata file(s)</div>
+      <div class="ver-list" style="max-height:260px">
+        ${WORLD_DETAIL_PLAYERS.map((entry) => {
+          const isSelected = selectedUuid && entry.playerUuid === selectedUuid;
+          return `
+            <div class="world-row" style="background:${isSelected ? 'var(--s3)' : 'var(--s2)'};border-color:${isSelected ? 'var(--b3)' : 'var(--b1)'}" onclick="selectWorldDetailPlayer('${encodeURIComponent(entry.playerUuid)}')">
+              <div style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--t2);flex-shrink:0">
+                <i data-lucide="user-round" width="14" height="14"></i>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:11px;font-family:var(--mono);color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(entry.playerUuid)}</div>
+                <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:2px">${escapeHtml(entry.modifiedAtEpoch ? formatEpochRelative(entry.modifiedAtEpoch) : 'Unknown')}</div>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+    lucide.createIcons();
+    return;
+  }
+
+  if (WORLD_DETAIL_TAB === 'inventory') {
+    if (!WORLD_DETAIL_PLAYERS.length) {
+      bodyEl.innerHTML = '<div style="font-size:11px;color:var(--t4)">No player inventory data found for this world.</div>';
+      return;
+    }
+    if (!selectedPlayer) {
+      bodyEl.innerHTML = '<div style="font-size:11px;color:var(--t4)">Select a player to inspect inventory.</div>';
+      return;
+    }
+    if (selectedCacheEntry && selectedCacheEntry.status === 'error') {
+      bodyEl.innerHTML = `
+        <div style="font-size:11px;color:#ff8a8a">${escapeHtml(String(selectedCacheEntry.message || 'Could not read player inventory'))}</div>
+        <div style="margin-top:8px"><button class="btn btn-ghost" onclick="refreshWorldDetailSelectedPlayerInventory()">Retry</button></div>
+      `;
+      return;
+    }
+    if (!selectedInventory) {
+      bodyEl.innerHTML = '<div style="font-size:11px;color:var(--t4)">Loading player inventory...</div>';
+      return;
+    }
+    bodyEl.innerHTML = `
+      <div class="field" style="margin-bottom:8px">
+        <div class="label">Player</div>
+        <select class="select" id="world-detail-player-select" onchange="selectWorldDetailPlayer(this.value)">
+          ${WORLD_DETAIL_PLAYERS.map((entry) => {
+            const encodedUuid = encodeURIComponent(entry.playerUuid);
+            const isSelected = entry.playerUuid === selectedPlayer.playerUuid ? ' selected' : '';
+            return `<option value="${encodedUuid}"${isSelected}>${escapeHtml(entry.playerUuid)}</option>`;
+          }).join('')}
+        </select>
+      </div>
+      ${renderWorldInventoryDesign(selectedInventory, selectedPlayer)}
+    `;
+    void hydrateWorldHotbarTextures();
+    return;
+  }
+
+  if (WORLD_DETAIL_TAB === 'stats') {
+    const playerRowsHtml = WORLD_DETAIL_PLAYERS.length
+      ? WORLD_DETAIL_PLAYERS
+        .slice(0, 8)
+        .map((entry) => {
+          const isSelected = selectedUuid && entry.playerUuid === selectedUuid;
+          return `<div style="font-size:10px;font-family:var(--mono);color:${isSelected ? 'var(--t2)' : 'var(--t4)'};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(entry.playerUuid)}</div>`;
+        })
+        .join('')
+      : '<div style="font-size:10px;font-family:var(--mono);color:var(--t4)">No player data</div>';
+    const selectedStatsHtml = selectedInventory
+      ? `
+        <div class="info-row"><span class="info-key">Health</span><span class="info-val">${escapeHtml(String(selectedInventory.health == null ? 'Unknown' : selectedInventory.health))}</span></div>
+        <div class="info-row"><span class="info-key">Food</span><span class="info-val">${escapeHtml(String(selectedInventory.foodLevel == null ? 'Unknown' : selectedInventory.foodLevel))}</span></div>
+        <div class="info-row"><span class="info-key">XP Level</span><span class="info-val">${escapeHtml(String(selectedInventory.xpLevel == null ? 'Unknown' : selectedInventory.xpLevel))}</span></div>
+        <div class="info-row"><span class="info-key">Position</span><span class="info-val">${escapeHtml(formatWorldDetailPosition(selectedInventory.position))}</span></div>
+      `
+      : `<div style="font-size:10px;font-family:var(--mono);color:var(--t4)">${selectedUuid ? 'Loading selected player stats...' : 'Select a player from Players tab for live stats.'}</div>`;
+
+    bodyEl.innerHTML = `
+      <div style="padding:9px 10px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-bottom:10px">
+        <div style="font-size:13px;font-family:var(--display);color:var(--t1)">${escapeHtml(details.levelName || details.worldName)}</div>
+        <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:3px">${escapeHtml(details.path || '')}</div>
+      </div>
+      <div class="info-row"><span class="info-key">Players</span><span class="info-val">${escapeHtml(String(WORLD_DETAIL_PLAYERS.length))}</span></div>
+      <div class="info-row"><span class="info-key">Playtime</span><span class="info-val">${escapeHtml(formatPlaytimeText(details.playtimeMinutes))}</span></div>
+      <div class="info-row"><span class="info-key">World Size</span><span class="info-val">${escapeHtml(formatBytesCompact(details.sizeBytes))}</span></div>
+      <div style="margin-top:8px;padding:8px 10px;background:var(--s2);border:1px solid var(--b2);border-radius:8px">
+        <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:6px">Known Players</div>
+        ${playerRowsHtml}
+      </div>
+      <div style="margin-top:8px;padding:8px 10px;background:var(--s2);border:1px solid var(--b2);border-radius:8px">
+        <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:6px">Selected Player Stats</div>
+        ${selectedStatsHtml}
+      </div>
+    `;
+    return;
+  }
+
+  bodyEl.innerHTML = `
+    <div style="padding:9px 10px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;margin-bottom:10px">
+      <div style="font-size:13px;font-family:var(--display);color:var(--t1)">${escapeHtml(details.levelName || details.worldName)}</div>
+      <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:3px">${escapeHtml(details.path || '')}</div>
+    </div>
+    <div class="info-row"><span class="info-key">Last Played</span><span class="info-val">${escapeHtml(formatWorldDetailDate(details.lastPlayedEpoch))}</span></div>
+    <div class="info-row"><span class="info-key">Game Mode</span><span class="info-val">${escapeHtml(details.gameMode || 'Unknown')}</span></div>
+    <div class="info-row"><span class="info-key">Difficulty</span><span class="info-val">${escapeHtml(details.difficulty || 'Unknown')}</span></div>
+    <div class="info-row"><span class="info-key">Seed</span><span class="info-val" style="font-family:var(--mono)">${escapeHtml(details.seed || 'Unknown')}</span></div>
+    <div class="info-row"><span class="info-key">Playtime</span><span class="info-val">${escapeHtml(formatPlaytimeText(details.playtimeMinutes))}</span></div>
+    <div class="info-row"><span class="info-key">Size</span><span class="info-val">${escapeHtml(formatBytesCompact(details.sizeBytes))}</span></div>
+    <div class="info-row"><span class="info-key">Playerdata Files</span><span class="info-val">${escapeHtml(String(WORLD_DETAIL_PLAYERS.length))}</span></div>
+  `;
+}
+
+async function ensureWorldDetailSelectedPlayerInventory() {
+  const instanceName = selectedInstanceNameForModal();
+  const world = WORLD_DETAIL_CURRENT;
+  const selected = worldDetailSelectedPlayer();
+  if (!instanceName || !world || !selected) return null;
+  const key = selected.playerUuid;
+  const existing = WORLD_DETAIL_PLAYER_CACHE[key];
+  if (existing && (existing.status === 'ready' || existing.status === 'loading')) {
+    return existing.status === 'ready' ? existing.data : null;
+  }
+  WORLD_DETAIL_PLAYER_CACHE[key] = { status: 'loading' };
+  try {
+    const payload = await getWorldPlayerInventory(instanceName, world.worldName, key);
+    WORLD_DETAIL_PLAYER_CACHE[key] = { status: 'ready', data: payload };
+    return payload;
+  } catch (err) {
+    WORLD_DETAIL_PLAYER_CACHE[key] = {
+      status: 'error',
+      message: String(err && err.message ? err.message : err || 'Could not load player inventory'),
+    };
+    return null;
+  }
+}
+
+async function renderWorldDetailBodyAsync() {
+  if (ACTIVE_MODAL_ID !== 'world-detail') return;
+  renderWorldDetailBody();
+  if (WORLD_DETAIL_TAB !== 'inventory' && WORLD_DETAIL_TAB !== 'stats') return;
+  if (!WORLD_DETAIL_PLAYERS.length) return;
+  if (!WORLD_DETAIL_SELECTED_PLAYER) {
+    WORLD_DETAIL_SELECTED_PLAYER = WORLD_DETAIL_PLAYERS[0].playerUuid;
+    renderWorldDetailBody();
+  }
+  const selected = worldDetailSelectedPlayer();
+  if (!selected) return;
+  const cache = WORLD_DETAIL_PLAYER_CACHE[selected.playerUuid];
+  if (cache && (cache.status === 'ready' || cache.status === 'loading')) return;
+  await ensureWorldDetailSelectedPlayerInventory();
+  if (ACTIVE_MODAL_ID === 'world-detail') {
+    renderWorldDetailBody();
+  }
+}
+
+function setWorldDetailTab(tab) {
+  WORLD_DETAIL_TAB = normalizeWorldDetailTab(tab);
+  void renderWorldDetailBodyAsync();
+}
+
+function selectWorldDetailPlayer(playerUuid) {
+  let value = String(playerUuid || '').trim();
+  if (!value) return;
+  try {
+    value = decodeURIComponent(value);
+  } catch (_err) {
+    value = String(playerUuid || '').trim();
+  }
+  if (!value) return;
+  WORLD_DETAIL_SELECTED_PLAYER = value;
+  void renderWorldDetailBodyAsync();
+}
+
+function refreshWorldDetailSelectedPlayerInventory() {
+  const selected = worldDetailSelectedPlayer();
+  if (!selected) return;
+  delete WORLD_DETAIL_PLAYER_CACHE[selected.playerUuid];
+  void renderWorldDetailBodyAsync();
+}
+
+async function hydrateWorldManagerModal() {
+  const instanceName = selectedInstanceNameForModal();
+  const listEl = document.getElementById('world-manager-list');
+  const metaEl = document.getElementById('world-manager-meta');
+  if (!instanceName || !listEl || !metaEl) return;
+
+  listEl.innerHTML = '<div style="font-size:11px;font-family:var(--mono);color:var(--t4)">Loading worlds...</div>';
+  metaEl.textContent = 'Loading worlds...';
+  try {
+    const payload = await listInstanceWorlds(instanceName);
+    if (ACTIVE_MODAL_ID !== 'world-manager') return;
+    if (payload.running) {
+      listEl.innerHTML = '<div style="font-size:11px;font-family:var(--mono);color:#ffb066">Minecraft is running. Close the game to view world details safely.</div>';
+      metaEl.textContent = 'Viewer disabled while game is running';
+      return;
+    }
+    if (!payload.worlds.length) {
+      listEl.innerHTML = '<div style="font-size:11px;font-family:var(--mono);color:var(--t4)">No worlds found for this instance.</div>';
+      metaEl.textContent = '0 worlds';
+      return;
+    }
+    listEl.innerHTML = payload.worlds
+      .map((entry) => `
+        <div class="world-row" onclick="openWorldDetailFromManager('${encodeURIComponent(entry.worldName)}')">
+          <div style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--t2);flex-shrink:0">
+            <i data-lucide="globe-2" width="16" height="16"></i>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:12px;font-family:var(--mono);color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(entry.displayName || entry.worldName)}</div>
+            <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:1px">
+              ${entry.gameMode || 'Unknown mode'} - ${entry.difficulty || 'Unknown difficulty'} - ${formatBytesCompact(entry.sizeBytes)}
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;color:var(--t4);padding-left:6px">
+            <i data-lucide="chevron-right" width="14" height="14"></i>
+          </div>
+        </div>
+      `)
+      .join('');
+    metaEl.textContent = payload.worlds.length
+      + (payload.worlds.length === 1 ? ' world' : ' worlds')
+      + (payload.worldsRoot ? ' - ' + payload.worldsRoot : '');
+    lucide.createIcons();
+  } catch (err) {
+    if (ACTIVE_MODAL_ID !== 'world-manager') return;
+    listEl.innerHTML = '<div style="font-size:11px;font-family:var(--mono);color:#ff8a8a">' + escapeHtml(String(err && err.message ? err.message : err || 'Failed to load worlds')) + '</div>';
+    metaEl.textContent = 'Could not load worlds';
+  }
+}
+
+async function hydrateWorldDetailModal() {
+  const bodyEl = document.getElementById('world-detail-body');
+  const instanceName = selectedInstanceNameForModal();
+  const worldName = decodeActiveWorldDetailName();
+  if (!bodyEl || !instanceName || !worldName) return;
+
+  renderWorldDetailTabButtons();
+  bodyEl.innerHTML = '<div style="font-size:11px;color:var(--t4)">Loading world details...</div>';
+  WORLD_DETAIL_CURRENT = null;
+  WORLD_DETAIL_PLAYERS = [];
+  WORLD_DETAIL_SELECTED_PLAYER = '';
+  WORLD_DETAIL_PLAYER_CACHE = {};
+
+  try {
+    const details = await getInstanceWorldDetails(instanceName, worldName);
+    if (ACTIVE_MODAL_ID !== 'world-detail') return;
+    WORLD_DETAIL_CURRENT = details;
+    WORLD_DETAIL_TAB = normalizeWorldDetailTab(WORLD_DETAIL_TAB);
+    renderWorldDetailBody();
+
+    const players = await listWorldPlayers(instanceName, details.worldName || worldName);
+    if (ACTIVE_MODAL_ID !== 'world-detail') return;
+    if (players.running) {
+      bodyEl.innerHTML = '<div style="font-size:11px;color:#ffb066">Minecraft is running. Close the game to inspect world player data.</div>';
+      return;
+    }
+    WORLD_DETAIL_PLAYERS = players.players;
+    if (WORLD_DETAIL_PLAYERS.length) {
+      WORLD_DETAIL_SELECTED_PLAYER = WORLD_DETAIL_PLAYERS[0].playerUuid;
+    }
+    await renderWorldDetailBodyAsync();
+  } catch (err) {
+    if (ACTIVE_MODAL_ID !== 'world-detail') return;
+    bodyEl.innerHTML = '<div style="font-size:11px;color:#ff8a8a">' + escapeHtml(String(err && err.message ? err.message : err || 'Failed to load world details')) + '</div>';
+  }
+}
+
+async function hydrateScreenshotsModal() {
+  const instanceName = selectedInstanceNameForModal();
+  const listEl = document.getElementById('screenshots-list');
+  const metaEl = document.getElementById('screenshots-meta');
+  if (!instanceName || !listEl || !metaEl) return;
+
+  listEl.innerHTML = '<div style="font-size:11px;font-family:var(--mono);color:var(--t4)">Loading screenshots...</div>';
+  metaEl.textContent = 'Loading screenshots...';
+  try {
+    const entries = await listInstanceDirectoryEntriesForTarget(instanceName, 'screenshots', {
+      includeFiles: true,
+      includeDirectories: false,
+    });
+    if (ACTIVE_MODAL_ID !== 'screenshots') return;
+    const screenshotEntries = entries.filter((entry) => /\.(png|jpg|jpeg|webp)$/i.test(entry.name));
+    const totalBytes = screenshotEntries.reduce((sum, entry) => sum + Number(entry.sizeBytes || 0), 0);
+    if (!screenshotEntries.length) {
+      listEl.innerHTML = '<div style="font-size:11px;font-family:var(--mono);color:var(--t4)">No screenshots found for this instance.</div>';
+      metaEl.textContent = '0 screenshots';
+      return;
+    }
+    listEl.innerHTML = screenshotEntries
+      .map((entry) => `
+        <div class="world-row">
+          <div style="width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:var(--t2);flex-shrink:0">
+            <i data-lucide="camera" width="16" height="16"></i>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:12px;font-family:var(--mono);color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(entry.name)}</div>
+            <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-top:1px">${formatBytesCompact(entry.sizeBytes)} - ${formatEpochRelative(entry.modifiedAtEpoch)}</div>
+          </div>
+        </div>
+      `)
+      .join('');
+    metaEl.textContent = screenshotEntries.length
+      + (screenshotEntries.length === 1 ? ' screenshot' : ' screenshots')
+      + ' - '
+      + formatBytesCompact(totalBytes);
+    lucide.createIcons();
+  } catch (err) {
+    if (ACTIVE_MODAL_ID !== 'screenshots') return;
+    listEl.innerHTML = '<div style="font-size:11px;font-family:var(--mono);color:#ff8a8a">' + escapeHtml(String(err && err.message ? err.message : err || 'Failed to load screenshots')) + '</div>';
+    metaEl.textContent = 'Could not load screenshots';
+  }
+}
+
 function hasJarFileWithToken(files, token) {
   const needle = String(token || '').trim().toLowerCase();
   if (!needle) return false;
@@ -9016,7 +13630,9 @@ async function resolveTrackedInstallMissingState(instanceName, rows) {
     const fileName = String(row && row.fileName ? row.fileName : '').trim();
     if (!fileName) return;
     if (!byTarget.has(target)) byTarget.set(target, []);
+    const disabledName = getDisabledTrackedFileName(fileName);
     byTarget.get(target).push(fileName);
+    if (disabledName) byTarget.get(target).push(disabledName);
   });
   const existsByTarget = new Map();
   for (const [target, names] of byTarget.entries()) {
@@ -9025,11 +13641,22 @@ async function resolveTrackedInstallMissingState(instanceName, rows) {
 
   const hydratedRows = normalizedRows.map((row) => {
     const target = normalizeTrackedInstallTarget(row && row.target ? row.target : 'mods');
-    const fileName = String(row && row.fileName ? row.fileName : '').trim().toLowerCase();
-    if (!fileName) return Object.assign({}, row, { missing: false });
+    const fileName = String(row && row.fileName ? row.fileName : '').trim();
+    const fileNameLower = fileName.toLowerCase();
+    if (!fileNameLower) return Object.assign({}, row, { missing: false, enabled: true, currentFileName: '' });
+    const disabledName = getDisabledTrackedFileName(fileName);
+    const disabledNameLower = disabledName.toLowerCase();
     const existsMap = existsByTarget.get(target);
-    const exists = existsMap ? existsMap.get(fileName) : true;
-    return Object.assign({}, row, { missing: exists === false });
+    const enabledExists = existsMap ? existsMap.get(fileNameLower) === true : true;
+    const disabledExists = disabledNameLower && existsMap ? existsMap.get(disabledNameLower) === true : false;
+
+    if (enabledExists) {
+      return Object.assign({}, row, { missing: false, enabled: true, currentFileName: fileName });
+    }
+    if (disabledExists) {
+      return Object.assign({}, row, { missing: false, enabled: false, currentFileName: disabledName });
+    }
+    return Object.assign({}, row, { missing: true, enabled: row && row.enabled === false ? false : true, currentFileName: fileName });
   });
   const inferredRows = await inferShaderRuntimeMissingRows(instanceName, hydratedRows);
   return hydratedRows.concat(inferredRows);
@@ -9108,6 +13735,7 @@ async function installTrackedRowsToInstance(instanceName, rows, existsPolicy, pr
         bytesWritten: Number(result && result.bytes_written ? result.bytes_written : 0),
         installedAt: Date.now(),
         required: !!row.required,
+        enabled: true,
         sourceType: row.sourceType || 'main',
         rootTitle: row.rootTitle || '',
         pageUrl: String(row.pageUrl || '').trim(),
@@ -9232,32 +13860,68 @@ async function hydrateManagedModsModal() {
       const canUpdate = row.url && !isInferred ? '' : ' disabled';
       const canRemove = isInferred ? ' disabled' : '';
       const updateTitle = isInferred ? 'Runtime requirement hint' : (row.url ? 'Update from source' : 'No source URL');
+      const requiredFrom = String(row.rootTitle || '').trim()
+        || (isInferred ? 'Shader runtime checks' : 'Dependency chain');
+      const requiredState = row.missing
+        ? 'Missing'
+        : (row.enabled === false ? 'Disabled' : 'Installed');
+      const requiredBadgeMarkup = row.required
+        ? (
+          '<span class="tracked-required-pop" tabindex="0">' +
+          '<span class="tracked-badge tracked-badge-required">Required</span>' +
+          '<span class="tracked-required-menu" role="tooltip">' +
+          '<span class="tracked-required-menu-title">Required item</span>' +
+          '<span class="tracked-required-menu-row"><span class="tracked-required-menu-key">From</span><span class="tracked-required-menu-val">' + escapeHtml(requiredFrom) + '</span></span>' +
+          '<span class="tracked-required-menu-row"><span class="tracked-required-menu-key">Status</span><span class="tracked-required-menu-val">' + escapeHtml(requiredState) + '</span></span>' +
+          '<span class="tracked-required-menu-row"><span class="tracked-required-menu-key">Target</span><span class="tracked-required-menu-val">' + escapeHtml(targetLabel) + '</span></span>' +
+          '<span class="tracked-required-menu-row"><span class="tracked-required-menu-key">File</span><span class="tracked-required-menu-val">' + escapeHtml(String(row.fileName || '-')) + '</span></span>' +
+          '</span>' +
+          '</span>'
+        )
+        : '';
       const statusBadges = [
-        row.required
-          ? '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(255,255,255,0.14);font-size:9px;font-family:var(--mono);color:var(--t3)">Required</span>'
-          : '',
+        requiredBadgeMarkup,
         row.missing
-          ? '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(220,80,80,0.4);font-size:9px;font-family:var(--mono);color:#d56f6f">Missing</span>'
-          : '<span style="padding:1px 6px;border-radius:999px;border:1px solid rgba(70,150,90,0.35);font-size:9px;font-family:var(--mono);color:#67b37a">Installed</span>',
+          ? '<span class="tracked-badge tracked-badge-missing">Missing</span>'
+          : row.enabled === false
+            ? '<span class="tracked-badge tracked-badge-disabled">Disabled</span>'
+          : '<span class="tracked-badge tracked-badge-installed">Installed</span>',
       ].filter(Boolean).join('');
       const reinstallTitle = row.url ? 'Install this missing item' : 'No source URL';
       const canReinstall = row.missing && row.url ? '' : ' disabled';
+      const canToggle = !row.missing && !isInferred;
+      const toggleDisabled = canToggle ? '' : ' disabled';
+      const toggleTitle = canToggle
+        ? (row.enabled === false ? 'Enable this item' : 'Disable this item')
+        : (row.missing ? 'File is missing' : 'Runtime requirement hint');
+      const toggleChecked = row.enabled === false ? '' : ' checked';
       return (
-        '<div class="list-item" style="align-items:flex-start;gap:8px">' +
+        '<div class="tracked-install-item">' +
+        '<div class="tracked-item-body">' +
         '<div class="tracked-item-icon">' + iconMarkup + '</div>' +
-        '<div style="flex:1;min-width:0">' +
-        '<div style="font-size:12px;font-family:var(--mono);color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + escapeHtml(row.title || row.fileName) + '</div>' +
-        '<div style="margin-top:2px;font-size:10px;font-family:var(--mono);color:var(--t4)">' +
-        escapeHtml(targetLabel) + ' | ' + escapeHtml(String(row.provider || 'browse')) + ' | ' + escapeHtml(formatTrackedInstallAge(row.installedAt)) +
+        '<div class="tracked-item-content">' +
+        '<div class="tracked-item-title">' + escapeHtml(row.title || row.fileName) + '</div>' +
+        '<div class="tracked-item-meta">' +
+        escapeHtml(targetLabel) + ' - ' + escapeHtml(String(row.provider || 'browse')) + ' - ' + escapeHtml(formatTrackedInstallAge(row.installedAt)) +
         '</div>' +
-        '<div style="margin-top:4px;font-size:9.5px;font-family:var(--mono);color:var(--t4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + escapeHtml(row.fileName) + '</div>' +
-        '<div style="margin-top:6px;display:flex;gap:4px;align-items:center;flex-wrap:wrap">' + statusBadges + '</div>' +
+        '<div class="tracked-item-file">' + escapeHtml(row.fileName) + '</div>' +
+        '<div class="tracked-item-badges">' + statusBadges + '</div>' +
         '</div>' +
-        '<div style="display:flex;gap:6px;align-items:center">' +
-        '<button class="btn btn-ghost" style="height:24px;padding:0 7px;font-size:10px" title="' + escapeHtml(openTitle) + '" onclick="openTrackedInstallPageFromModal(\'' + encodedId + '\')"' + canOpenPage + '><i data-lucide="info" width="11" height="11"></i></button>' +
+        '</div>' +
+        '<div class="tracked-item-actions">' +
+        '<div class="tracked-item-actions-left">' +
+        '<label class="tracked-item-switch" title="' + escapeHtml(toggleTitle) + '">' +
+        '<input type="checkbox" onchange="toggleTrackedInstallEnabledFromModal(\'' + encodedId + '\', this.checked)"' + toggleChecked + toggleDisabled + '>' +
+        '<span class="tracked-item-switch-slider"></span>' +
+        '<span class="tracked-item-switch-label">' + (row.enabled === false ? 'Off' : 'On') + '</span>' +
+        '</label>' +
+        '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px" title="' + escapeHtml(openTitle) + '" onclick="openTrackedInstallPageFromModal(\'' + encodedId + '\')"' + canOpenPage + '><i data-lucide="info" width="11" height="11"></i></button>' +
+        '</div>' +
+        '<div class="tracked-item-actions-right">' +
         '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px" title="' + escapeHtml(reinstallTitle) + '" onclick="installSingleTrackedFromModal(\'' + encodedId + '\')"' + canReinstall + '><i data-lucide="download" width="11" height="11"></i>Install</button>' +
         '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px" title="' + escapeHtml(updateTitle) + '" onclick="updateTrackedInstallFromModal(\'' + encodedId + '\')"' + canUpdate + '><i data-lucide="refresh-cw" width="11" height="11"></i>Update</button>' +
         '<button class="btn btn-ghost" style="height:24px;padding:0 8px;font-size:10px;color:var(--red)" onclick="removeTrackedInstallFromModal(\'' + encodedId + '\')"' + canRemove + '><i data-lucide="trash-2" width="11" height="11"></i>Remove</button>' +
+        '</div>' +
         '</div>' +
         '</div>'
       );
@@ -9342,21 +14006,71 @@ function openManagedModsBrowseInstall() {
   setPage('modrinth');
 }
 
+async function toggleTrackedInstallEnabledFromModal(encodedEntryId, enabled) {
+  const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
+  const entryId = decodeURIComponent(String(encodedEntryId || '').trim());
+  if (!instanceName || !entryId) return;
+  const rows = MANAGED_MODS_PRESENCE_CACHE && MANAGED_MODS_PRESENCE_CACHE.instanceName === instanceName
+    ? MANAGED_MODS_PRESENCE_CACHE.rows
+    : [];
+  const entry = rows.find((item) => String(item && item.id ? item.id : '').trim() === entryId) || getTrackedInstallEntry(instanceName, entryId);
+  if (!entry) {
+    showToast('!', 'Toggle failed', 'Tracked install entry not found');
+    await hydrateManagedModsModal();
+    return;
+  }
+
+  const res = await invokeBackend('set_instance_file_enabled', {
+    request: {
+      instanceName,
+      target: entry.target,
+      fileName: entry.fileName,
+      enabled: !!enabled,
+    },
+  });
+  if (!res.ok || !res.data) {
+    const reason = formatBackendError(res.error, 'Could not toggle item state');
+    showToast('!', 'Toggle failed', reason);
+    await hydrateManagedModsModal();
+    return;
+  }
+
+  const effectiveEnabled = typeof res.data.enabled === 'boolean' ? res.data.enabled : !!enabled;
+  upsertTrackedInstallForInstance(instanceName, Object.assign({}, entry, {
+    enabled: effectiveEnabled,
+    path: String(res.data.path || entry.path || ''),
+  }));
+  await refreshSelectedInstanceInfo(instanceName);
+  refreshInstanceTrackedInstallSummary(instanceName);
+  await hydrateManagedModsModal();
+
+  const statusText = String(res.data.status || '').trim().toLowerCase();
+  if (statusText === 'not_found') {
+    showToast('!', 'Toggle not applied', 'File not found on disk');
+    return;
+  }
+  showToast('OK', effectiveEnabled ? 'Enabled' : 'Disabled', String(entry.title || entry.fileName || 'Item'));
+}
+
 async function removeTrackedInstallFromModal(encodedEntryId) {
   const instanceName = getSelectedInstanceName() || selectedInstanceNameForModal();
   const entryId = decodeURIComponent(String(encodedEntryId || '').trim());
   if (!instanceName || !entryId) return;
-  const entry = getTrackedInstallEntry(instanceName, entryId);
+  const rows = MANAGED_MODS_PRESENCE_CACHE && MANAGED_MODS_PRESENCE_CACHE.instanceName === instanceName
+    ? MANAGED_MODS_PRESENCE_CACHE.rows
+    : [];
+  const entry = rows.find((item) => String(item && item.id ? item.id : '').trim() === entryId) || getTrackedInstallEntry(instanceName, entryId);
   if (!entry) {
     showToast('!', 'Not found', 'Tracked install entry not found');
     return;
   }
+  const fileNameForRemove = String(entry.currentFileName || entry.fileName || '').trim() || String(entry.fileName || '').trim();
 
   const res = await invokeBackend('remove_instance_file', {
     request: {
       instanceName,
       target: entry.target,
-      fileName: entry.fileName,
+      fileName: fileNameForRemove,
     },
   });
   if (!res.ok) {
@@ -9404,6 +14118,7 @@ async function updateTrackedInstallFromModal(encodedEntryId) {
       bytesWritten: Number(result.bytes_written || 0),
       installedAt: Date.now(),
       required: entry.required,
+      enabled: true,
       sourceType: entry.sourceType || 'main',
       rootTitle: entry.rootTitle || '',
       pageUrl: String(entry.pageUrl || '').trim(),
@@ -10192,8 +14907,8 @@ function updateInstanceCountLabels(totalCount) {
   const countBadge = document.getElementById('instance-count-badge');
   if (countBadge) countBadge.textContent = totalLabel;
 
-  const firstSidebarBadge = document.querySelector('.sidebar .sb-badge');
-  if (firstSidebarBadge) firstSidebarBadge.textContent = String(totalCount);
+  const sidebarCount = document.getElementById('sb-instances-count');
+  if (sidebarCount) sidebarCount.textContent = String(totalCount);
 
   const statusItems = Array.from(document.querySelectorAll('.statusbar .status-item'));
   const instanceStatus = statusItems.find((item) => /instance/i.test(item.textContent));
@@ -10330,11 +15045,13 @@ function resetDetailPanelEmptyState() {
     lastExit.textContent = '-';
     lastExit.removeAttribute('title');
   }
+  renderWeeklyPlaytimeBars('');
   syncDetailLaunchProgress();
 }
 
 function renderInstancesFromBackend(instances, preserveSelection) {
   if (!Array.isArray(instances)) return;
+  const previousInstanceData = INSTANCE_DATA && typeof INSTANCE_DATA === 'object' ? INSTANCE_DATA : {};
   ensureInstanceGroupsLoaded();
   syncInstanceGroupState(instances);
   INSTANCE_LIST_CACHE = instances.map((instance) => ({ ...instance }));
@@ -10370,6 +15087,8 @@ function renderInstancesFromBackend(instances, preserveSelection) {
       noGroupInstances.push(instance);
     }
   });
+
+  reconcileWeeklyPlaytimeTracker(previousInstanceData, INSTANCE_DATA);
 
   const showNoGroup = customGroups.length === 0 || noGroupInstances.length > 0;
   if (showNoGroup) {
@@ -10420,12 +15139,18 @@ function renderInstancesFromBackend(instances, preserveSelection) {
   }
 
   updateInstanceCountLabels(instances.length);
+  renderSidebarInstanceList(instances);
 
   const cards = Array.from(document.querySelectorAll('.instance-card'));
   const preferred = selectedName ? cards.find((card) => card.dataset.name === selectedName) : null;
   const target = preferred || cards[0];
-  if (target) selectCard(target);
-  else resetDetailPanelEmptyState();
+  if (target) {
+    selectCard(target);
+    syncSidebarInstanceActiveState(String(target.dataset.name || ''));
+  } else {
+    resetDetailPanelEmptyState();
+    syncSidebarInstanceActiveState('');
+  }
 
   const sortSelect = document.querySelector('.sort-select');
   if (sortSelect && sortSelect.value) {
@@ -10461,7 +15186,16 @@ async function refreshSelectedInstanceInfo(instanceName) {
   const res = await invokeBackend('get_instance_info', {
     request: { instanceName: name },
   });
-  if (!res.ok || !res.data || typeof res.data !== 'object') return;
+  if (!res.ok) {
+    if (isInstanceInfoNotFoundError(res.error, name)) {
+      const selected = getSelectedInstanceName();
+      if (selected && selected.toLowerCase() === name.toLowerCase()) {
+        await refreshInstancesFromBackend(true);
+      }
+    }
+    return;
+  }
+  if (!res.data || typeof res.data !== 'object') return;
 
   const selected = getSelectedInstanceName();
   if (requestId !== ACTIVE_INSTANCE_INFO_REQUEST_ID || selected !== name) return;
@@ -10503,6 +15237,7 @@ function selectCard(el) {
   document.querySelectorAll('.instance-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
   const name = el.dataset.name;
+  syncSidebarInstanceActiveState(name);
   const d = INSTANCE_DATA[name];
   if (!d) return;
   const lastText = formatLastPlayed(d.lastPlayedEpoch || d.last || null);
@@ -10536,6 +15271,7 @@ function selectCard(el) {
     else detailExit.removeAttribute('title');
   }
   document.getElementById('di-playtime').textContent  = d.playtime;
+  renderWeeklyPlaytimeBars(name);
   const rb = document.getElementById('detail-running-bar');
   const lb = document.getElementById('launch-or-kill-btn');
   if (d.running) {
@@ -10610,7 +15346,6 @@ const srvTypeDescs = {
   paper:   'Paper - High-performance fork with plugin support.',
   fabric:  'Fabric - Lightweight modding platform.',
   forge:   'Forge - The original modding API.',
-  purpur:  'Purpur - Paper fork with extra customization.',
 };
 let srvAddedPlugins = [];
 
@@ -10724,6 +15459,442 @@ function checkEula() {
   btn.style.cursor    = checked ? 'pointer' : 'not-allowed';
 }
 
+function onSrvIdleToggle() {
+  const idleBox = document.getElementById('srv-idle-enabled');
+  const idleInput = document.getElementById('srv-idle-minutes');
+  if (!idleInput) return;
+  const enabled = !!(idleBox && idleBox.classList.contains('on'));
+  idleInput.disabled = !enabled;
+  idleInput.style.opacity = enabled ? '1' : '0.5';
+}
+
+function formatServerTypeLabel(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return 'Vanilla';
+  return raw.charAt(0).toUpperCase() + raw.slice(1);
+}
+
+function getSelectedServerDeployment() {
+  if (!Array.isArray(SERVER_DEPLOYMENTS_CACHE) || SERVER_DEPLOYMENTS_CACHE.length === 0) return null;
+  const selected = SERVER_DEPLOYMENTS_CACHE.find((row) => String(row && row.deploymentId || '') === String(SERVER_SELECTED_DEPLOYMENT_ID || ''));
+  return selected || SERVER_DEPLOYMENTS_CACHE[0];
+}
+
+function syncServerConnectionFromSelected() {
+  const selected = getSelectedServerDeployment();
+  const joinEl = document.getElementById('srv-join-code');
+  const localEl = document.getElementById('srv-conn-local');
+  const lanEl = document.getElementById('srv-conn-lan');
+  const publicEl = document.getElementById('srv-conn-public');
+  if (!selected) {
+    if (joinEl) joinEl.value = '------';
+    if (localEl) localEl.textContent = '127.0.0.1:25565';
+    if (lanEl) lanEl.textContent = '-';
+    if (publicEl) publicEl.textContent = '-';
+    return;
+  }
+  if (joinEl) joinEl.value = String(selected.joinCode || '------');
+  if (localEl) localEl.textContent = String(selected.localAddress || '-');
+  if (lanEl) lanEl.textContent = String(selected.lanAddress || '-');
+  const publicText = selected.publicSubdomain
+    ? String(selected.publicSubdomain)
+    : (selected.publicAddress ? String(selected.publicAddress) : '-');
+  if (publicEl) publicEl.textContent = publicText;
+}
+
+function playServerWarningSound() {
+  const AudioCtor = window.AudioContext || window.webkitAudioContext;
+  if (!AudioCtor) return;
+  try {
+    const ctx = new AudioCtor();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'square';
+    osc.frequency.value = 660;
+    gain.gain.value = 0.03;
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.12);
+    setTimeout(() => ctx.close().catch(() => {}), 320);
+  } catch (_err) {
+    // no-op
+  }
+}
+
+function maybeShowServerShutdownWarning(rows) {
+  if (!Array.isArray(rows) || rows.length === 0) return;
+  const warningRow = rows.find((row) => row && row.shutdownWarningActive);
+  if (!warningRow) return;
+  const now = Date.now();
+  if (now - SERVER_WARNING_TOAST_AT < 8000) return;
+  SERVER_WARNING_TOAST_AT = now;
+  const seconds = Number(warningRow.shutdownWarningSecondsRemaining || 0);
+  playServerWarningSound();
+  showToast(
+    '!',
+    'Server will stop soon',
+    String(warningRow.name || 'Server') + ' will stop in ' + seconds + 's (no players detected).',
+    {
+      label: 'Cancel shutdown',
+      onClick: () => {
+        void invokeBackend('cancel_deployment_shutdown', {
+          request: { deploymentId: warningRow.deploymentId },
+        }).then(() => refreshServerDeployments(warningRow.deploymentId));
+      },
+    }
+  );
+}
+
+function renderServerManagerList(rows) {
+  const listEl = document.getElementById('srv-manager-list');
+  if (!listEl) return;
+  const items = Array.isArray(rows) ? rows : [];
+  if (items.length === 0) {
+    listEl.innerHTML = '<div style="font-size:10.5px;font-family:var(--mono);color:var(--t4);">No servers yet</div>';
+    return;
+  }
+  listEl.innerHTML = items.map((row) => {
+    const id = escapeHtml(String(row.deploymentId || ''));
+    const name = escapeHtml(String(row.name || 'Server'));
+    const typeVersion = escapeHtml(formatServerTypeLabel(row.serverType) + ' ' + String(row.version || ''));
+    const running = !!row.running;
+    const selected = String(row.deploymentId || '') === String(SERVER_SELECTED_DEPLOYMENT_ID || '');
+    const statusText = running ? 'Running' : 'Stopped';
+    const playerText = String(Number(row.playersOnline || 0)) + '/' + String(Number(row.maxPlayers || 0));
+    const countdown = row.shutdownWarningActive
+      ? ('Warning ' + String(Number(row.shutdownWarningSecondsRemaining || 0)) + 's')
+      : (row.idleShutdownSecondsRemaining ? ('Idle in ' + String(Number(row.idleShutdownSecondsRemaining || 0)) + 's') : '');
+    return `
+      <div onclick="selectServerDeployment('${id}')" style="background:${selected ? 'var(--s3)' : 'var(--s2)'};border:1px solid ${selected ? 'var(--b4)' : 'var(--b2)'};border-radius:8px;padding:8px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:4px;">
+          <div style="font-size:11.5px;font-weight:700;color:var(--t1);">${name}</div>
+          <span style="font-size:9px;font-family:var(--mono);color:var(--t4);">${typeVersion}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:8px;font-size:10px;font-family:var(--mono);color:var(--t3);margin-bottom:6px;">
+          <span>${statusText}</span>
+          <span>Players ${playerText}</span>
+        </div>
+        ${countdown ? `<div style="font-size:9.5px;font-family:var(--mono);color:#776600;margin-bottom:6px;">${escapeHtml(countdown)}</div>` : ''}
+        <div style="display:flex;gap:4px;flex-wrap:wrap;">
+          <button class="btn btn-ghost" style="height:22px;padding:0 6px;font-size:9.5px;" onclick="event.stopPropagation();serverStart('${id}')">Start</button>
+          <button class="btn btn-ghost" style="height:22px;padding:0 6px;font-size:9.5px;" onclick="event.stopPropagation();serverStop('${id}')">Stop</button>
+          <button class="btn btn-ghost" style="height:22px;padding:0 6px;font-size:9.5px;" onclick="event.stopPropagation();serverRestart('${id}')">Restart</button>
+          <button class="btn btn-ghost" style="height:22px;padding:0 6px;font-size:9.5px;" onclick="event.stopPropagation();serverConsole('${id}')">Console</button>
+          <button class="btn btn-ghost" style="height:22px;padding:0 6px;font-size:9.5px;" onclick="event.stopPropagation();serverOpenFolder('${id}')">Folder</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function safeServerInputId(value) {
+  return String(value || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+}
+
+function updateServerCountBadges(count) {
+  const total = Number(count || 0);
+  const sidebarCount = document.getElementById('sb-my-servers-count');
+  if (sidebarCount) sidebarCount.textContent = String(total);
+  const pageCount = document.getElementById('my-servers-count');
+  if (pageCount) pageCount.textContent = total + (total === 1 ? ' server' : ' servers');
+}
+
+async function copyServerValue(value, label) {
+  const normalized = String(value || '').trim();
+  if (!normalized) {
+    showToast('!', 'Nothing to copy', String(label || 'Value') + ' is empty');
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(normalized);
+    showToast('OK', 'Copied', String(label || 'Value') + ' copied');
+  } catch (_err) {
+    showToast('!', 'Copy failed', 'Clipboard access denied');
+  }
+}
+
+async function regenerateServerJoinCode(deploymentId) {
+  const res = await invokeBackend('regenerate_deployment_join_code', {
+    request: { deploymentId },
+  });
+  if (!res.ok) {
+    showToast('!', 'Generate failed', formatBackendError(res.error, 'Could not regenerate join code'));
+    return;
+  }
+  showToast('OK', 'Join code updated', String(res.data && res.data.joinCode || ''));
+  await refreshServerDeployments(deploymentId);
+}
+
+async function updateServerPlayers(deploymentId) {
+  const input = document.getElementById('my-srv-players-' + safeServerInputId(deploymentId));
+  if (!input) return;
+  const value = Number(input.value || 0);
+  if (!Number.isFinite(value) || value < 0) {
+    showToast('!', 'Invalid players', 'Players must be 0 or higher');
+    return;
+  }
+  const res = await invokeBackend('set_deployment_players', {
+    request: { deploymentId, playersOnline: Math.floor(value) },
+  });
+  if (!res.ok) {
+    showToast('!', 'Update failed', formatBackendError(res.error, 'Could not update players'));
+    return;
+  }
+  await refreshServerDeployments(deploymentId);
+}
+
+function renderMyServersPage(rows) {
+  const listEl = document.getElementById('my-servers-list');
+  if (!listEl) return;
+  const items = Array.isArray(rows) ? rows : [];
+  updateServerCountBadges(items.length);
+  if (items.length === 0) {
+    listEl.innerHTML = `
+      <div style="background:var(--s1);border:1px solid var(--b2);border-radius:10px;padding:20px;">
+        <div style="font-size:14px;font-weight:700;color:var(--t1);margin-bottom:6px;">No servers yet</div>
+        <div style="font-size:11px;font-family:var(--mono);color:var(--t3);margin-bottom:10px;">Create your first local server from Create a Server page.</div>
+        <button class="btn btn-primary" style="height:30px;" onclick="setPage('server', document.getElementById('sb-create-server'))">Create Server</button>
+      </div>
+    `;
+    return;
+  }
+  listEl.innerHTML = items.map((row) => {
+    const id = String(row.deploymentId || '');
+    const safeId = safeServerInputId(id);
+    const running = !!row.running;
+    const status = running ? 'Running' : 'Stopped';
+    const countdown = row.shutdownWarningActive
+      ? ('Shutdown in ' + String(Number(row.shutdownWarningSecondsRemaining || 0)) + 's')
+      : (row.idleShutdownSecondsRemaining ? ('Idle stop in ' + String(Number(row.idleShutdownSecondsRemaining || 0)) + 's') : 'No timer');
+    const publicText = row.publicSubdomain ? String(row.publicSubdomain) : (row.publicAddress ? String(row.publicAddress) : '-');
+    return `
+      <div style="background:var(--s1);border:1px solid var(--b2);border-radius:10px;padding:12px;">
+        <div style="display:flex;align-items:start;justify-content:space-between;gap:10px;margin-bottom:8px;">
+          <div>
+            <div style="font-size:14px;font-weight:800;color:var(--t1);">${escapeHtml(String(row.name || 'Server'))}</div>
+            <div style="font-size:10.5px;font-family:var(--mono);color:var(--t3);margin-top:2px;">${escapeHtml(formatServerTypeLabel(row.serverType))} ${escapeHtml(String(row.version || ''))} | ${escapeHtml(status)} | Players ${Number(row.playersOnline || 0)}/${Number(row.maxPlayers || 0)}</div>
+          </div>
+          <div style="font-size:10px;font-family:var(--mono);color:${running ? 'var(--green)' : 'var(--t4)'};">${escapeHtml(String(row.status || '-'))}</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px;">
+          <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;padding:8px;">
+            <div style="font-size:9px;font-family:var(--mono);color:var(--t4);margin-bottom:6px;">JOIN CODE</div>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <input class="input" readonly value="${escapeHtml(String(row.joinCode || '------'))}" style="height:28px;font-family:var(--mono);font-size:12px;text-align:center;letter-spacing:1px;">
+              <button class="btn btn-ghost" style="height:28px;padding:0 8px;font-size:10px;" onclick="copyServerValue('${escapeHtml(String(row.joinCode || ''))}','Join code')">Copy</button>
+              <button class="btn btn-ghost" style="height:28px;padding:0 8px;font-size:10px;" onclick="regenerateServerJoinCode('${escapeHtml(id)}')">New</button>
+            </div>
+          </div>
+          <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;padding:8px;">
+            <div style="font-size:9px;font-family:var(--mono);color:var(--t4);margin-bottom:6px;">RUNTIME</div>
+            <div style="font-size:10.5px;font-family:var(--mono);color:var(--t3);margin-bottom:4px;">${escapeHtml(String(row.runtimeMode === 'background' ? 'Run in background (24/7)' : 'Stop when launcher closes'))}</div>
+            <div style="font-size:10px;font-family:var(--mono);color:${row.shutdownWarningActive ? '#776600' : 'var(--t4)'};">${escapeHtml(countdown)}</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:8px;">
+          <div class="info-row"><span class="info-key">Local</span><span class="info-val">${escapeHtml(String(row.localAddress || '-'))}</span></div>
+          <div class="info-row"><span class="info-key">LAN</span><span class="info-val">${escapeHtml(String(row.lanAddress || '-'))}</span></div>
+          <div class="info-row"><span class="info-key">Public</span><span class="info-val">${escapeHtml(publicText)}</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-ghost" style="height:28px;" onclick="serverStart('${escapeHtml(id)}')">Start</button>
+          <button class="btn btn-ghost" style="height:28px;" onclick="serverStop('${escapeHtml(id)}')">Stop</button>
+          <button class="btn btn-ghost" style="height:28px;" onclick="serverRestart('${escapeHtml(id)}')">Restart</button>
+          <button class="btn btn-ghost" style="height:28px;" onclick="serverConsole('${escapeHtml(id)}')">Console</button>
+          <button class="btn btn-ghost" style="height:28px;" onclick="serverOpenFolder('${escapeHtml(id)}')">Open Folder</button>
+          <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:10px;font-family:var(--mono);color:var(--t4);">Players</span>
+            <input class="input" id="my-srv-players-${safeId}" type="number" min="0" max="${Number(row.maxPlayers || 0)}" value="${Number(row.playersOnline || 0)}" style="width:68px;height:28px;padding:0 8px;">
+            <button class="btn btn-ghost" style="height:28px;padding:0 8px;font-size:10px;" onclick="updateServerPlayers('${escapeHtml(id)}')">Apply</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function selectServerDeployment(deploymentId) {
+  SERVER_SELECTED_DEPLOYMENT_ID = String(deploymentId || '').trim();
+  renderServerManagerList(SERVER_DEPLOYMENTS_CACHE);
+  syncServerConnectionFromSelected();
+}
+
+async function refreshServerDeployments(preferredId) {
+  const res = await invokeBackend('list_deployments');
+  if (!res.ok) {
+    return;
+  }
+  const rows = Array.isArray(res.data) ? res.data : [];
+  SERVER_DEPLOYMENTS_CACHE = rows;
+  if (preferredId) {
+    SERVER_SELECTED_DEPLOYMENT_ID = String(preferredId);
+  }
+  if (!SERVER_SELECTED_DEPLOYMENT_ID && rows.length > 0) {
+    SERVER_SELECTED_DEPLOYMENT_ID = String(rows[0].deploymentId || '');
+  }
+  if (SERVER_SELECTED_DEPLOYMENT_ID) {
+    const exists = rows.some((row) => String(row.deploymentId || '') === String(SERVER_SELECTED_DEPLOYMENT_ID));
+    if (!exists) SERVER_SELECTED_DEPLOYMENT_ID = rows.length ? String(rows[0].deploymentId || '') : '';
+  }
+  renderServerManagerList(rows);
+  renderMyServersPage(rows);
+  syncServerConnectionFromSelected();
+  maybeShowServerShutdownWarning(rows);
+}
+
+function startServerManagerPolling() {
+  if (SERVER_MANAGER_POLL) return;
+  SERVER_MANAGER_POLL = setInterval(() => {
+    void refreshServerDeployments();
+  }, 2000);
+}
+
+async function stopStopOnCloseDeployments() {
+  const res = await invokeBackend('list_deployments');
+  if (!res.ok) return;
+  const rows = Array.isArray(res.data) ? res.data : [];
+  const targets = rows.filter((row) => row && row.running && String(row.runtimeMode || '') === 'stop_on_close');
+  for (let i = 0; i < targets.length; i++) {
+    const row = targets[i];
+    // eslint-disable-next-line no-await-in-loop
+    await invokeBackend('stop_deployment', { request: { deploymentId: row.deploymentId } });
+  }
+}
+
+async function serverStart(deploymentId) {
+  const res = await invokeBackend('start_deployment', { request: { deploymentId } });
+  if (!res.ok) {
+    showToast('!', 'Start failed', formatBackendError(res.error, 'Could not start server'));
+    return;
+  }
+  showToast('OK', 'Server started', String(res.data && res.data.name || 'Server') + ' is running');
+  await refreshServerDeployments(deploymentId);
+}
+
+async function serverStop(deploymentId) {
+  const res = await invokeBackend('stop_deployment', { request: { deploymentId } });
+  if (!res.ok) {
+    showToast('!', 'Stop failed', formatBackendError(res.error, 'Could not stop server'));
+    return;
+  }
+  showToast('OK', 'Server stopped', String(res.data && res.data.name || 'Server') + ' stopped');
+  await refreshServerDeployments(deploymentId);
+}
+
+async function serverRestart(deploymentId) {
+  const res = await invokeBackend('restart_deployment', { request: { deploymentId } });
+  if (!res.ok) {
+    showToast('!', 'Restart failed', formatBackendError(res.error, 'Could not restart server'));
+    return;
+  }
+  showToast('OK', 'Server restarted', String(res.data && res.data.name || 'Server') + ' restarted');
+  await refreshServerDeployments(deploymentId);
+}
+
+async function serverOpenFolder(deploymentId) {
+  const res = await invokeBackend('open_deployment_directory', { request: { deploymentId } });
+  if (!res.ok) {
+    showToast('!', 'Open failed', formatBackendError(res.error, 'Could not open server folder'));
+    return;
+  }
+  showToast('OK', 'Opened', 'Server folder opened');
+}
+
+async function serverConsole(deploymentId) {
+  const res = await invokeBackend('open_deployment_terminal', { request: { deploymentId } });
+  if (!res.ok) {
+    showToast('!', 'Console failed', formatBackendError(res.error, 'Could not open server terminal'));
+    return;
+  }
+  showToast('OK', 'Console opened', 'Server terminal opened');
+}
+
+async function copyCurrentServerJoinCode() {
+  const selected = getSelectedServerDeployment();
+  const code = selected ? String(selected.joinCode || '').trim() : '';
+  if (!code) {
+    showToast('!', 'No code', 'Deploy a server first');
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(code);
+    showToast('OK', 'Copied', 'Join code copied');
+  } catch (_err) {
+    showToast('!', 'Copy failed', 'Clipboard access denied');
+  }
+}
+
+async function regenerateCurrentServerJoinCode() {
+  const selected = getSelectedServerDeployment();
+  if (!selected || !selected.deploymentId) {
+    showToast('!', 'No server', 'Deploy/select a server first');
+    return;
+  }
+  await regenerateServerJoinCode(selected.deploymentId);
+}
+
+async function resolveJoinCodeFromInput() {
+  const input = document.getElementById('join-code-input');
+  const code = String(input && input.value ? input.value : '').trim().toUpperCase();
+  if (!code) {
+    showToast('!', 'Missing code', 'Enter a join code first');
+    return;
+  }
+  const res = await invokeBackend('resolve_join_code', { request: { joinCode: code } });
+  if (!res.ok) {
+    showToast('!', 'Code not found', formatBackendError(res.error, 'Could not resolve this code'));
+    return;
+  }
+  const row = res.data || {};
+  const bestAddress = row.publicSubdomain || row.publicAddress || row.lanAddress || row.localAddress || '-';
+  showToast('OK', 'Code resolved', String(row.name || 'Server') + ' -> ' + String(bestAddress));
+}
+
+function applyServerRecommendation(recommended) {
+  if (!recommended || typeof recommended !== 'object') return;
+  const typeEl = document.getElementById('srv-type');
+  const ramEl = document.getElementById('srv-ram');
+  const ramValEl = document.getElementById('srv-ram-val');
+  if (typeEl && recommended.serverType) {
+    typeEl.value = String(recommended.serverType);
+    updateSrvType(typeEl.value);
+  }
+  if (ramEl && Number.isFinite(Number(recommended.ramGb))) {
+    const value = Math.max(1, Math.min(16, Number(recommended.ramGb)));
+    ramEl.value = String(value);
+    if (ramValEl) ramValEl.textContent = value + ' GB';
+  }
+}
+
+async function analyzeServerHost() {
+  const resultEl = document.getElementById('srv-analyze-result');
+  if (resultEl) {
+    resultEl.style.display = '';
+    resultEl.innerHTML = '<div style="font-size:10.5px;font-family:var(--mono);color:var(--t3);">Analyzing hardware...</div>';
+  }
+  const res = await invokeBackend('analyze_server_host');
+  if (!res.ok) {
+    if (resultEl) {
+      resultEl.innerHTML = '<div style="font-size:10.5px;font-family:var(--mono);color:#774444;">Analyze failed</div>';
+    }
+    showToast('!', 'Analyze failed', formatBackendError(res.error, 'Could not analyze this PC'));
+    return;
+  }
+  const data = res.data || {};
+  if (resultEl) {
+    const rec = data.recommended || {};
+    resultEl.innerHTML = `
+      <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:6px;">CPU ${Number(data.cpuCores || 0)} cores | RAM ${Number(data.totalRamGb || 0)} GB | Disk ${Number(data.diskFreeGb || 0)} GB free | Java ${data.javaDetected ? (escapeHtml(String(data.javaVersion || 'Detected'))) : 'Missing'}</div>
+      <div style="font-size:11px;font-family:var(--mono);color:var(--t2);margin-bottom:6px;">
+        Recommended: ${escapeHtml(formatServerTypeLabel(rec.serverType))}, ${Number(rec.ramGb || 0)}GB, players ${escapeHtml(String(rec.players || '-'))}, plugins ${escapeHtml(String(rec.plugins || '-'))}, mods ${escapeHtml(String(rec.mods || '-'))}
+      </div>
+      <button class="btn btn-ghost" style="height:26px;font-size:10.5px;" onclick='applyServerRecommendation(${JSON.stringify(data.recommended || {})})'>Apply Recommended Settings</button>
+    `;
+  }
+  showToast('OK', 'Analysis complete', 'Recommended setup generated');
+}
+
 function toggleSrvAdd(btn, name) {
   const added = /\bAdded\b/i.test(btn.textContent || '');
   if (!added) {
@@ -10745,20 +15916,40 @@ function toggleSrvAdd(btn, name) {
   }
 }
 
-function startServerDeploy() {
+async function startServerDeploy() {
   const name = (document.getElementById('srv-name') || {}).value || 'My Server';
   const versionEl = document.getElementById('srv-version');
   const typeEl = document.getElementById('srv-type');
   const ramEl = document.getElementById('srv-ram');
+  const portEl = document.getElementById('srv-port');
+  const maxPlayersEl = document.getElementById('srv-max-players');
+  const motdEl = document.getElementById('srv-motd');
+  const runtimeModeEl = document.getElementById('srv-runtime-mode');
+  const idleEnabledEl = document.getElementById('srv-idle-enabled');
+  const idleMinutesEl = document.getElementById('srv-idle-minutes');
+  const subdomainEl = document.getElementById('srv-public-subdomain');
   const deployBtn = document.getElementById('srv-launch-btn');
   const hostEl = document.querySelector('.srv-host-card.selected');
   const hostLabel = hostEl ? hostEl.querySelector('div > div:first-child') : null;
+  const port = Number(portEl && portEl.value ? portEl.value : 25565);
+  if (!Number.isFinite(port) || port < 1 || port > 65535) {
+    showToast('!', 'Invalid port', 'Port must be between 1 and 65535');
+    return;
+  }
+  const maxPlayers = Number(maxPlayersEl && maxPlayersEl.value ? maxPlayersEl.value : 20);
   const request = {
     name,
     version: versionEl ? versionEl.value : '1.21.4',
     serverType: typeEl ? typeEl.value : 'vanilla',
     ramGb: ramEl ? Number(ramEl.value) : 4,
-    host: hostLabel ? hostLabel.textContent.trim() : 'This Computer'
+    host: hostLabel ? hostLabel.textContent.trim() : 'This Computer',
+    port,
+    maxPlayers: Number.isFinite(maxPlayers) ? Math.max(1, Math.min(200, maxPlayers)) : 20,
+    motd: motdEl ? String(motdEl.value || '').trim() : 'A Minecraft Server',
+    runtimeMode: runtimeModeEl ? runtimeModeEl.value : 'stop_on_close',
+    idleShutdownEnabled: !!(idleEnabledEl && idleEnabledEl.classList.contains('on')),
+    idleShutdownMinutes: Number(idleMinutesEl && idleMinutesEl.value ? idleMinutesEl.value : 10),
+    publicSubdomain: subdomainEl ? String(subdomainEl.value || '').trim() : '',
   };
 
   let statusEl = document.getElementById('srv-deploy-status');
@@ -10782,34 +15973,48 @@ function startServerDeploy() {
   }
   if (statusEl) statusEl.textContent = 'Initializing deployment...';
   showToast('*', 'Deploy started', name + ' deployment started');
-
-  void invokeBackend('deploy_server', { request });
-  lucide.createIcons();
-  const steps = [[20,'Downloading server JAR...'],[45,'Accepting EULA...'],[65,'Installing plugins...'],[85,'Generating world...'],[100,'Server ready!']];
-  let i = 0;
-  const iv = setInterval(() => {
-    if (i >= steps.length) {
-      clearInterval(iv);
-      if (deployBtn) {
-        deployBtn.disabled = false;
-        deployBtn.style.background = 'var(--t1)';
-        deployBtn.style.color = '#000';
-        deployBtn.style.cursor = 'pointer';
-        deployBtn.innerHTML = '<i data-lucide="server" width="15" height="15"></i> Deploy Again';
-      }
-      if (statusEl) statusEl.textContent = 'Server ready on :25565';
-      lucide.createIcons();
-      showToast('OK','Server deployed!', name + ' is now running on :25565');
-      return;
-    }
-    const percent = steps[i][0];
-    const message = steps[i][1];
+  const phases = [
+    [20, 'Preparing local server files...'],
+    [48, 'Applying runtime settings...'],
+    [72, 'Generating join code and addresses...'],
+  ];
+  for (let i = 0; i < phases.length; i++) {
+    const phase = phases[i];
     if (deployBtn) {
-      deployBtn.innerHTML = '<i data-lucide="loader-circle" width="15" height="15"></i> Deploying... ' + percent + '%';
+      deployBtn.innerHTML = '<i data-lucide="loader-circle" width="15" height="15"></i> Deploying... ' + String(phase[0]) + '%';
     }
-    if (statusEl) statusEl.textContent = message;
+    if (statusEl) statusEl.textContent = String(phase[1]);
     lucide.createIcons();
-    i++;
-  }, 700);
+    // eslint-disable-next-line no-await-in-loop
+    await new Promise((resolve) => setTimeout(resolve, 200));
+  }
+
+  const res = await invokeBackend('deploy_server', { request });
+  if (!res.ok) {
+    if (deployBtn) {
+      deployBtn.disabled = false;
+      deployBtn.style.background = 'var(--t1)';
+      deployBtn.style.color = '#000';
+      deployBtn.style.cursor = 'pointer';
+      deployBtn.innerHTML = '<i data-lucide="server" width="15" height="15"></i> Deploy Server';
+    }
+    if (statusEl) statusEl.textContent = formatBackendError(res.error, 'Deploy failed');
+    showToast('!', 'Deploy failed', formatBackendError(res.error, 'Backend rejected server deploy'));
+    lucide.createIcons();
+    return;
+  }
+
+  const deployed = res.data || {};
+  if (deployBtn) {
+    deployBtn.disabled = false;
+    deployBtn.style.background = 'var(--t1)';
+    deployBtn.style.color = '#000';
+    deployBtn.style.cursor = 'pointer';
+    deployBtn.innerHTML = '<i data-lucide="server" width="15" height="15"></i> Deploy Again';
+  }
+  if (statusEl) statusEl.textContent = 'Server ready on ' + String(deployed.localAddress || ('127.0.0.1:' + String(port)));
+  lucide.createIcons();
+  showToast('OK', 'Server deployed', String(deployed.name || name) + ' is ready');
+  await refreshServerDeployments(deployed.deploymentId || '');
 }
 

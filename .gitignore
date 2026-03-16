@@ -1,3 +1,15 @@
 .vercel
 .env
 .env.local
+
+# Log files
+*.log
+
+# Temporary files
+tmp_*.png
+
+# Build artifacts (optional - uncomment if you don't want to track dist/)
+# dist/
+
+# Third party dependencies
+third_party/

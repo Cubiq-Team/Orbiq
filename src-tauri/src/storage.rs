@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::fs;
 use std::path::{Path, PathBuf};
-use std::process::Child;
+use std::process::{Child, ChildStdin};
 use std::sync::{Mutex, MutexGuard};
 use std::time::{SystemTime, UNIX_EPOCH};
 
@@ -12,13 +12,83 @@ use crate::domain::{InstanceRecord, ProfileRecord};
 
 const CURRENT_SCHEMA_VERSION: u32 = 2;
 
+fn default_server_type() -> String {
+    "vanilla".to_string()
+}
+
+fn default_server_version() -> String {
+    "1.21.4".to_string()
+}
+
+fn default_server_ram_gb() -> u8 {
+    4
+}
+
+fn default_max_players() -> u16 {
+    20
+}
+
+fn default_runtime_mode() -> String {
+    "stop_on_close".to_string()
+}
+
+fn default_idle_shutdown_minutes() -> u16 {
+    10
+}
+
+fn default_shutdown_warning_seconds() -> u16 {
+    60
+}
+
+fn default_server_status() -> String {
+    "stopped".to_string()
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub(crate) struct DeploymentRecord {
     pub(crate) id: String,
     pub(crate) name: String,
     pub(crate) host: String,
+    #[serde(default = "default_server_type")]
+    pub(crate) server_type: String,
+    #[serde(default = "default_server_version")]
+    pub(crate) version: String,
+    #[serde(default = "default_server_ram_gb")]
+    pub(crate) ram_gb: u8,
+    #[serde(default = "default_max_players")]
+    pub(crate) max_players: u16,
+    #[serde(default)]
+    pub(crate) motd: String,
     pub(crate) port: u16,
+    #[serde(default)]
+    pub(crate) running: bool,
+    #[serde(default)]
+    pub(crate) players_online: u16,
+    #[serde(default)]
+    pub(crate) join_code: String,
+    #[serde(default = "default_runtime_mode")]
+    pub(crate) runtime_mode: String,
+    #[serde(default)]
+    pub(crate) idle_shutdown_enabled: bool,
+    #[serde(default = "default_idle_shutdown_minutes")]
+    pub(crate) idle_shutdown_minutes: u16,
+    #[serde(default = "default_shutdown_warning_seconds")]
+    pub(crate) shutdown_warning_seconds: u16,
+    #[serde(default)]
+    pub(crate) idle_deadline_epoch: Option<u64>,
+    #[serde(default)]
+    pub(crate) warning_started_at_epoch: Option<u64>,
+    #[serde(default)]
+    pub(crate) last_started_at_epoch: Option<u64>,
+    #[serde(default)]
+    pub(crate) last_stopped_at_epoch: Option<u64>,
+    #[serde(default)]
+    pub(crate) public_subdomain: Option<String>,
+    #[serde(default)]
+    pub(crate) public_address: Option<String>,
+    #[serde(default = "default_server_status")]
+    pub(crate) status: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -51,6 +121,7 @@ enum PersistentDiskState {
 
 pub(crate) struct ProcessHandle {
     pub(crate) child: Child,
+    pub(crate) stdin: Option<ChildStdin>,
 }
 
 pub(crate) struct RuntimeState {
@@ -58,6 +129,7 @@ pub(crate) struct RuntimeState {
     pub(crate) profiles: Vec<ProfileRecord>,
     pub(crate) deployments: Vec<DeploymentRecord>,
     pub(crate) processes: HashMap<String, ProcessHandle>,
+    pub(crate) deployment_processes: HashMap<String, ProcessHandle>,
     pub(crate) next_instance_id: u32,
     pub(crate) next_deployment_id: u32,
 }
@@ -86,6 +158,7 @@ impl RuntimeState {
             profiles: Self::default_profiles(),
             deployments: Vec::new(),
             processes: HashMap::new(),
+            deployment_processes: HashMap::new(),
             next_instance_id: 1,
             next_deployment_id: 1,
         }
@@ -109,6 +182,22 @@ impl RuntimeState {
             instance.running = false;
         }
 
+        let mut deployments = data.deployments;
+        for deployment in &mut deployments {
+            deployment.running = false;
+            deployment.players_online = 0;
+            deployment.idle_deadline_epoch = None;
+            deployment.warning_started_at_epoch = None;
+            if deployment.status.trim().is_empty() {
+                deployment.status = "stopped".to_string();
+            } else if deployment.status.starts_with("running")
+                || deployment.status.starts_with("idle")
+                || deployment.status.starts_with("shutdown")
+            {
+                deployment.status = "stopped".to_string();
+            }
+        }
+
         Self {
             instances,
             profiles: if data.profiles.is_empty() {
@@ -116,8 +205,9 @@ impl RuntimeState {
             } else {
                 data.profiles
             },
-            deployments: data.deployments,
+            deployments,
             processes: HashMap::new(),
+            deployment_processes: HashMap::new(),
             next_instance_id: data.next_instance_id.max(1),
             next_deployment_id: data.next_deployment_id.max(1),
         }
@@ -394,7 +484,26 @@ mod tests {
                 id: "deploy-1".to_string(),
                 name: "Server".to_string(),
                 host: "This Computer".to_string(),
+                server_type: "paper".to_string(),
+                version: "1.21.4".to_string(),
+                ram_gb: 4,
+                max_players: 20,
+                motd: "A Minecraft Server".to_string(),
                 port: 25565,
+                running: true,
+                players_online: 0,
+                join_code: "ABC123".to_string(),
+                runtime_mode: "stop_on_close".to_string(),
+                idle_shutdown_enabled: true,
+                idle_shutdown_minutes: 10,
+                shutdown_warning_seconds: 60,
+                idle_deadline_epoch: None,
+                warning_started_at_epoch: None,
+                last_started_at_epoch: None,
+                last_stopped_at_epoch: None,
+                public_subdomain: None,
+                public_address: None,
+                status: "running".to_string(),
             }];
             runtime.next_instance_id = 10;
             runtime.next_deployment_id = 3;

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orbiq</title>
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles/app.css">
 
 </head>
@@ -14,61 +14,90 @@
 
   <!-- TITLEBAR -->
   <div class="titlebar">
-    <div class="brand">
-      <div class="brand-logo"><img src="assets/Orbiq.svg" width="22" height="22" alt="Orbiq" style="display:block;border-radius:5px;"></div>
-      <span class="brand-name">Orbiq</span>
-    </div>
-
-    <div class="tb-sep"></div>
-
-    <button class="tb-btn primary" onclick="openModal('add-instance')">
-      <i data-lucide="plus" width="12" height="12"></i>
-      Add Instance
-    </button>
-
-    <button class="tb-btn" onclick="launchSequence()">
-      <i data-lucide="play" width="12" height="12"></i>
-      Launch
-    </button>
-    <button class="tb-btn" onclick="openModal('edit-instance')">
-      <i data-lucide="pencil" width="12" height="12"></i>
-      Edit
-    </button>
-    <button class="tb-btn" onclick="openModal('manage-mods')">
-      <i data-lucide="puzzle" width="12" height="12"></i>
-      Mods
-    </button>
-    <button class="tb-btn" onclick="openModal('skin-manager')">
-      <i data-lucide="user" width="12" height="12"></i>
-      Skin
-    </button>
-    <button class="tb-btn" onclick="openModal('settings')" style="position:relative">
-      <i data-lucide="settings" width="12" height="12"></i>
-      Settings
-      <div class="tb-notif"></div>
-    </button>
-
-    <div class="tb-spacer" data-tauri-drag-region></div>
-
-    <div class="search-wrap">
-      <div class="search-ico"><i data-lucide="search" width="12" height="12"></i></div>
-      <input class="search-input" type="text" placeholder="Search instancesÃ¢â‚¬Â¦" oninput="filterInstances(this.value)">
-    </div>
-
-    <div class="auth-pill" onclick="goToAccountsPage()">
-      <div class="auth-avatar">
-        <img src="https://mc-heads.net/avatar/Dream/32" alt="" onerror="this.style.display='none'">
+    <div class="titlebar-top" data-tauri-drag-region>
+      <div class="brand">
+        <div class="brand-logo"><img src="assets/Orbiq.svg" width="22" height="22" alt="Orbiq" style="display:block;border-radius:5px;"></div>
+        <span class="brand-name">Orbiq</span>
       </div>
-      <div>
-        <div class="auth-name">Dream <span class="orbiq-badge">ORBIQ</span></div>
-        <div class="auth-status"><div class="auth-dot"></div></div>
+
+      <div class="titlebar-top-spacer" data-tauri-drag-region></div>
+
+      <div class="titlebar-right">
+        <div class="auth-wrap">
+        <div class="auth-pill" onclick="toggleAuthDropdown(event)">
+          <div class="auth-avatar">
+            <img src="https://mc-heads.net/avatar/Dream/32" alt="" onerror="this.style.display='none'">
+          </div>
+          <div class="auth-name">Dream</div>
+          <i data-lucide="chevron-down" width="11" height="11" class="auth-chevron"></i>
+        </div>
+        <div class="auth-dropdown" id="auth-dropdown">
+          <div class="auth-dd-header">
+            <div class="auth-dd-avatar">
+              <img src="https://mc-heads.net/avatar/Dream/32" alt="" onerror="this.style.display='none'">
+            </div>
+            <div class="auth-dd-meta">
+              <div class="auth-dd-name">Dream</div>
+              <div class="auth-dd-sub">Active profile</div>
+            </div>
+          </div>
+          <div class="auth-dd-list">
+            <button class="auth-dd-item" onclick="openAccountsFromAuthDropdown()">
+              <i data-lucide="user" width="12" height="12"></i>
+              Accounts
+            </button>
+            <button class="auth-dd-item" onclick="openLinkMicrosoftFromAuthDropdown()">
+              <i data-lucide="link" width="12" height="12"></i>
+              Link Microsoft
+            </button>
+          </div>
+        </div>
+        </div>
+
+        <div class="wm-btns">
+          <button class="wm-btn" data-window-action="minimize"><i data-lucide="minus" width="10" height="10"></i></button>
+          <button class="wm-btn" data-window-action="maximize"><i data-lucide="square" width="10" height="10"></i></button>
+          <button class="wm-btn close" data-window-action="close"><i data-lucide="x" width="10" height="10"></i></button>
+        </div>
       </div>
     </div>
 
-    <div class="wm-btns">
-      <button class="wm-btn" data-window-action="minimize"><i data-lucide="minus" width="10" height="10"></i></button>
-      <button class="wm-btn" data-window-action="maximize"><i data-lucide="square" width="10" height="10"></i></button>
-      <button class="wm-btn close" data-window-action="close"><i data-lucide="x" width="10" height="10"></i></button>
+    <div class="titlebar-toolbar">
+      <button class="tb-btn primary" onclick="openModal('add-instance')">
+        <i data-lucide="plus" width="12" height="12"></i>
+        Add Instance
+      </button>
+
+      <div class="tb-sep"></div>
+
+      <button class="tb-btn" onclick="launchSequence()">
+        <i data-lucide="play" width="12" height="12"></i>
+        Launch
+      </button>
+      <button class="tb-btn" onclick="openModal('edit-instance')">
+        <i data-lucide="pencil" width="12" height="12"></i>
+        Edit
+      </button>
+      <button class="tb-btn" onclick="openModal('manage-mods')">
+        <i data-lucide="puzzle" width="12" height="12"></i>
+        Mods
+      </button>
+      <button class="tb-btn" onclick="openModal('skin-manager')">
+        <i data-lucide="user" width="12" height="12"></i>
+        Skin
+      </button>
+      <button class="tb-btn" onclick="openModal('settings')" style="position:relative">
+        <i data-lucide="settings" width="12" height="12"></i>
+        Settings
+        <div class="tb-notif"></div>
+      </button>
+
+      <div class="tb-spacer" data-tauri-drag-region></div>
+
+      <div class="search-wrap">
+        <div class="search-ico"><i data-lucide="search" width="12" height="12"></i></div>
+        <input class="search-input" type="text" placeholder="Search instances..." oninput="filterInstances(this.value)">
+      </div>
     </div>
   </div>
 
@@ -77,40 +106,18 @@
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
-      <div class="sb-section">
-        <div class="profile-switcher" onclick="openModal('profiles')">
-          <div class="profile-dot" style="background:#3a5a3a"></div>
-          <span class="profile-name">Gaming</span>
-          <i data-lucide="chevrons-up-down" width="11" height="11" class="profile-arrow"></i>
-        </div>
-      </div>
-
-      <div class="sb-div"></div>
-
-      <div class="sb-section">
+      <div>
         <div class="sb-label">Instances</div>
-        <button class="sb-item active" id="sb-instances-all" onclick="setPage('instances',this)">
+        <button class="sb-item active" id="sb-instances-all" onclick="setPage('instances',this)" oncontextmenu="openInstancesSidebarContextMenu(event)">
           <i data-lucide="layout-grid" width="13" height="13"></i>
-          All
-          <span class="sb-badge">3</span>
-        </button>
-        <button class="sb-item" onclick="setPage('instances',this)">
-          <i data-lucide="clock" width="13" height="13"></i>
-          Recent
-        </button>
-        <button class="sb-item" onclick="setPage('instances',this);filterByLoader('vanilla')">
-          <i data-lucide="box" width="13" height="13"></i>
-          Vanilla
-        </button>
-        <button class="sb-item" onclick="setPage('instances',this);filterByLoader('modded')">
-          <i data-lucide="sparkles" width="13" height="13"></i>
-          Modded
+          Instances
+          <span class="sb-badge" id="sb-instances-count">0</span>
         </button>
       </div>
 
       <div class="sb-div"></div>
 
-      <div class="sb-section">
+      <div>
         <div class="sb-label">Browse</div>
         <button class="sb-item" id="sb-modrinth" onclick="setPage('modrinth',this)">
           <img class="sb-brand-logo" src="assets/browse-logos/modrinth.svg" alt="Modrinth logo">
@@ -124,7 +131,7 @@
 
       <div class="sb-div"></div>
 
-      <div class="sb-section">
+      <div>
         <div class="sb-label">Social</div>
         <button class="sb-item" onclick="setPage('news',this)">
           <i data-lucide="newspaper" width="13" height="13"></i>
@@ -139,16 +146,16 @@
 
       <div class="sb-div"></div>
 
-      <div class="sb-section">
+      <div>
         <div class="sb-label">Servers</div>
-        <button class="sb-item" onclick="setPage('server',this)">
+        <button class="sb-item" id="sb-create-server" onclick="setPage('server',this)">
           <i data-lucide="server" width="13" height="13"></i>
           Create a Server
         </button>
-        <button class="sb-item" onclick="setPage('server',this)">
+        <button class="sb-item" id="sb-my-servers" onclick="setPage('my-servers',this)">
           <i data-lucide="hard-drive" width="13" height="13"></i>
           My Servers
-          <span class="sb-badge">2</span>
+          <span class="sb-badge" id="sb-my-servers-count">0</span>
         </button>
       </div>
 
@@ -168,7 +175,7 @@
     <!-- MAIN PAGES -->
     <div class="main">
 
-      <!-- Ã¢â€â‚¬Ã¢â€â‚¬ INSTANCES PAGE Ã¢â€â‚¬Ã¢â€â‚¬ -->
+      <!-- INSTANCES PAGE -->
       <div class="page active" id="page-instances">
         <div class="instances-panel">
 
@@ -257,14 +264,7 @@
             </div>
 
             <div class="info-section-label">Weekly Play Time</div>
-            <div class="playtime-bars" id="detail-pt-bars">
-              <div class="pt-row"><span class="pt-label">Mon</span><div class="pt-bar"><div class="pt-fill" style="width:60%"></div></div><span class="pt-val">1h 2m</span></div>
-              <div class="pt-row"><span class="pt-label">Tue</span><div class="pt-bar"><div class="pt-fill" style="width:80%"></div></div><span class="pt-val">1h 24m</span></div>
-              <div class="pt-row"><span class="pt-label">Wed</span><div class="pt-bar"><div class="pt-fill" style="width:30%"></div></div><span class="pt-val">32m</span></div>
-              <div class="pt-row"><span class="pt-label">Thu</span><div class="pt-bar"><div class="pt-fill" style="width:0%"></div></div><span class="pt-val">Ã¢â‚¬â€</span></div>
-              <div class="pt-row"><span class="pt-label">Fri</span><div class="pt-bar"><div class="pt-fill" style="width:100%"></div></div><span class="pt-val">1h 42m</span></div>
-              <div class="pt-row"><span class="pt-label">Today</span><div class="pt-bar"><div class="pt-fill" style="width:12%;background:var(--green)"></div></div><span class="pt-val" style="color:var(--green)">12m</span></div>
-            </div>
+            <div class="playtime-bars" id="detail-pt-bars"></div>
           </div>
 
           <div class="detail-actions">
@@ -300,7 +300,7 @@
         </div>
       </div>
 
-      <!-- Ã¢â€â‚¬Ã¢â€â‚¬ NEWS PAGE Ã¢â€â‚¬Ã¢â€â‚¬ -->
+      <!-- NEWS PAGE -->
       <div class="page" id="page-news">
         <div class="news-panel">
           <div class="panel-header">
@@ -416,7 +416,7 @@
           </div>
         </div>
       </div>
-      <!-- Ã¢â€â‚¬Ã¢â€â‚¬ FRIENDS PAGE Ã¢â€â‚¬Ã¢â€â‚¬ -->
+      <!-- FRIENDS PAGE -->
       <div class="page" id="page-friends">
         <div class="friends-panel">
           <div class="panel-header">
@@ -430,7 +430,7 @@
         </div>
       </div>
 
-      <!-- Ã¢â€â‚¬Ã¢â€â‚¬ SERVER PAGE Ã¢â€â‚¬Ã¢â€â‚¬ -->
+      <!-- SERVER PAGE -->
       <div class="page" id="page-server">
         <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
           <div class="panel-header">
@@ -459,25 +459,37 @@
                 </div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
                   <div class="field"><div class="label">Minecraft Version</div><select class="select" id="srv-version" onchange="onSrvVersionChange(this.value)"><option>1.21.4</option><option>1.21.1</option><option>1.20.6</option><option>1.20.1</option><option>1.19.4</option></select></div>
-                  <div class="field"><div class="label">Server Type</div><select class="select" id="srv-type" onchange="updateSrvType(this.value)"><option value="vanilla">Vanilla</option><option value="paper">Paper</option><option value="fabric">Fabric</option><option value="forge">Forge</option><option value="purpur">Purpur</option></select></div>
+                  <div class="field"><div class="label">Server Type</div><select class="select" id="srv-type" onchange="updateSrvType(this.value)"><option value="vanilla">Vanilla</option><option value="paper">Paper</option><option value="fabric">Fabric</option><option value="forge">Forge</option></select></div>
                 </div>
-                <div class="field"><div class="label">Description</div><textarea class="textarea" rows="2" placeholder="Optional server descriptionÃ¢â‚¬Â¦">A friendly survival server for friends!</textarea></div>
-                <div style="margin-top:4px;padding:10px 12px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;display:flex;align-items:center;gap:9px;"><i data-lucide="info" width="14" height="14" style="color:var(--t4);flex-shrink:0;"></i><span style="font-size:11px;font-family:var(--mono);color:var(--t3);" id="srv-type-desc">Vanilla Ã¢â‚¬â€ Official Mojang server, no plugins or mods.</span></div>
+                <div class="field"><div class="label">Description</div><textarea class="textarea" rows="2" placeholder="Optional server description...">A friendly survival server for friends!</textarea></div>
+                <div style="margin-top:4px;padding:10px 12px;background:var(--s2);border:1px solid var(--b2);border-radius:8px;display:flex;align-items:center;gap:9px;"><i data-lucide="info" width="14" height="14" style="color:var(--t4);flex-shrink:0;"></i><span style="font-size:11px;font-family:var(--mono);color:var(--t3);" id="srv-type-desc">Vanilla - Official Mojang server, no plugins or mods.</span></div>
               </div>
               <div class="srv-step" id="srv-step-2" style="display:none;">
                 <div style="font-size:18px;font-weight:800;color:var(--t1);margin-bottom:4px;">Game Settings</div>
                 <div style="font-size:12px;font-family:var(--mono);color:var(--t3);margin-bottom:22px;">Configure gameplay rules, performance, and access.</div>
+                <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;padding:10px 12px;margin-bottom:14px;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+                    <div>
+                      <div style="font-size:11px;font-family:var(--mono);color:var(--t2);margin-bottom:2px;">Analyze My PC</div>
+                      <div style="font-size:10px;font-family:var(--mono);color:var(--t4);">Detect CPU/RAM/Disk/Java and get recommended setup.</div>
+                    </div>
+                    <button class="btn btn-ghost" style="height:28px;font-size:11px;flex-shrink:0;" onclick="analyzeServerHost()">
+                      <i data-lucide="scan-search" width="11" height="11"></i> Analyze
+                    </button>
+                  </div>
+                  <div id="srv-analyze-result" style="display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--b1);"></div>
+                </div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Game Mode</div><select class="select"><option>Survival</option><option>Creative</option><option>Adventure</option><option>Spectator</option></select></div><div class="field"><div class="label">Difficulty</div><select class="select"><option>Normal</option><option>Easy</option><option>Hard</option><option>Peaceful</option></select></div></div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Max Players</div><input class="input" type="number" value="20" min="1" max="200"></div><div class="field"><div class="label">View Distance</div><select class="select"><option>8 chunks</option><option>10 chunks</option><option>12 chunks</option><option>16 chunks</option></select></div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Max Players</div><input class="input" id="srv-max-players" type="number" value="20" min="1" max="200"></div><div class="field"><div class="label">View Distance</div><select class="select"><option>8 chunks</option><option>10 chunks</option><option>12 chunks</option><option>16 chunks</option></select></div></div>
                 <div class="field"><div class="label">RAM Allocation</div><div style="margin:6px 0 4px;"><input type="range" class="slider" min="1" max="16" value="4" id="srv-ram" oninput="document.getElementById('srv-ram-val').textContent=this.value+' GB'"></div><div style="display:flex;justify-content:space-between;"><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">1 GB</span><span style="font-size:11px;font-family:var(--mono);color:var(--t2)" id="srv-ram-val">4 GB</span><span style="font-size:10px;font-family:var(--mono);color:var(--t4)">16 GB</span></div></div>
-                <div class="field"><div class="label">World Seed</div><input class="input" placeholder="Leave empty for random seedÃ¢â‚¬Â¦"></div>
+                <div class="field"><div class="label">World Seed</div><input class="input" placeholder="Leave empty for random seed..."></div>
                 <div class="label" style="margin-bottom:8px;">Rules</div>
                 <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;overflow:hidden;" id="srv-rules"></div>
               </div>
               <div class="srv-step" id="srv-step-3" style="display:none;">
                 <div style="font-size:18px;font-weight:800;color:var(--t1);margin-bottom:4px;">Mods &amp; Plugins</div>
                 <div style="font-size:12px;font-family:var(--mono);color:var(--t3);margin-bottom:22px;">Add plugins or mods to your server.</div>
-                <div class="field" style="position:relative;"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4);"></i><input class="input" style="padding-left:28px;" placeholder="Search plugins &amp; modsÃ¢â‚¬Â¦"></div>
+                <div class="field" style="position:relative;"><i data-lucide="search" width="12" height="12" style="position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t4);"></i><input class="input" style="padding-left:28px;" placeholder="Search plugins &amp; mods..."></div>
                 <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">RECOMMENDED</div>
                 <div id="srv-plugins-list"></div>
               </div>
@@ -494,7 +506,23 @@
                   <div class="info-row"><span class="info-key">RAM</span><span class="info-val"><span id="sum-ram">4 GB</span></span></div>
                   <div class="info-row"><span class="info-key">Hosting</span><span class="info-val"><span id="sum-host">This Computer</span></span></div>
                 </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Server Port</div><input class="input" value="25565"></div><div class="field"><div class="label">MOTD</div><input class="input" value="A Minecraft Server"></div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"><div class="field"><div class="label">Server Port</div><input class="input" id="srv-port" value="25565"></div><div class="field"><div class="label">MOTD</div><input class="input" id="srv-motd" value="A Minecraft Server"></div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                  <div class="field"><div class="label">Runtime</div><select class="select" id="srv-runtime-mode"><option value="stop_on_close">Stop when launcher closes</option><option value="background">Run in background (24/7)</option></select></div>
+                  <div class="field"><div class="label">Public Subdomain (optional)</div><input class="input" id="srv-public-subdomain" placeholder="kyra.orbiq.fun"></div>
+                </div>
+                <label class="check-row" style="margin-top:2px;"><div class="check-box on" id="srv-idle-enabled" onclick="toggleCheck(this);onSrvIdleToggle()"><i data-lucide="check" width="10" height="10" style="color:#000"></i></div><span class="check-label">Stop server if empty for <input class="input" id="srv-idle-minutes" type="number" min="1" max="240" value="10" style="width:58px;height:24px;padding:0 6px;margin:0 4px;"> minutes</span></label>
+                <div style="background:var(--s2);border:1px solid var(--b2);border-radius:8px;padding:10px 12px;margin-top:8px;">
+                  <div style="font-size:10px;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">Join Code & Connection</div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                    <input class="input" id="srv-join-code" value="------" readonly style="height:28px;font-family:var(--mono);font-size:12px;letter-spacing:1px;text-align:center;flex:1;">
+                    <button class="btn btn-ghost" style="height:28px;font-size:10.5px;" onclick="copyCurrentServerJoinCode()">Copy</button>
+                    <button class="btn btn-ghost" style="height:28px;font-size:10.5px;" onclick="regenerateCurrentServerJoinCode()">Generate New</button>
+                  </div>
+                  <div class="info-row"><span class="info-key">Local</span><span class="info-val" id="srv-conn-local">127.0.0.1:25565</span></div>
+                  <div class="info-row"><span class="info-key">LAN</span><span class="info-val" id="srv-conn-lan">-</span></div>
+                  <div class="info-row"><span class="info-key">Public</span><span class="info-val" id="srv-conn-public">-</span></div>
+                </div>
                 <label class="check-row" style="margin-top:2px;"><div class="check-box" id="eula-box" onclick="toggleCheck(this);checkEula()"></div><span class="check-label">I agree to the <span style="color:var(--t2);text-decoration:underline;cursor:pointer;">Minecraft EULA</span></span></label>
                 <button id="srv-launch-btn" disabled onclick="startServerDeploy()" style="margin-top:16px;width:100%;height:42px;border-radius:9px;border:none;background:var(--t4);color:#000;font-size:13px;font-weight:800;font-family:var(--sans);cursor:not-allowed;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;"><i data-lucide="server" width="15" height="15"></i> Deploy Server</button>
               </div>
@@ -503,7 +531,7 @@
               <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:12px;">Preview</div>
               <div style="background:var(--s2);border:1px solid var(--b2);border-radius:10px;overflow:hidden;margin-bottom:14px;">
                 <div style="height:56px;background:linear-gradient(135deg,#1a2a1a,var(--s3));display:flex;align-items:center;justify-content:center;" id="prev-icon"><i data-lucide="castle" width="32" height="32" style="color:var(--t2)"></i></div>
-                <div style="padding:9px 10px;"><div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:3px;" id="prev-name">My Awesome Server</div><div style="font-size:10px;font-family:var(--mono);color:var(--t3);margin-bottom:6px;" id="prev-type">Vanilla Ã‚Â· 1.21.4</div><div style="display:flex;align-items:center;gap:5px;font-size:10px;font-family:var(--mono);color:var(--t4);"><div style="width:5px;height:5px;border-radius:50%;background:var(--t4);"></div><span>Offline Ã¢â‚¬â€ not deployed</span></div></div>
+                <div style="padding:9px 10px;"><div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:3px;" id="prev-name">My Awesome Server</div><div style="font-size:10px;font-family:var(--mono);color:var(--t3);margin-bottom:6px;" id="prev-type">Vanilla - 1.21.4</div><div style="display:flex;align-items:center;gap:5px;font-size:10px;font-family:var(--mono);color:var(--t4);"><div style="width:5px;height:5px;border-radius:50%;background:var(--t4);"></div><span>Offline - not deployed</span></div></div>
               </div>
               <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">Config</div>
               <div style="display:flex;flex-direction:column;gap:3px;">
@@ -515,8 +543,34 @@
               <div style="margin-top:14px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">Added Plugins</div>
               <div id="prev-plugins" style="font-size:11px;font-family:var(--mono);color:var(--t4);">None yet</div>
               <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--b1);"><div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:6px;">Steps</div><div id="prev-steps-list"></div></div>
+              <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b1);">
+                <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);color:var(--t4);margin-bottom:8px;">Server Manager</div>
+                <div id="srv-manager-list" style="display:flex;flex-direction:column;gap:6px;"></div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- MY SERVERS PAGE -->
+      <div class="page" id="page-my-servers">
+        <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+          <div class="panel-header">
+            <span class="panel-title">My Servers</span>
+            <span class="count-badge" id="my-servers-count">0 servers</span>
+            <div style="margin-left:auto;display:flex;gap:6px;">
+              <button class="tb-btn" onclick="refreshServerDeployments()"><i data-lucide="refresh-cw" width="12" height="12"></i>Refresh</button>
+              <button class="tb-btn primary" onclick="setPage('server', document.getElementById('sb-create-server'))"><i data-lucide="plus" width="12" height="12"></i>Create Server</button>
+            </div>
+          </div>
+          <div style="padding:16px 18px;border-bottom:1px solid var(--b1);display:flex;align-items:end;gap:8px;flex-wrap:wrap;">
+            <div class="field" style="margin:0;min-width:280px;flex:1;">
+              <div class="label">Join Server by Code</div>
+              <input class="input" id="join-code-input" placeholder="Enter code (e.g. A7X9K2)">
+            </div>
+            <button class="btn btn-ghost" style="height:34px;" onclick="resolveJoinCodeFromInput()"><i data-lucide="link" width="12" height="12"></i>Resolve</button>
+          </div>
+          <div id="my-servers-list" style="flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px;"></div>
         </div>
       </div>
 
@@ -524,54 +578,70 @@
       <div class="page" id="page-accounts">
         <div class="accounts-panel">
           <div class="panel-header">
-            <span class="panel-title">Orbiq Account</span>
+            <div class="accounts-header-main">
+              <span class="panel-title">Orbiq Account</span>
+              <span class="accounts-header-sub">Manage identity, linked profiles, and sign-in status</span>
+            </div>
             <span class="count-badge" id="accounts-profile-count">0 profiles</span>
-            <div style="margin-left:auto;display:flex;gap:6px">
-              <button class="btn btn-ghost" style="height:28px;font-size:11px" onclick="openModal('link-microsoft')">
+            <div class="accounts-toolbar">
+              <button class="btn btn-ghost accounts-toolbar-btn" onclick="openModal('link-microsoft')">
                 <i data-lucide="link" width="11" height="11"></i> Link Microsoft
               </button>
-              <button class="btn btn-ghost" style="height:28px;font-size:11px" onclick="openModal('add-offline-profile')">
+              <button class="btn btn-ghost accounts-toolbar-btn" onclick="openModal('add-offline-profile')">
                 <i data-lucide="user-plus" width="11" height="11"></i> Add Profile
               </button>
             </div>
           </div>
           <div class="accounts-content">
-            <div class="orbiq-acct-card">
-              <div class="orbiq-acct-header">
-                <div class="orbiq-acct-logo"><img src="assets/Orbiq.svg" width="32" height="32" alt="Orbiq" style="display:block;border-radius:8px;"></div>
-                <div class="orbiq-acct-info">
-                  <div class="orbiq-acct-name">Dream</div>
-                  <div class="orbiq-acct-email">dream@orbiq.app</div>
-                </div>
-                <div class="orbiq-acct-badge">
-                  <div style="width:5px;height:5px;border-radius:50%;background:var(--green)"></div>
-                  Signed in
+            <div class="accounts-grid">
+              <div class="accounts-main">
+                <div class="orbiq-acct-card">
+                  <div class="orbiq-acct-shell">
+                    <div class="orbiq-acct-header">
+                      <div class="orbiq-acct-info">
+                        <div class="orbiq-acct-name">Dream</div>
+                        <div class="orbiq-acct-email">dream@orbiq.app</div>
+                      </div>
+                      <div class="orbiq-acct-badge">
+                        <div style="width:5px;height:5px;border-radius:50%;background:var(--green)"></div>
+                        Signed in
+                      </div>
+                    </div>
+                    <div class="orbiq-acct-meta">
+                      <div class="orbiq-acct-meta-row">
+                        <span>Orbiq ID</span>
+                        <span class="orbiq-acct-id">ORQ-0000-0000</span>
+                      </div>
+                      <div class="orbiq-acct-meta-row">
+                        <span>Plan</span>
+                        <span class="orbiq-acct-plan">Free</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="linked-list"></div>
                 </div>
               </div>
-              <div class="orbiq-acct-meta">
-                <div class="orbiq-acct-meta-row">
-                  <span>Orbiq ID</span>
-                  <span class="orbiq-acct-id">ORQ-0000-0000</span>
+              <aside class="accounts-side">
+                <div class="accounts-help">
+                  <div class="accounts-help-title">How it works</div>
+                  <div class="accounts-help-row">
+                    <div class="accounts-help-icon ms">
+                      <div class="ms-grid" style="width:8px;height:8px;"><div style="background:#f25022;border-radius:0.5px"></div><div style="background:#7fba00;border-radius:0.5px"></div><div style="background:#00a4ef;border-radius:0.5px"></div><div style="background:#ffb900;border-radius:0.5px"></div></div>
+                    </div>
+                    <span>Microsoft: Official servers and purchased license</span>
+                  </div>
+                  <div class="accounts-help-row">
+                    <div class="accounts-help-icon offline"><i data-lucide="user" width="9" height="9"></i></div>
+                    <span>Offline profile: Cracked servers and local play</span>
+                  </div>
                 </div>
-                <div class="orbiq-acct-meta-row">
-                  <span>Plan</span>
-                  <span class="orbiq-acct-plan">Free</span>
+                <div class="accounts-side-card">
+                  <div class="accounts-side-title">Account Health</div>
+                  <div class="accounts-side-row"><span>Orbiq</span><strong class="accounts-ok">Connected</strong></div>
+                  <div class="accounts-side-row"><span>Microsoft</span><strong id="accounts-ms-health">Checking...</strong></div>
+                  <div class="accounts-side-row"><span>Active profile</span><strong id="accounts-active-profile">-</strong></div>
                 </div>
-              </div>
-              <div class="linked-list"></div>
-            </div>
-            <div class="accounts-help">
-              <div class="accounts-help-title">How it works</div>
-              <div class="accounts-help-row">
-                <div class="accounts-help-icon ms">
-                  <div class="ms-grid" style="width:8px;height:8px;"><div style="background:#f25022;border-radius:0.5px"></div><div style="background:#7fba00;border-radius:0.5px"></div><div style="background:#00a4ef;border-radius:0.5px"></div><div style="background:#ffb900;border-radius:0.5px"></div></div>
-                </div>
-                <span>Microsoft: Official servers and purchased license</span>
-              </div>
-              <div class="accounts-help-row">
-                <div class="accounts-help-icon offline"><i data-lucide="user" width="9" height="9"></i></div>
-                <span>Offline profile: Cracked servers and local play</span>
-              </div>
+              </aside>
             </div>
           </div>
           <div class="accounts-footer">
@@ -592,13 +662,13 @@
       <div class="status-dot" style="background:var(--green)"></div>
       Online
     </div>
-    <div class="status-item">Dream Ã‚Â· Microsoft</div>
+    <div class="status-item">Dream - Microsoft</div>
     <div class="status-item">
       <div class="status-dot" style="background:var(--blue)"></div>
-      Instance Ã¢â‚¬â€ Running
+      Instance - Running
     </div>
     <div style="flex:1"></div>
-    <div class="status-item" id="statusbar-time">Ã¢â‚¬â€</div>
+    <div class="status-item" id="statusbar-time">-</div>
     <div class="status-item">Orbiq v2.2.0</div>
     <div class="status-item">3 instances</div>
   </div>
@@ -616,10 +686,12 @@
 <div class="ctx-menu" id="ctx-menu" style="display:none"></div>
 
 <script src="./scripts/vendor/lucide.min.js"></script>
+<script src="./scripts/vendor/skinview3d.bundle.js"></script>
 <script src="./scripts/app.js"></script>
 
 </body>
 </html>
+
 
 
 
