@@ -16,8 +16,9 @@
     "tauri:dev": "tauri dev",
     "tauri:build": "tauri build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["minecraft", "launcher", "tauri", "rust", "gaming"],
+  "author": "Cubiq Team",
+  "license": "UNLICENSED",
+  "private": true,
   "type": "commonjs"
 }

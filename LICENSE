@@ -1,0 +1,210 @@
+ORBIQ PROPRIETARY SOFTWARE LICENSE AGREEMENT
+
+Copyright (c) 2026 Cubiq Team. All Rights Reserved.
+
+IMPORTANT - READ CAREFULLY: This License Agreement ("Agreement") is a legal agreement between you (either an individual or a single entity, "Licensee") and Cubiq Team ("Licensor") for the Orbiq Minecraft Launcher software, including all associated documentation, files, and materials (collectively, the "Software").
+
+BY DOWNLOADING, INSTALLING, COPYING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT, DO NOT DOWNLOAD, INSTALL, COPY, OR USE THE SOFTWARE.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+1. GRANT OF LICENSE
+
+Subject to the terms and conditions of this Agreement, Licensor grants Licensee a limited, non-exclusive, non-transferable, revocable license to:
+
+   a) Download and install the Software on devices owned or controlled by Licensee;
+   b) Use the Software solely for personal, non-commercial purposes;
+   c) Make one (1) backup copy of the Software for archival purposes only.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+2. RESTRICTIONS AND PROHIBITED USES
+
+Licensee SHALL NOT, and shall not permit any third party to:
+
+   a) REVERSE ENGINEERING: Reverse engineer, decompile, disassemble, or attempt to derive the source code of the Software, except to the extent expressly permitted by applicable law notwithstanding this limitation;
+   
+   b) MODIFICATION: Modify, adapt, translate, or create derivative works based on the Software;
+   
+   c) DISTRIBUTION: Distribute, sublicense, lease, rent, loan, or otherwise transfer the Software to any third party;
+   
+   d) COMMERCIAL USE: Use the Software for any commercial purpose, including but not limited to:
+      - Selling, licensing, or distributing the Software or any portion thereof;
+      - Using the Software to provide services to third parties;
+      - Incorporating the Software into commercial products or services;
+   
+   e) REMOVAL OF NOTICES: Remove, obscure, or alter any copyright, trademark, or other proprietary rights notices contained in or on the Software;
+   
+   f) CIRCUMVENTION: Circumvent, disable, or interfere with any security features or technical protection measures of the Software;
+   
+   g) UNAUTHORIZED ACCESS: Use the Software to gain unauthorized access to any systems, networks, or data;
+   
+   h) COMPETITIVE ANALYSIS: Use the Software for competitive analysis, benchmarking, or development of competing products;
+   
+   i) REDISTRIBUTION: Upload, post, or otherwise make the Software available on any file-sharing platform, repository, or public network;
+   
+   j) FORKING: Create forks, branches, or derivative repositories of the Software's source code;
+   
+   k) REBRANDING: Rebrand, relabel, or present the Software as your own product or service.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+3. INTELLECTUAL PROPERTY RIGHTS
+
+   a) OWNERSHIP: The Software is licensed, not sold. Licensor retains all right, title, and interest in and to the Software, including all intellectual property rights therein. This Agreement does not grant Licensee any rights to patents, copyrights, trade secrets, trademarks, or any other intellectual property rights.
+   
+   b) TRADEMARKS: "Orbiq," the Orbiq logo, and all related trademarks, service marks, and trade names are proprietary to Licensor. Licensee shall not use any such marks without prior written permission from Licensor.
+   
+   c) RESERVATION OF RIGHTS: All rights not expressly granted to Licensee in this Agreement are reserved by Licensor.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+4. SOURCE CODE ACCESS
+
+   a) NO SOURCE CODE LICENSE: Access to the Software's source code (if provided) does NOT grant Licensee any rights beyond those explicitly stated in Section 1. Source code access is provided solely for transparency, security auditing, and personal educational purposes.
+   
+   b) SOURCE CODE RESTRICTIONS: Licensee shall not:
+      - Copy, modify, or create derivative works from the source code;
+      - Distribute or publish the source code or any portion thereof;
+      - Use the source code to create competing products or services;
+      - Extract algorithms, methods, or techniques for use in other projects.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+5. CONFIDENTIALITY
+
+Licensee acknowledges that the Software contains proprietary and confidential information of Licensor. Licensee agrees to maintain the confidentiality of the Software and not disclose any portion of the Software to any third party without Licensor's prior written consent.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+6. UPDATES AND SUPPORT
+
+   a) UPDATES: Licensor may, at its sole discretion, provide updates, upgrades, or enhancements to the Software. Such updates shall be subject to the terms of this Agreement unless accompanied by a separate license agreement.
+   
+   b) NO OBLIGATION: Licensor has no obligation to provide maintenance, support, updates, or modifications to the Software.
+   
+   c) AUTOMATIC UPDATES: The Software may automatically download and install updates. Licensee consents to such automatic updates.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+7. DATA COLLECTION AND PRIVACY
+
+   a) TELEMETRY: The Software may collect anonymous usage statistics, crash reports, and diagnostic data to improve functionality and user experience.
+   
+   b) PERSONAL DATA: Licensor will handle any personal data in accordance with applicable privacy laws and its Privacy Policy.
+   
+   c) CONSENT: By using the Software, Licensee consents to such data collection and processing.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+8. DISCLAIMER OF WARRANTIES
+
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+LICENSOR DOES NOT WARRANT THAT:
+   a) The Software will meet Licensee's requirements;
+   b) The operation of the Software will be uninterrupted or error-free;
+   c) Defects in the Software will be corrected;
+   d) The Software is free from viruses or other harmful components.
+
+LICENSEE ASSUMES ALL RISK ASSOCIATED WITH THE USE OF THE SOFTWARE.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+9. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, CONSEQUENTIAL, OR PUNITIVE DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+IN ANY CASE, LICENSOR'S ENTIRE LIABILITY UNDER THIS AGREEMENT SHALL NOT EXCEED THE AMOUNT PAID BY LICENSEE FOR THE SOFTWARE (IF ANY).
+
+═══════════════════════════════════════════════════════════════════════════════
+
+10. INDEMNIFICATION
+
+Licensee agrees to indemnify, defend, and hold harmless Licensor and its officers, directors, employees, and agents from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or resulting from:
+   a) Licensee's use or misuse of the Software;
+   b) Licensee's violation of this Agreement;
+   c) Licensee's violation of any applicable laws or regulations.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+11. TERMINATION
+
+   a) AUTOMATIC TERMINATION: This Agreement is effective until terminated. Licensee's rights under this Agreement will terminate automatically without notice if Licensee fails to comply with any term of this Agreement.
+   
+   b) TERMINATION BY LICENSOR: Licensor may terminate this Agreement at any time, with or without cause, upon written notice to Licensee.
+   
+   c) EFFECT OF TERMINATION: Upon termination:
+      - All rights granted to Licensee under this Agreement shall immediately cease;
+      - Licensee must immediately cease all use of the Software;
+      - Licensee must destroy all copies of the Software in Licensee's possession or control;
+      - Sections 3, 5, 8, 9, 10, 11, and 12 shall survive termination.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+12. EXPORT COMPLIANCE
+
+Licensee acknowledges that the Software may be subject to export control laws and regulations. Licensee agrees to comply with all applicable export and import laws and regulations and shall not export, re-export, or transfer the Software in violation of such laws.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+13. GOVERNMENT END USERS
+
+If Licensee is a U.S. Government end user, the Software is a "commercial item" as defined in 48 C.F.R. 2.101, and is licensed in accordance with this Agreement.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+14. AUDIT RIGHTS
+
+Licensor reserves the right to audit Licensee's use of the Software to ensure compliance with this Agreement. Licensee agrees to cooperate with such audits and provide reasonable access to relevant records and systems.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+15. INJUNCTIVE RELIEF
+
+Licensee acknowledges that any breach of Sections 2, 3, 4, or 5 of this Agreement may cause irreparable harm to Licensor for which monetary damages would be an inadequate remedy. Accordingly, Licensor shall be entitled to seek equitable relief, including injunction and specific performance, in addition to all other remedies available at law or in equity.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+16. GENERAL PROVISIONS
+
+   a) ENTIRE AGREEMENT: This Agreement constitutes the entire agreement between the parties concerning the subject matter hereof and supersedes all prior or contemporaneous agreements, whether written or oral.
+   
+   b) AMENDMENTS: Licensor reserves the right to modify this Agreement at any time. Continued use of the Software after such modifications constitutes acceptance of the modified Agreement.
+   
+   c) SEVERABILITY: If any provision of this Agreement is held to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.
+   
+   d) WAIVER: No waiver of any provision of this Agreement shall be deemed or shall constitute a waiver of any other provision, nor shall any waiver constitute a continuing waiver.
+   
+   e) GOVERNING LAW: This Agreement shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.
+   
+   f) JURISDICTION: Any legal action or proceeding arising under this Agreement shall be brought exclusively in the courts located in [Your Jurisdiction], and the parties hereby consent to personal jurisdiction and venue therein.
+   
+   g) ASSIGNMENT: Licensee may not assign or transfer this Agreement or any rights granted hereunder without the prior written consent of Licensor. Any attempted assignment in violation of this provision shall be void.
+   
+   h) NO THIRD-PARTY BENEFICIARIES: This Agreement is for the sole benefit of the parties hereto and their permitted successors and assigns, and nothing herein shall give or be construed to give any person or entity, other than the parties hereto, any legal or equitable right, remedy, or claim.
+   
+   i) NOTICES: All notices under this Agreement shall be in writing and shall be deemed given when delivered personally, sent by confirmed email, or three (3) days after being sent by registered or certified mail, return receipt requested, to the addresses specified by the parties.
+   
+   j) FORCE MAJEURE: Neither party shall be liable for any failure or delay in performance due to causes beyond its reasonable control.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+17. CONTACT INFORMATION
+
+For questions regarding this Agreement or to request permissions, contact:
+
+Cubiq Team
+GitHub: https://github.com/CubiqTeam
+Email: [Your Contact Email]
+
+═══════════════════════════════════════════════════════════════════════════════
+
+18. ACKNOWLEDGMENT
+
+BY USING THE SOFTWARE, LICENSEE ACKNOWLEDGES THAT LICENSEE HAS READ THIS AGREEMENT, UNDERSTANDS IT, AND AGREES TO BE BOUND BY ITS TERMS AND CONDITIONS.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Last Updated: March 16, 2026
+Version: 1.0

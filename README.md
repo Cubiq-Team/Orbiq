@@ -6,7 +6,7 @@
 
 **A modern, lightweight, and production-ready Minecraft launcher built with Tauri and Rust**
 
-[![License](https://img.shields.io/badge/license-ISC-blue.svg)](License.md)
+[![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](package.json)
 [![Tauri](https://img.shields.io/badge/Tauri-2.10.3-blue.svg)](https://tauri.app)
 [![Rust](https://img.shields.io/badge/Rust-1.77.2+-orange.svg)](https://www.rust-lang.org)
@@ -572,7 +572,18 @@ All PRs must:
 
 ## 📄 License
 
-This project is licensed under the ISC License - see the [License.md](License.md) file for details.
+This project is licensed under a strict proprietary license. See the [LICENSE](LICENSE) file for complete terms and conditions.
+
+**Key Restrictions:**
+- ❌ No commercial use
+- ❌ No redistribution or sublicensing
+- ❌ No modification or derivative works
+- ❌ No reverse engineering
+- ❌ No forking or rebranding
+- ✅ Personal use only
+- ✅ Source code viewing for transparency and security auditing
+
+**All rights reserved. Copyright © 2026 Cubiq Team.**
 
 ---
 
