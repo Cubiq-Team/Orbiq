@@ -1,4 +1,4 @@
-# 🚀 Orbiq Minecraft Launcher
+# 🪐 Orbiq Minecraft Launcher
 
 <div align="center">
 
